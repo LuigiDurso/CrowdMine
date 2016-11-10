@@ -6,9 +6,10 @@
  * Time: 08:58
  */
 define('ROOT_DIR', dirname(__FILE__)); //costante root dir
-define('DOMINIO_SITO',"/SocialHelp"); //costante root dir
+define('DOMINIO_SITO',"/CrowdMine"); //costante root dir
 define('CORE_DIR', ROOT_DIR . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR); //costante core directory
 define('VIEW_DIR', CORE_DIR . "view" . DIRECTORY_SEPARATOR); //ecc
+define('TEMPLATE_DIR', CORE_DIR . "template" . DIRECTORY_SEPARATOR); //ecc
 define('EXCEPTION_DIR', CORE_DIR . "exception" . DIRECTORY_SEPARATOR);
 define('MODEL_DIR', CORE_DIR . "model" . DIRECTORY_SEPARATOR);
 define('CONTROL_DIR', CORE_DIR . "control" . DIRECTORY_SEPARATOR);
@@ -56,9 +57,9 @@ try {
             case '':
                 include_once VIEW_DIR. "home.php";
                 break;
-//            case 'template':
-//                include_once "template.html";
-//                break;
+            case 'template':
+                header("location: http://crowdmine.altervista.org/dist/html/"); 
+                break;
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
