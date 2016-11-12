@@ -60,6 +60,9 @@ try {
             case 'template':
                 header("location: http://crowdmine.altervista.org/dist/html/"); 
                 break;
+			case 'visitaProfiloPersonale':
+                include_once VIEW_DIR . "visitaProfiloPersonale.php";
+                break;
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
