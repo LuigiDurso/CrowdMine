@@ -22,7 +22,7 @@ function login($email, $password, $remember) {
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Password troppo corta";
         header("Location: " . $_SERVER['HTTP_REFERER']);
-        throw new ApplicationException(Error::$PASS_CORTA);
+        throw new ApplicationException(ErrorUtils::$PASS_CORTA);
     }
 
     $user = getUtente($email, $password);

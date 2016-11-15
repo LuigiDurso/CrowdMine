@@ -46,9 +46,9 @@ function createEsperienza($esperienza) {
     $query = sprintf($INSERT_ESPERIENZA, $esperienza->getTitolo(), $esperienza->getData(), $esperienza->getDescrizione(), $esperienza->getRecensore(), $esperienza->getVoto(), $esperienza->getEmailUtente());
     if (!Controller::getDB()->query($query)) {
         if (Controller::getDB()->errno == 1062) {
-            throw new ApplicationException(Error::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
         } else
-            throw new ApplicationException(Error::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
     }
     return $esperienza;
 }
@@ -65,7 +65,7 @@ function parseUtente($res) {
     if ($obj = $res->fetch_assoc()) {
         return new Utente($obj['nome'], $obj['cognome'], $obj['telefono'], $obj['e-mail'], $obj['citta'], $obj['password'], $obj['descrizione'], $obj['immagine'], $obj['tipologia'], $obj['data'], $obj['id'], $obj['professione']);
     } else {
-        throw new ApplicationException(Error::$UTENTE_NON_TROVATO);
+        throw new ApplicationException(ErrorUtils::$UTENTE_NON_TROVATO);
     }
 }
 $user = getUtenteByEmail($esperienza->getEmailUtente());

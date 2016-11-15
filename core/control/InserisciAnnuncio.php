@@ -56,9 +56,9 @@ function createAnnuncio($Annuncio) {
     $query = sprintf($INSERT_ANNUNCIO, $Annuncio->getTitolo(), $Annuncio->getData(), $Annuncio->getDescrizione(), $Annuncio->getLuogo(), $Annuncio->getDataPubblicazione(), $Annuncio->getTipologia(), $Annuncio->getEmail());
     if (!Controller::getDB()->query($query)) {
         if (Controller::getDB()->errno == 1062) {
-            throw new ApplicationException(Error::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
         } else
-            throw new ApplicationException(Error::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
     }
     return $Annuncio;
 }

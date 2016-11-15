@@ -98,12 +98,12 @@ function createUtente($utente) {
             $_SESSION['toast-type'] = "error";
             $_SESSION['toast-message'] = "E-mail gia esistente";
             header("Location: " . $_SERVER['HTTP_REFERER']);
-            throw new ApplicationException(Error::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
         } else {
             $_SESSION['toast-type'] = "error";
             $_SESSION['toast-message'] = "Registrazione non riuscita";
             header("Location: " . $_SERVER['HTTP_REFERER']);
-            throw new ApplicationException(Error::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
         }
     }
     return $utente;
@@ -168,7 +168,7 @@ function getUtente($email) {
     if ($obj) {
         return new Utente($obj['nome'], $obj['cognome'], $obj['telefono'], $obj['e-mail'], $obj['citta'], $obj['password'], $obj['descrizione'], $obj['immagine'], $obj['tipologia'], $obj['data'], $obj['id']);
     } else {
-        throw new ApplicationException(Error::$UTENTE_NON_TROVATO);
+        throw new ApplicationException(ErrorUtils::$UTENTE_NON_TROVATO);
     }
 }
 

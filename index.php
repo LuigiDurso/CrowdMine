@@ -47,8 +47,9 @@ try {
         define('IP', $_SERVER['REMOTE_ADDR']);
     }
     session_start(); //facciamo partire la sessione
+
     include_once UTILS_DIR . "Patterns.php";
-    include_once UTILS_DIR . "Error.php";
+    include_once UTILS_DIR . "ErrorUtils.php";
     include_once UTILS_DIR . "StringUtils.php";
     include_once EXCEPTION_DIR . "ApplicationException.php";
  
