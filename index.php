@@ -124,6 +124,36 @@ try {
                 StringUtils::checkPermission("all");
                 include_once CONTROL_DIR . "CercaAnnunci.php";
                 break;
+            case 'paginaPrincipaleModeratore':
+                include_once VIEW_DIR . "paginaPrincipaleModeratore.php";
+                break;
+            case 'visualizzaAnnunciSegnalati':
+                include_once VIEW_DIR . "visualizzaAnnunciSegnalati.php";
+                break;
+            case 'visualizzaFeedbackSegnalati':
+                include_once VIEW_DIR . "visualizzaFeedbackSegnalati.php";
+                break;
+            case 'visualizzaIndexMacrocategorie':
+                include_once VIEW_DIR . "visualizzaIndexMacrocategorie.php";
+                break;
+            case 'visualizzaIndexMicrocategorie':
+                include_once VIEW_DIR . "visualizzaIndexMicrocategorie.php";
+                break;
+            case 'visualizzaIndexStatistiche':
+                include_once VIEW_DIR . "visualizzaIndexStatistiche.php";
+                break;
+            case 'visualizzaRicorsiAlBan':
+                include_once VIEW_DIR . "visualizzaRicorsiAlBan.php";
+                break;
+            case 'visualizzaRicorsiAnnunci':
+                include_once VIEW_DIR . "visualizzaRicorsiAnnunci.php";
+                break;
+            case 'visualizzaUtentiBannati':
+                include_once VIEW_DIR . "visualizzaUtentiBannati.php";
+                break;
+            case 'visualizzaUtentiSegnalati':
+                include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
+                break;
             default:
                 header('Location: '.DOMINIO_SITO.'/');
                 exit;
