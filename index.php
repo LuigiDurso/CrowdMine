@@ -64,6 +64,9 @@ try {
 			case 'visitaProfiloPersonale':
                 include_once VIEW_DIR . "visitaProfiloPersonale.php";
                 break;
+            case 'visualizzaStatisticheMacroCategorie':
+                include_once VIEW_DIR . "visualizzaStatisticheMacroCategorie.php";
+                break;
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
