@@ -514,7 +514,7 @@
                                                     <li class="ct-label ct-series-b">Feedback negativi</li>
                                                 </ul>
                                             </div>
-                                            <div class="col=md-6">
+                                            <div class="col-md-6">
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
