@@ -25,7 +25,7 @@ class StringUtils {
      * @param $level string Livello di accesso, ad esempio Docente
      * @param string $redirect nel caso il livello è più basso, verrà reindirizzato su questo URL
      */
-    public static function checkPermission($level, $redirect = DOMINIO_SITO . "/auth") {
+    public static function checkPermission($level, $redirect = "/CrowdMine/auth") {
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             $redirect = DOMINIO_SITO . "/";
             /** @var Utente $user */

@@ -67,6 +67,11 @@ try {
             case 'visualizzaStatisticheMacroCategorie':
                 include_once VIEW_DIR . "visualizzaStatisticheMacroCategorie.php";
                 break;
+            
+            case 'conversazionePrivata':
+                include_once VIEW_DIR . "conversazionePrivata.php";
+                break;
+            
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
@@ -78,6 +83,7 @@ try {
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "inserisciAnnuncio.php";
                 break;
+            
             case 'ricercaAnnuncio':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "ricercaAnnuncio.php";
