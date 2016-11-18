@@ -27,90 +27,7 @@
 <body>
   <div class="app app-default">
 
-<aside class="app-sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
-    <button type="button" class="sidebar-toggle">
-      <i class="fa fa-times"></i>
-    </button>
-  </div>
-  <div class="sidebar-menu">
-    <ul class="sidebar-nav">
-      <li class="active">
-        <a href="<?php echo STYLE_DIR ?>/index.html">
-          <div class="icon">
-            <i class="fa fa-tasks" aria-hidden="true"></i>
-          </div>
-          <div class="title">Dashboard</div>
-        </a>
-      </li>
-      <li class="@@menu.messaging">
-        <a href="<?php echo STYLE_DIR ?>/messaging.html">
-          <div class="icon">
-            <i class="fa fa-comments" aria-hidden="true"></i>
-          </div>
-          <div class="title">Messaging</div>
-        </a>
-      </li>
-      <li class="dropdown ">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <div class="icon">
-            <i class="fa fa-cube" aria-hidden="true"></i>
-          </div>
-          <div class="title">UI Kits</div>
-        </a>
-        <div class="dropdown-menu">
-          <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> UI Kits</li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/customize.html">Customize</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/components.html">Components</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/card.html">Card</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/form.html">Form</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/table.html">Table</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/icons.html">Icons</a></li>
-            <li class="line"></li>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Advanced Components</li>
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/pricing-table.html">Pricing Table</a></li>
-            <!-- <li><a href="<?php echo STYLE_DIR ?>/uikits/timeline.html">Timeline</a></li> -->
-            <li><a href="<?php echo STYLE_DIR ?>/uikits/chart.html">Chart</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <div class="icon">
-            <i class="fa fa-file-o" aria-hidden="true"></i>
-          </div>
-          <div class="title">Pages</div>
-        </a>
-        <div class="dropdown-menu">
-          <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li>
-            <li><a href="<?php echo STYLE_DIR ?>/pages/form.html">Form</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/pages/profile.html">Profile</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/pages/search.html">Search</a></li>
-            <li class="line"></li>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
-            <!-- <li><a href="<?php echo STYLE_DIR ?>/pages/landing.html">Landing</a></li> -->
-            <li><a href="<?php echo STYLE_DIR ?>/pages/login.html">Login</a></li>
-            <li><a href="<?php echo STYLE_DIR ?>/pages/register.html">Register</a></li>
-            <!-- <li><a href="<?php echo STYLE_DIR ?>/pages/404.html">404</a></li> -->
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="sidebar-footer">
-    <ul class="menu">
-      <li>
-        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="fa fa-cogs" aria-hidden="true"></i>
-        </a>
-      </li>
-      <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
-    </ul>
-  </div>
-</aside>
+
 
 <script type="text/ng-template" id="sidebar-dropdown.tpl.html">
   <div class="dropdown-background">
@@ -141,7 +58,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-          <li class="navbar-title"></li> <!-- Logo qui -->
+          <li class="navbar-title"><img width="50%" src="<?php echo STYLE_DIR ?>/img/crowdmine_logo_2.png" /></li> <!-- Logo qui -->
         <li class="navbar-search hidden-sm">
           <input id="search" type="text" placeholder="Search..">
           <button class="btn-search"><i class="fa fa-search"></i></button>
