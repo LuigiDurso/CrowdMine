@@ -16,29 +16,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
-	<style>
-		/*tab a dimensione variabile*/
-		.card.card-tab ul.nav-tabs > li{
-			width:auto;
-			min-width:auto;
-		}
-		
-		.panel{
-			margin-bottom: 4px;
-			color: #666;
-		}
-		
-		.panel .panel-heading{
-			padding: 14px;
-			color: #666;
-			background-color: #f5f5f5;
-		}
-		
-		.panel-heading > p{
-			margin: 0px;
-			/*display:none;*/
-		}
-	</style>
 </head>
 <body>
 <div class="app app-default">
@@ -324,176 +301,120 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs">
                             <li role="tab1" class="active">
-                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Profilo</a>
-                            </li>
-                            <li role="tab2">
-                                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Privacy e sicurezza</a>
+                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Profile</a>
                             </li>
                             <li role="tab3">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Annunci e offerte di lavoro</a>
+                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Timeline</a>
                             </li>
-							<li role="tab4">
-                                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Segnalazioni</a>
+                            <li role="tab4">
+                                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Setting</a>
                             </li>
                             <li role="tab5">
-                                <a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">Feedback</a>
+                                <a href="#tab5" aria-controls="tab4" role="tab" data-toggle="tab">Feedback</a>
                             </li>
                             <li role="tab6">
-                                <a href="#tab6" aria-controls="tab6" role="tab" data-toggle="tab">Statistiche</a>
+                                <a href="#tab6" aria-controls="tab4" role="tab" data-toggle="tab">Statistiche</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body no-padding tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <div class="row">
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Elementi base
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="section">
+                                        <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
+                                            Bio
                                         </div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse1">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Indirizzi Email
-													</h4>
-													<p>Aggiungi o rimuovi indirizzi email</p>
-												</div>
-											</a>
-											<div id="profile-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse2">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Numeri di telefono
-													</h4>
-													<p>Modifica o aggiungi numeri di telefono</p>
-												</div>
-											</a>
-											<div id="profile-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Cambia password
-													</h4>
-													<p>Segli un'unica password per proteggere i tuoi dati</p>
-												</div>
-											</a>
-											<div id="profile-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse4">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Dati anagrafici
-													</h4>
-													<p>Visualizza e modifica i dati anagrafici del tuo account</p>
-												</div>
-											</a>
-											<div id="profile-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-									</div>
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Gestione categorie
+                                        <div class="section-body __indent">Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                                         </div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse5">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi macro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse5" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse6">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi micro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse6" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										
-									</div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>
+                                            Education
+                                        </div>
+                                        <div class="section-body __indent">Computer Engineering, Khon Kaen University
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-12">
+                                    <div class="section">
+                                        <div class="section-title">Activities</div>
+                                        <div class="section-body">
+                                            <div class="media social-post">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        <h4 class="title">Scott White</h4>
+                                                        <h5 class="timeing">20 mins ago</h5>
+                                                    </div>
+                                                    <div class="media-content">Cras sit amet nibh libero, in gravida
+                                                        nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                                                        Cras purus odio, vestibulum in vulputate at, tempus viverra
+                                                        turpis. Fusce condimentum nunc ac nisi vulputate.
+                                                    </div>
+                                                    <div class="media-action">
+                                                        <button class="btn btn-link"><i class="fa fa-thumbs-o-up"></i> 2
+                                                            Like
+                                                        </button>
+                                                        <button class="btn btn-link"><i class="fa fa-comments-o"></i> 10
+                                                            Comments
+                                                        </button>
+                                                    </div>
+                                                    <div class="media-comment">
+                                                        <input type="text" class="form-control"
+                                                               placeholder="comment...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="media social-post">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        <h4 class="title">Scott White</h4>
+                                                        <h5 class="timeing">20 mins ago</h5>
+                                                    </div>
+                                                    <div class="media-content">
+                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+                                                            scelerisque ante sollicitudin commodo.</p>
+                                                        <div class="attach">
+                                                            <a href="#" class="thumbnail">
+                                                                <img src="http://placehold.it/100x100"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                            <a href="#" class="thumbnail">
+                                                                <img src="http://placehold.it/100x100"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-action">
+                                                        <button class="btn btn-link"><i class="fa fa-thumbs-o-up"></i> 2
+                                                            Like
+                                                        </button>
+                                                        <button class="btn btn-link"><i class="fa fa-comments-o"></i> 10
+                                                            Comments
+                                                        </button>
+                                                    </div>
+                                                    <div class="media-comment">
+                                                        <input type="text" class="form-control"
+                                                               placeholder="comment...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="tab2">
-                            <div class="row">
-									<div class="section">
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse1">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Blocca Utente
-													</h4>
-													<p>Vedi l'elenco ed effettua i cambiamenti che desideri apportare</p>
-												</div>
-											</a>
-											<div id="privacy-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse2">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Condivisione di dati con terze parti
-													</h4>
-													<p>Scegli se possiamo condividere le informazioni di base del tuo profilo con terze parti</p>
-												</div>
-											</a>
-											<div id="privacy-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Processo di verifica in due passaggi
-													</h4>
-													<p>Attiva questa funzionalità per una maggiore protezione nel tuo account</p>
-												</div>
-											</a>
-											<div id="privacy-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse4">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Cancellazione Account
-													</h4>
-													<p>Se lo desideri, puoi eliminare il tuo account dal sistema</p>
-												</div>
-											</a>
-											<div id="privacy-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-									</div>
-								</div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="tab3">
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -502,7 +423,7 @@
                             fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                             velit esse cillum dolore eu fugiat nulla
                         </div>
-						<div role="tabpanel" class="tab-pane" id="tab4">
+                        <div role="tabpanel" class="tab-pane" id="tab4">
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                             reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo
                             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -556,7 +477,7 @@
                                     <input type="text" class="form-control"
                                            placeholder="Inserisci il titolo del feedback">
                                     <textarea name="name" rows="3" class="form-control"
-                                              placeholder="Descrizione"></textarea>
+                                              placeholder="Descrizine"></textarea>
                                     <button type="button" class="btn btn-success">Inserisci Feeedback</button>
 
                                     <div class="alert alert-danger  alert-dismissible" role="alert"

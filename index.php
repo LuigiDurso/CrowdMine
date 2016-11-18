@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sergio
@@ -6,7 +7,7 @@
  * Time: 08:58
  */
 define('ROOT_DIR', dirname(__FILE__)); //costante root dir
-define('DOMINIO_SITO',"/CrowdMine"); //costante root dir
+define('DOMINIO_SITO', "/CrowdMine"); //costante root dir
 define('CORE_DIR', ROOT_DIR . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR); //costante core directory
 define('VIEW_DIR', CORE_DIR . "view" . DIRECTORY_SEPARATOR); //ecc
 define('TEMPLATE_DIR', CORE_DIR . "template" . DIRECTORY_SEPARATOR); //ecc
@@ -16,8 +17,8 @@ define('CONTROL_DIR', CORE_DIR . "control" . DIRECTORY_SEPARATOR);
 define('UPLOADS_DIR', DOMINIO_SITO . "/uploads/");
 define('STYLE_DIR', DOMINIO_SITO . DIRECTORY_SEPARATOR . "style" . DIRECTORY_SEPARATOR);
 define('UTILS_DIR', CORE_DIR . "utils" . DIRECTORY_SEPARATOR);
-define('DEBUG', false);
- 
+define('DEBUG', true);
+
 try {
     if (DEBUG == true) {
         ini_set("max_execution_time", '30');
@@ -26,7 +27,7 @@ try {
     } else {
         ini_set('display_errors', 'off');
     }
- 
+
     /*
      * URL Parsing, in pratica qualsiasi richiesta al sito arriva a questo file,
      * e quindi possiamo ricavare la richiesta da $_SERVER['SCRIPT_NAME']
@@ -52,31 +53,26 @@ try {
     include_once UTILS_DIR . "ErrorUtils.php";
     include_once UTILS_DIR . "StringUtils.php";
     include_once EXCEPTION_DIR . "ApplicationException.php";
- 
+
     if (!defined("TESTING")) {
         switch (isset($_URL[0]) ? $_URL[0] : '') {
             case '':
-                include_once VIEW_DIR. "home.php";
+                include_once VIEW_DIR . "home.php";
                 break;
             case 'template':
-                header("location: http://crowdmine.altervista.org/dist/html/"); 
+                header("location: http://crowdmine.altervista.org/dist/html/");
                 break;
-			case 'visitaProfiloPersonale':
+            case 'visitaProfiloPersonale':
                 include_once VIEW_DIR . "visitaProfiloPersonale.php";
                 break;
             case 'visualizzaStatisticheMacroCategorie':
                 include_once VIEW_DIR . "visualizzaStatisticheMacroCategorie.php";
                 break;
-            case 'classificaMiglioriUtenti':
-                include_once VIEW_DIR . "classificaMiglioriUtenti.php";
+            
+            case 'conversazionePrivata':
+                include_once VIEW_DIR . "conversazionePrivata.php";
                 break;
-            case 'classificaMiglioriSocieta':
-                include_once VIEW_DIR . "classificaMiglioriSocieta.php";
-                break;
-            case 'statisticheAvanzateAdmin':
-                include_once VIEW_DIR . "statisticheAvanzateAdmin.php";
-                break;
-
+            
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
@@ -84,10 +80,11 @@ try {
 //             case 'standard':
 //                include_once "standard.html";
 //                break;
-             case 'inserisciAnnuncio':
+            case 'inserisciAnnuncio':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "inserisciAnnuncio.php";
                 break;
+            
             case 'ricercaAnnuncio':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "ricercaAnnuncio.php";
@@ -102,7 +99,7 @@ try {
                 break;
             case 'register':
                 StringUtils::checkPermission("not_logged");
-                include_once VIEW_DIR . "register.php";
+                include_once VIEW_DIR . "login-registrazione.php";
                 break;
             case 'effettuaRegistrazione':
                 StringUtils::checkPermission("not_logged");
@@ -134,12 +131,43 @@ try {
                 StringUtils::checkPermission("all");
                 include_once CONTROL_DIR . "CercaAnnunci.php";
                 break;
+            case 'paginaPrincipaleModeratore':
+                include_once VIEW_DIR . "paginaPrincipaleModeratore.php";
+                break;
+            case 'visualizzaAnnunciSegnalati':
+                include_once VIEW_DIR . "visualizzaAnnunciSegnalati.php";
+                break;
+            case 'visualizzaFeedbackSegnalati':
+                include_once VIEW_DIR . "visualizzaFeedbackSegnalati.php";
+                break;
+            case 'visualizzaIndexMacrocategorie':
+                include_once VIEW_DIR . "visualizzaIndexMacrocategorie.php";
+                break;
+            case 'visualizzaIndexMicrocategorie':
+                include_once VIEW_DIR . "visualizzaIndexMicrocategorie.php";
+                break;
+            case 'visualizzaIndexStatistiche':
+                include_once VIEW_DIR . "visualizzaIndexStatistiche.php";
+                break;
+            case 'visualizzaRicorsiAlBan':
+                include_once VIEW_DIR . "visualizzaRicorsiAlBan.php";
+                break;
+            case 'visualizzaRicorsiAnnunci':
+                include_once VIEW_DIR . "visualizzaRicorsiAnnunci.php";
+                break;
+            case 'visualizzaUtentiBannati':
+                include_once VIEW_DIR . "visualizzaUtentiBannati.php";
+                break;
+            case 'visualizzaUtentiSegnalati':
+                include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
+                break;
             default:
-                header('Location: '.DOMINIO_SITO.'/');
+                header('Location: ' . DOMINIO_SITO . '/');
                 exit;
         }
     }
 } catch (Exception $ex) {
-    if (DEBUG == true) throw $ex;
+    if (DEBUG == true)
+        throw $ex;
     include_once VIEW_DIR . "design/fatalException.php";
 }

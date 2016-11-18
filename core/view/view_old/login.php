@@ -1,16 +1,16 @@
 <?php
 /**
  * 
- * @author Andrea Buonaguro
+ * @author Fabiano Pecorelli
  * @version 1.0
- * @since 17/11/16
+ * @since 30/05/16
  */
 ?>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>CrowdMine | Log In</title>
+        <title>SocialHelp | Log In</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
@@ -24,7 +24,7 @@
         <!-- iCheck -->
         <link rel="stylesheet" href="<?php echo STYLE_DIR; ?>plugins/iCheck/square/blue.css">
         <link href="<?php echo STYLE_DIR; ?>plugins/toastr/toastr.css" rel="stylesheet" type="text/css" />
-        <link rel="shortcut icon" href="<?php echo STYLE_DIR; ?>img/icon_crowdmine.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo STYLE_DIR; ?>img/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo STYLE_DIR; ?>plugins/datepicker/datepicker3.css">
         <link rel="stylesheet" href="<?php echo STYLE_DIR; ?>plugins/iCheck/all.css">
 
@@ -35,19 +35,16 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body style="background-color: #d9d9d9;">
+    <body background="<?php echo STYLE_DIR; ?>img/bg3.jpg">
 
-        <div class="login-logo row" style="margin-top: 2%">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <a href="index2.html" class="logo">
-                    <img class="img-responsive" src="<?php echo STYLE_DIR; ?>img/logo_crowdmine.png"/>
-                </a>
-            </div>
+        <div class="login-logo" style="margin-top: 2%">
+            <a href="index2.html" class="logo">
+                <img src="<?php echo STYLE_DIR; ?>img/logo-traccia.png"/>
+            </a>
         </div>
         <div class="login-box">
 
-            <div class="login-box-body" style="background: #d9d9d9;border: solid 2px;border-radius: 45px;">
+            <div class="login-box-body" style="background: #e6eddc;border: solid 2px;border-radius: 45px;">
                 <p class="login-box-msg title">Log In</p>
                 <form action="<?php echo DOMINIO_SITO; ?>/effettuaLogin" method="post" onsubmit="return Modulo()" id="modulo" name="modulo">
 
@@ -70,39 +67,44 @@
 
 
                     <div class="row">
-                        <div class="col-md-1 col-xs-1"></div>               
-                        <div class="col-md-4 col-xs-4">            
-                            <input type="button" class="btn btn-success col-md-12 col-sm-12" value="Registrati">                              
+                        <div class="col-md-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox" name="remember" class="flat-red" style="position: absolute; opacity: 0;"> Ricordami
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-md-2 col-xs-2"></div>
-                        <div class="col-md-4 col-xs-2">
-                            <input type="submit" class="btn btn-success col-md-12 col-sm-12" value="Login">
+                        <!-- /.col -->
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
                         </div>
+                        <!-- /.col -->
                     </div>
-            <br/>
-            <div class="col-md-1"></div>
-            <div class="col-md-11">
-                <a href="#" class="text-center ">Hai dimenticato la password? Clicca qui!</a>
+                    <!--                    <a href="#">Password dimenticata?</a>
+                                        <br/>-->
+                    <br/>
+                    <a href="<?php echo DOMINIO_SITO; ?>/register">Registrati</a>
+
+
+
+                </form>
+
+                <!-- /.form-box -->
             </div>
-            <br/>
-        </form>
+            <!-- /.login-box -->
+        </div>
+        <!-- jQuery 2.2.0 -->
+        <script src="<?php echo STYLE_DIR; ?>plugins/jQuery/jQuery-2.2.0.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="<?php echo STYLE_DIR; ?>bootstrap/js/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="<?php echo STYLE_DIR; ?>plugins/iCheck/icheck.min.js"></script>
+        <script src="<?php echo STYLE_DIR; ?>plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="<?php echo STYLE_DIR; ?>plugins/iCheck/icheck.min.js"></script>
+        <script src="<?php echo STYLE_DIR; ?>plugins/toastr/toastr.js"></script>
+        <script src="<?php echo STYLE_DIR; ?>dist/js/app.min.js"></script>
 
-        <!-- /.form-box -->
-    </div>
-    <!-- /.login-box -->
-</div>
-<!-- jQuery 2.2.0 -->
-<script src="<?php echo STYLE_DIR; ?>plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="<?php echo STYLE_DIR; ?>bootstrap/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="<?php echo STYLE_DIR; ?>plugins/iCheck/icheck.min.js"></script>
-<script src="<?php echo STYLE_DIR; ?>plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="<?php echo STYLE_DIR; ?>plugins/iCheck/icheck.min.js"></script>
-<script src="<?php echo STYLE_DIR; ?>plugins/toastr/toastr.js"></script>
-<script src="<?php echo STYLE_DIR; ?>dist/js/app.min.js"></script>
-
-<script>
+        <script>
                     function cambiaImmagine(input) {
                         if (input.files && input.files[0]) {
                             var reader = new FileReader();
@@ -142,42 +144,42 @@
                             radioClass: 'iradio_flat-green'
                         });
                     });
-</script>
-<script>
+        </script>
+        <script>
 
-    function Modulo() {
-        // Variabili associate ai campi del modulo
-        var email = document.modulo.email.value;
-        var password = document.modulo.password.value;
-        var email_reg_exp = /^[_a-zA-Z0-9+-]+(\.[_a-zA-Z0-9+-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
+            function Modulo() {
+                // Variabili associate ai campi del modulo
+                var email = document.modulo.email.value;
+                var password = document.modulo.password.value;
+                var email_reg_exp = /^[_a-zA-Z0-9+-]+(\.[_a-zA-Z0-9+-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
 
-        if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
-            toastr["error"]("Inserire un indirizzo email corretto.");
-            document.modulo.email.select();
-            return false;
-        } else if ((password == "") || (password == "undefined") || ((password.length) < 8)) {
-            toastr["error"]("Inserire una password valida.");
-            document.modulo.password.focus();
-            return false;
-        } else {
+                if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
+                    toastr["error"]("Inserire un indirizzo email corretto.");
+                    document.modulo.email.select();
+                    return false;
+                } else if ((password == "") || (password == "undefined") || ((password.length) < 8)) {
+                    toastr["error"]("Inserire una password valida.");
+                    document.modulo.password.focus();
+                    return false;
+                } else {
 
-            document.modulo.submit();
+                    document.modulo.submit();
 
-            return true;
+                    return true;
+                }
+            }
+        </script>
+        <?php
+        if ($_SESSION['toast-type'] && $_SESSION['toast-message']) {
+            ?>
+            <script>
+                toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
+            </script>
+            <?php
+            unset($_SESSION['toast-type']);
+            unset($_SESSION['toast-message']);
         }
-    }
-</script>
-<?php
-if ($_SESSION['toast-type'] && $_SESSION['toast-message']) {
-    ?>
-    <script>
-        toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
-    </script>
-    <?php
-    unset($_SESSION['toast-type']);
-    unset($_SESSION['toast-message']);
-}
-?>
-</body>
+        ?>
+    </body>
 </html>
