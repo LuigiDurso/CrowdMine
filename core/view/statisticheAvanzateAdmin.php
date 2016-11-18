@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CrowdMine</title>
+    <title>Flat Admin V.3 - Free flat-design bootstrap administrator templates</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,16 +10,13 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
 
-
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
-
 </head>
-
 <body>
 <div class="app app-default">
     <aside class="app-sidebar" id="sidebar">
@@ -285,29 +282,139 @@
                 </div>
             </div>
         </nav>
-
         <div class="row">
-            <div class="col-xs-12">
-                <div class="card">
-                    <div class="card-header">Statistiche Macro Categorie</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-                                <div class="section">
-                                    <div class="section-title">Grafico Andamento</div>
-                                    <div class="section-body">
-                                        <div class="ct-chart ct-perfect-fourth"></div>
+            <div class="col-lg-12">
+                <div class="card card-tab">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+                            <li role="tab1" class="active">
+                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Generale</a>
+                            </li>
+                            <li role="tab3">
+                                <a href="#tab2" aria-controls="tab1" role="tab" data-toggle="tab">Annunci</a>
+                            </li>
+                            <li role="tab4">
+                                <a href="#tab3" aria-controls="tab1" role="tab" data-toggle="tab">Utenti</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body no-padding tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab1">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title">Grafico Andamento</div>
+                                        <div class="section-body">
+                                            <div class="ct-chart ct-perfect-fourth"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title">Legenda</div>
+                                        <div class="section-body">
+                                            <ul class="chart-label">
+                                                <li class="ct-label ct-series-a">Macro Categoria</li>
+                                                <li class="ct-label ct-series-b">Macro Categoria</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="tab2">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title">Opzioni Macro Categoria</div>
+                                        <div class="section-body">
+                                            <select class="select2">
+                                                <option value="AL">Alabama</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                            <br>
+                                            <label for="fromdatemacro">Da</label>
+                                            <input id="fromdatemacro" type="date" class="form-control"
+                                                   placeholder="Input">
+                                            <label for="atdatemacro">A</label>
+                                            <input id="atdatemacro" type="date" class="form-control"
+                                                   placeholder="Input">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="section-title">Grafico Andamento Macro Categoria</div>
+                                        <div class="section-body">
+                                            <div class="ct-chart ct-perfect-fourth"></div>
+                                            <ul class="chart-label">
+                                                <li class="ct-label ct-series-a">Macro Categoria</li>
+                                                <li class="ct-label ct-series-b">Macro Categoria</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title">Opzioni Micro Categoria</div>
+                                        <div class="section-body">
+                                            <select class="select2">
+                                                <option value="AL">Alabama</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                            <br>
+                                            <label for="fromdatemicro">Da</label>
+                                            <input id="fromdatemicro" type="date" class="form-control"
+                                                   placeholder="Input">
+                                            <label for="atdatemicro">A</label>
+                                            <input id="atdatemicro" type="date" class="form-control"
+                                                   placeholder="Input">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="section-title">Grafico Andamento Micro Categoria</div>
+                                        <div class="section-body">
+                                            <div class="ct-chart ct-perfect-fourth"></div>
+                                            <ul class="chart-label">
+                                                <li class="ct-label ct-series-a">Macro Categoria</li>
+                                                <li class="ct-label ct-series-b">Macro Categoria</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="tab3">
+                            <div class="row">
                                 <div class="section">
-                                    <div class="section-title">Legenda</div>
+                                    <div class="section-title">Macro Categorie Preferite Dagli Utenti</div>
                                     <div class="section-body">
-                                        <ul class="chart-label">
-                                            <li class="ct-label ct-series-a">Macro Categoria</li>
-                                            <li class="ct-label ct-series-b">Macro Categoria</li>
-                                        </ul>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Macro Categoria</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Larry</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -318,9 +425,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
 </body>
-
-</html>

@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
 
-
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue.css">
@@ -19,7 +18,6 @@
 
 
 </head>
-
 <body>
 <div class="app app-default">
     <aside class="app-sidebar" id="sidebar">
@@ -287,40 +285,84 @@
         </nav>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="card-header">Statistiche Macro Categorie</div>
+                    <div class="card-header">Opzioni</div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-                                <div class="section">
-                                    <div class="section-title">Grafico Andamento</div>
-                                    <div class="section-body">
-                                        <div class="ct-chart ct-perfect-fourth"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="section">
-                                    <div class="section-title">Legenda</div>
-                                    <div class="section-body">
-                                        <ul class="chart-label">
-                                            <li class="ct-label ct-series-a">Macro Categoria</li>
-                                            <li class="ct-label ct-series-b">Macro Categoria</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="radio radio">
+                            <input type="radio" name="radio2" id="radio5" value="option1">
+                            <label for="radio5">
+                                Macro Categoria
+                            </label>
+                        </div>
+                        <div class="radio radio">
+                            <input type="radio" name="radio2" id="radio6" value="option2" checked>
+                            <label for="radio6">
+                                Micro Categoria
+                            </label>
+                        </div>
+                        <div>
+                            <label for="selectMacro">Seleziona Macro Categoria</label>
+                            <select style="width:100%" id="selectMacro" class="select2">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="selectMicro">Seleziona Micro Categoria</label>
+                            <select style="width:100%" id="selectMicro" class="select2">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Mostra Risultati</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-8 col-xs-12">
+                <div class="card">
+                    <div class="card-header">Risultati</div>
+                    <div class="card-body no-padding">
+                        <table class="datatable table table-striped primary" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Feedback positivi</th>
+                                <th>Micro Categorie</th>
+                                <th>Macro Categoria</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </div>
 </div>
-
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
 </body>
-
-</html>

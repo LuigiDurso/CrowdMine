@@ -67,6 +67,16 @@ try {
             case 'visualizzaStatisticheMacroCategorie':
                 include_once VIEW_DIR . "visualizzaStatisticheMacroCategorie.php";
                 break;
+            case 'classificaMiglioriUtenti':
+                include_once VIEW_DIR . "classificaMiglioriUtenti.php";
+                break;
+            case 'classificaMiglioriSocieta':
+                include_once VIEW_DIR . "classificaMiglioriSocieta.php";
+                break;
+            case 'statisticheAvanzateAdmin':
+                include_once VIEW_DIR . "statisticheAvanzateAdmin.php";
+                break;
+
             case 'inserisciEsperienza':
                 StringUtils::checkPermission("Cliente");
                 include_once VIEW_DIR . "inserisciEsperienza.php";
