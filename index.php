@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sergio
@@ -6,7 +7,7 @@
  * Time: 08:58
  */
 define('ROOT_DIR', dirname(__FILE__)); //costante root dir
-define('DOMINIO_SITO',"/CrowdMine"); //costante root dir
+define('DOMINIO_SITO', "/CrowdMine"); //costante root dir
 define('CORE_DIR', ROOT_DIR . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR); //costante core directory
 define('VIEW_DIR', CORE_DIR . "view" . DIRECTORY_SEPARATOR); //ecc
 define('TEMPLATE_DIR', CORE_DIR . "template" . DIRECTORY_SEPARATOR); //ecc
@@ -17,7 +18,7 @@ define('UPLOADS_DIR', DOMINIO_SITO . "/uploads/");
 define('STYLE_DIR', DOMINIO_SITO . DIRECTORY_SEPARATOR . "style" . DIRECTORY_SEPARATOR);
 define('UTILS_DIR', CORE_DIR . "utils" . DIRECTORY_SEPARATOR);
 define('DEBUG', true);
- 
+
 try {
     if (DEBUG == true) {
         ini_set("max_execution_time", '30');
@@ -26,7 +27,7 @@ try {
     } else {
         ini_set('display_errors', 'off');
     }
- 
+
     /*
      * URL Parsing, in pratica qualsiasi richiesta al sito arriva a questo file,
      * e quindi possiamo ricavare la richiesta da $_SERVER['SCRIPT_NAME']
@@ -52,16 +53,16 @@ try {
     include_once UTILS_DIR . "ErrorUtils.php";
     include_once UTILS_DIR . "StringUtils.php";
     include_once EXCEPTION_DIR . "ApplicationException.php";
- 
+
     if (!defined("TESTING")) {
         switch (isset($_URL[0]) ? $_URL[0] : '') {
             case '':
-                include_once VIEW_DIR. "home.php";
+                include_once VIEW_DIR . "home.php";
                 break;
             case 'template':
-                header("location: http://crowdmine.altervista.org/dist/html/"); 
+                header("location: http://crowdmine.altervista.org/dist/html/");
                 break;
-			case 'visitaProfiloPersonale':
+            case 'visitaProfiloPersonale':
                 include_once VIEW_DIR . "visitaProfiloPersonale.php";
                 break;
             case 'visualizzaStatisticheMacroCategorie':
@@ -74,7 +75,7 @@ try {
 //             case 'standard':
 //                include_once "standard.html";
 //                break;
-             case 'inserisciAnnuncio':
+            case 'inserisciAnnuncio':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "inserisciAnnuncio.php";
                 break;
@@ -92,7 +93,7 @@ try {
                 break;
             case 'register':
                 StringUtils::checkPermission("not_logged");
-                include_once VIEW_DIR . "register.php";
+                include_once VIEW_DIR . "login-registrazione.php";
                 break;
             case 'effettuaRegistrazione':
                 StringUtils::checkPermission("not_logged");
@@ -155,11 +156,12 @@ try {
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
                 break;
             default:
-                header('Location: '.DOMINIO_SITO.'/');
+                header('Location: ' . DOMINIO_SITO . '/');
                 exit;
         }
     }
 } catch (Exception $ex) {
-    if (DEBUG == true) throw $ex;
+    if (DEBUG == true)
+        throw $ex;
     include_once VIEW_DIR . "design/fatalException.php";
 }
