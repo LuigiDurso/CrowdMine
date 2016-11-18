@@ -77,6 +77,9 @@ try {
             case 'statisticheAvanzateAdmin':
                 include_once VIEW_DIR ."statisticheAvanzateAdmin.php";
                 break;
+            case 'paginaStatistiche':
+                include_once VIEW_DIR . "paginaStatistiche.php";
+                break;
             case 'conversazionePrivata':
                 include_once VIEW_DIR . "conversazionePrivata.php";
                 break;
