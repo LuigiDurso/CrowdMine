@@ -95,7 +95,7 @@ try {
                 break;
             case 'auth':
                 StringUtils::checkPermission("not_logged");
-                include_once VIEW_DIR . "login.php";
+                include_once VIEW_DIR . "login-registrazione.php";
                 break;
             case 'register':
                 StringUtils::checkPermission("not_logged");
