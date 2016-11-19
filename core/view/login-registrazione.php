@@ -37,12 +37,11 @@
                             <div class="form-group col-md-5 col-xs-5">
                                 <label class="sr-only" for="exampleInputPassword3">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                                <a href="#" class="text-center ">Hai dimenticato la password? Clicca qui!</a>
                             </div>
                             <button type="submit" class="btn btn-success col-md-2 col-xs-2">Sign in</button>
                         </div>
-                    </form>
-                    <!-- mettere il link sotto la form di autenticazione!
-                    <a href="#" class="text-center ">Hai dimenticato la password? Clicca qui!</a> -->
+                    </form>            
                     <ul class="nav navbar-nav navbar-mobile">
                         <img class="navbar img-responsive" src="<?php echo STYLE_DIR; ?>img/logo_crowdmine.png"/>                        
                     </ul>
@@ -56,8 +55,8 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="col-md-1"></div>
             <div class="card col-md-10">
-                <h4 class="text-black text-center">CrowdMine è un sito nato da lavoratori per i lavoratori,ti permette di interagire facilmente con aziende ed imprenditori.
-                    cosa aspetti? Moltissimi annunci sono qui per te, fai presto!</h4>
+                <h4 class="text-black text-center">CrowdMine &egrave un sito nato da lavoratori per i lavoratori,ti permette di interagire facilmente con aziende ed imprenditori.
+                    Cosa aspetti? Moltissimi annunci sono qui per te, fai presto!</h4>
                 <div class="col-md-9 col-md-offset-1" style="height:105%">
                     <img class="img-responsive" style="height:80%" src="<?php echo STYLE_DIR; ?>img/connecting-people.jpg"/>
                 </div>
@@ -70,7 +69,7 @@
             <div class="card col-md-10">            
                 <form id="modulo" name="modulo">
                     <h1 class="text-black text-center">Iscriviti</h1>
-                    <h4 class="text-black text-center">Il mondo del lavoro è a portata di click!</h4>
+                    <h4 class="text-black text-center">Il mondo del lavoro &egrave a portata di click!</h4>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
@@ -145,6 +144,23 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-5 col-md-offset-1">
+                            <label class="simple-text">Sei una società o un' utente ?</label>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label>
+                                        <input type="radio" name="tipologia" value="Cliente" class="flat-red" checked> Società
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>
+                                        <input type="radio" name="tipologia" value="Offerente" class="flat-red"> Utente
+                                    </label>
                                 </div>
                             </div>
                         </div>

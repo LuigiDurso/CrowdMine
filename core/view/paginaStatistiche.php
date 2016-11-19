@@ -19,7 +19,6 @@
 
 
 </head>
-
 <body>
 <div class="app app-default">
     <aside class="app-sidebar" id="sidebar">
@@ -286,41 +285,70 @@
             </div>
         </nav>
 
+
         <div class="row">
-            <div class="col-xs-12">
-                <div class="card">
-                    <div class="card-header">Statistiche Macro Categorie</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-                                <div class="section">
-                                    <div class="section-title">Grafico Andamento</div>
-                                    <div class="section-body">
-                                        <div class="ct-chart ct-perfect-fourth"></div>
+            <div class="card">
+                <div class="card-header">Statistiche Disponibili</div>
+                <div class="card-body">
+
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="section">
+                                <div class="section-title">Macro Categorie</div>
+                                <div class="section-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+                            </div>
+                            <a href="#" class="card card-banner card-green-light">
+                                <div class="card-body">
+                                    <i class="icon fa fa-bar-chart"></i>
+                                    <div class="content">
+                                        <div class="title">Statistiche Macro Categorie</div>
+                                        <div class="value"><span class="sign"></span></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="section">
-                                    <div class="section-title">Legenda</div>
-                                    <div class="section-body">
-                                        <ul class="chart-label">
-                                            <li class="ct-label ct-series-a">Macro Categoria</li>
-                                            <li class="ct-label ct-series-b">Macro Categoria</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            </a>
                         </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="section">
+                                <div class="section-title">Classifica Migliori Utenti</div>
+                                <div class="section-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+                            </div>
+                            <a href="#" class="card card-banner card-yellow-light">
+                                <div class="card-body">
+                                    <i class="icon fa fa-user"></i>
+                                    <div class="content">
+                                        <div class="title">Classifica Migliori Utenti</div>
+                                        <div class="value"><span class="sign"></span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="section">
+                                <div class="section-title">Classifica Migliori Società</div>
+                                <div class="section-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+                            </div>
+                            <a href="#" class="card card-banner card-blue-light">
+                                <div class="card-body">
+                                    <i class="icon fa fa-group"></i>
+                                    <div class="content">
+                                        <div class="title">Classifica Migliori Società</div>
+                                        <div class="value"><span class="sign"></span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
-</body>
-
-</html>
