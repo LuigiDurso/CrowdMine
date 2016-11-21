@@ -13,13 +13,19 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
+    <style>
+        .navbar-collapse.in
+        {
+            overflow-y: hidden;
+        }
+    </style>
 </head>
 <body>
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+            <a class="sidebar-brand" href="#"><span class="highlight"> Moderatore </span></a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -47,8 +53,18 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="visualizzaRicorsiAnnuncio">
+                        <div class="title">Ricorso Annuncio</div>
+                    </a>
+                </li>
+                <li class="">
                     <a href="visualizzaRicorsiAlBan">
                         <div class="title">Ricorso al ban</div>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="visualizzaFeedbackSegnalati">
+                        <div class="title">Feedback Segnalati</div>
                     </a>
                 </li>
                 <li class="">
@@ -84,7 +100,7 @@
                             </button>
                         </li>
                         <li class="logo">
-                            <a class="navbar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+                            <a class="navbar-brand" href="#"><span class="highlight">Moderatore</span> </a>
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
@@ -93,7 +109,6 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="navbar-title"><span class="highlight">Barra di ricerca</span></li>
                         <li class="navbar-search hidden-sm">
                             <input id="search" type="text" placeholder="Search..">
                             <button class="btn-search"><i class="fa fa-search"></i></button>
