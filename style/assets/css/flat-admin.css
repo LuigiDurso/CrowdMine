@@ -1778,7 +1778,7 @@ body {
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    /*padding-left: 180px;*/ 
+    padding-left: 180px;
   }
     body .app-container .content-heading {
       margin-bottom: 30px; }
