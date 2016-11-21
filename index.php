@@ -172,6 +172,9 @@ try {
             case 'visualizzaUtentiSegnalati':
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
                 break;
+            case 'visualizzaCommentiSegnalati';
+                include_once VIEW_DIR . "visualizzaCommentiSegnalati.php";
+                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;
