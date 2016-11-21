@@ -25,25 +25,25 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-default" id="navbar">
-            <div class="container-fluid">
+        <nav style="border-left-width:0;border-right-width:0" class="navbar navbar-default" id="navbar">
+            <div style="padding:0px" class="container-fluid">
                 <div class="navbar-collapse collapse in">
                     <form class="nav navbar-nav navbar-right" id="formAuth">
-                        <div class="col-md-12 col-xs-12">
+                        <div class="col-md-12 col-xs-12"style=" padding-top: 15px;">
                             <div class="form-group col-md-5 col-xs-5">
                                 <label class="sr-only" for="exampleInputEmail3">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
                             </div>
                             <div class="form-group col-md-5 col-xs-5">
                                 <label class="sr-only" for="exampleInputPassword3">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-                                <a href="#" class="text-center ">Hai dimenticato la password? Clicca qui!</a>
+                                <input type="password" style="margin-bottom: 0px;" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                                <a href="#" class="simple-text">Hai dimenticato la password? Clicca qui!</a>
                             </div>
                             <button type="submit" class="btn btn-success col-md-2 col-xs-2">Sign in</button>
                         </div>
                     </form>            
                     <ul class="nav navbar-nav navbar-mobile">
-                        <img class="navbar img-responsive" src="<?php echo STYLE_DIR; ?>img/logo_crowdmine.png"/>                        
+                        <img class="navbar img-responsive" src="<?php echo STYLE_DIR; ?>img/logo_crowdmine.png"/>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
                         <img class="navbar" style="height:70%" src="<?php echo STYLE_DIR; ?>img/logo_crowdmine.png"/>
@@ -107,11 +107,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-md-offset-1">                        
+                        <div class="col-md-4 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">                        
                             <div class="user-panel">
                                 <label class="pull-left" for="exampleInputFile">Immagine personale</label>
                                 <div class="pull-left image" style="margin-bottom: 2%; margin-right: 5%">
-                                    <img src="<?php echo STYLE_DIR; ?>img/user-standard.png" id="immagine"  class="img-circle" alt="User Image">
+                                    <img src="<?php echo STYLE_DIR; ?>img/user-standard.png" id="immagine"  class="img-circle col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" alt="User Image">
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="immagine" onchange="cambiaImmagine(this)" id="exampleInputFile">
