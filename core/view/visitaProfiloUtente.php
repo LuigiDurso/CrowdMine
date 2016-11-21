@@ -17,15 +17,17 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
     <style>
-        div.section .profile
-        {
+        div.section .profile {
             margin-bottom: 0px;
         }
-        table.table > tbody > tr.table-title td
-        {
-            border:none;
-        }
 
+        table.table > tbody > tr.table-title td {
+            border: none;
+        }
+        .card
+        {
+            box-shadow: none;
+        }
     </style>
     <style>
         a.collapse-title {
@@ -457,16 +459,17 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body no-padding tab-content" >
+                    <div class="card-body no-padding tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <div class="row">
                                 <div class="section">
-                                    <div class="section-title profile"><i class="icon fa fa-user" aria-hidden="true"></i>
+                                    <div class="section-title profile"><i class="icon fa fa-user"
+                                                                          aria-hidden="true"></i>
                                         Dati anagrafici
                                     </div>
 
 
-                                    <div class="panel panel-default"  style="border:none">
+                                    <div class="panel panel-default" style="border:none">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <table class="table">
@@ -518,7 +521,7 @@
                                         <a class="panel-default" data-toggle="collapse" href="#profile-collapse5">
                                             <div class="panel-heading">
                                                 <h4 class="media-heading">
-                                                   Macro-categorie
+                                                    Macro-categorie
                                                 </h4>
                                             </div>
                                         </a>
@@ -583,63 +586,344 @@
                         <!--Feedback-->
                         <div role="tabpanel" class="tab-pane" id="tab5">
                             <div class="row">
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="section">
-                                        <div class="section-title">
-                                            Your user name
+                                <div class="panel panel-default">
+                                    <a class="panel-default" data-toggle="collapse" href="#feedback-collapse">
+                                        <div class="panel-heading">
+                                            <h4 class="media-heading">
+                                                Inserisci Feedback
+                                            </h4>
+                                            <p>Clicca qui per inserire un feedback</p>
                                         </div>
-                                        <div class="section-body __indent">
-                                            <img src="http://placehold.it/100x100" class="img-responsive">
-                                        </div>
+                                    </a>
+                                    <div id="feedback-collapse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-md-3 col-xs-12">
 
-                                        <div class="section-title">
-                                            Rating
-                                        </div>
-                                        <div class="section-body">
-                                            <div class="rating">
-                                                <input type="radio" id="star5" name="rating" value="5"/><label
-                                                    class="full" for="star5" title="Awesome - 5 stars"></label>
-                                                <input type="radio" id="star4half" name="rating" value="4.5"/><label
-                                                    class="half" for="star4half"
-                                                    title="Pretty good - 4.5 stars"></label>
-                                                <input type="radio" id="star4" name="rating" value="4"/><label
-                                                    class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                                <input type="radio" id="star3half" name="rating" value="3.5"/><label
-                                                    class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                                <input type="radio" id="star3" name="rating" value="3"/><label
-                                                    class="full" for="star3" title="Meh - 3 stars"></label>
-                                                <input type="radio" id="star2half" name="rating" value="2.5"/><label
-                                                    class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                                <input type="radio" id="star2" name="rating" value="2"/><label
-                                                    class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                                <input type="radio" id="star1half" name="rating" value="1.5"/><label
-                                                    class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                                <input type="radio" id="star1" name="rating" value="1"/><label
-                                                    class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                                <input type="radio" id="starhalf" name="rating" value="0.5"/><label
-                                                    class="half" for="starhalf"
-                                                    title="Sucks big time - 0.5 stars"></label>
+                                                <div class="section">
+                                                    <div class="section-title">
+                                                        Your user name
+                                                    </div>
+                                                    <div class="section-body __indent">
+                                                        <img src="http://placehold.it/100x100" class="img-responsive">
+                                                    </div>
+
+                                                    <div class="section-title">
+                                                        Rating
+                                                    </div>
+                                                    <div class="section-body">
+                                                        <div class="rating">
+                                                            <input type="radio" id="star5" name="rating"
+                                                                   value="5"/><label
+                                                                class="full" for="star5"
+                                                                title="Awesome - 5 stars"></label>
+                                                            <input type="radio" id="star4half" name="rating"
+                                                                   value="4.5"/><label
+                                                                class="half" for="star4half"
+                                                                title="Pretty good - 4.5 stars"></label>
+                                                            <input type="radio" id="star4" name="rating"
+                                                                   value="4"/><label
+                                                                class="full" for="star4"
+                                                                title="Pretty good - 4 stars"></label>
+                                                            <input type="radio" id="star3half" name="rating"
+                                                                   value="3.5"/><label
+                                                                class="half" for="star3half"
+                                                                title="Meh - 3.5 stars"></label>
+                                                            <input type="radio" id="star3" name="rating"
+                                                                   value="3"/><label
+                                                                class="full" for="star3" title="Meh - 3 stars"></label>
+                                                            <input type="radio" id="star2half" name="rating"
+                                                                   value="2.5"/><label
+                                                                class="half" for="star2half"
+                                                                title="Kinda bad - 2.5 stars"></label>
+                                                            <input type="radio" id="star2" name="rating"
+                                                                   value="2"/><label
+                                                                class="full" for="star2"
+                                                                title="Kinda bad - 2 stars"></label>
+                                                            <input type="radio" id="star1half" name="rating"
+                                                                   value="1.5"/><label
+                                                                class="half" for="star1half"
+                                                                title="Meh - 1.5 stars"></label>
+                                                            <input type="radio" id="star1" name="rating"
+                                                                   value="1"/><label
+                                                                class="full" for="star1"
+                                                                title="Sucks big time - 1 star"></label>
+                                                            <input type="radio" id="starhalf" name="rating"
+                                                                   value="0.5"/><label
+                                                                class="half" for="starhalf"
+                                                                title="Sucks big time - 0.5 stars"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 col-xs-12">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Inserisci il titolo del feedback">
+                                                <textarea name="name" rows="3" class="form-control" id="feedback-textarea"
+                                                          placeholder="Descrizione"></textarea>
+                                                <button type="button" class="btn btn-success">Inserisci Feeedback
+                                                </button>
+
+                                                <div class="alert alert-danger  alert-dismissible" role="alert" id="feedback-erros" style="display: none"
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-7 col-xs-12">
-                                    <input type="text" class="form-control"
-                                           placeholder="Inserisci il titolo del feedback">
-                                    <textarea name="name" rows="3" class="form-control"
-                                              placeholder="Descrizione"></textarea>
-                                    <button type="button" class="btn btn-success">Inserisci Feeedback</button>
+                                <!-- out of form -->
+                                <div class="row" style="margin-top: 3%">
+                                    <div class="col-lg-12 col-md-12 col-xs-12">
+                                        <div class="card card-mini">
+                                            <div class="media social-post" style="margin-left: 2%">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+                                                    </a>
+                                                </div>
+                                                <div class="section">
+                                                    <div class="section-body">
+                                                        <div class="media-body">
+                                                            <div class="media-heading">
+                                                                <h4 class="title">Scott White</h4>
+                                                            </div>
+                                                            <div class="rating-content"  onclick="return false;">
+                                                                <div class="rating">
+                                                                    <input type="radio" id="star5" name="rating0"
+                                                                           value="5"/><label
+                                                                        class="full" for="star5"
+                                                                        title="Awesome - 5 stars"></label>
+                                                                    <input type="radio" id="star4half" name="rating0"
+                                                                           value="4.5"/><label
+                                                                        class="half" for="star4half"
+                                                                        title="Pretty good - 4.5 stars"></label>
+                                                                    <input type="radio" id="star4" name="rating0"
+                                                                           value="4"/><label
+                                                                        class="full" for="star4"
+                                                                        title="Pretty good - 4 stars"></label>
+                                                                    <input type="radio" id="star3half" name="rating0"
+                                                                           value="3.5" checked /><label
+                                                                        class="half" for="star3half"
+                                                                        title="Meh - 3.5 stars"></label>
+                                                                    <input type="radio" id="star3" name="rating0"
+                                                                           value="3"/><label
+                                                                        class="full" for="star3" title="Meh - 3 stars"></label>
+                                                                    <input type="radio" id="star2half" name="rating0"
+                                                                           value="2.5"/><label
+                                                                        class="half" for="star2half"
+                                                                        title="Kinda bad - 2.5 stars"></label>
+                                                                    <input type="radio" id="star2" name="rating0"
+                                                                           value="2"/><label
+                                                                        class="full" for="star2"
+                                                                        title="Kinda bad - 2 stars"></label>
+                                                                    <input type="radio" id="star1half" name="rating0"
+                                                                           value="1.5"/><label
+                                                                        class="half" for="star1half"
+                                                                        title="Meh - 1.5 stars"></label>
+                                                                    <input type="radio" id="star1" name="rating0"
+                                                                           value="1"/><label
+                                                                        class="full" for="star1"
+                                                                        title="Sucks big time - 1 star"></label>
+                                                                    <input type="radio" id="starhalf" name="rating0"
+                                                                           value="0.5"/><label
+                                                                        class="half" for="starhalf"
+                                                                        title="Sucks big time - 0.5 stars"></label>
+                                                                </div>
+                                                            </div>
 
-                                    <div class="alert alert-danger  alert-dismissible" role="alert"
-                                         style="margin-top:5%">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span></button>
-                                        <strong>Errore!</strong> Conferma la collaborazione prima di inserire il
-                                        feedback.
+                                                            <div class="media-content">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                                                elit. Aenean commodo
+                                                                ligula
+                                                                eget dolor. Aenean massa. Cum sociis natoque penatibus
+                                                                et magnis dis
+                                                                parturient
+                                                                montes, nascetur ridiculus mus. Donec quam felis,
+                                                                ultricies nec,
+                                                                pellentesque
+                                                                eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                                                Donec.
+                                                            </div>
+                                                            <div class="media-action">
+                                                                <button class="btn btn-link"><i class="fa fa-exclamation-circle"></i>
+                                                                    Segnala
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="media social-post" style="margin-left: 2%">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+                                                    </a>
+                                                </div>
+                                                <div class="section">
+                                                    <div class="section-body">
+                                                        <div class="media-body">
+                                                            <div class="media-heading">
+                                                                <h4 class="title">Scott White</h4>
+                                                            </div>
+                                                            <div class="rating-content" >
+                                                                <div class="rating">
+                                                                    <input type="radio" id="star5" name="rating1"
+                                                                           value="5"/><label
+                                                                        class="full" for="star5"
+                                                                        title="Awesome - 5 stars"></label>
+                                                                    <input type="radio" id="star4half" name="rating1"
+                                                                           value="4.5"/><label
+                                                                        class="half" for="star4half"
+                                                                        title="Pretty good - 4.5 stars"></label>
+                                                                    <input type="radio" id="star4" name="rating1"
+                                                                           value="4"/><label
+                                                                        class="full" for="star4"
+                                                                        title="Pretty good - 4 stars"></label>
+                                                                    <input type="radio" id="star3half" name="rating1"
+                                                                           value="3.5" checked/><label
+                                                                        class="half" for="star3half"
+                                                                        title="Meh - 3.5 stars"></label>
+                                                                    <input type="radio" id="star3" name="rating1"
+                                                                           value="3"/><label
+                                                                        class="full" for="star3" title="Meh - 3 stars"></label>
+                                                                    <input type="radio" id="star2half" name="rating1"
+                                                                           value="2.5"/><label
+                                                                        class="half" for="star2half"
+                                                                        title="Kinda bad - 2.5 stars"></label>
+                                                                    <input type="radio" id="star2" name="rating1"
+                                                                           value="2"/><label
+                                                                        class="full" for="star2"
+                                                                        title="Kinda bad - 2 stars"></label>
+                                                                    <input type="radio" id="star1half" name="rating1"
+                                                                           value="1.5"/><label
+                                                                        class="half" for="star1half"
+                                                                        title="Meh - 1.5 stars"></label>
+                                                                    <input type="radio" id="star1" name="rating1"
+                                                                           value="1"/><label
+                                                                        class="full" for="star1"
+                                                                        title="Sucks big time - 1 star"></label>
+                                                                    <input type="radio" id="starhalf" name="rating1"
+                                                                           value="0.5"/><label
+                                                                        class="half" for="starhalf"
+                                                                        title="Sucks big time - 0.5 stars"></label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="media-content">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                                                elit. Aenean commodo
+                                                                ligula
+                                                                eget dolor. Aenean massa. Cum sociis natoque penatibus
+                                                                et magnis dis
+                                                                parturient
+                                                                montes, nascetur ridiculus mus. Donec quam felis,
+                                                                ultricies nec,
+                                                                pellentesque
+                                                                eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                                                Donec.
+                                                            </div>
+                                                            <div class="media-action">
+                                                                <button class="btn btn-link"><i class="fa fa-exclamation-circle"></i>
+                                                                    Segnala
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="media social-post" style="margin-left: 2%">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+                                                    </a>
+                                                </div>
+                                                <div class="section">
+                                                    <div class="section-body">
+                                                        <div class="media-body">
+                                                            <div class="media-heading">
+                                                                <h4 class="title">Scott White</h4>
+                                                            </div>
+                                                            <div class="rating-content"  onclick="return false;">
+                                                                <div class="rating">
+                                                                    <input type="radio" id="star5" name="rating2"
+                                                                           value="5"/><label
+                                                                        class="full" for="star5"
+                                                                        title="Awesome - 5 stars"></label>
+                                                                    <input type="radio" id="star4half" name="rating2"
+                                                                           value="4.5"/><label
+                                                                        class="half" for="star4half"
+                                                                        title="Pretty good - 4.5 stars"></label>
+                                                                    <input type="radio" id="star4" name="rating2"
+                                                                           value="4"/><label
+                                                                        class="full" for="star4"
+                                                                        title="Pretty good - 4 stars"></label>
+                                                                    <input type="radio" id="star3half" name="rating2"
+                                                                           value="3.5"/ checked><label
+                                                                        class="half" for="star3half"
+                                                                        title="Meh - 3.5 stars"></label>
+                                                                    <input type="radio" id="star3" name="rating2"
+                                                                           value="3"/><label
+                                                                        class="full" for="star3" title="Meh - 3 stars"></label>
+                                                                    <input type="radio" id="star2half" name="rating2"
+                                                                           value="2.5"/><label
+                                                                        class="half" for="star2half"
+                                                                        title="Kinda bad - 2.5 stars"></label>
+                                                                    <input type="radio" id="star2" name="rating2"
+                                                                           value="2"/><label
+                                                                        class="full" for="star2"
+                                                                        title="Kinda bad - 2 stars"></label>
+                                                                    <input type="radio" id="star1half" name="rating2"
+                                                                           value="1.5"/><label
+                                                                        class="half" for="star1half"
+                                                                        title="Meh - 1.5 stars"></label>
+                                                                    <input type="radio" id="star1" name="rating2"
+                                                                           value="1"/><label
+                                                                        class="full" for="star1"
+                                                                        title="Sucks big time - 1 star"></label>
+                                                                    <input type="radio" id="starhalf" name="rating2"
+                                                                           value="0.5"/><label
+                                                                        class="half" for="starhalf"
+                                                                        title="Sucks big time - 0.5 stars"></label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="media-content">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                                                elit. Aenean commodo
+                                                                ligula
+                                                                eget dolor. Aenean massa. Cum sociis natoque penatibus
+                                                                et magnis dis
+                                                                parturient
+                                                                montes, nascetur ridiculus mus. Donec quam felis,
+                                                                ultricies nec,
+                                                                pellentesque
+                                                                eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                                                Donec.
+                                                            </div>
+                                                            <div class="media-action">
+                                                                <button class="btn btn-link"><i class="fa fa-exclamation-circle"></i>
+                                                                    Segnala
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
+
+
                         <!--Statistiche-->
                         <div role="tabpanel" class="tab-pane" id="tab6">
                             <div class="row">
@@ -733,6 +1017,37 @@
 
     $('.nav.nav-tabs').responsiveTabs();
 </script>
+<script>
+    $(document).ready(function(){
+        $(".rating-content").click(function () {
+            console.log("sono qui click")
+            return false;
+        })
+    });
 
+    $(document).ready(function(){
+        $("#feedback-textarea").keyup(function () {
+            console.log("sono qui key")
+            var textAreaLength =  $(this).val().length;
+            console.log(textAreaLength)
+            if(textAreaLength <= 150 || textAreaLength >= 300)
+            {
+
+                var html = '<button type="button" class="close" data-dismiss="alert"'+
+                    '                                                            aria-label="Close">'+
+                    '                                                        <span aria-hidden="true">×</span></button>'+
+                    '                                                    <strong>Errore!</strong> Il testo deve essere minimo 150 parole massimo 300';
+
+
+                $("#feedback-erros").html(html);
+                $("#feedback-erros").css("display","block");
+            }
+            else if(textAreaLength >= 150 || textAreaLength <= 300)
+            {
+                $("#feedback-erros").css("display","none");
+            }
+        })
+    });
+</script>
 </body>
 </html>
