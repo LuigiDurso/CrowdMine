@@ -175,6 +175,9 @@ try {
             case 'visualizzaUtentiSegnalati':
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
                 break;
+            case 'annuncio' :
+                include_once  VIEW_DIR . "annuncio.php";
+                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;

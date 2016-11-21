@@ -24,63 +24,7 @@
 <body>
 <div class="app app-default">
 
-    <aside class="app-sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <a class="sidebar-brand" href="#"><span class="highlight"> Moderatore </span></a>
-            <button type="button" class="sidebar-toggle">
-                <i class="fa fa-times"></i>
-            </button>
-        </div>
-        <div class="sidebar-menu">
-            <ul class="sidebar-nav">
-                <li class="">
-                    <a href="visualizzaUtentiSegnalati">
-                        <div class="title">Utenti Segnalati</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaUtentiBannati">
-                        <div class="title">Utenti Bannati</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaAnnunciSegnalati">
-                        <div class="title">Annunci Segnalati</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaIndexStatistiche">
-                        <div class="title">Statistiche</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaRicorsiAnnuncio">
-                        <div class="title">Ricorso Annuncio</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaRicorsiAlBan">
-                        <div class="title">Ricorso al ban</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaFeedbackSegnalati">
-                        <div class="title">Feedback Segnalati</div>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="visualizzaIndexMacrocategorie">
-                        <div class="title">Macrocategorie</div>
-                    </a>
-
-                <li class="">
-                    <a href="visualizzaIndexMicrocategorie">
-                        <div class="title">Microcategorie</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
+    <?php include "asidePannelloModeratore.php" ?>
 
     <script type="text/ng-template" id="sidebar-dropdown.tpl.html">
         <div class="dropdown-background">
@@ -286,6 +230,7 @@
                                     <div class="media-action">
                                         <button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
                                         <button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+                                        <button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
                                     </div>
                                 </div>
                             </div>
@@ -316,6 +261,7 @@
                                     <div class="media-action">
                                         <button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
                                         <button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+                                        <button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
                                     </div>
                                 </div>
                             </div>
@@ -346,6 +292,7 @@
                                     <div class="media-action">
                                         <button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
                                         <button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+                                        <button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
                                     </div>
                                 </div>
                             </div>
@@ -376,6 +323,7 @@
                                     <div class="media-action">
                                         <button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
                                         <button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+                                        <button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
                                     </div>
                                 </div>
                             </div>
