@@ -16,123 +16,152 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
-<style>
-		a.collapse-title{
-			text-decoration:none;
-		}
-		.panel{
-			margin-bottom: 4px;
-			color: #666;
-		}
-		
-		.panel .panel-heading{
-			padding: 14px;
-			color: #666;
-			background-color: #f5f5f5;
-		}
-		
-		.panel-heading > p{
-			margin: 0px;
-		}
-	</style>
-	<style>
-		/*tab a dimensione variabile*/
-		.card.card-tab ul.nav-tabs > li{
-			width:auto;
-			min-width:auto;
-		}
-		
-		.card.card-tab .card-header {
-			overflow: visible;
-		}
-		
-		.card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
-			display:block;
-		}
-		
-		.card.card-tab ul.nav-tabs {
-		  position: relative;
-		  overflow: visible;
-		  border-bottom: none;
-		}
-		
-		.card.card-tab ul.nav-tabs i {
-			position: absolute;
-			top: 18px;
-			right: 22px;
-			font-size: 24px;
-		}
-		.card.card-tab ul.nav-tabs i.fa-caret-up {
-		  display: none;
-		}
-		
-		.card.card-tab ul.nav-tabs > li {
-			display: none;
-			float: none;
-			text-align: center;
-			z-index: 0;
-			margin-bottom: -1px	;
-		}
-		.card.card-tab ul.nav-tabs > li:last-of-type > a {
-		  margin-right: 0;
-		}
-		.card.card-tab ul.nav-tabs > li > a {
-			margin-right: 0;
-			background: #fff;
-			border: 1px solid #DDDDDD;
-			padding: 20px 30px;
-		}
-		.card.card-tab ul.nav-tabs > li.active {
-			display: block;
-			border: 0;
-		}
-		.card.card-tab ul.nav-tabs > li.active a {
-			border: 1px solid #DDDDDD !important;
-			border-radius: 2px;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-down {
-			display: none;
-		}
-		.card.card-tab ul.nav-tabs.open > li {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open > li a {
-			border-radius: 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:first-of-type a {
-			border-radius: 2px 2px 0 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:last-of-type a {
-			border-radius: 0 0 2px 2px;
-		}
-		@media (min-width: 846px) {
-			.card.card-tab ul.nav-tabs {
-				border-bottom: 1px solid #ddd;
-			}
-			.card.card-tab ul.nav-tabs i {
-				display: none;
-			}
-			.card.card-tab ul.nav-tabs > li > a {
-				margin-right: 4px;
-				padding: 14px 12px;
-			}
-			.card.card-tab ul.nav-tabs > li {
-				display: block;
-				float: left;
-			}
-			.card.card-tab ul.nav-tabs > li.active a {
-				border-bottom-color: transparent !important;
-			}
-			
-			.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-				display: none;
-			}
-		}
+    <style>
+        div.section .profile
+        {
+            margin-bottom: 0px;
+        }
+        table.table > tbody > tr.table-title td
+        {
+            border:none;
+        }
 
-	</style>
+    </style>
+    <style>
+        a.collapse-title {
+            text-decoration: none;
+        }
+
+        .panel {
+            margin-bottom: 4px;
+            color: #666;
+        }
+
+        .panel .panel-heading {
+            padding: 14px;
+            color: #666;
+            background-color: #f5f5f5;
+        }
+
+        .panel-heading > p {
+            margin: 0px;
+        }
+    </style>
+    <style>
+        /*tab a dimensione variabile*/
+        .card.card-tab ul.nav-tabs > li {
+            width: auto;
+            min-width: auto;
+        }
+
+        .card.card-tab .card-header {
+            overflow: visible;
+        }
+
+        .card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
+            display: block;
+        }
+
+        .card.card-tab ul.nav-tabs {
+            position: relative;
+            overflow: visible;
+            border-bottom: none;
+        }
+
+        .card.card-tab ul.nav-tabs i {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 24px;
+        }
+
+        .card.card-tab ul.nav-tabs i.fa-caret-up {
+            display: none;
+        }
+
+        .card.card-tab ul.nav-tabs > li {
+            display: none;
+            float: none;
+            text-align: center;
+            z-index: 0;
+            margin-bottom: -1px;
+        }
+
+        .card.card-tab ul.nav-tabs > li:last-of-type > a {
+            margin-right: 0;
+        }
+
+        .card.card-tab ul.nav-tabs > li > a {
+            margin-right: 0;
+            background: #fff;
+            border: 1px solid #DDDDDD;
+            padding: 20px 30px;
+        }
+
+        .card.card-tab ul.nav-tabs > li.active {
+            display: block;
+            border: 0;
+        }
+
+        .card.card-tab ul.nav-tabs > li.active a {
+            border: 1px solid #DDDDDD !important;
+            border-radius: 2px;
+        }
+
+        .card.card-tab ul.nav-tabs.open i.fa-caret-up {
+            display: block;
+        }
+
+        .card.card-tab ul.nav-tabs.open i.fa-caret-down {
+            display: none;
+        }
+
+        .card.card-tab ul.nav-tabs.open > li {
+            display: block;
+        }
+
+        .card.card-tab ul.nav-tabs.open > li a {
+            border-radius: 0;
+        }
+
+        .card.card-tab ul.nav-tabs.open > li:first-of-type a {
+            border-radius: 2px 2px 0 0;
+        }
+
+        .card.card-tab ul.nav-tabs.open > li:last-of-type a {
+            border-radius: 0 0 2px 2px;
+        }
+
+        @media (min-width: 846px) {
+            .card.card-tab ul.nav-tabs {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .card.card-tab ul.nav-tabs i {
+                display: none;
+            }
+
+            .card.card-tab ul.nav-tabs > li > a {
+                margin-right: 4px;
+                padding: 14px 12px;
+            }
+
+            .card.card-tab ul.nav-tabs > li {
+                display: block;
+                float: left;
+            }
+
+            .card.card-tab ul.nav-tabs > li.active a {
+                border-bottom-color: transparent !important;
+            }
+
+            .card.card-tab ul.nav-tabs.open i.fa-caret-up {
+                display: none;
+            }
+        }
+
+    </style>
+
 </head>
 <body>
 <div class="app app-default">
@@ -420,15 +449,6 @@
                             <li role="tab1" class="active">
                                 <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Profilo</a>
                             </li>
-                            <li role="tab2">
-                                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Privacy e sicurezza</a>
-                            </li>
-                            <li role="tab3">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Annunci e offerte di lavoro</a>
-                            </li>
-							<li role="tab4">
-                                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Segnalazioni</a>
-                            </li>
                             <li role="tab5">
                                 <a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">Feedback</a>
                             </li>
@@ -437,171 +457,128 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body no-padding tab-content">
+                    <div class="card-body no-padding tab-content" >
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <div class="row">
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Elementi base
+                                <div class="section">
+                                    <div class="section-title profile"><i class="icon fa fa-user" aria-hidden="true"></i>
+                                        Dati anagrafici
+                                    </div>
+
+
+                                    <div class="panel panel-default"  style="border:none">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr class="table-title">
+                                                        <td class="td">Nome</td>
+                                                        <td class="td">Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cognome</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefono</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>E-mail</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Partits IVA</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Data di nascita</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Posizione</td>
+                                                        <td>Lorem ipsum</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse1">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Indirizzi Email
-													</h4>
-													<p>Aggiungi o rimuovi indirizzi email</p>
-												</div>
-											</a>
-											<div id="profile-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse2">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Numeri di telefono
-													</h4>
-													<p>Modifica o aggiungi numeri di telefono</p>
-												</div>
-											</a>
-											<div id="profile-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Cambia password
-													</h4>
-													<p>Segli un'unica password per proteggere i tuoi dati</p>
-												</div>
-											</a>
-											<div id="profile-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse4">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Dati anagrafici
-													</h4>
-													<p>Visualizza e modifica i dati anagrafici del tuo account</p>
-												</div>
-											</a>
-											<div id="profile-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-									</div>
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Gestione categorie
+
+
+                                        <div id="profile-collapse4" class="panel-collapse collapse">
+                                            <div class="panel-body">Panel Body</div>
                                         </div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse5">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi macro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse5" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#profile-collapse6">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi micro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse6" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										
-									</div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
+                                        Categorie
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <a class="panel-default" data-toggle="collapse" href="#profile-collapse5">
+                                            <div class="panel-heading">
+                                                <h4 class="media-heading">
+                                                   Macro-categorie
+                                                </h4>
+                                            </div>
+                                        </a>
+                                        <div id="profile-collapse5" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Macro 1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Macro 2</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Macro 3</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <a class="panel-default" data-toggle="collapse" href="#profile-collapse6">
+                                            <div class="panel-heading">
+                                                <h4 class="media-heading">
+                                                    Micro-categorie
+                                                </h4>
+                                            </div>
+                                        </a>
+                                        <div id="profile-collapse6" class="panel-collapse collapse">
+                                            <div class="panel-body">
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Micro 1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Micro 2</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Micro 3</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="tab2">
-                            <div class="row">
-									<div class="section">
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse1">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Blocca Utente
-													</h4>
-													<p>Vedi l'elenco ed effettua i cambiamenti che desideri apportare</p>
-												</div>
-											</a>
-											<div id="privacy-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse2">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Condivisione di dati con terze parti
-													</h4>
-													<p>Scegli se possiamo condividere le informazioni di base del tuo profilo con terze parti</p>
-												</div>
-											</a>
-											<div id="privacy-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Processo di verifica in due passaggi
-													</h4>
-													<p>Attiva questa funzionalità per una maggiore protezione nel tuo account</p>
-												</div>
-											</a>
-											<div id="privacy-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default" data-toggle="collapse" href="#privacy-collapse4">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Cancellazione Account
-													</h4>
-													<p>Se lo desideri, puoi eliminare il tuo account dal sistema</p>
-												</div>
-											</a>
-											<div id="privacy-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-									</div>
-								</div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="tab3">
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla
-                        </div>
-						<div role="tabpanel" class="tab-pane" id="tab4">
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla
                         </div>
                         <!--Feedback-->
                         <div role="tabpanel" class="tab-pane" id="tab5">
@@ -618,7 +595,7 @@
                                         <div class="section-title">
                                             Rating
                                         </div>
-                                        <div class="section-body" >
+                                        <div class="section-body">
                                             <div class="rating">
                                                 <input type="radio" id="star5" name="rating" value="5"/><label
                                                     class="full" for="star5" title="Awesome - 5 stars"></label>
@@ -740,21 +717,21 @@
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
 <script>
-$.fn.responsiveTabs = function() {
-  this.addClass('responsive-tabs');
-  this.append($('<span class="glyphicon glyphicon-triangle-bottom"></span>'));
-  this.append($('<span class="glyphicon glyphicon-triangle-top"></span>'));
+    $.fn.responsiveTabs = function () {
+        this.addClass('responsive-tabs');
+        this.append($('<i class="fa fa-caret-down" aria-hidden="true"></i>'));
+        this.append($('<i class="fa fa-caret-up" aria-hidden="true"></i>'));
 
-  this.on('click', 'li.active > a, span.glyphicon', function() {
-    this.toggleClass('open');
-  }.bind(this));
+        this.on('click', 'li.active > a, i', function () {
+            this.toggleClass('open');
+        }.bind(this));
 
-  this.on('click', 'li:not(.active) > a', function() {
-    this.removeClass('open');
-  }.bind(this));
-};
+        this.on('click', 'li:not(.active) > a', function () {
+            this.removeClass('open');
+        }.bind(this));
+    };
 
-$('.nav.nav-tabs').responsiveTabs();
+    $('.nav.nav-tabs').responsiveTabs();
 </script>
 
 </body>

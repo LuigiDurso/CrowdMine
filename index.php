@@ -62,6 +62,9 @@ try {
             case 'template':
                 header("location: http://crowdmine.altervista.org/dist/html/");
                 break;
+            case 'visitaProfiloUtente':
+                include_once VIEW_DIR . "visitaProfiloUtente.php";
+                break;
             case 'visitaProfiloPersonale':
                 include_once VIEW_DIR . "visitaProfiloPersonale.php";
                 break;
