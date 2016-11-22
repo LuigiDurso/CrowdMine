@@ -292,7 +292,7 @@
                     <div class="card-header">Statistiche Macro Categorie</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <div class="section">
                                     <div class="section-title">Grafico Andamento</div>
                                     <div class="section-body">
@@ -300,7 +300,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="section">
                                     <div class="section-title">Legenda</div>
                                     <div class="section-body">
