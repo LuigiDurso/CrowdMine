@@ -178,9 +178,6 @@ try {
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";
                 break;
-            case 'annuncio' :
-                include_once  VIEW_DIR . "annuncio.php";
-                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;
