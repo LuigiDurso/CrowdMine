@@ -172,16 +172,13 @@ try {
             case 'visualizzaUtentiSegnalati':
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
                 break;
-<<<<<<< HEAD
             case 'visualizzaCommentiSegnalati';
                 include_once VIEW_DIR . "visualizzaCommentiSegnalati.php";
                 break;
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";
-=======
             case 'annuncio' :
                 include_once  VIEW_DIR . "annuncio.php";
->>>>>>> 0d1e9d695bd104eae334b9027f465da8ffa1d038
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
