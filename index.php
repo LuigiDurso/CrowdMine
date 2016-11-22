@@ -177,6 +177,7 @@ try {
                 break;
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";
+                break;
             case 'annuncio' :
                 include_once  VIEW_DIR . "annuncio.php";
                 break;
