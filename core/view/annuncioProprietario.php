@@ -32,51 +32,64 @@ include_once VIEW_DIR . 'header.php';
     <script>
         $(document).ready(function(){
             $(".btn.btn-link").click(function(){
-                $(".row.col-md-12.col-sm-12.card.contenitore").toggle();
+                $(".row.col-md-12.col-sm-12.card.contenitore").toggle(250);
+                $(".row.col-md-12.col-sm-12.card.candidature").hide(250);
+
+
             });
         });
     </script>
+    <script>
+        $(document).ready(function(){
+            $(".btn.btn-warning").click(function(){
+                $(".row.col-md-12.col-sm-12.card.candidature").toggle(250);
+                $(".row.col-md-12.col-sm-12.card.contenitore").hide(250);
+
+            });
+        });
+    </script>
+
 </head>
 
-    <style>
+<style>
+    h1 {
+        font-size: 1rem;
+    }
+
+    @media (min-width: 1px) {
         h1 {
-            font-size: 1rem;
+            font-size: xx-small;
         }
+    }
 
-        @media (min-width: 1px) {
-            h1 {
-                font-size: xx-small;
-            }
+    @media (min-width: 750px) {
+        h1 {
+            font-size: 13px;
         }
+    }
 
-        @media (min-width: 750px) {
-            h1 {
-                font-size: 13px;
-            }
+    @media (min-width: 970px) {
+        h1 {
+            font-size: x-large;
         }
+    }
 
-        @media (min-width: 970px) {
-            h1 {
-                font-size: x-large;
-            }
+    @media (min-width: 1200px) {
+        h1 {
+            font-size: xx-large;
         }
+    }
 
-        @media (min-width: 1200px) {
-            h1 {
-                font-size: xx-large;
-            }
-        }
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
 
-        a.morelink {
-            text-decoration:none;
-            outline: none;
-        }
-        .morecontent span {
-            display: none;
+    }
 
-        }
-
-    </style>
+</style>
 
 <body>
 <div class="app app-default">
@@ -194,7 +207,7 @@ include_once VIEW_DIR . 'header.php';
 
                         <div class="offerta col-md-12 col-sm-12">
                             <h1>Offerta Programmatore PHP</h1>
-                            </div>
+                        </div>
                     </div>
                     <div class="col-md-1 col-sm-2 preferites">
                         <i class="fa fa-star-o" style="font-size: 200%;"></i>
@@ -241,7 +254,7 @@ include_once VIEW_DIR . 'header.php';
                     <button class="btn btn-link">
                         <i class="fa fa-comments-o"></i> 10 Comments
                     </button>
-                    <button type="button" class="btn btn-success ca">Candidati</button>
+                    <button type="button" class="btn btn-warning">Candidature</button>
                 </div>
 
                 <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
@@ -257,7 +270,7 @@ include_once VIEW_DIR . 'header.php';
                             <h5 class="timeing">20 mins ago</h5>
                         </div>
                         <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
-                        </div>
+                    </div>
                     <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
                         <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
                             <a href="#">
@@ -274,8 +287,8 @@ include_once VIEW_DIR . 'header.php';
                     <div class="col-md-12 form-commento">
 
                         <div class="col-md-10 input-comment">
-                        <input type="text" class="form-control" placeholder="Scrivi un commento...">
-                    </div>
+                            <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                        </div>
 
                         <div class="col-md-2 btn-comment">
                             <button type="button" class="btn btn-info">Commenta</button>
@@ -283,10 +296,29 @@ include_once VIEW_DIR . 'header.php';
                     </div>
                 </div>
 
+                <div class="row col-md-12 col-sm-12 card candidature" style="margin-left: 0; display: none">
+
+                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
+                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                            <a href="#">
+                                <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                            </a>
+                        </div>
+                        <div class="media-heading">
+                            <h4 class="title">Scott White</h4>
+                            <h5 class="timeing">20 mins ago</h5>
+                        </div>
+                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
+                    </div>
+
+
+
+                </div>
+
 
 
             </div>
-    </div>
+        </div>
 
 
 
