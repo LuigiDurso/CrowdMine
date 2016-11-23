@@ -28,6 +28,16 @@ include_once VIEW_DIR . 'header.php';
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".btn.btn-link").click(function(){
+                $(".row.col-md-12.col-sm-12.card.contenitore").toggle();
+            });
+        });
+    </script>
+</head>
+
     <style>
         h1 {
             font-size: 1rem;
@@ -68,7 +78,6 @@ include_once VIEW_DIR . 'header.php';
 
     </style>
 
-</head>
 <body>
 <div class="app app-default">
 
@@ -165,9 +174,9 @@ include_once VIEW_DIR . 'header.php';
         </div>
     </script>
 
-    <div class="col-md-12 col-sm-12 app-container" style="border-style: dotted; border-color: red">
+    <div class="col-md-12 col-sm-12 app-container">
 
-        <div class="row" style="margin-right: 20%; height: auto">
+        <div class="row" style="margin-right: 20%; height: auto; margin-bottom: 5%">
 
             <div class="card">
 
@@ -229,8 +238,53 @@ include_once VIEW_DIR . 'header.php';
                     </button>
                     <button type="button" class="btn btn-success ca">Candidati</button>
                 </div>
+
+                <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
+
+                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
+                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                            <a href="#">
+                                <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                            </a>
+                        </div>
+                        <div class="media-heading">
+                            <h4 class="title">Scott White</h4>
+                            <h5 class="timeing">20 mins ago</h5>
+                        </div>
+                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
+                        </div>
+                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
+                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                            <a href="#">
+                                <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                            </a>
+                        </div>
+                        <div class="media-heading">
+                            <h4 class="title">Scott White</h4>
+                            <h5 class="timeing">20 mins ago</h5>
+                        </div>
+                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
+                    </div>
+
+                    <div class="col-md-12 form-commento">
+
+                        <div class="col-md-10 input-comment">
+                        <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                    </div>
+
+                        <div class="col-md-2 btn-comment">
+                            <button type="button" class="btn btn-info">Commenta</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
-            </div>
+    </div>
+
+
+
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
         <script type="text/javascript">
@@ -282,6 +336,7 @@ include_once VIEW_DIR . 'header.php';
                 });
             });
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </body>
 
