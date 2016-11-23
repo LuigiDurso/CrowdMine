@@ -109,7 +109,7 @@ try {
                 break;
             case 'auth':
                 StringUtils::checkPermission("not_logged");
-                include_once VIEW_DIR . "login-registrazione.php";
+                include_once VIEW_DIR . "login.php";
                 break;
             case 'register':
                 StringUtils::checkPermission("not_logged");
@@ -174,6 +174,15 @@ try {
                 break;
             case 'visualizzaUtentiSegnalati':
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
+                break;
+            case 'visualizzaCommentiSegnalati';
+                include_once VIEW_DIR . "visualizzaCommentiSegnalati.php";
+                break;
+            case 'annuncioUtenteLoggato';
+                include_once VIEW_DIR . "annuncioUtenteLoggato.php";
+                break;
+            case 'annuncioProprietario';
+                include_once VIEW_DIR . "annuncioProprietario.php";
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
