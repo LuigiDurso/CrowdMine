@@ -74,6 +74,9 @@ try {
             case 'classificaMiglioriSocieta':
                 include_once VIEW_DIR . "classificaMiglioriSocieta.php";
                 break;
+            case 'annunciModeratore':
+                include_once VIEW_DIR . "annunciModeratore.php";
+                break;
             case 'statisticheAvanzateAdmin':
                 include_once VIEW_DIR ."statisticheAvanzateAdmin.php";
                 break;
@@ -114,7 +117,7 @@ try {
                 break;
             case 'effettuaRegistrazione':
                 StringUtils::checkPermission("not_logged");
-                include_once CONTROL_DIR . "Register.php";
+                include_once CONTROL_DIR . "login-registrazione.php";
                 break;
             case 'inserimentoAnnuncio':
                 StringUtils::checkPermission("all");
@@ -126,7 +129,7 @@ try {
                 break;
             case 'effettuaLogin':
                 StringUtils::checkPermission("not_logged");
-                include_once CONTROL_DIR . "Login.php";
+                include_once CONTROL_DIR . "login-registrazione.php";
                 break;
             case 'logout':
                 StringUtils::checkPermission("all");
