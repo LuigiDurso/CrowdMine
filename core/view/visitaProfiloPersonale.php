@@ -17,6 +17,15 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
 	<style>
+        div.section .profile {
+            margin-bottom: 0px;
+        }
+
+        table.table > tbody > tr.table-title td {
+            border: none;
+        }
+    </style>
+	<style>
 		a.collapse-title{
 			text-decoration:none;
 		}
@@ -31,9 +40,61 @@
 			background-color: #f5f5f5;
 		}
 		
+		.panel .panel-body{
+			padding: 0px;
+		}
+		
 		.panel-heading > p{
 			margin: 0px;
 		}
+		
+		/*style info row*/
+		.info-row{
+			padding: 15px;
+			word-wrap: break-word;
+			border-top: 1px solid #ddd;
+		}
+		
+		
+		.info-head{
+			border-top: none;
+		}
+		
+		.info-form{
+			border-top: 1px solid #ddd;
+			padding: 15px 0px;
+		}
+		
+		.info-row .checkbox{
+			margin: 0 !important;
+			float: right;
+		}
+		
+		/*corner dropdown*/
+		.corner-dropdown{
+			position: absolute;
+			top: 0px;
+			right: 6px;
+			font-size: 24px;
+		}
+		
+		.corner-dropdown .btn{
+			padding: 0px 6px;
+			margin-bottom: 0;
+		}
+		
+		.panel-body .row{
+			position:relative;
+		}
+		
+		.media.social-post.profile-block .media-body {
+		    margin-top: 15px;
+		}
+		
+		.media.social-post.profile-block img {
+			max-width: 50px;
+		}
+		
 	</style>
 	<style>
 		/*tab a dimensione variabile*/
@@ -71,23 +132,24 @@
 			float: none;
 			text-align: center;
 			z-index: 0;
-			margin-bottom: -1px	;
+			margin-bottom: 0px;
 		}
 		.card.card-tab ul.nav-tabs > li:last-of-type > a {
-		  margin-right: 0;
+			margin-right: 0;
 		}
 		.card.card-tab ul.nav-tabs > li > a {
 			margin-right: 0;
 			background: #fff;
-			border: 1px solid #DDDDDD;
+			border-bottom: 1px solid #DDDDDD;
 			padding: 20px 30px;
+			border-right: none;
 		}
 		.card.card-tab ul.nav-tabs > li.active {
 			display: block;
 			border: 0;
 		}
 		.card.card-tab ul.nav-tabs > li.active a {
-			border: 1px solid #DDDDDD !important;
+			border-bottom: 1px solid #DDDDDD !important;
 			border-radius: 2px;
 		}
 		.card.card-tab ul.nav-tabs.open i.fa-caret-up {
@@ -108,9 +170,11 @@
 		.card.card-tab ul.nav-tabs.open > li:last-of-type a {
 			border-radius: 0 0 2px 2px;
 		}
-		@media (min-width: 846px) {
+		
+		@media (min-width: 842px) {
 			.card.card-tab ul.nav-tabs {
 				border-bottom: 1px solid #ddd;
+				
 			}
 			.card.card-tab ul.nav-tabs i {
 				display: none;
@@ -118,10 +182,12 @@
 			.card.card-tab ul.nav-tabs > li > a {
 				margin-right: 4px;
 				padding: 14px 12px;
+				border-right: 1px solid #DDDDDD;
 			}
 			.card.card-tab ul.nav-tabs > li {
 				display: block;
 				float: left;
+				margin-bottom: -1px;
 			}
 			.card.card-tab ul.nav-tabs > li.active a {
 				border-bottom-color: transparent !important;
@@ -129,6 +195,12 @@
 			
 			.card.card-tab ul.nav-tabs.open i.fa-caret-up {
 				display: none;
+			}
+		}
+		
+		@media (min-width: 980px) {
+			.card.card-tab ul.nav-tabs > li > a {
+				padding: 20px 30px;
 			}
 		}
 
@@ -432,101 +504,797 @@
                         </ul>
                     </div>
                     <div class="card-body no-padding tab-content">
+					
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <div class="row">
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Elementi base
-                                        </div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse1">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Indirizzi Email
-													</h4>
-													<p>Aggiungi o rimuovi indirizzi email</p>
+								<div class="col-lg-12 col-md-12 col-xs-12">
+										<div class="section">
+											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
+												Elementi base
+											</div>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse1">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Indirizzi Email
+														</h4>
+														<p>Aggiungi o rimuovi indirizzi email</p>
+													</div>
+												</a>
+												<div id="profile-collapse1" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row" id="edit-mail">
+																<div class="col-lg-2 col-md-2 col-xs-3 info-row info-head">
+																	Email
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-9 info-row info-head">
+																	fakemail@gmail.com
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-mail').toggleWith('#edit-mail-input')">Modifica</a></li>
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-mail-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-envelope" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuova Email" aria-describedby="basic-addon1" value="fakemail@gmail.com">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-mail-input').toggleWith('#edit-mail')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="add-mail">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<a onclick="$('#add-mail').toggleWith('#mail-input')" >
+																	<i class="fa fa-plus"></i>
+																		Aggiungi indirizzo email
+																	</a>
+																</div>
+															</div>
+															<!-- FORM INSERIMENTO !-->
+															<div class="row">
+																<form class="form form-horizontal" id="mail-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-envelope" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuova Email" aria-describedby="basic-addon1" value="">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#mail-input').toggleWith('#add-mail')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
 												</div>
-											</a>
-											<div id="profile-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
+											</div>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse2">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Numeri di telefono
+														</h4>
+														<p>Modifica o aggiungi numeri di telefono</p>
+													</div>
+												</a>
+												<div id="profile-collapse2" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row" id="edit-tel">
+																<div class="col-lg-2 col-md-2 col-xs-3 info-row info-head">
+																	Tel.
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-9 info-row info-head">
+																	+39 333456789
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-tel').toggleWith('#edit-tel-input')">Modifica</a></li>
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-tel-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-phone" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuovo Numero" aria-describedby="basic-addon1" value="+39 333456789">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-tel-input').toggleWith('#edit-tel')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="add-tel">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<a onclick="$('#add-tel').toggleWith('#tel-input')" >
+																	<i class="fa fa-plus"></i>
+																		Aggiungi numero di telefono
+																	</a>
+																</div>
+															</div>
+															<!-- FORM INSERIMENTO !-->
+															<div class="row">
+																<form class="form form-horizontal" id="tel-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-phone" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuovo Numero" aria-describedby="basic-addon1" value="">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#tel-input').toggleWith('#add-tel')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse3">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Cambia password
+														</h4>
+														<p>Segli un'unica password per proteggere i tuoi dati</p>
+													</div>
+												</a>
+												<div id="profile-collapse3" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<!-- FORM INSERIMENTO !-->
+															<div class="row" id="edit-mail">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																	La nuova password deve essere composta da almeno 6 caratteri, deve contenere maiuscole e minuscole. Non sono ammessi caratteri speciali.
+																</div>
+															</div>
+															<div class="row">
+																<form class="form form-horizontal" id="tel-input">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-lock" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Password attuale" aria-describedby="basic-addon1" value="">
+																		</div>
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-lock" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuova Password" aria-describedby="basic-addon1" value="">
+																		</div>
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-lock" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Conferma nuova Password" aria-describedby="basic-addon1" value="">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse4">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Dati anagrafici
+														</h4>
+														<p>Visualizza e modifica i dati anagrafici del tuo account</p>
+													</div>
+												</a>
+												<div id="profile-collapse4" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row" id="edit-name">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row info-head">
+																	Nome
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row info-head">
+																	Scott
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-name').toggleWith('#edit-name-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-name-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-user" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuovo Nome" aria-describedby="basic-addon1" value="Scott">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-name-input').toggleWith('#edit-name')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-surname">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Cognome
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	White
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-surname').toggleWith('#edit-surname-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-surname-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-user" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuovo Cognome" aria-describedby="basic-addon1" value="White">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-surname-input').toggleWith('#edit-surname')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-profess">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Professione
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	Web Designer
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-profess').toggleWith('#edit-profess-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-profess-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-user" aria-hidden="true"></i>
+																			</span>
+																			
+																			<select class="form-control select2">
+																				<option value="AL">Alabama</option>
+																				<option value="WY">Wyoming</option>
+																			</select>
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-profess-input').toggleWith('#edit-profess')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-birthdate">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Data di nascita
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	22/04/1989
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-birthdate').toggleWith('#edit-birthdate-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-birthdate-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-calendar" aria-hidden="true"></i>
+																			</span>
+																			<input type="date" class="form-control" aria-describedby="basic-addon1" value="1989-04-22">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-birthdate-input').toggleWith('#edit-birthdate')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-location">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Localit&agrave;
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	Fisciano
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-location').toggleWith('#edit-location-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-location-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-map-marker" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuova Localit&agrave;" aria-describedby="basic-addon1" value="Fisciano">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-location-input').toggleWith('#edit-location')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															
+															<div class="row" id="edit-cap">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	CAP
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	84048
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-cap').toggleWith('#edit-cap-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-cap-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-map-marker" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuovo Cap;" aria-describedby="basic-addon1" value="84048">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-cap-input').toggleWith('#edit-cap')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-iva">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Partita Iva
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	12345678912
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-iva').toggleWith('#edit-iva-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-iva-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-user" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Nuova partita iva" aria-describedby="basic-addon1" value="12345678912">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-iva-input').toggleWith('#edit-iva')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<div class="row" id="edit-web">
+																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																	Sito Web
+																</div>
+																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																	www.fakesite.com
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a onclick="$('#edit-web').toggleWith('#edit-web-input')">Modifica</a></li>
+																  </ul>
+																</div>
+															</div>
+															<!-- FORM MODIFICA !-->
+															<div class="row">
+																<form class="form form-horizontal" id="edit-web-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-globe" aria-hidden="true"></i>
+																			</span>
+																			<input type="text" class="form-control" placeholder="Sito Web";" aria-describedby="basic-addon1" value="www.fakesite.com">
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#edit-web-input').toggleWith('#edit-web')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse2">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Numeri di telefono
-													</h4>
-													<p>Modifica o aggiungi numeri di telefono</p>
-												</div>
-											</a>
-											<div id="profile-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
+										<div class="section">
+											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
+												Gestione categorie
 											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Cambia password
-													</h4>
-													<p>Segli un'unica password per proteggere i tuoi dati</p>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Visualizza, aggiungi macro-categorie
+														</h4>
+														<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
+													</div>
+												</a>
+												<div id="profile-collapse5" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																	<span class="label label-primary">Informatica</span>
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<span class="label label-success">Graphic Design</span>
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															
+															<div class="row" id="add-macro">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<a onclick="$('#add-macro').toggleWith('#macro-input')" >
+																	<i class="fa fa-plus"></i>
+																		Aggiungi macro-categoria
+																	</a>
+																</div>
+															</div>
+															<!-- FORM INSERIMENTO !-->
+															<div class="row">
+																<form class="form form-horizontal" id="macro-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-tag" aria-hidden="true"></i>
+																			</span>
+																			<select class="form-control select2">
+																				<option value="AL">Alabama</option>
+																				<option value="WY">Wyoming</option>
+																			</select>
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#macro-input').toggleWith('#add-macro')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
 												</div>
-											</a>
-											<div id="profile-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
 											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse4">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Dati anagrafici
-													</h4>
-													<p>Visualizza e modifica i dati anagrafici del tuo account</p>
+											<div class="panel panel-default">
+												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
+													<div class="panel-heading">
+														<h4 class="media-heading">
+															Visualizza, aggiungi micro-categorie
+														</h4>
+														<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
+													</div>
+												</a>
+												<div id="profile-collapse6" class="panel-collapse collapse">
+													<div class="panel-body">
+														<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row">
+																<div class="col-lg-6 col-md-9 col-xs-12 info-row info-head">
+																	<span class="label label-default">Informatica</span>
+																	<span class="label label-info">Php</span>
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-lg-6 col-md-9 col-xs-12 info-row">
+																	<span class="label label-default">Informatica</span>
+																	<span class="label label-warning">Javascript</span>
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a href="#">Rimuovi</a></li>
+																  </ul>
+																</div>
+															</div>
+															
+															<div class="row" id="add-micro">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<a onclick="$('#add-micro').toggleWith('#micro-input')" >
+																	<i class="fa fa-plus"></i>
+																		Aggiungi micro-categoria
+																	</a>
+																</div>
+															</div>
+															<!-- FORM INSERIMENTO !-->
+															<div class="row">
+																<form class="form form-horizontal" id="micro-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-tag" aria-hidden="true"></i>
+																			</span>
+																			<select class="form-control select2">
+																				<option value="AL">Informatica</option>
+																				<option value="WY">Graphic Design</option>
+																			</select>
+																		</div>
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-tags" aria-hidden="true"></i>
+																			</span>
+																			<select class="form-control select2">
+																				<option value="AL">Php</option>
+																				<option value="WY">Javascript</option>
+																			</select>
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#micro-input').toggleWith('#add-micro')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
 												</div>
-											</a>
-											<div id="profile-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
 											</div>
+											
 										</div>
-									</div>
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-                                            Gestione categorie
-                                        </div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi macro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse5" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Visualizza, aggiungi micro-categorie
-													</h4>
-													<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
-												</div>
-											</a>
-											<div id="profile-collapse6" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										
-									</div>
-                            </div>
-                        </div>
+								</div>
+							</div>    
+						</div>
                         <div role="tabpanel" class="tab-pane" id="tab2">
                             <div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12">
 									<div class="section">
 										<div class="panel panel-default">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse1">
@@ -538,11 +1306,132 @@
 												</div>
 											</a>
 											<div id="privacy-collapse1" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
+												<div class="panel-body">
+													<div class="col-lg-12 col-md-12 col-xs-12">
+															<div class="row">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																	
+																	<div class="media social-post profile-block">
+																		<div class="media-left">
+																			<a href="#">
+																			  <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png">
+																			</a>
+																			</div>
+																			<div class="media-body">
+																				<div class="media-heading">
+																				<h4 class="title">Scott White</h4>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																
+																<div class="dropdown corner-dropdown">
+																	
+																  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																	<span class="caret"></span>
+																  </button>
+																  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+																	<li><a href="#">Sblocca</a></li>
+																  </ul>
+																</div>
+															</div>
+															
+															<div class="row" id="add-userblock">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																	<a onclick="$('#add-userblock').toggleWith('#userblock-input')" >
+																	<i class="fa fa-plus"></i>
+																		Blocca nuovo utente
+																	</a>
+																</div>
+															</div>
+															<!-- FORM INSERIMENTO !-->
+															<div class="row">
+																<form class="form form-horizontal" id="userblock-input" style="display:none">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	
+																	</div>
+																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																		<div class="input-group">
+																			<span class="input-group-addon" id="basic-addon1">
+																				<i class="fa fa-user" aria-hidden="true"></i>
+																			</span>
+																			<select class="form-control select2">
+																				<option value="AL">Fabiano Pecorelli</option>
+																				<option value="WY">Antonio Luca D'avanzo</option>
+																			</select>
+																		</div>
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-primary pull-right">Save</button>
+																						<button type="button" class="btn btn-default pull-right" onclick="$('#userblock-input').toggleWith('#add-userblock')">Cancel</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+												</div>
 											</div>
 										</div>
 										<div class="panel panel-default">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse2">
+												<div class="panel-heading">
+													<h4 class="media-heading">
+														Visibilit&agrave; informazioni personali
+													</h4>
+													<p>Scegli quali informazioni del tuo profilo vuoi rendere visibile agli altri utenti</p>
+												</div>
+											</a>
+											<div id="privacy-collapse2" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="col-lg-12 col-md-12 col-xs-12">
+														<div class="row">
+															<div class="col-lg-2 col-md-2 col-xs-4 info-row info-head">
+																Indirizzi Email
+															</div>
+															<div class="col-lg-10 col-md-10 col-xs-8 info-row info-head">
+																<div class="checkbox">
+																	<input type="checkbox" id="checkbox1">
+																	<label for="checkbox1">
+																		Blocca
+																	</label>
+																  </div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																Numeri di telefono
+															</div>
+															<div class="col-lg-10 col-md-10 col-xs-8 info-row">
+																<div class="checkbox">
+																	<input type="checkbox" id="checkbox2">
+																	<label for="checkbox2">
+																		blocca
+																	</label>
+																  </div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																Dati anagrafici
+															</div>
+															<div class="col-lg-10 col-md-10 col-xs-8 info-row">
+																<div class="checkbox">
+																	<input type="checkbox" id="checkbox3">
+																	<label for="checkbox3">
+																		blocca
+																	</label>
+																  </div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse3">
 												<div class="panel-heading">
 													<h4 class="media-heading">
 														Condivisione di dati con terze parti
@@ -550,25 +1439,57 @@
 													<p>Scegli se possiamo condividere le informazioni di base del tuo profilo con terze parti</p>
 												</div>
 											</a>
-											<div id="privacy-collapse2" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse3">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Processo di verifica in due passaggi
-													</h4>
-													<p>Attiva questa funzionalità per una maggiore protezione nel tuo account</p>
-												</div>
-											</a>
 											<div id="privacy-collapse3" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
+												<div class="panel-body">
+													<div class="col-lg-12 col-md-12 col-xs-12">
+														<div class="row">
+															<div class="col-lg-6 col-md-6 col-xs-8 info-row info-head">
+																Acconsenti al trattamento di dati personali da terze parti?
+															</div>
+															<div class="col-lg-6 col-md-6 col-xs-4 info-row info-head">
+																<div class="checkbox">
+																	<input type="checkbox" id="checkbox4">
+																	<label for="checkbox4">
+																		Acconsento
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 										<div class="panel panel-default">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse4">
+												<div class="panel-heading">
+													<h4 class="media-heading">
+														Processo di verifica in due passaggi
+													</h4>
+													<p>Attiva questa funzionalit&agrave; per una maggiore protezione nel tuo account</p>
+												</div>
+											</a>
+											<div id="privacy-collapse4" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="col-lg-12 col-md-12 col-xs-12">
+														<div class="row">
+															<div class="col-lg-6 col-md-6 col-xs-8 info-row info-head">
+																Processo di verifica in due passaggi
+															</div>
+															<div class="col-lg-6 col-md-6 col-xs-4 info-row info-head">
+																<div class="checkbox">
+																	<input type="checkbox" id="checkbox4">
+																	<label for="checkbox4">
+																		Attivato
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse5">
 												<div class="panel-heading">
 													<h4 class="media-heading">
 														Cancellazione Account
@@ -576,12 +1497,35 @@
 													<p>Se lo desideri, puoi eliminare il tuo account dal sistema</p>
 												</div>
 											</a>
-											<div id="privacy-collapse4" class="panel-collapse collapse">
-												<div class="panel-body">Panel Body</div>
+											<div id="privacy-collapse5" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="col-lg-12 col-md-12 col-xs-12">
+															<!-- FORM INSERIMENTO !-->
+															<div class="row" id="edit-mail">
+																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																	Eseguendo questa procedura il tuo account sarà rimosso da CrowdMine.
+																</div>
+															</div>
+															<div class="row">
+																<form class="form form-horizontal" id="tel-input">
+																	<div class="col-lg-12 col-md-12 col-xs-12 info-row info-head">
+																		<div class="form-footer">
+																				<div class="form-group">
+																					<div class="col-lg-12 col-md-12 col-xs-12">
+																						<button type="submit" class="btn btn-danger pull-right">Cancella Account</button>
+																					</div>
+																				 </div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+							</div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="tab3">
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -597,7 +1541,7 @@
                             fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                             velit esse cillum dolore eu fugiat nulla
                         </div>
-                        
+                    
                     </div>
                 </div>
             </div>
@@ -608,6 +1552,13 @@
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
 <script>
+
+/*toggle element and toggle self element*/
+$.fn.toggleWith = function(id) {
+	$(id).toggle('fast');
+	$(this).toggle('fast');
+};
+/*code for responsive tabs*/
 $.fn.responsiveTabs = function() {
   this.addClass('responsive-tabs');
   this.append($('<i class="fa fa-caret-down" aria-hidden="true"></i>'));
