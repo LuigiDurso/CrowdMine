@@ -96,115 +96,6 @@
 		}
 		
 	</style>
-	<style>
-		/*tab a dimensione variabile*/
-		.card.card-tab ul.nav-tabs > li{
-			width:auto;
-			min-width:auto;
-		}
-		
-		.card.card-tab .card-header {
-			overflow: visible;
-		}
-		
-		.card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
-			display:block;
-		}
-		
-		.card.card-tab ul.nav-tabs {
-		  position: relative;
-		  overflow: visible;
-		  border-bottom: none;
-		}
-		
-		.card.card-tab ul.nav-tabs i {
-			position: absolute;
-			top: 18px;
-			right: 22px;
-			font-size: 24px;
-		}
-		.card.card-tab ul.nav-tabs i.fa-caret-up {
-		  display: none;
-		}
-		
-		.card.card-tab ul.nav-tabs > li {
-			display: none;
-			float: none;
-			text-align: center;
-			z-index: 0;
-			margin-bottom: 0px;
-		}
-		.card.card-tab ul.nav-tabs > li:last-of-type > a {
-			margin-right: 0;
-		}
-		.card.card-tab ul.nav-tabs > li > a {
-			margin-right: 0;
-			background: #fff;
-			border-bottom: 1px solid #DDDDDD;
-			padding: 20px 30px;
-			border-right: none;
-		}
-		.card.card-tab ul.nav-tabs > li.active {
-			display: block;
-			border: 0;
-		}
-		.card.card-tab ul.nav-tabs > li.active a {
-			border-bottom: 1px solid #DDDDDD !important;
-			border-radius: 2px;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-down {
-			display: none;
-		}
-		.card.card-tab ul.nav-tabs.open > li {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open > li a {
-			border-radius: 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:first-of-type a {
-			border-radius: 2px 2px 0 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:last-of-type a {
-			border-radius: 0 0 2px 2px;
-		}
-		
-		@media (min-width: 842px) {
-			.card.card-tab ul.nav-tabs {
-				border-bottom: 1px solid #ddd;
-				
-			}
-			.card.card-tab ul.nav-tabs i {
-				display: none;
-			}
-			.card.card-tab ul.nav-tabs > li > a {
-				margin-right: 4px;
-				padding: 14px 12px;
-				border-right: 1px solid #DDDDDD;
-			}
-			.card.card-tab ul.nav-tabs > li {
-				display: block;
-				float: left;
-				margin-bottom: -1px;
-			}
-			.card.card-tab ul.nav-tabs > li.active a {
-				border-bottom-color: transparent !important;
-			}
-			
-			.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-				display: none;
-			}
-		}
-		
-		@media (min-width: 980px) {
-			.card.card-tab ul.nav-tabs > li > a {
-				padding: 20px 30px;
-			}
-		}
-
-	</style>
 </head>
 <body>
 <div class="app app-default">
@@ -1558,22 +1449,6 @@ $.fn.toggleWith = function(id) {
 	$(id).toggle('fast');
 	$(this).toggle('fast');
 };
-/*code for responsive tabs*/
-$.fn.responsiveTabs = function() {
-  this.addClass('responsive-tabs');
-  this.append($('<i class="fa fa-caret-down" aria-hidden="true"></i>'));
-  this.append($('<i class="fa fa-caret-up" aria-hidden="true"></i>'));
-
-  this.on('click', 'li.active > a, i', function() {
-    this.toggleClass('open');
-  }.bind(this));
-
-  this.on('click', 'li:not(.active) > a', function() {
-    this.removeClass('open');
-  }.bind(this));
-};
-
-$('.nav.nav-tabs').responsiveTabs();
 </script>
 
 </body>
