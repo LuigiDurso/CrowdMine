@@ -74,8 +74,8 @@ try {
             case 'classificaMiglioriSocieta':
                 include_once VIEW_DIR . "classificaMiglioriSocieta.php";
                 break;
-            case 'annunciModeratore':
-                include_once VIEW_DIR . "annunciModeratore.php";
+            case 'annuncioModeratore':
+                include_once VIEW_DIR . "annuncioModeratore.php";
                 break;
             case 'statisticheAvanzateAdmin':
                 include_once VIEW_DIR ."statisticheAvanzateAdmin.php";
