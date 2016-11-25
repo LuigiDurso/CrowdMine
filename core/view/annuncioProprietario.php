@@ -56,28 +56,94 @@ include_once VIEW_DIR . 'header.php';
         font-size: 1rem;
     }
 
+    h4 {
+        font-size: 20px;
+    }
+
+    i {
+        font-size: 300%;
+    }
+
     @media (min-width: 1px) {
         h1 {
             font-size: xx-small;
         }
+        h4 {
+            font-size: 10px;
+        }
+        .fa.fa-check {
+            font-size: 50%;
+        }
+        .fa.fa-close {
+            font-size: 50%;
+
+        }
+        .fa.fa-mail-reply-all {
+            font-size: 50%;
+
+        }
+
     }
 
     @media (min-width: 750px) {
         h1 {
             font-size: 13px;
         }
+        h4 {
+            font-size: 13px;
+        }
+        .fa.fa-check {
+            font-size: 100%;
+        }
+        .fa.fa-close {
+            font-size: 100%;
+
+        }
+        .fa.fa-mail-reply-all {
+            font-size: 100%;
+
+        }
+
     }
 
     @media (min-width: 970px) {
         h1 {
             font-size: x-large;
         }
+        h4 {
+            font-size: 20px;
+        }
+        .fa.fa-check {
+            font-size: 200%;
+        }
+        .fa.fa-close {
+            font-size: 200%;
+
+        }
+        .fa.fa-mail-reply-all {
+            font-size: 200%;
+        }
+
     }
 
     @media (min-width: 1200px) {
         h1 {
             font-size: xx-large;
+
         }
+        h4 {
+            font-size: 35px;
+        }
+        .fa.fa-check {
+            font-size: 300%;
+        }
+        .fa.fa-close {
+            font-size: 300%;
+        }
+        .fa.fa-mail-reply-all {
+            font-size: 300%;
+        }
+
     }
 
     a.morelink {
@@ -88,6 +154,9 @@ include_once VIEW_DIR . 'header.php';
         display: none;
 
     }
+    .media-left img{
+        border-radius: 50%; }
+
 
 </style>
 
@@ -257,12 +326,14 @@ include_once VIEW_DIR . 'header.php';
                     <button type="button" class="btn btn-warning">Candidature</button>
                 </div>
 
+
+
                 <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
 
                     <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
                         <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
                             <a href="#">
-                                <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                                <img  src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
                             </a>
                         </div>
                         <div class="media-heading">
@@ -298,22 +369,56 @@ include_once VIEW_DIR . 'header.php';
 
                 <div class="row col-md-12 col-sm-12 card candidature" style="margin-left: 0; display: none">
 
-                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
-                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
-                            <a href="#">
-                                <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
-                            </a>
+                    <div class="row col-md-12 col-sm-12 candidature-body" style="margin-left: 0">
+
+                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
+                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
+                                <i class="fa fa-check"></i>
+                                <i class="fa fa-close"></i>
+                                <i class="fa fa-mail-reply-all"></i>
+                                </div>
                         </div>
-                        <div class="media-heading">
-                            <h4 class="title">Scott White</h4>
-                            <h5 class="timeing">20 mins ago</h5>
+
+                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
+                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
+                                <i class="fa fa-check"></i>
+                                <i class="fa fa-close"></i>
+                                <i class="fa fa-mail-reply-all"></i>
+                            </div>
                         </div>
-                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
+
+                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
+                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
+                                <i class="fa fa-check"></i>
+                                <i class="fa fa-close"></i>
+                                <i class="fa fa-mail-reply-all"></i>
+                            </div>
+                        </div>
+
+                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
+                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
+                                <i class="fa fa-check"></i>
+                                <i class="fa fa-close"></i>
+                                <i class="fa fa-mail-reply-all"></i>
+                            </div>
+                        </div>
+    
+
+
+
                     </div>
 
 
+                </div
 
-                </div>
 
 
 

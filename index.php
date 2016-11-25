@@ -62,6 +62,9 @@ try {
             case 'template':
                 header("location: http://crowdmine.altervista.org/dist/html/");
                 break;
+            case 'visitaProfiloUtente':
+                include_once VIEW_DIR . "visitaProfiloUtente.php";
+                break;
             case 'visitaProfiloPersonale':
                 include_once VIEW_DIR . "visitaProfiloPersonale.php";
                 break;
@@ -109,7 +112,7 @@ try {
                 break;
             case 'auth':
                 StringUtils::checkPermission("not_logged");
-                include_once VIEW_DIR . "login.php";
+                include_once VIEW_DIR . "login-registrazione.php";
                 break;
             case 'register':
                 StringUtils::checkPermission("not_logged");
@@ -174,9 +177,6 @@ try {
                 break;
             case 'visualizzaUtentiSegnalati':
                 include_once VIEW_DIR . "visualizzaUtentiSegnalati.php";
-                break;
-            case 'visualizzaCommentiSegnalati';
-                include_once VIEW_DIR . "visualizzaCommentiSegnalati.php";
                 break;
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";

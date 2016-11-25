@@ -32,7 +32,7 @@ include_once VIEW_DIR . 'header.php';
     <script>
         $(document).ready(function(){
             $(".btn.btn-link").click(function(){
-                $(".row.col-md-12.col-sm-12.card.contenitore").toggle();
+                $(".row.col-md-12.col-sm-12.card.contenitore").toggle(250);
             });
         });
     </script>
@@ -75,6 +75,7 @@ include_once VIEW_DIR . 'header.php';
             display: none;
 
         }
+
 
     </style>
 

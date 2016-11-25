@@ -284,15 +284,11 @@
                 </div>
             </div>
         </nav>
-
-
         <div class="row">
             <div class="card">
                 <div class="card-header">Statistiche Disponibili</div>
                 <div class="card-body">
-
                     <div class="row">
-
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                             <div class="section">
                                 <div class="section-title">Macro Categorie</div>
@@ -309,7 +305,6 @@
                                 </div>
                             </a>
                         </div>
-
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                             <div class="section">
                                 <div class="section-title">Classifica Migliori Utenti</div>
@@ -326,7 +321,6 @@
                                 </div>
                             </a>
                         </div>
-
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                             <div class="section">
                                 <div class="section-title">Classifica Migliori Società</div>
@@ -343,9 +337,7 @@
                                 </div>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
