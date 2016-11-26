@@ -1,9 +1,8 @@
 <?php
 
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Modificata da Angelo Caputo
+ * 26/11/16  00:40
  */
 
 class Annuncio {
@@ -13,83 +12,151 @@ class Annuncio {
     private $data;
     private $descrizione;
     private $luogo;
-    private $dataPubblicazione;
+    private $stato;
     private $tipologia;
-    private $email;
+    private $retribuzione;
     
-    function __construct($id=null, $titolo, $data, $descrizione, $luogo, $dataPubblicazione, $tipologia, $email) {
+    function __construct($id=null, $titolo, $data, $descrizione, $luogo, $stato, $tipologia, $retribuzione) {
         $this->id = $id;
         $this->titolo = $titolo;
         $this->data = $data;
         $this->descrizione = $descrizione;
         $this->luogo = $luogo;
-        $this->dataPubblicazione = $dataPubblicazione;
+        $this->stato = $stato;
         $this->tipologia = $tipologia;
-        $this->email = $email;
+        $this->retribuzione = $retribuzione;
     }
-    
-    function getId() {
+
+    /**
+     * @return null
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getTitolo() {
-        return $this->titolo;
-    }
-
-    function getData() {
-        return $this->data;
-    }
-
-    function getDescrizione() {
-        return $this->descrizione;
-    }
-
-    function getLuogo() {
-        return $this->luogo;
-    }
-
-    function getDataPubblicazione() {
-        return $this->dataPubblicazione;
-    }
-
-    function getTipologia() {
-        return $this->tipologia;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function setId($id) {
+    /**
+     * @param null $id
+     */
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    function setTitolo($titolo) {
+    /**
+     * @return mixed
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @param mixed $titolo
+     */
+    public function setTitolo($titolo)
+    {
         $this->titolo = $titolo;
     }
 
-    function setData($data) {
+    /**
+     * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param mixed $data
+     */
+    public function setData($data)
+    {
         $this->data = $data;
     }
 
-    function setDescrizione($descrizione) {
+    /**
+     * @return mixed
+     */
+    public function getDescrizione()
+    {
+        return $this->descrizione;
+    }
+
+    /**
+     * @param mixed $descrizione
+     */
+    public function setDescrizione($descrizione)
+    {
         $this->descrizione = $descrizione;
     }
 
-    function setLuogo($luogo) {
+    /**
+     * @return mixed
+     */
+    public function getLuogo()
+    {
+        return $this->luogo;
+    }
+
+    /**
+     * @param mixed $luogo
+     */
+    public function setLuogo($luogo)
+    {
         $this->luogo = $luogo;
     }
 
-    function setDataPubblicazione($dataPubblicazione) {
-        $this->dataPubblicazione = $dataPubblicazione;
+    /**
+     * @return mixed
+     */
+    public function getStato()
+    {
+        return $this->stato;
     }
 
-    function setTipologia($tipologia) {
+    /**
+     * @param mixed $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipologia()
+    {
+        return $this->tipologia;
+    }
+
+    /**
+     * @param mixed $tipologia
+     */
+    public function setTipologia($tipologia)
+    {
         $this->tipologia = $tipologia;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
+    /**
+     * @return mixed
+     */
+    public function getRetribuzione()
+    {
+        return $this->retribuzione;
+    }
+
+    /**
+     * @param mixed $retribuzione
+     */
+    public function setRetribuzione($retribuzione)
+    {
+        $this->retribuzione = $retribuzione;
+    }
+    
+    public function toString(){
+        return '{id":".$this->getId().","data":"'.$this->getData().'","titolo":"'.$this->getTitolo().'","descrizione":"'.$this->getDescrizione().'","luogo":"'.$this->getLuogo().'","stato":"'.$this->getStato().'","retribuzione":"'.$this->getRetribuzione().'","tipologia":"'.$this->getTipologia().'"}';
     }
 
 
