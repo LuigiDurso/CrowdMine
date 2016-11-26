@@ -4940,6 +4940,26 @@ table.table.card-table {
     background-color: #fdc3bd;
     border-bottom-color: #f3b1ab;
     color: #d73727; }
+	
+
+.panel.compact-panel{
+	margin-bottom: 4px;
+	color: #666; }
+
+	.panel.compact-panel .panel-heading{
+		padding: 14px;
+		color: #666;
+		background-color: #f5f5f5; }
+
+	.panel.compact-panel .panel-body{
+		padding: 0px; }
+
+	.panel.compact-panel .panel-heading > p{
+		margin: 0px; }
+	.panel.compact-panel a.collapse-title{
+		text-decoration:none; }
+	.panel.compact-panel.panel-body .row{
+		position:relative; }
 
 .dataTables_wrapper {
   border-radius: 2px;

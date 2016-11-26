@@ -17,36 +17,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
 	<style>
-        div.section .profile {
-            margin-bottom: 0px;
-        }
-
-        table.table > tbody > tr.table-title td {
-            border: none;
-        }
-    </style>
-	<style>
-		a.collapse-title{
-			text-decoration:none;
-		}
-		.panel{
-			margin-bottom: 4px;
-			color: #666;
-		}
 		
-		.panel .panel-heading{
-			padding: 14px;
-			color: #666;
-			background-color: #f5f5f5;
-		}
-		
-		.panel .panel-body{
-			padding: 0px;
-		}
-		
-		.panel-heading > p{
-			margin: 0px;
-		}
 		
 		/*style info row*/
 		.info-row{
@@ -81,10 +52,6 @@
 		.corner-dropdown .btn{
 			padding: 0px 6px;
 			margin-bottom: 0;
-		}
-		
-		.panel-body .row{
-			position:relative;
 		}
 		
 		.media.social-post.profile-block .media-body {
@@ -403,7 +370,7 @@
 											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
 												Elementi base
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse1">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -494,7 +461,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse2">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -585,7 +552,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse3">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -641,7 +608,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse4">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -1003,7 +970,7 @@
 											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
 												Gestione categorie
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -1085,7 +1052,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -1187,7 +1154,7 @@
                             <div class="row">
 								<div class="col-lg-12 col-md-12 col-xs-12">
 									<div class="section">
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse1">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1266,7 +1233,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse2">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1321,7 +1288,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse3">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1350,7 +1317,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse4">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1379,7 +1346,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse5">
 												<div class="panel-heading">
 													<h4 class="media-heading">
