@@ -1888,6 +1888,25 @@ a:hover {
   .row.full-width {
     padding-left: 0px !important;
     padding-right: 0px !important; }
+  .row .corner-dropdown{
+	position: absolute;
+	top: 0px;
+	right: 6px;
+	font-size: 24px; }
+  .row .corner-dropdown .btn{
+	padding: 0px 6px;
+	margin-bottom: 0; }
+  .row .overlined-row{
+	padding: 15px;
+	word-wrap: break-word;
+	border-top: 1px solid #ddd; }
+  .row .simple-row{
+	padding: 15px;
+	word-wrap: break-word;
+	border-top: none; }
+  .overlined-row .checkbox{
+	margin: 0 !important;
+	float: right; }
 
 @media (max-width: 767px) {
   .row {
@@ -5846,6 +5865,10 @@ footer.app-footer {
     margin-right: 7.5px; }
     .media.social-post .media-left img {
       border-radius: 50%; }
+  .media.social-post.profile-block .media-body {
+	  margin-top: 15px; }
+   .media.social-post.profile-block img {
+	max-width: 50px; }
   .media.social-post .media-body .media-heading {
     margin-bottom: 10px; }
     .media.social-post .media-body .media-heading .title {
