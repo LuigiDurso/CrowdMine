@@ -207,7 +207,4 @@ class Utente {
         $this->ruolo = $ruolo;
     }
 
-
-
-
 }

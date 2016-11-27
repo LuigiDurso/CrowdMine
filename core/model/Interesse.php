@@ -54,6 +54,5 @@ class Interesse
     {
         $this->id_microcategoria = $id_microcategoria;
     }
-
     
 }

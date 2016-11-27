@@ -111,8 +111,5 @@ class Commento
     {
         $this->data = $data;
     }
-
-
-
-
+    
 }

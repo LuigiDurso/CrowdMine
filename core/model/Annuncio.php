@@ -168,10 +168,4 @@ class Annuncio {
         $this->retribuzione = $retribuzione;
     }
     
-    public function toString(){
-        return '{id":".$this->getId().","data":"'.$this->getData().'","titolo":"'.$this->getTitolo().'","descrizione":"'.$this->getDescrizione().'","luogo":"'.$this->getLuogo().'","stato":"'.$this->getStato().'","retribuzione":"'.$this->getRetribuzione().'","tipologia":"'.$this->getTipologia().'"}';
-    }
-
-
-
 }
