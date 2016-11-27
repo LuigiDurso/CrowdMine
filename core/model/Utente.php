@@ -8,130 +8,206 @@
 
 
 class Utente {
-    
+
+    private $id;
     private $nome;
     private $cognome;
     private $telefono;
-    private $email;
+    private $dataNascita;
     private $citta;
+    private $email;
     private $password;
-    private $descrizione;
-    private $immagine;
-    private $tipologia;
-    private $data;
-    private $id;
-    private $professione;
-    
-    
-    public function __construct($nome, $cognome, $telefono, $email, $citta, $password, $descrizione, $immagine, $tipologia, $data, $id = null, $professione=null) {
+    private $stato;
+    private $ruolo;
 
-        $this->nome=$nome;
-        $this->cognome=$cognome;
-        $this->telefono=$telefono;
-        $this->email=$email;
-        $this->citta=$citta;
-        $this->password=$password;
-        $this->descrizione=$descrizione;
-        $this->immagine=$immagine;
-        $this->tipologia=$tipologia;
-        $this->data=$data;
-        $this->id=$id;
-        $this->professione=$professione;
-    }
-    
-    public function getNome() {
-        return $this->nome;
-    }
-    function getProfessione() {
-        return $this->professione;
-    }
-
-    function setProfessione($professione) {
-        $this->professione = $professione;
+    /**
+     * Utente constructor.
+     * @param $id
+     * @param $nome
+     * @param $cognome
+     * @param $telefono
+     * @param $dataNascita
+     * @param $citta
+     * @param $email
+     * @param $password
+     * @param $stato
+     * @param $ruolo
+     */
+    public function __construct($id, $nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo)
+    {
+        $this->id = $id;
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+        $this->telefono = $telefono;
+        $this->dataNascita = $dataNascita;
+        $this->citta = $citta;
+        $this->email = $email;
+        $this->password = $password;
+        $this->stato = $stato;
+        $this->ruolo = $ruolo;
     }
 
-    function getId() {
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function setId($id) {
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    public function getCognome() {
-        return $this->cognome;
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
     }
-    
-    public function getTelefono() {
-        return $this->telefono;
-    }
-    
-    public function getEmail() {
-        return $this->email;
-    }
-    
-    public function getCitta() {
-        return $this->citta;
-    }
-    
-    public function getPassword() {
-        return $this->password;
-    }
-    
-    public function getDescrizione() {
-        return $this->descrizione;
-    }
-    
-    public function getImmagine() {
-        return $this->immagine;
-    }
-    
-    public function getTipologia() {
-        return $this->tipologia;
-    }
-    
-    public function getData() {
-        return $this->data;
-    }
-    function setNome($nome) {
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
         $this->nome = $nome;
     }
 
-    function setCognome($cognome) {
+    /**
+     * @return mixed
+     */
+    public function getCognome()
+    {
+        return $this->cognome;
+    }
+
+    /**
+     * @param mixed $cognome
+     */
+    public function setCognome($cognome)
+    {
         $this->cognome = $cognome;
     }
 
-    function setTelefono($telefono) {
+    /**
+     * @return mixed
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * @param mixed $telefono
+     */
+    public function setTelefono($telefono)
+    {
         $this->telefono = $telefono;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
+    /**
+     * @return mixed
+     */
+    public function getDataNascita()
+    {
+        return $this->dataNascita;
     }
 
-    function setCitta($citta) {
+    /**
+     * @param mixed $dataNascita
+     */
+    public function setDataNascita($dataNascita)
+    {
+        $this->dataNascita = $dataNascita;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCitta()
+    {
+        return $this->citta;
+    }
+
+    /**
+     * @param mixed $citta
+     */
+    public function setCitta($citta)
+    {
         $this->citta = $citta;
     }
 
-    function setPassword($password) {
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
         $this->password = $password;
     }
 
-    function setDescrizione($descrizione) {
-        $this->descrizione = $descrizione;
+    /**
+     * @return mixed
+     */
+    public function getStato()
+    {
+        return $this->stato;
     }
 
-    function setImmagine($immagine) {
-        $this->immagine = $immagine;
+    /**
+     * @param mixed $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
     }
 
-    function setTipologia($tipologia) {
-        $this->tipologia = $tipologia;
+    /**
+     * @return mixed
+     */
+    public function getRuolo()
+    {
+        return $this->ruolo;
     }
 
-    function setData($data) {
-        $this->data = $data;
+    /**
+     * @param mixed $ruolo
+     */
+    public function setRuolo($ruolo)
+    {
+        $this->ruolo = $ruolo;
     }
+
+
 
 
 }
