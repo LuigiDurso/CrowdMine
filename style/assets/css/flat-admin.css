@@ -4977,7 +4977,7 @@ table.table.card-table {
 		margin: 0px; }
 	.panel.compact-panel a.collapse-title{
 		text-decoration:none; }
-	.panel.compact-panel.panel-body .row{
+	.panel.compact-panel .panel-body .row{
 		position:relative; }
 
 .dataTables_wrapper {

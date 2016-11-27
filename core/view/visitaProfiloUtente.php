@@ -408,7 +408,7 @@
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
 												<div class="panel-heading">
 													<h4 class="media-heading">
-														Macro-categorie
+														Macrocategorie
 													</h4>
 												</div>
 											</a>
@@ -429,7 +429,7 @@
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
 												<div class="panel-heading">
 													<h4 class="media-heading">
-														Micro-categorie
+														Microcategorie
 													</h4>
 												</div>
 											</a>
@@ -562,7 +562,7 @@
                             <div class="row" style="margin-top: 3%">
                                 <div class="col-lg-12 col-md-12 col-xs-12">
                                     <div class="section">
-                                        <div class="media social-post" style="margin-left: 2%">
+                                        <div class="media social-post">
                                             <div class="media-left">
                                                 <a href="#">
                                                     <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
@@ -643,7 +643,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="media social-post" style="margin-left: 2%">
+                                        <div class="media social-post" >
                                             <div class="media-left">
                                                 <a href="#">
                                                     <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
@@ -725,7 +725,7 @@
                                         </div>
 
 
-                                        <div class="media social-post" style="margin-left: 2%">
+                                        <div class="media social-post">
                                             <div class="media-left">
                                                 <a href="#">
                                                     <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>

@@ -7,7 +7,7 @@
     </div>
     <div class="sidebar-menu">
         <ul class="sidebar-nav">
-            <li class="dropdown ">
+            <li class="dropdown " id="segnalazioni">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <div class="icon">
                         <i class="fa fa-edit" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="dropdown ">
+            <li class="dropdown " id="categorie">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <div class="icon">
                         <i class="fa fa-edit" aria-hidden="true"></i>
@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="dropdown ">
+            <li class="dropdown " id="altro">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <div class="icon">
                         <i class="fa fa-edit" aria-hidden="true"></i>

@@ -192,46 +192,104 @@
                     <div class="card-body app-heading">
                         <div class="app-title">
                             <div class="title"><span
-                                    class="highlight">Utenti Segnalati</span></div>
+                                    class="highlight">Utenti Bannati</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12">
+		
+		<div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Utente Bannato</th>
-                                        <th>Moderatore che ha effettuato il ban</th>
-                                        <th>Data del ban</th>
-                                        <th>Riattiva</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Angelo</td>
-                                        <td>Marco</td>
-                                        <td></td>
-                                        <td><button class="btn btn-link"><i class="fa fa-check"></i></button></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="card-header">
+                        Lista Utenti Bannati
                     </div>
-                </div>
-            </div>
-        </div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<div class="media social-post">
+									<div class="media-left">
+										<a href="#">
+											<img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+										</a>
+									</div>
+									<div class="section">
+										<div class="section-body">
+											<div class="media-body">
+												<div class="pull-left">
+														<div class="media-heading">
+															<h4 class="title">Scott White</h4>
+															<h5 class="timeing"> Bannato il 12/10/2012</h5>
+															<h5> Autore: <a>Fabiano Pecorelli</a></h5>
+														</div>
+												</div>
+												<div class="pull-right" style="margin-top: 4px">
+													<button type="button" class="btn btn-warning btn-xs">
+														<i class="fa fa-bullhorn"></i> Ricorso
+													</button>
+												</div>
+												
+												<div class="col-lg-12 col-md-12 col-xs-12 pull-left" style="padding:0px">
+													<div class="media-action">
+														<button class="btn btn-link"><i class="fa fa-check"></i> Riattiva</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="overlined-row">
+								<div class="media social-post">
+									<div class="media-left">
+										<a href="#">
+											<img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+										</a>
+									</div>
+									<div class="section">
+										<div class="section-body">
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="media-heading">
+															<h4 class="title">Severino Ammirati</h4>
+															<h5 class="timeing"> Bannato il 12/10/2012</h5>
+															<h5> Autore: <a>Fabiano Pecorelli</a></h5>
+														</div>
+												</div>
+												
+												<div class="pull-right" style="margin-top: 4px">
+													<button type="button" class="btn btn-warning btn-xs" disabled>
+														<i class="fa fa-bullhorn"></i> Ricorso
+													</button>
+												</div>
+												
+												<div class="col-lg-12 col-md-12 col-xs-12 pull-left" style="padding:0px">
+													<div class="media-action">
+														<button class="btn btn-link"><i class="fa fa-check"></i> Riattiva</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 
     <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
     <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
+	
+	<script>
+		/*evidenzio altro nella barra laterale*/
+		$("#altro").toggleClass("active");
+	</script>
 
 </body>
 </html>

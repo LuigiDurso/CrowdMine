@@ -926,9 +926,9 @@
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
 													<div class="panel-heading">
 														<h4 class="media-heading">
-															Visualizza, aggiungi macro-categorie
+															Visualizza, aggiungi macrocategorie
 														</h4>
-														<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
+														<p>Visualizza, aggiungi ed elimina le macrocategorie di competenza</p>
 													</div>
 												</a>
 												<div id="profile-collapse5" class="panel-collapse collapse">
@@ -969,7 +969,7 @@
 																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-macro').toggleWith('#macro-input')" >
 																	<i class="fa fa-plus"></i>
-																		Aggiungi macro-categoria
+																		Aggiungi macrocategoria
 																	</a>
 																</div>
 															</div>
@@ -1008,9 +1008,9 @@
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
 													<div class="panel-heading">
 														<h4 class="media-heading">
-															Visualizza, aggiungi micro-categorie
+															Visualizza, aggiungi microcategorie
 														</h4>
-														<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
+														<p>Visualizza, aggiungi ed elimina le microcategorie di competenza</p>
 													</div>
 												</a>
 												<div id="profile-collapse6" class="panel-collapse collapse">
@@ -1053,7 +1053,7 @@
 																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-micro').toggleWith('#micro-input')" >
 																	<i class="fa fa-plus"></i>
-																		Aggiungi micro-categoria
+																		Aggiungi microcategoria
 																	</a>
 																</div>
 															</div>
