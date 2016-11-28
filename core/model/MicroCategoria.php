@@ -9,7 +9,7 @@
 class MicroCategoria
 {
     private $id;
-    private $name;
+    private $nome;
     private $id_macrocategoria;
 
     /**
@@ -18,10 +18,10 @@ class MicroCategoria
      * @param $nome
      * @param $id_macrocategoria
      */
-    public function __construct($id, $name, $id_macrocategoria)
+    public function __construct($id, $nome, $id_macrocategoria)
     {
         $this->id = $id;
-        $this->name = $name;
+        $this->nome = $nome;
         $this->id_macrocategoria = $id_macrocategoria;
     }
 
@@ -44,17 +44,17 @@ class MicroCategoria
     /**
      * @return mixed
      */
-    public function getName()
+    public function getNome()
     {
-        return $this->name;
+        return $this->nome;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $nome
      */
-    public function setName($name)
+    public function setNome($nome)
     {
-        $this->name = $name;
+        $this->nome = $nome;
     }
 
     /**

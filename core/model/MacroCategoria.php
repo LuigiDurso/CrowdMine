@@ -9,17 +9,17 @@
 class MacroCategoria
 {
     private $id;
-    private $name;
+    private $nome;
 
     /**
      * MacroCategoria constructor.
      * @param $id
      * @param $nome
      */
-    public function __construct($id, $name)
+    public function __construct($id, $nome)
     {
         $this->id = $id;
-        $this->name = $name;
+        $this->nome = $nome;
     }
 
     /**
@@ -41,17 +41,17 @@ class MacroCategoria
     /**
      * @return mixed
      */
-    public function getName()
+    public function getNome()
     {
-        return $this->name;
+        return $this->nome;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $nome
      */
-    public function setName($name)
+    public function setNome($nome)
     {
-        $this->name = $name;
+        $this->nome = $nome;
     }
 
 

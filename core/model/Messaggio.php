@@ -10,26 +10,26 @@ class Messaggio
 {
 
     private $id;
-    private $date;
-    private $body;
-    private $idUserSender;
-    private $idUserRecipient;
+    private $data;
+    private $corpo;
+    private $idUtenteMittente;
+    private $idUtenteDestinatario;
 
     /**
      * Messaggio constructor.
      * @param $id
-     * @param $date
-     * @param $body
-     * @param $idUserSender
-     * @param $idUserRecipient
+     * @param $data
+     * @param $corpo
+     * @param $idUtenteMittente
+     * @param $idUtenteDestinatario
      */
-    public function __construct($id, $date, $body, $idUserSender, $idUserRecipient)
+    public function __construct($id, $data, $corpo, $idUtenteMittente, $idUtenteDestinatario)
     {
         $this->id = $id;
-        $this->date = $date;
-        $this->body = $body;
-        $this->idUserSender = $idUserSender;
-        $this->idUserRecipient = $idUserRecipient;
+        $this->data = $data;
+        $this->corpo = $corpo;
+        $this->idUtenteMittente = $idUtenteMittente;
+        $this->idUtenteDestinatario = $idUtenteDestinatario;
     }
 
     /**
@@ -51,67 +51,67 @@ class Messaggio
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getData()
     {
-        return $this->date;
+        return $this->data;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $data
      */
-    public function setDate($date)
+    public function setData($data)
     {
-        $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * @param mixed $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
+        $this->data = $data;
     }
 
     /**
      * @return mixed
      */
-    public function getIdUserSender()
+    public function getCorpo()
     {
-        return $this->idUserSender;
+        return $this->corpo;
     }
 
     /**
-     * @param mixed $idUserSender
+     * @param mixed $corpo
      */
-    public function setIdUserSender($idUserSender)
+    public function setCorpo($corpo)
     {
-        $this->idUserSender = $idUserSender;
+        $this->corpo = $corpo;
     }
 
     /**
      * @return mixed
      */
-    public function getIdUserRecipient()
+    public function getIdUtenteMittente()
     {
-        return $this->idUserRecipient;
+        return $this->idUtenteMittente;
     }
 
     /**
-     * @param mixed $idUserRecipient
+     * @param mixed $idUtenteMittente
      */
-    public function setIdUserRecipient($idUserRecipient)
+    public function setIdUtenteMittente($idUtenteMittente)
     {
-        $this->idUserRecipient = $idUserRecipient;
+        $this->idUtenteMittente = $idUtenteMittente;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdUtenteDestinatario()
+    {
+        return $this->idUtenteDestinatario;
+    }
 
+    /**
+     * @param mixed $idUtenteDestinatario
+     */
+    public function setIdUtenteDestinatario($idUtenteDestinatario)
+    {
+        $this->idUtenteDestinatario = $idUtenteDestinatario;
+    }
+
+    
 
 }

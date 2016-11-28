@@ -9,35 +9,35 @@
 class Candidatura
 {
     private $id;
-    private $idUser;
-    private $idAnnouncement;
+    private $idUtente;
+    private $idAnnuncio;
     private $body;
-    private $dateAnswer;
-    private $dateSent;
-    private $requestSent;
-    private $requestAccepted;
+    private $dataRisposta;
+    private $dataInviata;
+    private $richiestaInviata;
+    private $richiestaAccettata;
 
     /**
      * Candidatura constructor.
      * @param $id
-     * @param $idUser
-     * @param $idAnnouncement
+     * @param $idUtente
+     * @param $idAnnuncio
      * @param $body
-     * @param $dateAnswer
-     * @param $dateSent
-     * @param $requestSent
-     * @param $requestAccepted
+     * @param $dataRisposta
+     * @param $dataInviata
+     * @param $richiestaInviata
+     * @param $richiestaAccettata
      */
-    public function __construct($id, $idUser, $idAnnouncement, $body, $dateAnswer, $dateSent, $requestSent, $requestAccepted)
+    public function __construct($id, $idUtente, $idAnnuncio, $body, $dataRisposta, $dataInviata, $richiestaInviata, $richiestaAccettata)
     {
         $this->id = $id;
-        $this->idUser = $idUser;
-        $this->idAnnouncement = $idAnnouncement;
+        $this->idUtente = $idUtente;
+        $this->idAnnuncio = $idAnnuncio;
         $this->body = $body;
-        $this->dateAnswer = $dateAnswer;
-        $this->dateSent = $dateSent;
-        $this->requestSent = $requestSent;
-        $this->requestAccepted = $requestAccepted;
+        $this->dataRisposta = $dataRisposta;
+        $this->dataInviata = $dataInviata;
+        $this->richiestaInviata = $richiestaInviata;
+        $this->richiestaAccettata = $richiestaAccettata;
     }
 
     /**
@@ -59,33 +59,33 @@ class Candidatura
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getIdUtente()
     {
-        return $this->idUser;
+        return $this->idUtente;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $idUtente
      */
-    public function setIdUser($idUser)
+    public function setIdUtente($idUtente)
     {
-        $this->idUser = $idUser;
+        $this->idUtente = $idUtente;
     }
 
     /**
      * @return mixed
      */
-    public function getIdAnnouncement()
+    public function getIdAnnuncio()
     {
-        return $this->idAnnouncement;
+        return $this->idAnnuncio;
     }
 
     /**
-     * @param mixed $idAnnouncement
+     * @param mixed $idAnnuncio
      */
-    public function setIdAnnouncement($idAnnouncement)
+    public function setIdAnnuncio($idAnnuncio)
     {
-        $this->idAnnouncement = $idAnnouncement;
+        $this->idAnnuncio = $idAnnuncio;
     }
 
     /**
@@ -107,65 +107,65 @@ class Candidatura
     /**
      * @return mixed
      */
-    public function getDateAnswer()
+    public function getDataRisposta()
     {
-        return $this->dateAnswer;
+        return $this->dataRisposta;
     }
 
     /**
-     * @param mixed $dateAnswer
+     * @param mixed $dataRisposta
      */
-    public function setDateAnswer($dateAnswer)
+    public function setDataRisposta($dataRisposta)
     {
-        $this->dateAnswer = $dateAnswer;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateSent()
-    {
-        return $this->dateSent;
-    }
-
-    /**
-     * @param mixed $dateSent
-     */
-    public function setDateSent($dateSent)
-    {
-        $this->dateSent = $dateSent;
+        $this->dataRisposta = $dataRisposta;
     }
 
     /**
      * @return mixed
      */
-    public function getRequestSent()
+    public function getDataInviata()
     {
-        return $this->requestSent;
+        return $this->dataInviata;
     }
 
     /**
-     * @param mixed $requestSent
+     * @param mixed $dataInviata
      */
-    public function setRequestSent($requestSent)
+    public function setDataInviata($dataInviata)
     {
-        $this->requestSent = $requestSent;
+        $this->dataInviata = $dataInviata;
     }
 
     /**
      * @return mixed
      */
-    public function getRequestAccepted()
+    public function getRichiestaInviata()
     {
-        return $this->requestAccepted;
+        return $this->richiestaInviata;
     }
 
     /**
-     * @param mixed $requestAccepted
+     * @param mixed $richiestaInviata
      */
-    public function setRequestAccepted($requestAccepted)
+    public function setRichiestaInviata($richiestaInviata)
     {
-        $this->requestAccepted = $requestAccepted;
+        $this->richiestaInviata = $richiestaInviata;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRichiestaAccettata()
+    {
+        return $this->richiestaAccettata;
+    }
+
+    /**
+     * @param mixed $richiestaAccettata
+     */
+    public function setRichiestaAccettata($richiestaAccettata)
+    {
+        $this->richiestaAccettata = $richiestaAccettata;
     }
 
 
