@@ -97,11 +97,6 @@ try {
 //             case 'standard':
 //                include_once "standard.html";
 //                break;
-            case 'inserisciAnnuncio':
-                StringUtils::checkPermission("all");
-                include_once VIEW_DIR . "inserisciAnnuncio.php";
-                break;
-            
             case 'ricercaAnnuncio':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "ricercaAnnuncio.php";
@@ -121,10 +116,6 @@ try {
             case 'effettuaRegistrazione':
                 StringUtils::checkPermission("not_logged");
                 include_once CONTROL_DIR . "login-registrazione.php";
-                break;
-            case 'inserimentoAnnuncio':
-                StringUtils::checkPermission("all");
-                include_once CONTROL_DIR . "InserisciAnnuncio.php";
                 break;
             case 'inserimentoEsperienza':
                 StringUtils::checkPermission("all");
@@ -183,6 +174,9 @@ try {
                 break;
             case 'annuncioProprietario';
                 include_once VIEW_DIR . "annuncioProprietario.php";
+                break;
+            case 'inserisciAnnuncio';
+                include_once VIEW_DIR . "inserisciAnnuncio.php";
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
