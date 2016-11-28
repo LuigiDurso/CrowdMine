@@ -9,29 +9,29 @@
 class Feedback {
     
     private $id;
-    private $userID;
-    private $announcementID;
-    private $evalutation;
-    private $body;
-    private $date;
+    private $idUtente;
+    private $idAnnuncio;
+    private $valutazione;
+    private $corpo;
+    private $data;
 
     /**
      * Feedback constructor.
      * @param $id
-     * @param $userID
-     * @param $announcementID
-     * @param $evalutation
-     * @param $body
-     * @param $date
+     * @param $idUtente
+     * @param $idAnnuncio
+     * @param $valutazione
+     * @param $corpo
+     * @param $data
      */
-    public function __construct($id, $userID, $announcementID, $evalutation, $body, $date)
+    public function __construct($id, $idUtente, $idAnnuncio, $valutazione, $corpo, $data)
     {
         $this->id = $id;
-        $this->userID = $userID;
-        $this->announcementID = $announcementID;
-        $this->evalutation = $evalutation;
-        $this->body = $body;
-        $this->date = $date;
+        $this->idUtente = $idUtente;
+        $this->idAnnuncio = $idAnnuncio;
+        $this->valutazione = $valutazione;
+        $this->corpo = $corpo;
+        $this->data = $data;
     }
 
     /**
@@ -43,73 +43,93 @@ class Feedback {
     }
 
     /**
-     * @return mixed
+     * @param mixed $id
      */
-    public function getUserID()
+    public function setId($id)
     {
-        return $this->userID;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
      */
-    public function getAnnouncementID()
+    public function getIdUtente()
     {
-        return $this->announcementID;
+        return $this->idUtente;
+    }
+
+    /**
+     * @param mixed $idUtente
+     */
+    public function setIdUtente($idUtente)
+    {
+        $this->idUtente = $idUtente;
     }
 
     /**
      * @return mixed
      */
-    public function getEvalutation()
+    public function getIdAnnuncio()
     {
-        return $this->evalutation;
+        return $this->idAnnuncio;
+    }
+
+    /**
+     * @param mixed $idAnnuncio
+     */
+    public function setIdAnnuncio($idAnnuncio)
+    {
+        $this->idAnnuncio = $idAnnuncio;
     }
 
     /**
      * @return mixed
      */
-    public function getBody()
+    public function getValutazione()
     {
-        return $this->body;
+        return $this->valutazione;
+    }
+
+    /**
+     * @param mixed $valutazione
+     */
+    public function setValutazione($valutazione)
+    {
+        $this->valutazione = $valutazione;
     }
 
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getCorpo()
     {
-        return $this->date;
+        return $this->corpo;
     }
 
     /**
-     * @param mixed $evalutation
+     * @param mixed $corpo
      */
-    public function setEvalutation($evalutation)
+    public function setCorpo($corpo)
     {
-        $this->evalutation = $evalutation;
+        $this->corpo = $corpo;
     }
 
     /**
-     * @param mixed $body
+     * @return mixed
      */
-    public function setBody($body)
+    public function getData()
     {
-        $this->body = $body;
+        return $this->data;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $data
      */
-    public function setDate($date)
+    public function setData($data)
     {
-        $this->date = $date;
+        $this->data = $data;
     }
 
-    public function toString(){
-        return '{id:'.$this->getId().', userID:'.$this->getUserID().', announcementID:'.$this->getAnnouncementID().'
-        , evalutation: '.$this->getEvalutation().', body:'.$this->getBody().', date:'.$this->getDate().'}';
-    }
 
 
 }
