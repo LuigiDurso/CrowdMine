@@ -112,6 +112,5 @@ class Messaggio
         $this->idUtenteDestinatario = $idUtenteDestinatario;
     }
 
-    
 
 }

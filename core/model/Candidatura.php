@@ -11,7 +11,7 @@ class Candidatura
     private $id;
     private $idUtente;
     private $idAnnuncio;
-    private $body;
+    private $corpo;
     private $dataRisposta;
     private $dataInviata;
     private $richiestaInviata;
@@ -22,18 +22,18 @@ class Candidatura
      * @param $id
      * @param $idUtente
      * @param $idAnnuncio
-     * @param $body
+     * @param $corpo
      * @param $dataRisposta
      * @param $dataInviata
      * @param $richiestaInviata
      * @param $richiestaAccettata
      */
-    public function __construct($id, $idUtente, $idAnnuncio, $body, $dataRisposta, $dataInviata, $richiestaInviata, $richiestaAccettata)
+    public function __construct($id, $idUtente, $idAnnuncio, $corpo, $dataRisposta, $dataInviata, $richiestaInviata, $richiestaAccettata)
     {
         $this->id = $id;
         $this->idUtente = $idUtente;
         $this->idAnnuncio = $idAnnuncio;
-        $this->body = $body;
+        $this->corpo = $corpo;
         $this->dataRisposta = $dataRisposta;
         $this->dataInviata = $dataInviata;
         $this->richiestaInviata = $richiestaInviata;
@@ -91,17 +91,17 @@ class Candidatura
     /**
      * @return mixed
      */
-    public function getBody()
+    public function getCorpo()
     {
-        return $this->body;
+        return $this->corpo;
     }
 
     /**
      * @param mixed $body
      */
-    public function setBody($body)
+    public function setCorpo($corpo)
     {
-        $this->body = $body;
+        $this->corpo = $corpo;
     }
 
     /**
