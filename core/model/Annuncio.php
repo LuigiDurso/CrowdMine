@@ -8,24 +8,37 @@
 class Annuncio {
     
     private $id;
-    private $titolo;
     private $data;
+    private $titolo;
     private $descrizione;
     private $luogo;
     private $stato;
-    private $tipologia;
     private $retribuzione;
-    
-    function __construct($id=null, $titolo, $data, $descrizione, $luogo, $stato, $tipologia, $retribuzione) {
+    private $tipologia;
+
+    /**
+     * Annuncio constructor.
+     * @param $id
+     * @param $data
+     * @param $titolo
+     * @param $descrizione
+     * @param $luogo
+     * @param $stato
+     * @param $retribuzione
+     * @param $tipologia
+     */
+    public function __construct($id, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia)
+    {
         $this->id = $id;
-        $this->titolo = $titolo;
         $this->data = $data;
+        $this->titolo = $titolo;
         $this->descrizione = $descrizione;
         $this->luogo = $luogo;
         $this->stato = $stato;
-        $this->tipologia = $tipologia;
         $this->retribuzione = $retribuzione;
+        $this->tipologia = $tipologia;
     }
+
 
     /**
      * @return null
@@ -155,10 +168,4 @@ class Annuncio {
         $this->retribuzione = $retribuzione;
     }
     
-    public function toString(){
-        return '{id":".$this->getId().","data":"'.$this->getData().'","titolo":"'.$this->getTitolo().'","descrizione":"'.$this->getDescrizione().'","luogo":"'.$this->getLuogo().'","stato":"'.$this->getStato().'","retribuzione":"'.$this->getRetribuzione().'","tipologia":"'.$this->getTipologia().'"}';
-    }
-
-
-
 }
