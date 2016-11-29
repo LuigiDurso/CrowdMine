@@ -10378,6 +10378,7 @@ $(document).click(function (event) {
 },{}],"/Users/tui2tone/Documents/workspace/tui2tone/templates/flat-admin-bootstrap-templates/src/elements/form/form.js":[function(require,module,exports){
 "use strict";
 
+$('.nav-tabs').responsiveTabs();
 $(".select2").select2();
 
 },{}],"/Users/tui2tone/Documents/workspace/tui2tone/templates/flat-admin-bootstrap-templates/src/elements/tab/tab.js":[function(require,module,exports){

@@ -1888,6 +1888,25 @@ a:hover {
   .row.full-width {
     padding-left: 0px !important;
     padding-right: 0px !important; }
+  .row .corner-dropdown{
+	position: absolute;
+	top: 0px;
+	right: 6px;
+	font-size: 24px; }
+  .row .corner-dropdown .btn{
+	padding: 0px 6px;
+	margin-bottom: 0; }
+  .row .overlined-row{
+	padding: 15px;
+	word-wrap: break-word;
+	border-top: 1px solid #ddd; }
+  .row .simple-row{
+	padding: 15px;
+	word-wrap: break-word;
+	border-top: none; }
+  .overlined-row .checkbox{
+	margin: 0 !important;
+	float: right; }
 
 @media (max-width: 767px) {
   .row {
@@ -3847,8 +3866,7 @@ ui-view > .app-messaging-container {
     padding: 0;
     background-color: #f0f4f5;
     border-bottom: 0;
-    overflow-x: scroll;
-    overflow-y: visible; }
+    overflow: visible;}
   .card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
     list-style: none;
     padding: 0;
@@ -3866,6 +3884,16 @@ ui-view > .app-messaging-container {
     width: 100%;
     font-weight: 400;
     border-bottom: 1px solid #dfe6e8; }
+   .card.card-tab > ul, .card.card-tab ul.nav-tabs {
+	display:block;
+	position: relative;
+	overflow: visible;
+	border-bottom: none;}
+	.card.card-tab ul.nav-tabs.open i.fa-caret-up {
+			display: block; }
+	.card.card-tab ul.nav-tabs.open i.fa-caret-down {
+			display: none; }
+			
     .card.card-tab .card-header > ul > li, .card.card-tab ul.nav-tabs > li {
       display: block;
       margin-bottom: -2px;
@@ -3891,6 +3919,77 @@ ui-view > .app-messaging-container {
           border-bottom: none !important; }
       .card.card-tab .card-header > ul > li:first-child.active, .card.card-tab ul.nav-tabs > li:first-child.active {
         border-left: 0; }
+	  .card.card-tab ul.nav-tabs > li{
+			width:auto;
+			min-width:auto;
+			display: none;
+			float: none;
+			text-align: center;
+			z-index: 0;
+			margin-bottom: 0px;}
+	  .card.card-tab ul.nav-tabs > li.active {
+			display: block;
+			border: 0; }
+	  .card.card-tab ul.nav-tabs > li:last-of-type > a {
+			margin-right: 0; }
+	  .card.card-tab ul.nav-tabs > li > a {
+			margin-right: 0;
+			background: #fff;
+			border-bottom: 1px solid #DDDDDD;
+			padding: 20px 30px;
+			border-right: none; }
+	  .card.card-tab ul.nav-tabs > li.active a {
+			border-bottom: 1px solid #DDDDDD !important;
+			border-radius: 2px; }
+	  .card.card-tab ul.nav-tabs.open > li {
+			display: block; }
+	  .card.card-tab ul.nav-tabs.open > li a {
+			border-radius: 0; }
+	  .card.card-tab ul.nav-tabs.open > li:first-of-type a {
+			border-radius: 2px 2px 0 0; }
+	  .card.card-tab ul.nav-tabs.open > li:last-of-type a {
+			border-radius: 0 0 2px 2px; }
+	  .card.card-tab ul.nav-tabs i {
+			position: absolute;
+			top: 18px;
+			right: 22px;
+			font-size: 24px; }
+	  .card.card-tab ul.nav-tabs i.fa-caret-up {
+		  display: none;
+		}
+	  @media (min-width: 842px) {
+			.card.card-tab ul.nav-tabs {
+				border-bottom: 1px solid #ddd;
+				
+			}
+			.card.card-tab ul.nav-tabs i {
+				display: none;
+			}
+			.card.card-tab ul.nav-tabs > li > a {
+				margin-right: 4px;
+				padding: 14px 12px;
+				border-right: 1px solid #DDDDDD;
+			}
+			.card.card-tab ul.nav-tabs > li {
+				display: block;
+				float: left;
+				margin-bottom: -1px;
+			}
+			.card.card-tab ul.nav-tabs > li.active a {
+				border-bottom-color: transparent !important;
+			}
+			
+			.card.card-tab ul.nav-tabs.open i.fa-caret-up {
+				display: none;
+			}
+		}
+		
+		@media (min-width: 980px) {
+			.card.card-tab ul.nav-tabs > li > a {
+				padding: 20px 30px;
+			}
+		}
+		
   .card.card-tab .tab-content {
     padding: 0;
     position: relative;
@@ -4860,6 +4959,26 @@ table.table.card-table {
     background-color: #fdc3bd;
     border-bottom-color: #f3b1ab;
     color: #d73727; }
+	
+
+.panel.compact-panel{
+	margin-bottom: 4px;
+	color: #666; }
+
+	.panel.compact-panel .panel-heading{
+		padding: 14px;
+		color: #666;
+		background-color: #f5f5f5; }
+
+	.panel.compact-panel .panel-body{
+		padding: 0px; }
+
+	.panel.compact-panel .panel-heading > p{
+		margin: 0px; }
+	.panel.compact-panel a.collapse-title{
+		text-decoration:none; }
+	.panel.compact-panel .panel-body .row{
+		position:relative; }
 
 .dataTables_wrapper {
   border-radius: 2px;
@@ -5746,6 +5865,10 @@ footer.app-footer {
     margin-right: 7.5px; }
     .media.social-post .media-left img {
       border-radius: 50%; }
+  .media.social-post.profile-block .media-body {
+	  margin-top: 15px; }
+   .media.social-post.profile-block img {
+	max-width: 50px; }
   .media.social-post .media-body .media-heading {
     margin-bottom: 10px; }
     .media.social-post .media-body .media-heading .title {
