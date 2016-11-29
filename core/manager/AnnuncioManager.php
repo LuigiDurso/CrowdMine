@@ -11,10 +11,18 @@ include_once MODEL_DIR . 'Annuncio.php';
 
 /**
  * Class AnnuncioManager
- * This Class Provides
+ * This Class provides the business logic for the Annuncio Management and methods for database access.
  */
-class AnnuncioManager
-{
+class AnnuncioManager{
+
+
+    /**
+     * AnnuncioManager constructor.
+     */
+    public function __construct()
+    {
+
+    }
 
     /**
      * create a new persistent Annuncio and its categories
@@ -29,9 +37,9 @@ class AnnuncioManager
      * @param String $remuneration Indicative remuneration.
      * @return Annuncio A model instance of the created Annuncio.
      */
-    public function createAnnuncio($id=null, $title, $description,$macrocat,$microcat, $location, $type, $remuneration){
-
-        return new Annuncio($id,new DateTime(), $title, $description, $location, $type, $remuneration, null);
+    public function createAnnuncio($id=null, $title, $description,$macrocat,$microcat, $location, $type, $remuneration)
+    {
+        return new Annuncio($id, new DateTime(), $title, $description, $location, $type, $remuneration, null);
     }
 
     /**
@@ -179,7 +187,7 @@ class AnnuncioManager
      * @param $idAnnuncio
      * @return Candidatura[] A list of Candidatura elements.
      */
-    public function getAnnuncioConCandidati($idAnnuncio){
+    public function getAnnuncioWithCandidati($idAnnuncio){
         return [];
     }
 
