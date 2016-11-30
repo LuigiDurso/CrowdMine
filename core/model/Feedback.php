@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Feedback {
+class Feedback extends Commento{
     
     private $id;
     private $idUtente;
