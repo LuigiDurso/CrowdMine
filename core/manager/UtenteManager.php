@@ -9,7 +9,7 @@ include_once MODEL_DIR . 'Macrocategoria.php';
  * Date: 28/11/2016
  * Time: 23.25
  */
-class UtenteManager
+class UtenteManager extends Controller
 {
 
     /**

@@ -7,7 +7,7 @@ include_once MODEL_DIR . 'Macrocategoria.php';
  * Date: 29/11/2016
  * Time: 00.15
  */
-class MicrocategoriaManager
+class MicrocategoriaManager extends Controller
 {
 
     /**
