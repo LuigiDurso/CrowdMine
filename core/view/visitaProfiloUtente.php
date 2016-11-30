@@ -309,7 +309,7 @@
                             <li role="tab1" class="active">
                                 <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Profilo</a>
                             </li>
-							<li role="tab2">
+                            <li role="tab2">
                                 <a href="#tab2" aria-controls="tab5" role="tab" data-toggle="tab">Annunci</a>
                             </li>
                             <li role="tab3">
@@ -323,142 +323,145 @@
                     <div class="card-body no-padding tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <div class="row">
-								<div class="col-lg-12 col-md-12 col-xs-12">
-									<div class="section">
-										<div class="section-title profile">
-											<i class="icon fa fa-user" aria-hidden="true"></i>
-											Dati anagrafici
-										</div>
+                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title profile">
+                                            <i class="icon fa fa-user" aria-hidden="true"></i>
+                                            Dati anagrafici
+                                        </div>
 
 
-										<div class="panel panel-default" style="border: none;box-shadow: none;">
-											<div class="panel-body">
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 simple-row">
-														Nome
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 simple-row">
-														Scott
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Cognome
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														White
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Professione
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														Web Designer
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Data di nascita
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														22/04/1989
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Localit&agrave;
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														Fisciano
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														CAP
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														84048
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Partita Iva
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														12345678912
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
-														Sito Web
-													</div>
-													<div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
-														www.fakesite.com
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="section">
-										<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
-											Categorie
-										</div>
-										<div class="panel panel-default compact-panel">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Macrocategorie
-													</h4>
-												</div>
-											</a>
-											<div id="profile-collapse5" class="panel-collapse collapse in">
-												<div class="panel-body">
-													<div class="col-lg-12 col-md-12 col-xs-12">
-														<div class="row">
-															<div class="col-lg-12 col-md-12 col-xs-12 simple-row">
-																<span class="label label-primary">Informatica</span>
-																<span class="label label-success">Graphic Design</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-default compact-panel">
-											<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
-												<div class="panel-heading">
-													<h4 class="media-heading">
-														Microcategorie
-													</h4>
-												</div>
-											</a>
-											<div id="profile-collapse6" class="panel-collapse collapse in">
-												<div class="panel-body">
-													<div class="col-lg-12 col-md-12 col-xs-12">
-														<div class="row">
-															<div class="col-lg-12 col-md-12 col-xs-12 simple-row">
-																<span class="label label-default">Informatica</span>
-																<span class="label label-info">Php</span>
-																<span class="label label-warning">Javascript</span>		
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-lg-12 col-md-12 col-xs-12 overlined-row">
-																<span class="label label-default">Graphic Design</span>
-																<span class="label label-danger">Adobe Illustrator</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+                                        <div class="panel panel-default" style="border: none;box-shadow: none;">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 simple-row">
+                                                        Nome
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 simple-row">
+                                                        Scott
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Cognome
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        White
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Professione
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        Web Designer
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Data di nascita
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        22/04/1989
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Localit&agrave;
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        Fisciano
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        CAP
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        84048
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Partita Iva
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        12345678912
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-xs-5 overlined-row">
+                                                        Sito Web
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-xs-7 overlined-row">
+                                                        www.fakesite.com
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
+                                            Categorie
+                                        </div>
+                                        <div class="panel panel-default compact-panel">
+                                            <a class="panel-default collapse-title" data-toggle="collapse"
+                                               href="#profile-collapse5">
+                                                <div class="panel-heading">
+                                                    <h4 class="media-heading">
+                                                        Macrocategorie
+                                                    </h4>
+                                                </div>
+                                            </a>
+                                            <div id="profile-collapse5" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <div class="col-lg-12 col-md-12 col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-xs-12 simple-row">
+                                                                <span class="label label-primary">Informatica</span>
+                                                                <span class="label label-success">Graphic Design</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default compact-panel">
+                                            <a class="panel-default collapse-title" data-toggle="collapse"
+                                               href="#profile-collapse6">
+                                                <div class="panel-heading">
+                                                    <h4 class="media-heading">
+                                                        Microcategorie
+                                                    </h4>
+                                                </div>
+                                            </a>
+                                            <div id="profile-collapse6" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <div class="col-lg-12 col-md-12 col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-xs-12 simple-row">
+                                                                <span class="label label-default">Informatica</span>
+                                                                <span class="label label-info">Php</span>
+                                                                <span class="label label-warning">Javascript</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-xs-12 overlined-row">
+                                                                <span class="label label-default">Graphic Design</span>
+                                                                <span
+                                                                    class="label label-danger">Adobe Illustrator</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-									</div>
-								</div>
-							</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-						<div role="tabpanel" class="tab-pane" id="tab2">
+                        <div role="tabpanel" class="tab-pane" id="tab2">
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                             reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo
                             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -469,7 +472,8 @@
                         <div role="tabpanel" class="tab-pane" id="tab3">
                             <div class="row">
                                 <div class="panel panel-default compact-panel">
-                                    <a class="panel-default collapse-title" data-toggle="collapse" href="#feedback-collapse">
+                                    <a class="panel-default collapse-title" data-toggle="collapse"
+                                       href="#feedback-collapse">
                                         <div class="panel-heading">
                                             <h4 class="media-heading">
                                                 Inserisci Feedback
@@ -478,83 +482,90 @@
                                         </div>
                                     </a>
                                     <div id="feedback-collapse" class="panel-collapse collapse">
-                                        <div class="panel-body">
-											<div class="col-lg-12 col-md-12 col-xs-12">
-												<div class="row">
-													<div class="col-md-3 col-xs-12 simple-row">
-														<div class="section">
-															<div class="section-title">
-																Your user name
-															</div>
-															<div class="section-body __indent">
-																<img src="http://placehold.it/100x100" class="img-responsive">
-															</div>
+                                        <form  action="" method="post">
+                                            <div class="panel-body">
+                                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                                    <div class="row">
+                                                        <div class="col-md-3 col-xs-12 simple-row">
+                                                            <div class="section">
+                                                                <div class="section-title">
+                                                                    Your user name
+                                                                </div>
+                                                                <div class="section-body __indent">
+                                                                    <img src="http://placehold.it/100x100"
+                                                                         class="img-responsive">
+                                                                </div>
 
-															<div class="section-title">
-																Rating
-															</div>
-															<div class="section-body">
-																<div class="rating">
-																	<input type="radio" id="star5" name="rating"
-																		   value="5"/><label
-																		class="full" for="star5"
-																		title="Awesome - 5 stars"></label>
-																	<input type="radio" id="star4half" name="rating"
-																		   value="4.5"/><label
-																		class="half" for="star4half"
-																		title="Pretty good - 4.5 stars"></label>
-																	<input type="radio" id="star4" name="rating"
-																		   value="4"/><label
-																		class="full" for="star4"
-																		title="Pretty good - 4 stars"></label>
-																	<input type="radio" id="star3half" name="rating"
-																		   value="3.5"/><label
-																		class="half" for="star3half"
-																		title="Meh - 3.5 stars"></label>
-																	<input type="radio" id="star3" name="rating"
-																		   value="3"/><label
-																		class="full" for="star3" title="Meh - 3 stars"></label>
-																	<input type="radio" id="star2half" name="rating"
-																		   value="2.5"/><label
-																		class="half" for="star2half"
-																		title="Kinda bad - 2.5 stars"></label>
-																	<input type="radio" id="star2" name="rating"
-																		   value="2"/><label
-																		class="full" for="star2"
-																		title="Kinda bad - 2 stars"></label>
-																	<input type="radio" id="star1half" name="rating"
-																		   value="1.5"/><label
-																		class="half" for="star1half"
-																		title="Meh - 1.5 stars"></label>
-																	<input type="radio" id="star1" name="rating"
-																		   value="1"/><label
-																		class="full" for="star1"
-																		title="Sucks big time - 1 star"></label>
-																	<input type="radio" id="starhalf" name="rating"
-																		   value="0.5"/><label
-																		class="half" for="starhalf"
-																		title="Sucks big time - 0.5 stars"></label>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-7 col-xs-12 simple-row">
-														<input type="text" class="form-control"
-															   placeholder="Inserisci il titolo del feedback">
-														<textarea name="name" rows="3" class="form-control"
-																  id="feedback-textarea"
-																  placeholder="Descrizione"></textarea>
-														<button type="button" class="btn btn-success" id="button-add-feedback">Inserisci Feeedback
-														</button>
+                                                                <div class="section-title">
+                                                                    Rating
+                                                                </div>
+                                                                <div class="section-body">
+                                                                    <div class="rating">
+                                                                        <input type="radio" id="star5" name="rating"
+                                                                               value="5"/><label
+                                                                            class="full" for="star5"
+                                                                            title="Awesome - 5 stars"></label>
+                                                                        <input type="radio" id="star4half" name="rating"
+                                                                               value="4.5"/><label
+                                                                            class="half" for="star4half"
+                                                                            title="Pretty good - 4.5 stars"></label>
+                                                                        <input type="radio" id="star4" name="rating"
+                                                                               value="4"/><label
+                                                                            class="full" for="star4"
+                                                                            title="Pretty good - 4 stars"></label>
+                                                                        <input type="radio" id="star3half" name="rating"
+                                                                               value="3.5"/><label
+                                                                            class="half" for="star3half"
+                                                                            title="Meh - 3.5 stars"></label>
+                                                                        <input type="radio" id="star3" name="rating"
+                                                                               value="3"/><label
+                                                                            class="full" for="star3"
+                                                                            title="Meh - 3 stars"></label>
+                                                                        <input type="radio" id="star2half" name="rating"
+                                                                               value="2.5"/><label
+                                                                            class="half" for="star2half"
+                                                                            title="Kinda bad - 2.5 stars"></label>
+                                                                        <input type="radio" id="star2" name="rating"
+                                                                               value="2"/><label
+                                                                            class="full" for="star2"
+                                                                            title="Kinda bad - 2 stars"></label>
+                                                                        <input type="radio" id="star1half" name="rating"
+                                                                               value="1.5"/><label
+                                                                            class="half" for="star1half"
+                                                                            title="Meh - 1.5 stars"></label>
+                                                                        <input type="radio" id="star1" name="rating"
+                                                                               value="1"/><label
+                                                                            class="full" for="star1"
+                                                                            title="Sucks big time - 1 star"></label>
+                                                                        <input type="radio" id="starhalf" name="rating"
+                                                                               value="0.5"/><label
+                                                                            class="half" for="starhalf"
+                                                                            title="Sucks big time - 0.5 stars"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7 col-xs-12 simple-row">
+                                                            <input type="text" class="form-control"
+                                                                   name="feedback-title"
+                                                                   placeholder="Inserisci il titolo del feedback">
+                                                            <textarea name="name" rows="3" class="form-control"
+                                                                      id="feedback-textarea" name="feedback-textArea"
+                                                                      placeholder="Descrizione"></textarea>
+                                                            <button type="button" class="btn btn-success"
+                                                                    id="button-add-feedback">Inserisci Feeedback
+                                                            </button>
 
-														<div class="alert alert-danger  alert-dismissible" role="alert"
-															 id="feedback-erros" style="display: none">
+                                                            <div class="alert alert-danger  alert-dismissible"
+                                                                 role="alert"
+                                                                 id="feedback-erros" style="display: none">
 
-														</div>
-													</div>
-												</div>
-											</div>
-                                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -643,7 +654,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="media social-post" >
+                                        <div class="media social-post">
                                             <div class="media-left">
                                                 <a href="#">
                                                     <img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
@@ -809,80 +820,80 @@
                                 </div>
                             </div>
                         </div>
-                    
 
-						<!--Statistiche-->
-						<div role="tabpanel" class="tab-pane" id="tab4">
-							<div class="row">
-								<div class="col-md-3 col-sm-12">
-									<div class="section">
-										<div class="section-title">
-											Your user name
-										</div>
-										<div class="section-body __indent">
-											<img src="http://placehold.it/100x100" class="img-responsive">
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-									<div class="section">
-										<div class="section-title">Statistica Feedback Totale</div>
-										<div class="section-body">
-											<div class="ct-chart-pie ct-perfect-fourth"></div>
-											<div class="col-sm-4">
-												<ul class="chart-label">
-													<li class="ct-label ct-series-a">Feedback positivi</li>
-													<li class="ct-label ct-series-b">Feedback negativi</li>
-												</ul>
-											</div>
-											<div class="col-md-6">
-												<table class="table">
-													<thead>
-													<tr>
-														<th>#</th>
-														<th>Micro Categoria</th>
-														<th>Feedback positivi</th>
-														<th>Feedback Negativi</th>
-													</tr>
-													</thead>
-													<tbody>
-													<tr>
-														<th scope="row">1</th>
-														<td>Mark</td>
-														<td>Otto</td>
-														<td>@mdo</td>
-													</tr>
-													<tr>
-														<th scope="row">2</th>
-														<td>Jacob</td>
-														<td>Thornton</td>
-														<td>@fat</td>
-													</tr>
-													<tr>
-														<th scope="row">3</th>
-														<td>Larry</td>
-														<td>the Bird</td>
-														<td>@twitter</td>
-													</tr>
-													<tr>
-														<th scope="row">4</th>
-														<td>Larry</td>
-														<td>the Bird</td>
-														<td>@twitter</td>
-													</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+
+                        <!--Statistiche-->
+                        <div role="tabpanel" class="tab-pane" id="tab4">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="section">
+                                        <div class="section-title">
+                                            Your user name
+                                        </div>
+                                        <div class="section-body __indent">
+                                            <img src="http://placehold.it/100x100" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="section">
+                                        <div class="section-title">Statistica Feedback Totale</div>
+                                        <div class="section-body">
+                                            <div class="ct-chart-pie ct-perfect-fourth"></div>
+                                            <div class="col-sm-4">
+                                                <ul class="chart-label">
+                                                    <li class="ct-label ct-series-a">Feedback positivi</li>
+                                                    <li class="ct-label ct-series-b">Feedback negativi</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Micro Categoria</th>
+                                                        <th>Feedback positivi</th>
+                                                        <th>Feedback Negativi</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry</td>
+                                                        <td>the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>Larry</td>
+                                                        <td>the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-</div>
 </div>
 </div>
 
@@ -897,7 +908,7 @@
     });
 
     $(document).ready(function () {
-        $("#button-add-feedback").click(function (){
+        $("#button-add-feedback").click(function () {
 
             var textAreaLength = $("#feedback-textarea").val().length;
             console.log(textAreaLength)
