@@ -8,53 +8,53 @@
  */
 class Preferito
 {
-    private $utente;
-    private $annunci;
+    private $idUtente;
+    private $idAnnuncio;
     private $dataAggiunta;
 
     /**
      * Preferito constructor.
-     * @param $utente
-     * @param $annunci
+     * @param $idUtente
+     * @param $idAnnuncio
      * @param $dataAggiunta
      */
-    public function __construct($utente, $annunci, $dataAggiunta)
+    public function __construct($idUtente, $idAnnuncio, $dataAggiunta)
     {
-        $this->utente = $utente;
-        $this->annunci = $annunci;
+        $this->idUtente = $idUtente;
+        $this->idAnnuncio = $idAnnuncio;
         $this->dataAggiunta = $dataAggiunta;
     }
 
     /**
      * @return mixed
      */
-    public function getUtente()
+    public function getIdUtente()
     {
-        return $this->utente;
+        return $this->idUtente;
     }
 
     /**
-     * @param mixed $utente
+     * @param mixed $idUtente
      */
-    public function setUtente($utente)
+    public function setIdUtente($idUtente)
     {
-        $this->utente = $utente;
+        $this->idUtente = $idUtente;
     }
 
     /**
      * @return mixed
      */
-    public function getAnnunci()
+    public function getIdAnnuncio()
     {
-        return $this->annunci;
+        return $this->idAnnuncio;
     }
 
     /**
-     * @param mixed $annunci
+     * @param mixed $idAnnuncio
      */
-    public function setAnnunci($annunci)
+    public function setIdAnnuncio($idAnnuncio)
     {
-        $this->annunci = $annunci;
+        $this->idAnnuncio = $idAnnuncio;
     }
 
     /**
@@ -72,6 +72,5 @@ class Preferito
     {
         $this->dataAggiunta = $dataAggiunta;
     }
-
 
 }

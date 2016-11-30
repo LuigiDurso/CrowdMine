@@ -54,6 +54,4 @@ class MacroCategoria
         $this->nome = $nome;
     }
 
-
-
 }

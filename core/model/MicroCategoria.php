@@ -10,19 +10,19 @@ class MicroCategoria
 {
     private $id;
     private $nome;
-    private $id_macrocategoria;
+    private $idMacrocategoria;
 
     /**
      * MicroCategoria constructor.
      * @param $id
      * @param $nome
-     * @param $id_macrocategoria
+     * @param $idMacrocategoria
      */
-    public function __construct($id, $nome, $id_macrocategoria)
+    public function __construct($id, $nome, $idMacrocategoria)
     {
         $this->id = $id;
         $this->nome = $nome;
-        $this->id_macrocategoria = $id_macrocategoria;
+        $this->idMacrocategoria = $idMacrocategoria;
     }
 
     /**
@@ -62,20 +62,15 @@ class MicroCategoria
      */
     public function getIdMacrocategoria()
     {
-        return $this->id_macrocategoria;
+        return $this->idMacrocategoria;
     }
 
     /**
-     * @param mixed $id_macrocategoria
+     * @param mixed $idMacrocategoria
      */
-    public function setIdMacrocategoria($id_macrocategoria)
+    public function setIdMacrocategoria($idMacrocategoria)
     {
-        $this->id_macrocategoria = $id_macrocategoria;
+        $this->idMacrocategoria = $idMacrocategoria;
     }
-
-
-
-
-
 
 }

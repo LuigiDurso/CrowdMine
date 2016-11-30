@@ -19,6 +19,10 @@ class Utente {
     private $password;
     private $stato;
     private $ruolo;
+    private $listaUtenteBloccati;
+    private $listaAnnunciPreferiti;
+    private $listaNotifiche;
+    private $listaMicrocategorie;
 
     /**
      * Utente constructor.
@@ -32,8 +36,12 @@ class Utente {
      * @param $password
      * @param $stato
      * @param $ruolo
+     * @param $listaUtenteBloccati
+     * @param $listaAnnunciPreferiti
+     * @param $listaNotifiche
+     * @param $listaMicrocategorie
      */
-    public function __construct($id, $nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo)
+    public function __construct($id, $nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo, $listaUtenteBloccati, $listaAnnunciPreferiti, $listaNotifiche, $listaMicrocategorie)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -45,6 +53,10 @@ class Utente {
         $this->password = $password;
         $this->stato = $stato;
         $this->ruolo = $ruolo;
+        $this->listaUtenteBloccati = $listaUtenteBloccati;
+        $this->listaAnnunciPreferiti = $listaAnnunciPreferiti;
+        $this->listaNotifiche = $listaNotifiche;
+        $this->listaMicrocategorie = $listaMicrocategorie;
     }
 
     /**
@@ -205,6 +217,70 @@ class Utente {
     public function setRuolo($ruolo)
     {
         $this->ruolo = $ruolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListaUtenteBloccati()
+    {
+        return $this->listaUtenteBloccati;
+    }
+
+    /**
+     * @param mixed $listaUtenteBloccati
+     */
+    public function setListaUtenteBloccati($listaUtenteBloccati)
+    {
+        $this->listaUtenteBloccati = $listaUtenteBloccati;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListaAnnunciPreferiti()
+    {
+        return $this->listaAnnunciPreferiti;
+    }
+
+    /**
+     * @param mixed $listaAnnunciPreferiti
+     */
+    public function setListaAnnunciPreferiti($listaAnnunciPreferiti)
+    {
+        $this->listaAnnunciPreferiti = $listaAnnunciPreferiti;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListaNotifiche()
+    {
+        return $this->listaNotifiche;
+    }
+
+    /**
+     * @param mixed $listaNotifiche
+     */
+    public function setListaNotifiche($listaNotifiche)
+    {
+        $this->listaNotifiche = $listaNotifiche;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListaMicrocategorie()
+    {
+        return $this->listaMicrocategorie;
+    }
+
+    /**
+     * @param mixed $listaMicrocategorie
+     */
+    public function setListaMicrocategorie($listaMicrocategorie)
+    {
+        $this->listaMicrocategorie = $listaMicrocategorie;
     }
 
 }

@@ -8,6 +8,7 @@
 class Annuncio {
     
     private $id;
+    private $idUtente;
     private $data;
     private $titolo;
     private $descrizione;
@@ -15,10 +16,12 @@ class Annuncio {
     private $stato;
     private $retribuzione;
     private $tipologia;
+    private $listaCommenti;
 
     /**
      * Annuncio constructor.
      * @param $id
+     * @param $idUtente
      * @param $data
      * @param $titolo
      * @param $descrizione
@@ -26,10 +29,12 @@ class Annuncio {
      * @param $stato
      * @param $retribuzione
      * @param $tipologia
+     * @param $listaCommenti
      */
-    public function __construct($id, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia)
+    public function __construct($id, $idUtente, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia, $listaCommenti)
     {
         $this->id = $id;
+        $this->idUtente = $idUtente;
         $this->data = $data;
         $this->titolo = $titolo;
         $this->descrizione = $descrizione;
@@ -37,8 +42,8 @@ class Annuncio {
         $this->stato = $stato;
         $this->retribuzione = $retribuzione;
         $this->tipologia = $tipologia;
+        $this->listaCommenti = $listaCommenti;
     }
-
 
     /**
      * @return null
@@ -167,5 +172,37 @@ class Annuncio {
     {
         $this->retribuzione = $retribuzione;
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function getListaCommenti()
+    {
+        return $this->listaCommenti;
+    }
+
+    /**
+     * @param mixed $listaCommenti
+     */
+    public function setListaCommenti($listaCommenti)
+    {
+        $this->listaCommenti = $listaCommenti;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUtente()
+    {
+        return $this->idUtente;
+    }
+
+    /**
+     * @param mixed $idUtente
+     */
+    public function setIdUtente($idUtente)
+    {
+        $this->idUtente = $idUtente;
+    }
+
 }

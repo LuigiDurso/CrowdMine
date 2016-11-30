@@ -2,40 +2,41 @@
 
 /**
  * Created by PhpStorm.
- * User: Lino
- * Date: 28/11/2016
- * Time: 09:33
+ * User: Angelo
+ * Date: 30/11/2016
+ * Time: 20:57
  */
-class Riferito
+class Competente
 {
-    private $idAnnuncio;
+
+    private $idUtente;
     private $idMicrocategoria;
 
     /**
-     * Riferito constructor.
-     * @param $idAnnuncio
+     * Competente constructor.
+     * @param $idUtente
      * @param $idMicrocategoria
      */
-    public function __construct($idAnnuncio, $idMicrocategoria)
+    public function __construct($idUtente, $idMicrocategoria)
     {
-        $this->idAnnuncio = $idAnnuncio;
+        $this->idUtente = $idUtente;
         $this->idMicrocategoria = $idMicrocategoria;
     }
 
     /**
      * @return mixed
      */
-    public function getIdAnnuncio()
+    public function getIdUtente()
     {
-        return $this->idAnnuncio;
+        return $this->idUtente;
     }
 
     /**
-     * @param mixed $idAnnuncio
+     * @param mixed $idUtente
      */
-    public function setIdAnnuncio($idAnnuncio)
+    public function setIdUtente($idUtente)
     {
-        $this->idAnnuncio = $idAnnuncio;
+        $this->idUtente = $idUtente;
     }
 
     /**

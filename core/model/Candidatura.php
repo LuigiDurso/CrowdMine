@@ -168,6 +168,4 @@ class Candidatura
         $this->richiestaAccettata = $richiestaAccettata;
     }
 
-
-
 }
