@@ -10,24 +10,24 @@ class Commento
 {
 
     private $id;
-    private $id_annuncio;
-    private $id_utente;
+    private $idAnnuncio;
+    private $idUtente;
     private $corpo;
     private $data;
 
     /**
      * Commento constructor.
      * @param $id
-     * @param $id_annuncio
-     * @param $id_utente
+     * @param $idAnnuncio
+     * @param $idUtente
      * @param $corpo
      * @param $data
      */
-    public function __construct($id, $id_annuncio, $id_utente, $corpo, $data)
+    public function __construct($id, $idAnnuncio, $idUtente, $corpo, $data)
     {
         $this->id = $id;
-        $this->id_annuncio = $id_annuncio;
-        $this->id_utente = $id_utente;
+        $this->idAnnuncio = $idAnnuncio;
+        $this->idUtente = $idUtente;
         $this->corpo = $corpo;
         $this->data = $data;
     }
@@ -53,15 +53,15 @@ class Commento
      */
     public function getIdAnnuncio()
     {
-        return $this->id_annuncio;
+        return $this->idAnnuncio;
     }
 
     /**
-     * @param mixed $id_annuncio
+     * @param mixed $idAnnuncio
      */
-    public function setIdAnnuncio($id_annuncio)
+    public function setIdAnnuncio($idAnnuncio)
     {
-        $this->id_annuncio = $id_annuncio;
+        $this->idAnnuncio = $idAnnuncio;
     }
 
     /**
@@ -69,15 +69,15 @@ class Commento
      */
     public function getIdUtente()
     {
-        return $this->id_utente;
+        return $this->idUtente;
     }
 
     /**
-     * @param mixed $id_utente
+     * @param mixed $idUtente
      */
-    public function setIdUtente($id_utente)
+    public function setIdUtente($idUtente)
     {
-        $this->id_utente = $id_utente;
+        $this->idUtente = $idUtente;
     }
 
     /**
@@ -111,5 +111,5 @@ class Commento
     {
         $this->data = $data;
     }
-    
+
 }

@@ -9,18 +9,18 @@
 class Interesse
 {
 
-    private $id_utente;
-    private $id_microcategoria;
+    private $idUtente;
+    private $idMicrocategoria;
 
     /**
      * Interesse constructor.
-     * @param $id_utente
-     * @param $id_microcategoria
+     * @param $idUtente
+     * @param $idMicrocategoria
      */
-    public function __construct($id_utente, $id_microcategoria)
+    public function __construct($idUtente, $idMicrocategoria)
     {
-        $this->id_utente = $id_utente;
-        $this->id_microcategoria = $id_microcategoria;
+        $this->idUtente = $idUtente;
+        $this->idMicrocategoria = $idMicrocategoria;
     }
 
     /**
@@ -28,15 +28,15 @@ class Interesse
      */
     public function getIdUtente()
     {
-        return $this->id_utente;
+        return $this->idUtente;
     }
 
     /**
-     * @param mixed $id_utente
+     * @param mixed $idUtente
      */
-    public function setIdUtente($id_utente)
+    public function setIdUtente($idUtente)
     {
-        $this->id_utente = $id_utente;
+        $this->idUtente = $idUtente;
     }
 
     /**
@@ -44,15 +44,15 @@ class Interesse
      */
     public function getIdMicrocategoria()
     {
-        return $this->id_microcategoria;
+        return $this->idMicrocategoria;
     }
 
     /**
-     * @param mixed $id_microcategoria
+     * @param mixed $idMicrocategoria
      */
-    public function setIdMicrocategoria($id_microcategoria)
+    public function setIdMicrocategoria($idMicrocategoria)
     {
-        $this->id_microcategoria = $id_microcategoria;
+        $this->idMicrocategoria = $idMicrocategoria;
     }
-    
+
 }
