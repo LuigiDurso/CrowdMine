@@ -11,6 +11,13 @@ class MicrocategoriaManager
 {
 
     /**
+     * MicrocategoriaManager constructor.
+     */
+    public function __construct()
+    {
+
+    }
+    /**
      * Add a new persistent Microcategoria
      *
      * @param $id

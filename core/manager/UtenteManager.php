@@ -9,9 +9,16 @@ include_once MODEL_DIR . 'Macrocategoria.php';
  * Date: 28/11/2016
  * Time: 23.25
  */
-class UserManager
+class UtenteManager
 {
 
+    /**
+     * UtenteManager constructor.
+     */
+    public function __construct()
+    {
+
+    }
      /**
       * Create a new persistent User and its categories
       *
