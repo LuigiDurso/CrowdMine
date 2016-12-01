@@ -42,6 +42,4 @@ class Feedback extends Commento
         $this->valutazione = $valutazione;
     }
 
-
-
 }

@@ -14,6 +14,7 @@ class Commento
     private $idUtente;
     private $corpo;
     private $data;
+    private $stato;
 
     /**
      * Commento constructor.
@@ -41,27 +42,11 @@ class Commento
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getIdAnnuncio()
     {
         return $this->idAnnuncio;
-    }
-
-    /**
-     * @param mixed $idAnnuncio
-     */
-    public function setIdAnnuncio($idAnnuncio)
-    {
-        $this->idAnnuncio = $idAnnuncio;
     }
 
     /**
@@ -73,27 +58,11 @@ class Commento
     }
 
     /**
-     * @param mixed $idUtente
-     */
-    public function setIdUtente($idUtente)
-    {
-        $this->idUtente = $idUtente;
-    }
-
-    /**
      * @return mixed
      */
     public function getCorpo()
     {
         return $this->corpo;
-    }
-
-    /**
-     * @param mixed $corpo
-     */
-    public function setCorpo($corpo)
-    {
-        $this->corpo = $corpo;
     }
 
     /**
@@ -105,11 +74,36 @@ class Commento
     }
 
     /**
+     * @param mixed $corpo
+     */
+    public function setCorpo($corpo)
+    {
+        $this->corpo = $corpo;
+    }
+
+    /**
      * @param mixed $data
      */
     public function setData($data)
     {
         $this->data = $data;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStato()
+    {
+        return $this->stato;
+    }
+
+    /**
+     * @param mixed $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
+    }
+
 
 }

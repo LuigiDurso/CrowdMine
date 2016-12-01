@@ -40,27 +40,11 @@ class Notifica
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getData()
     {
         return $this->data;
-    }
-
-    /**
-     * @param mixed $data
-     */
-    public function setData($data)
-    {
-        $this->data = $data;
     }
 
     /**
@@ -72,14 +56,6 @@ class Notifica
     }
 
     /**
-     * @param mixed $tipo
-     */
-    public function setTipo($tipo)
-    {
-        $this->tipo = $tipo;
-    }
-
-    /**
      * @return mixed
      */
     public function getInfo()
@@ -88,19 +64,35 @@ class Notifica
     }
 
     /**
-     * @param mixed $info
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-    }
-
-    /**
      * @return mixed
      */
     public function getLetto()
     {
         return $this->letto;
+    }
+
+    /**
+     * @param mixed $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    }
+
+    /**
+     * @param mixed $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
     }
 
     /**

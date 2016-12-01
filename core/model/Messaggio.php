@@ -14,6 +14,7 @@ class Messaggio
     private $idUtenteDestinatario;
     private $corpo;
     private $data;
+    private $letto;
 
     /**
      * Messaggio constructor.
@@ -22,14 +23,16 @@ class Messaggio
      * @param $idUtenteDestinatario
      * @param $corpo
      * @param $data
+     * @param $letto
      */
-    public function __construct($id, $idUtenteMittente, $idUtenteDestinatario, $corpo, $data)
+    public function __construct($id, $idUtenteMittente, $idUtenteDestinatario, $corpo, $data, $letto)
     {
         $this->id = $id;
         $this->idUtenteMittente = $idUtenteMittente;
         $this->idUtenteDestinatario = $idUtenteDestinatario;
         $this->corpo = $corpo;
         $this->data = $data;
+        $this->letto = $letto;
     }
 
     /**
@@ -41,27 +44,11 @@ class Messaggio
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getIdUtenteMittente()
     {
         return $this->idUtenteMittente;
-    }
-
-    /**
-     * @param mixed $idUtenteMittente
-     */
-    public function setIdUtenteMittente($idUtenteMittente)
-    {
-        $this->idUtenteMittente = $idUtenteMittente;
     }
 
     /**
@@ -73,27 +60,11 @@ class Messaggio
     }
 
     /**
-     * @param mixed $idUtenteDestinatario
-     */
-    public function setIdUtenteDestinatario($idUtenteDestinatario)
-    {
-        $this->idUtenteDestinatario = $idUtenteDestinatario;
-    }
-
-    /**
      * @return mixed
      */
     public function getCorpo()
     {
         return $this->corpo;
-    }
-
-    /**
-     * @param mixed $corpo
-     */
-    public function setCorpo($corpo)
-    {
-        $this->corpo = $corpo;
     }
 
     /**
@@ -105,11 +76,35 @@ class Messaggio
     }
 
     /**
+     * @return mixed
+     */
+    public function getLetto()
+    {
+        return $this->letto;
+    }
+
+    /**
+     * @param mixed $corpo
+     */
+    public function setCorpo($corpo)
+    {
+        $this->corpo = $corpo;
+    }
+
+    /**
      * @param mixed $data
      */
     public function setData($data)
     {
         $this->data = $data;
+    }
+
+    /**
+     * @param mixed $letto
+     */
+    public function setLetto($letto)
+    {
+        $this->letto = $letto;
     }
 
 }

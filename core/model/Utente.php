@@ -19,10 +19,7 @@ class Utente {
     private $password;
     private $stato;
     private $ruolo;
-    private $listaUtenteBloccati;
-    private $listaAnnunciPreferiti;
-    private $listaNotifiche;
-    private $listaMicrocategorie;
+    private $immagineProfilo;
 
     /**
      * Utente constructor.
@@ -36,12 +33,9 @@ class Utente {
      * @param $password
      * @param $stato
      * @param $ruolo
-     * @param $listaUtenteBloccati
-     * @param $listaAnnunciPreferiti
-     * @param $listaNotifiche
-     * @param $listaMicrocategorie
+     * @param $immagineProfilo
      */
-    public function __construct($id, $nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo, $listaUtenteBloccati, $listaAnnunciPreferiti, $listaNotifiche, $listaMicrocategorie)
+    public function __construct($id, $nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo, $immagineProfilo)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -53,10 +47,7 @@ class Utente {
         $this->password = $password;
         $this->stato = $stato;
         $this->ruolo = $ruolo;
-        $this->listaUtenteBloccati = $listaUtenteBloccati;
-        $this->listaAnnunciPreferiti = $listaAnnunciPreferiti;
-        $this->listaNotifiche = $listaNotifiche;
-        $this->listaMicrocategorie = $listaMicrocategorie;
+        $this->immagineProfilo = $immagineProfilo;
     }
 
     /**
@@ -68,27 +59,11 @@ class Utente {
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getNome()
     {
         return $this->nome;
-    }
-
-    /**
-     * @param mixed $nome
-     */
-    public function setNome($nome)
-    {
-        $this->nome = $nome;
     }
 
     /**
@@ -100,27 +75,11 @@ class Utente {
     }
 
     /**
-     * @param mixed $cognome
-     */
-    public function setCognome($cognome)
-    {
-        $this->cognome = $cognome;
-    }
-
-    /**
      * @return mixed
      */
     public function getTelefono()
     {
         return $this->telefono;
-    }
-
-    /**
-     * @param mixed $telefono
-     */
-    public function setTelefono($telefono)
-    {
-        $this->telefono = $telefono;
     }
 
     /**
@@ -132,27 +91,11 @@ class Utente {
     }
 
     /**
-     * @param mixed $dataNascita
-     */
-    public function setDataNascita($dataNascita)
-    {
-        $this->dataNascita = $dataNascita;
-    }
-
-    /**
      * @return mixed
      */
     public function getCitta()
     {
         return $this->citta;
-    }
-
-    /**
-     * @param mixed $citta
-     */
-    public function setCitta($citta)
-    {
-        $this->citta = $citta;
     }
 
     /**
@@ -164,27 +107,11 @@ class Utente {
     }
 
     /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
      * @return mixed
      */
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
     }
 
     /**
@@ -196,19 +123,83 @@ class Utente {
     }
 
     /**
-     * @param mixed $stato
-     */
-    public function setStato($stato)
-    {
-        $this->stato = $stato;
-    }
-
-    /**
      * @return mixed
      */
     public function getRuolo()
     {
         return $this->ruolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImmagineProfilo()
+    {
+        return $this->immagineProfilo;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @param mixed $cognome
+     */
+    public function setCognome($cognome)
+    {
+        $this->cognome = $cognome;
+    }
+
+    /**
+     * @param mixed $telefono
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+    }
+
+    /**
+     * @param mixed $dataNascita
+     */
+    public function setDataNascita($dataNascita)
+    {
+        $this->dataNascita = $dataNascita;
+    }
+
+    /**
+     * @param mixed $citta
+     */
+    public function setCitta($citta)
+    {
+        $this->citta = $citta;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param mixed $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
     }
 
     /**
@@ -220,67 +211,11 @@ class Utente {
     }
 
     /**
-     * @return mixed
+     * @param mixed $immagineProfilo
      */
-    public function getListaUtenteBloccati()
+    public function setImmagineProfilo($immagineProfilo)
     {
-        return $this->listaUtenteBloccati;
-    }
-
-    /**
-     * @param mixed $listaUtenteBloccati
-     */
-    public function setListaUtenteBloccati($listaUtenteBloccati)
-    {
-        $this->listaUtenteBloccati = $listaUtenteBloccati;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getListaAnnunciPreferiti()
-    {
-        return $this->listaAnnunciPreferiti;
-    }
-
-    /**
-     * @param mixed $listaAnnunciPreferiti
-     */
-    public function setListaAnnunciPreferiti($listaAnnunciPreferiti)
-    {
-        $this->listaAnnunciPreferiti = $listaAnnunciPreferiti;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getListaNotifiche()
-    {
-        return $this->listaNotifiche;
-    }
-
-    /**
-     * @param mixed $listaNotifiche
-     */
-    public function setListaNotifiche($listaNotifiche)
-    {
-        $this->listaNotifiche = $listaNotifiche;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getListaMicrocategorie()
-    {
-        return $this->listaMicrocategorie;
-    }
-
-    /**
-     * @param mixed $listaMicrocategorie
-     */
-    public function setListaMicrocategorie($listaMicrocategorie)
-    {
-        $this->listaMicrocategorie = $listaMicrocategorie;
+        $this->immagineProfilo = $immagineProfilo;
     }
 
 }

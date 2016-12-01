@@ -49,27 +49,11 @@ class Candidatura
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getIdUtente()
     {
         return $this->idUtente;
-    }
-
-    /**
-     * @param mixed $idUtente
-     */
-    public function setIdUtente($idUtente)
-    {
-        $this->idUtente = $idUtente;
     }
 
     /**
@@ -81,27 +65,11 @@ class Candidatura
     }
 
     /**
-     * @param mixed $idAnnuncio
-     */
-    public function setIdAnnuncio($idAnnuncio)
-    {
-        $this->idAnnuncio = $idAnnuncio;
-    }
-
-    /**
      * @return mixed
      */
     public function getCorpo()
     {
         return $this->corpo;
-    }
-
-    /**
-     * @param mixed $body
-     */
-    public function setCorpo($corpo)
-    {
-        $this->corpo = $corpo;
     }
 
     /**
@@ -113,27 +81,11 @@ class Candidatura
     }
 
     /**
-     * @param mixed $dataRisposta
-     */
-    public function setDataRisposta($dataRisposta)
-    {
-        $this->dataRisposta = $dataRisposta;
-    }
-
-    /**
      * @return mixed
      */
     public function getDataInviata()
     {
         return $this->dataInviata;
-    }
-
-    /**
-     * @param mixed $dataInviata
-     */
-    public function setDataInviata($dataInviata)
-    {
-        $this->dataInviata = $dataInviata;
     }
 
     /**
@@ -145,19 +97,43 @@ class Candidatura
     }
 
     /**
-     * @param mixed $richiestaInviata
-     */
-    public function setRichiestaInviata($richiestaInviata)
-    {
-        $this->richiestaInviata = $richiestaInviata;
-    }
-
-    /**
      * @return mixed
      */
     public function getRichiestaAccettata()
     {
         return $this->richiestaAccettata;
+    }
+
+    /**
+     * @param mixed $corpo
+     */
+    public function setCorpo($corpo)
+    {
+        $this->corpo = $corpo;
+    }
+
+    /**
+     * @param mixed $dataRisposta
+     */
+    public function setDataRisposta($dataRisposta)
+    {
+        $this->dataRisposta = $dataRisposta;
+    }
+
+    /**
+     * @param mixed $dataInviata
+     */
+    public function setDataInviata($dataInviata)
+    {
+        $this->dataInviata = $dataInviata;
+    }
+
+    /**
+     * @param mixed $richiestaInviata
+     */
+    public function setRichiestaInviata($richiestaInviata)
+    {
+        $this->richiestaInviata = $richiestaInviata;
     }
 
     /**
