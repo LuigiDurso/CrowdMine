@@ -124,7 +124,7 @@ try {
                 break;
             case 'inserimentoAnnuncio':
                 StringUtils::checkPermission("all");
-                include_once CONTROL_DIR . "InserisciAnnuncio.php";
+                include_once CONTROL_DIR . "InserisciAnnuncioo.php";
                 break;
             case 'inserimentoEsperienza':
                 StringUtils::checkPermission("all");
