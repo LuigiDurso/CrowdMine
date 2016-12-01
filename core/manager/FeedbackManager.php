@@ -6,7 +6,7 @@
  * Date: 28/11/2016
  * Time: 11:43
  */
-class FeedbackManager
+class FeedbackManager extends Manager
 {
 
     /**

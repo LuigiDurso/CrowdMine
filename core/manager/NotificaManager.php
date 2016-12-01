@@ -6,7 +6,7 @@
  * Date: 30/11/2016
  * Time: 11.16
  */
-class NotificaManager extends Controller
+class NotificaManager extends Manager
 {
     /**
      * NotificaManager constructor.

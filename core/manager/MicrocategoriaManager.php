@@ -7,7 +7,7 @@ include_once MODEL_DIR . 'Macrocategoria.php';
  * Date: 29/11/2016
  * Time: 00.15
  */
-class MicrocategoriaManager extends Controller
+class MicrocategoriaManager extends Manager
 {
 
     /**
@@ -20,8 +20,8 @@ class MicrocategoriaManager extends Controller
     /**
      * Add a new persistent Microcategoria
      *
-     * @param $id
-     * @param $nome
+     * @param Double $id
+     * @param String $nome
      * @return Microcategoria
      */
     public function createMicrocategoria($id, $nome){

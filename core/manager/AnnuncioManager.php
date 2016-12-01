@@ -13,7 +13,7 @@ include_once MODEL_DIR . 'Annuncio.php';
  * Class AnnuncioManager
  * This Class provides the business logic for the Annuncio Management and methods for database access.
  */
-class AnnuncioManager{
+class AnnuncioManager extends Manager{
 
 
     /**
