@@ -8,22 +8,18 @@
  */
 class SearchByTitleFilter extends Filter
 {
-
-    private $title;
-
     /**
      * SearchByTitleFilter constructor.
      * @param $title
      */
     public function __construct($title)
     {
-        $this->title = $title;
+        $this->setTitle($title);
     }
 
-    public function setFilter(&$query)
+    public function setTitle($title)
     {
-        $query.= "LIKE Title = ".$this->title;
+        parent::setFilterString(" `titolo` LIKE '".$title."'% ");
     }
-
 
 }

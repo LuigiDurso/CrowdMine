@@ -8,11 +8,25 @@
  */
 abstract class Filter
 {
+
+    protected $filterString = "";
+
+    /**
+     * @param string $fString
+     */
+    public function setFilterString($fString)
+    {
+        $this->filterString = $fString;
+    }
+
+
     /**
      * apply filter to base query without concatenation
      * @param $query
      */
-    public function setFilter(&$query){}
+    public function setFilter(&$query){
+        $query.=$this->filterString;
+    }
 
     /**
      * concatenate filter to base query
