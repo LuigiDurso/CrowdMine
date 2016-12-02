@@ -40,7 +40,7 @@ class MessaggioManager extends Manager
             } else
                 throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
         }
-        return $Messaggio;
+        return $messaggio;
     }
 
     /**
@@ -59,7 +59,7 @@ class MessaggioManager extends Manager
                 $messaggi[] = $messaggio;
             }
         }
-        return $messaggi[];
+        return $messaggi;
     }
 
     /**
@@ -79,7 +79,7 @@ class MessaggioManager extends Manager
                 $messaggi[] = $messaggio;
             }
         }
-        return $messaggi[];
+        return $messaggi;
     }
 
     /**
