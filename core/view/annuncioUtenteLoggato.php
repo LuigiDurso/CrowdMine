@@ -38,46 +38,46 @@ include_once VIEW_DIR . 'header.php';
     </script>
 </head>
 
-    <style>
+<style>
+    h1 {
+        font-size: 1rem;
+    }
+
+    @media (min-width: 1px) {
         h1 {
-            font-size: 1rem;
+            font-size: xx-small;
         }
+    }
 
-        @media (min-width: 1px) {
-            h1 {
-                font-size: xx-small;
-            }
+    @media (min-width: 750px) {
+        h1 {
+            font-size: 13px;
         }
+    }
 
-        @media (min-width: 750px) {
-            h1 {
-                font-size: 13px;
-            }
+    @media (min-width: 970px) {
+        h1 {
+            font-size: x-large;
         }
+    }
 
-        @media (min-width: 970px) {
-            h1 {
-                font-size: x-large;
-            }
+    @media (min-width: 1200px) {
+        h1 {
+            font-size: xx-large;
         }
+    }
 
-        @media (min-width: 1200px) {
-            h1 {
-                font-size: xx-large;
-            }
-        }
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
 
-        a.morelink {
-            text-decoration:none;
-            outline: none;
-        }
-        .morecontent span {
-            display: none;
-
-        }
+    }
 
 
-    </style>
+</style>
 
 <body>
 <div class="app app-default">
@@ -195,7 +195,7 @@ include_once VIEW_DIR . 'header.php';
 
                         <div class="offerta col-md-12 col-sm-12">
                             <h1>Offerta Programmatore PHP</h1>
-                            </div>
+                        </div>
                     </div>
                     <div class="col-md-1 col-sm-2 preferites">
                         <i class="fa fa-star-o" style="font-size: 200%;"></i>
@@ -205,11 +205,27 @@ include_once VIEW_DIR . 'header.php';
                                     <i class="fa fa-cog" style="font-size: 200%;"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Segnala</a></li>
-                                    <li><a href="#">Action 2</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal">Segnala</a></li>
                                 </ul>
                             </li>
                         </ul>
+                    </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">Conferma segnalazione</h4>
+                                </div>
+                                <div class="modal-body">Inserisci una descrizione per segnalare
+                                    <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
+                                    <button type="button" class="btn btn-sm btn-danger">Segnala</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -242,8 +258,27 @@ include_once VIEW_DIR . 'header.php';
                     <button class="btn btn-link">
                         <i class="fa fa-comments-o"></i> 10 Comments
                     </button>
-                    <button type="button" class="btn btn-success ca">Candidati</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Candidati</button>
                 </div>
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">Conferma candidatura</h4>
+                            </div>
+                            <div class="modal-body">Inserisci una descrizione per candidarti
+                                <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-sm btn-success">Conferma</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
 
@@ -258,7 +293,7 @@ include_once VIEW_DIR . 'header.php';
                             <h5 class="timeing">20 mins ago</h5>
                         </div>
                         <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
-                        </div>
+                    </div>
                     <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
                         <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
                             <a href="#">
@@ -275,8 +310,8 @@ include_once VIEW_DIR . 'header.php';
                     <div class="col-md-12 form-commento">
 
                         <div class="col-md-10 input-comment">
-                        <input type="text" class="form-control" placeholder="Scrivi un commento...">
-                    </div>
+                            <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                        </div>
 
                         <div class="col-md-2 btn-comment">
                             <button type="button" class="btn btn-info">Commenta</button>
@@ -287,7 +322,7 @@ include_once VIEW_DIR . 'header.php';
 
 
             </div>
-    </div>
+        </div>
 
 
 

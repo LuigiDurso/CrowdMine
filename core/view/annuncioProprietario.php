@@ -286,11 +286,27 @@ include_once VIEW_DIR . 'header.php';
                                     <i class="fa fa-cog" style="font-size: 200%;"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Segnala</a></li>
-                                    <li><a href="#">Action 2</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal">Cancella annuncio</a></li>
                                 </ul>
                             </li>
                         </ul>
+                    </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">Cancella annuncio</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sei sicuro di voler cancellare il tuo annuncio?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
+                                    <button type="button" class="btn btn-sm btn-danger">Cancella</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -378,7 +394,24 @@ include_once VIEW_DIR . 'header.php';
                                 <i class="fa fa-check"></i>
                                 <i class="fa fa-close"></i>
                                 <i class="fa fa-mail-reply-all"></i>
-                                </div>
+                            </div>
+                            <div class="media-body comment more">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                            </div>
+
                         </div>
 
                         <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
@@ -389,6 +422,23 @@ include_once VIEW_DIR . 'header.php';
                                 <i class="fa fa-close"></i>
                                 <i class="fa fa-mail-reply-all"></i>
                             </div>
+                            <div class="media-body comment more">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                            </div>
+
                         </div>
 
                         <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
@@ -399,6 +449,23 @@ include_once VIEW_DIR . 'header.php';
                                 <i class="fa fa-close"></i>
                                 <i class="fa fa-mail-reply-all"></i>
                             </div>
+                            <div class="media-body comment more">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                            </div>
+
                         </div>
 
                         <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
@@ -409,10 +476,24 @@ include_once VIEW_DIR . 'header.php';
                                 <i class="fa fa-close"></i>
                                 <i class="fa fa-mail-reply-all"></i>
                             </div>
+                            <div class="media-body comment more">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum laoreet, nunc eget laoreet sagittis,
+                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                Duis eget nisl orci. Aliquam mattis purus non mauris
+                                blandit id luctus felis convallis.
+                                Integer varius egestas vestibulum.
+                                Nullam a dolor arcu, ac tempor elit. Donec.
+                            </div>
+
                         </div>
-    
-
-
 
                     </div>
 

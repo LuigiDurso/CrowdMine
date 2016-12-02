@@ -178,6 +178,9 @@ try {
             case 'inserisciAnnuncio';
                 include_once VIEW_DIR . "inserisciAnnuncio.php";
                 break;
+                case 'modificaAnnuncio';
+                include_once VIEW_DIR . "modificaAnnuncio.php";
+                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;
