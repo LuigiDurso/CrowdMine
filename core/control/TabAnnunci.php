@@ -1,17 +1,22 @@
 <?php
     if ($SERVER["REQUEST_METHOD"]=="POST" && $_POST["microInfoDate"] == "microInfoDate"){
-        /**decodifico le informazioni da JSON*/
         $jsonRequest = $_POST;
 
-        $fromdatemicro = new DateTime(); /**DataTime da valutare durenate l'implementazione*/
-        $atdatemicro = new DateTime();
 
-        $fromdatemicro = json_decode($jsonRequest);
-        $atdatemicro = json_decode($jsonRequest);
+        /**è necessario creare un array*/
+        $datesofmicro = array();
 
-        $fooMicro = new Foo();
-        /**Esempio al posto di foo va il model che chiama un metodo che prende in input
-         * le due date e restituisce il nome della micro e un insieme di interi */
+        /**resituisce un array associativo*/
+        $dateofmicro = json_decode($jsonRequest,true);
+
+        /**Le date sono delle stringhe, basta creare due oggetti data*/
+        $fromdatemicro = new DateTime($dateofmicro[0]);
+        $atdatemicro = new DateTime($datesofmicro[1]);
+
+        $fooMicro = new Foo($fromdatemicro, $atdatemicro);
+
+        /**Esempio al posto di Foo va il manager che chiama un metodo che prende in input
+         * le due date e restituisce il nome della micro, le date e un insieme di interi */
 
         var_dump($fromdatemicro);
         var_dump($atdatemicro);
@@ -26,15 +31,19 @@
     }elseif($SERVER["REQUEST_METHOD"]=="POST" && $_POST["macroInfoDate"]=="macroInfoDate"){
         $jsonRequest = $_POST;
 
-        $fromdatemacro = new DateTime();
-        $atdatemacro = new DateTime();
+        /**è necessario creare un array */
+        $datesofmacro = array();
 
-        $fromdatemacro = json_decode($jsonRequest);
-        $atdatemacro = json_decode($jsonRequest);
+        /**resituisce un array associativo*/
+        $dateofmacro = json_decode($jsonRequest,true);
 
-        $fooMacro = new Foo();
-        /**Esempio al posto di foo va il model che chiama un metodo che prende in input
-         * le due date e restituisce il nome della macro e  l'insieme di interi*/
+        /**Le date sono delle stringhe, basta creare due oggetti data*/
+        $fromdatemacro = new DateTime($dateofmacro[0]);
+        $atdatemacro = new DateTime($dateofmacro[1]);
+
+        $fooMacro = new Foo($fromdatemicro, $atdatemicro);
+        /**Esempio al posto di foo va il manager che chiama un metodo che prende in input
+         * le due date e restituisce il nome della macro, le date e l'insieme di interi*/
 
         var_dump($fromdatemacro);
         var_dump($atdatemacro);
@@ -45,6 +54,34 @@
 
         header("Content-Type: application/json");
         echo json_encode($fooMacro);
+
+    }else{
+        /*gestione combobox*/
+        $jsonRequest = $_POST;
+
+        $option = json_decode($jsonRequest);
+
+        if($option =="selectMicro") {
+
+            /**Il manager di Micro Categoria restituisce tutte le micro categorie*/
+
+            $listMicroOptions = new Foo();
+            var_dump($jsonRequest);
+            var_dump($option);
+            header("Content-Type: application/json");
+            echo json_encode($listMicroOptions);
+
+        }else if($option=="selectMacro"){
+
+            /**Il manager di Macro Categoria restituisce tutte le micro categorie*/
+
+            $listMacroOptions = new Foo();
+            var_dump($jsonRequest);
+            var_dump($option);
+            header("Content-Type: application/json");
+            echo json_decode($listMacroOptions);
+        }
+
 
     }
 ?>

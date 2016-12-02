@@ -329,7 +329,7 @@
                                                           name="macroInfoDate"><!--action da cambiare-->
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <select style="width:100%" class="select2">
+                                                                <select id="selectMacro"style="width:100%" class="select2">
                                                                     <option value="AL">Alabama</option>
                                                                     <option value="WY">Wyoming</option>
                                                                 </select>
@@ -382,7 +382,7 @@
                                                         <!--action da cambiare-->
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <select style="width:100%" class="select2">
+                                                                <select id="selectMicro" style="width:100%" class="select2">
                                                                     <option value="AL">Alabama</option>
                                                                     <option value="WY">Wyoming</option>
                                                                 </select>
@@ -559,6 +559,7 @@
 
 <script type="text/javascript">
 
+
     //caricamento Generale
     $("#tab1").ready(function () {
         $.ajax({
@@ -581,30 +582,66 @@
         });
     });
 
+    //caricamento dinamico ComboBox Macro Categoria
+    $("#selectMacro").change(function(){
+        $.ajax({
+            type: "POST",
+            url: "control/TabAnnunci.php",
+            dataType: "json",
+            data: {"selectMacro"},
+            success: function (response){
+                $($.parseJSON(response)).map(function () { /**l'oggetto response è del nel formato "response":{"valore":"2", "label":"qwerty" }*/
+                    return $('<option>').val(this.value).text(this.label);
+                }).appendTo("#selectMacro");
+            }
+        });
+    });
+
+    //caricamento dinamico ComboBox Micro Categoria
+    $("#selectMicro").change(function (){
+        $.ajax({
+            type: "POST",
+            url: "control/TabAnnunci.php",
+            dataType: "json",
+            data: {"selectMicro"},
+            success: function (response){ /**l'oggetto response è del nel formato "response":{"valore":"2", "label":"qwerty" }*/
+                $($.parseJSON(response)).map(function () {
+                    return $('<option>').val(this.value).text(this.label);
+                }).appendTo("#selectMicro");
+            }
+        });
+    });
+
     //caricamento Macro
     $("#submitMacro").click(function () {
+
+        var fromdatemacrovalue = JSON.stringify($("#fromdatemacro").val());
+        var atdatemacrovalue = JSON.stringify($("#atdatemacro").val());
+
         $.ajax({
-            type: "POST", //tipo di chiamata
-            url: "control/TabAnnunci.php", //controller della pagina
+            type: "POST",
+            url: "control/TabAnnunci.php",
             dataType: "json",
-            data: {fromdatemacro: $("#fromdatemacro").val(), atdatemacro: $("#atdatemacro").val()},//passaggio di valori
+            data: {"fromdatemacro": fromdatemacrovalue, "atdatemacro": atdatemacrovalue},//passaggio di valori
             success: drawMacroDateChart(response)
         });
     });
 
     //caricamento Micro
     $("#submitMicro").click(function () {
+
+        var fromdatemaicrovalue = JSON.stringify($("#fromdatemicro").val());
+        var atdatemicrovalue = JSON.stringify($("#atdatemicro").val());
+
         $.ajax({
             type: "POST",
             url: "control/TabAnnunci.php", //controller della pagina
             dataType: "json",
-            data: {fromdatemicro: $("#fromdatemicro").val(), atdatemicro: $("atdatemicro").val()},//passaggio di valori
+            data: {"fromdatemicro": fromdatemaicrovalue, "atdatemicro": atdatemicrovalue},//passaggio di valori
             success: drawMicroDateChart(response)
-
         });
     });
 
-    /*Problema: come trattare la response*/
 
     function drawGeneralChart(response) {
 
