@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flat Admin V.3 - Free flat-design bootstrap administrator templates</title>
+    <title>CrowdMine</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +16,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
+
 </head>
+
 <body>
 <div class="app app-default">
     <aside class="app-sidebar" id="sidebar">
@@ -303,23 +305,16 @@
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                     <div class="section">
-                                        <div class="section-title">Grafico Andamento</div>
+                                        <div class="section-title">Generale</div>
                                         <div class="section-body">
-                                            <div class="ct-chart ct-perfect-fourth"></div>
+                                            <!--Da definire-->
+                                            <div class="container-canvas">
+                                                <canvas id="graficoGeneraleAnnunci"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="section">
-                                        <div class="section-title">Legenda</div>
-                                        <div class="section-body">
-                                            <ul class="chart-label">
-                                                <li class="ct-label ct-series-a">Macro Categoria</li>
-                                                <li class="ct-label ct-series-b">Macro Categoria</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div><!--Fine tab1-->
                         <div role="tabpanel" class="tab-pane" id="tab2"><!--Inizio tab2-->
@@ -330,31 +325,45 @@
                                             <div class="section">
                                                 <div class="section-title">Macro Categorie</div>
                                                 <div class="section-body">
+                                                    <form method="post" action="StatisticheAdmin.php"
+                                                          name="macroInfoDate"><!--action da cambiare-->
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <select style="width:100%" class="select2">
+                                                                    <option value="AL">Alabama</option>
+                                                                    <option value="WY">Wyoming</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <label for="fromdatemacro">Da</label>
+                                                                <input id="fromdatemacro" type="date"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <label for="atdatemacro">A</label>
+                                                                <input id="atdatemacro" type="date"
+                                                                       class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <button id="submitMacro" type="submit"
+                                                                            class="btn btn-primary">Mostra Risultati
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <select style="width:100%" class="select2">
-                                                                <option value="AL">Alabama</option>
-                                                                <option value="WY">Wyoming</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="fromdatemacro">Da</label>
-                                                            <input id="fromdatemacro" type="date" class="form-control">
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="atdatemacro">A</label>
-                                                            <input id="atdatemacro" type="date" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="ct-chart ct-perfect-fourth"></div>
-                                                            <ul class="chart-label">
-                                                                <li class="ct-label ct-series-a">Macro Categoria</li>
-                                                                <li class="ct-label ct-series-b">Macro Categoria</li>
-                                                            </ul>
+                                                            <!--Da definire -->
+                                                            <div class="container-canvas">
+                                                                <canvas id="macroCategoriaGrafico"/>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -368,31 +377,46 @@
                                             <div class="section">
                                                 <div class="section-title">Micro Categorie</div>
                                                 <div class="section-body">
+
+                                                    <form method="post" action=TabAnnunci.php" name="microInfoDate">
+                                                        <!--action da cambiare-->
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <select style="width:100%" class="select2">
+                                                                    <option value="AL">Alabama</option>
+                                                                    <option value="WY">Wyoming</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <label for="fromdatemicro">Da</label>
+                                                                <input id="fromdatemicro" type="date"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <label for="atdatemicro">A</label>
+                                                                <input id="atdatemicro" type="date"
+                                                                       class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <button id="submitMicro" type="submit"
+                                                                            class="btn btn-primary">Mostra Risultati
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                    </form>
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <select style="width:100%" class="select2">
-                                                                <option value="AL">Alabama</option>
-                                                                <option value="WY">Wyoming</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="fromdatemacro">Da</label>
-                                                            <input id="fromdatemacro" type="date" class="form-control">
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <label for="atdatemacro">A</label>
-                                                            <input id="atdatemacro" type="date" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="ct-chart ct-perfect-fourth"></div>
-                                                            <ul class="chart-label">
-                                                                <li class="ct-label ct-series-a">Macro Categoria</li>
-                                                                <li class="ct-label ct-series-b">Macro Categoria</li>
-                                                            </ul>
+
+                                                            <!-- classe da Da definire -->
+                                                            <div class="container-canvas">
+                                                                <canvas id="microCategoriaGrafico"/>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -401,131 +425,288 @@
                                     </div>
                                 </div><!--Fine Micro Categorie-->
                             </div>
-                        </div><!--Fine tab2-->
-                        <div role="tabpanel" class="tab-pane" id="tab3"><!--Inizio tab3-->
-                            <div class="row"><!--tabella macro-->
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="section">
-                                        <div class="section-title">Macro Categorie Preferite Dagli Utenti</div>
-                                        <div class="section-body">
-                                            <table class="table">
-                                                <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Macro Categoria</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td><a href="#">
-                                                            <button type="button" class="btn btn-info">Macro Categoria
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-info">Macro Categoria
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-info">Macro Categoria
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-info">Macro Categoria
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
+                        </div>
+                    </div><!--Fine tab2-->
+                    <div role="tabpanel" class="tab-pane" id="tab3"><!--Inizio tab3-->
+                        <div class="row"><!--tabella macro-->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="section">
+                                    <div class="section-title">Macro Categorie Preferite Dagli Utenti</div>
+                                    <div class="section-body">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Macro Categoria</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td><a href="#">
+                                                        <button type="button" class="btn btn-info">Macro Categoria
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    <a href="#">
+                                                        <button type="button" class="btn btn-info">Macro Categoria
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>
+                                                    <a href="#">
+                                                        <button type="button" class="btn btn-info">Macro Categoria
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>
+                                                    <a href="#">
+                                                        <button type="button" class="btn btn-info">Macro Categoria
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--fine row tabella macro-->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="section">
+                                    <div class="section-title">Micro Categorie di Nome Macro Categoria &nbsp; &nbsp;
+                                        &nbsp;
+                                        <span><a href="#"><i
+                                                    class="fa fa-level-up"></i>Torna alle Macro Categorie</a></span>
+                                    </div>
+                                    <div class="section-body">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <table class="table" cellspacing="0" width="100%"
+                                            ">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Micro Categoria</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Lorem</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Lorem</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Lorem</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Lorem</td>
+                                            </tr>
+                                            </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
-                            </div><!--fine row tabella macro-->
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="section">
-                                        <div class="section-title">Micro Categorie di Nome Macro Categoria &nbsp; &nbsp; &nbsp;
-                                            <span><a href="#"><i class="fa fa-level-up"></i>Torna alle Macro Categorie</a></span>
-                                        </div>
-                                        <div class="section-body">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <table class="table" cellspacing="0" width="100%"">
-                                                <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Micro Categoria</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Lorem</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Lorem</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Lorem</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Lorem</td>
-                                                </tr>
-                                                </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <nav>
-                                                    <ul class="pagination">
-                                                        <li>
-                                                            <a href="#" aria-label="Previous">
-                                                                <span aria-hidden="true">&laquo;</span>
-                                                            </a>
-                                                        </li>
-                                                        <li><a href="#">1</a></li>
-                                                        <li class="active"><a href="#">2</a></li>
-                                                        <li><a href="#">3</a></li>
-                                                        <li><a href="#">4</a></li>
-                                                        <li><a href="#">5</a></li>
-                                                        <li>
-                                                            <a href="#" aria-label="Next">
-                                                                <span aria-hidden="true">&raquo;</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-
-
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li>
+                                                        <a href="#" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li class="active"><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li>
+                                                        <a href="#" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
-                            </div><!--Fine row tabella micro-->
-                        </div><!--Fine tab3-->
-                    </div>
+                            </div>
+                        </div><!--Fine row tabella micro-->
+                    </div><!--Fine tab3-->
                 </div>
             </div>
         </div>
     </div>
 </div>
+</body>
+
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
-</body>
+<script src="<?php echo STYLE_DIR; ?>assets\js\Chart.min.js"></script>
+
+<script type="text/javascript">
+
+    //caricamento Generale
+    $("#tab1").ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "control/TabGenerale.php",
+            dataType: "json",
+            data: {},
+            success: drawGeneralChart(response)
+        });
+    });
+
+    //caricamento TabGenerale nell'eventualità che si ritorni sulla pagina
+    $("#tab1").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "control/TabGenerale.php",
+            dataType: "json",
+            data: {},
+            success: drawGeneralChart(response)
+        });
+    });
+
+    //caricamento Macro
+    $("#submitMacro").click(function () {
+        $.ajax({
+            type: "POST", //tipo di chiamata
+            url: "control/TabAnnunci.php", //controller della pagina
+            dataType: "json",
+            data: {fromdatemacro: $("#fromdatemacro").val(), atdatemacro: $("#atdatemacro").val()},//passaggio di valori
+            success: drawMacroDateChart(response)
+        });
+    });
+
+    //caricamento Micro
+    $("#submitMicro").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "control/TabAnnunci.php", //controller della pagina
+            dataType: "json",
+            data: {fromdatemicro: $("#fromdatemicro").val(), atdatemicro: $("atdatemicro").val()},//passaggio di valori
+            success: drawMicroDateChart(response)
+
+        });
+    });
+
+    /*Problema: come trattare la response*/
+
+    function drawGeneralChart(response) {
+
+        //va fatto il parsing di "response" per poter creare il grafico
+        var ctxGenerale = document.getElementById("graficoGeneraleAnnunci").getContext("2d");
+
+        var generaleData = {
+            labels: [],
+            datasets: [
+                {
+                    label: ["Numero annunci pubblicati oggi"],
+                    data: [], //numero di annunci
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        var generaleChart = new Chart.Bar(ctxGenerale, {
+            data: generaleData,
+            options: {
+                pointHitRadius: 3,
+                responsive: true,
+                tooltipEvents: [],
+                showTooltips: true,
+                onAnimationComplete: function () {
+                    this.showTooltip(this.segments, true);
+                },
+                tooltipTemplate: "<%= label %>  -  <%= value %>"
+            }
+
+        });
+    }
+
+
+    function drawMacroDateChart(response) {
+
+        //va fatto il parsing di "response" per poter creare il grafico
+        var ctxMacro = document.getElementById("macroCateogiraGrafico").getContext("2d");
+
+        var macroData = {
+            labels: [], //date
+            datasets: [
+                {
+                    label: "", //nome macro
+                    data: [], //dati macro
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1
+                }
+            ]
+
+        };
+
+        var macroChart = new Chart.Line(ctxMacro, {
+            data: macroData,
+            options: {
+                pointHitRadius: 3,
+                responsive: true,
+                tooltipEvents: [],
+                showTooltips: true,
+                onAnimationComplete: function () {
+                    this.showTooltip(this.segments, true);
+                },
+                tooltipTemplate: "<%= label %>  -  <%= value %>"
+            }
+        });
+    }
+
+
+    function drawMicroDateChart(response) {
+
+        //va fatto il parsing di "response" per poter creare il grafico
+        var ctxMicro = document.getElementById("microCategoriaGrafico").getContext("2d");
+
+        var microData = {
+            labels: [], //date
+            datasets: [
+                {
+                    label: "", //nome micro
+                    data: [], //dati micro
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        var microChart = new Chart.Line(ctxMicro, {
+            data: microData,
+            options: {
+                pointHitRadius: 3,
+                responsive: true,
+                tooltipEvents: [],
+                showTooltips: true,
+                onAnimationComplete: function () {
+                    this.showTooltip(this.segments, true);
+                },
+                tooltipTemplate: "<%= label %>  -  <%= value %>"
+            }
+        });
+    }
+</script>
+</html>

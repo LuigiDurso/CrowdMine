@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
 
 
+
 </head>
 
 <body>
@@ -285,32 +286,13 @@
                 </div>
             </div>
         </nav>
-
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="card-header">Statistiche Macro Categorie</div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                <div class="section">
-                                    <div class="section-title">Grafico Andamento</div>
-                                    <div class="section-body">
-                                        <div class="ct-chart ct-perfect-fourth"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="section">
-                                    <div class="section-title">Legenda</div>
-                                    <div class="section-body">
-                                        <ul class="chart-label">
-                                            <li class="ct-label ct-series-a">Macro Categoria</li>
-                                            <li class="ct-label ct-series-b">Macro Categoria</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="container-canvas"> <!--classe da definire-->
+                            <canvas id="statisticheMacro"></canvas>
                         </div>
                     </div>
                 </div>
@@ -318,9 +300,57 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
-<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
 </body>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
+<script src="<?php echo STYLE_DIR; ?> assets\js\Chart.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "control/StatisticheMacroCategorie.php",
+            dataType: "json",
+            data: {},
+            success: drawMacroChart(response),
+        });
+    });
+
+
+    function drawMacroChart(var response){
+        //va fatto il parsing della response per poter creare il grafico
+        var ctx = document.getElementById("statisticheMacro").getContext("2d");
+
+        var macroChartData = {
+            labels:[], //va lasciato vuoto
+            datasets: [
+                /*grafico di una singola Macro Categoria*/
+                {
+                    label: [], //nome Macro
+                    data: [], //valore Macro
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        /*creazione del grafico */
+        var macroChart = new Chart.Bar(ctx, {
+            data: macroChartData,
+            options: {
+                pointHitRadius: 3,
+                responsive: true,
+                tooltipEvents: [],
+                showTooltips: true,
+                onAnimationComplete: function () {
+                    this.showTooltip(this.segments, true);
+                },
+                tooltipTemplate: "<%= label %>  -  <%= value %>"
+            }
+        });
+    }
+</script>
 
 </html>
