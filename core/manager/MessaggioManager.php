@@ -6,7 +6,7 @@
  * Date: 30/11/2016
  * Time: 11.24
  */
-class MessaggioManager extends Controller
+class MessaggioManager extends Manager
 {
 
     /**

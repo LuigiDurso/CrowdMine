@@ -1,6 +1,7 @@
 <?php
 
 include_once MODEL_DIR . 'Macrocategoria.php';
+include_once MODEL_DIR . 'Microcategoria.php';
 /**
  * Created by PhpStorm.
  * User: Andrea Sarto
