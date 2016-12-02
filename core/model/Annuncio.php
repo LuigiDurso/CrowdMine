@@ -1,97 +1,173 @@
 <?php
 
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Modificata da Angelo Caputo
+ * 26/11/16  00:40
  */
 
 class Annuncio {
     
     private $id;
-    private $titolo;
+    private $idUtente;
     private $data;
+    private $titolo;
     private $descrizione;
     private $luogo;
-    private $dataPubblicazione;
+    private $stato;
+    private $retribuzione;
     private $tipologia;
-    private $email;
-    
-    function __construct($id=null, $titolo, $data, $descrizione, $luogo, $dataPubblicazione, $tipologia, $email) {
+
+    /**
+     * Annuncio constructor.
+     * @param $id
+     * @param $idUtente
+     * @param $data
+     * @param $titolo
+     * @param $descrizione
+     * @param $luogo
+     * @param $stato
+     * @param $retribuzione
+     * @param $tipologia
+     */
+    public function __construct($id, $idUtente, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia)
+    {
         $this->id = $id;
-        $this->titolo = $titolo;
+        $this->idUtente = $idUtente;
         $this->data = $data;
+        $this->titolo = $titolo;
         $this->descrizione = $descrizione;
         $this->luogo = $luogo;
-        $this->dataPubblicazione = $dataPubblicazione;
+        $this->stato = $stato;
+        $this->retribuzione = $retribuzione;
         $this->tipologia = $tipologia;
-        $this->email = $email;
     }
-    
-    function getId() {
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getTitolo() {
-        return $this->titolo;
+    /**
+     * @return mixed
+     */
+    public function getIdUtente()
+    {
+        return $this->idUtente;
     }
 
-    function getData() {
+    /**
+     * @return mixed
+     */
+    public function getData()
+    {
         return $this->data;
     }
 
-    function getDescrizione() {
+    /**
+     * @return mixed
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescrizione()
+    {
         return $this->descrizione;
     }
 
-    function getLuogo() {
+    /**
+     * @return mixed
+     */
+    public function getLuogo()
+    {
         return $this->luogo;
     }
 
-    function getDataPubblicazione() {
-        return $this->dataPubblicazione;
+    /**
+     * @return mixed
+     */
+    public function getStato()
+    {
+        return $this->stato;
     }
 
-    function getTipologia() {
+    /**
+     * @return mixed
+     */
+    public function getRetribuzione()
+    {
+        return $this->retribuzione;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipologia()
+    {
         return $this->tipologia;
     }
 
-    function getEmail() {
-        return $this->email;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setTitolo($titolo) {
-        $this->titolo = $titolo;
-    }
-
-    function setData($data) {
+    /**
+     * @param mixed $data
+     */
+    public function setData($data)
+    {
         $this->data = $data;
     }
 
-    function setDescrizione($descrizione) {
+    /**
+     * @param mixed $titolo
+     */
+    public function setTitolo($titolo)
+    {
+        $this->titolo = $titolo;
+    }
+
+    /**
+     * @param mixed $descrizione
+     */
+    public function setDescrizione($descrizione)
+    {
         $this->descrizione = $descrizione;
     }
 
-    function setLuogo($luogo) {
+    /**
+     * @param mixed $luogo
+     */
+    public function setLuogo($luogo)
+    {
         $this->luogo = $luogo;
     }
 
-    function setDataPubblicazione($dataPubblicazione) {
-        $this->dataPubblicazione = $dataPubblicazione;
+    /**
+     * @param mixed $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
     }
 
-    function setTipologia($tipologia) {
+    /**
+     * @param mixed $retribuzione
+     */
+    public function setRetribuzione($retribuzione)
+    {
+        $this->retribuzione = $retribuzione;
+    }
+
+    /**
+     * @param mixed $tipologia
+     */
+    public function setTipologia($tipologia)
+    {
         $this->tipologia = $tipologia;
     }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-
 
 }
