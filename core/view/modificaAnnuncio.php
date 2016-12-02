@@ -138,7 +138,7 @@ include_once VIEW_DIR . 'header.php';
 
                 <div class="card" style="width auto;">
 
-                    <div class="card-header">Inserisci un Annuncio</div>
+                    <div class="card-header">Modifica Annuncio</div>
 
                     <div class="card-body">
                         <div class="row">
@@ -148,7 +148,7 @@ include_once VIEW_DIR . 'header.php';
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-certificate" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Titolo.." aria-describedby="basic-addon1" value="">
+                                    <input type="text" class="form-control" placeholder="Offerta Programmatore PHP" aria-describedby="basic-addon1" value="">
                                 </div>
                                 <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
 
@@ -179,7 +179,7 @@ include_once VIEW_DIR . 'header.php';
                                 <div class="input-group" style="margin-top: 3%">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-money" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Retribuzione.." aria-describedby="basic-addon1" value="">
+                                    <input type="text" class="form-control" placeholder="200€" aria-describedby="basic-addon1" value="">
                                 </div>
                                 <div>
                                     <div class="radio radio-inline">
@@ -187,7 +187,7 @@ include_once VIEW_DIR . 'header.php';
                                         <label for="radio5">Domanda</label>
                                     </div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" name="radio2" id="radio6" value="option2">
+                                        <input type="radio" name="radio2" id="radio6" value="option2" checked>
                                         <label for="radio6">Offerta</label>
                                     </div>
                                 </div>
