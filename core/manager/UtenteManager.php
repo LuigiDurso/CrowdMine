@@ -40,9 +40,16 @@ class UtenteManager extends Manager
       *
       * @param String $mail e-mail
       * @param String $password password
+      * @return bool
       */
      public function forwardsLogin($mail, $password){
-
+         $connection = self::getDB();
+         $query = "SELECT email, password FROM 'utente' WHERE email='$mail' AND password='$password'";
+         $result = mysqli_query($connection, $query);
+         if(!$result || mysqli_num_rows($result) <= 0)
+            return false;
+         else
+             return true;
      }
 
     /**
@@ -51,7 +58,7 @@ class UtenteManager extends Manager
      * @param String $mail e-mail
      * @param String $password password
      */
-    public function forwardsLogout($mail, $password){
+    public function forwardsLogout(){
 
     }
 
@@ -182,9 +189,15 @@ class UtenteManager extends Manager
      * Search an User
      *
      * @param Double %UtenteId
+     * @return Utente $user
      */
     public function searchUtente($UtenteId){
-
+        $connection = self::getDB();
+        $query = "SELECT * FROM 'utente' WHERE id='$UtenteId'";
+        $result = mysqli_query($connection, $query);
+        $row = mysqli_fetch_row($result);
+        $user = new Utente($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[9], $row[8], $row[10]);
+        return $user;
     }
 
     /**
