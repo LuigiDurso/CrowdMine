@@ -546,10 +546,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-7 col-xs-12 simple-row">
-                                                            <input type="text" class="form-control"
+                                                            <input type="text" class="form-control" required id="feedback-title"
                                                                    name="feedback-title"
                                                                    placeholder="Inserisci il titolo del feedback">
-                                                            <textarea name="name" rows="3" class="form-control"
+                                                            <textarea name="name" rows="3" class="form-control" required
                                                                       id="feedback-textarea" name="feedback-textArea"
                                                                       placeholder="Descrizione"></textarea>
                                                             <button type="button" class="btn btn-success"
@@ -899,35 +899,6 @@
 
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".rating-content").click(function () {
-            console.log("sono qui click")
-            return false;
-        })
-    });
-
-    $(document).ready(function () {
-        $("#button-add-feedback").click(function () {
-
-            var textAreaLength = $("#feedback-textarea").val().length;
-            console.log(textAreaLength)
-            if (textAreaLength <= 150 || textAreaLength >= 300) {
-
-                var html = '<button type="button" class="close" data-dismiss="alert"' +
-                    '                                                            aria-label="Close">' +
-                    '                                                        <span aria-hidden="true"></button>' +
-                    '                                                    <strong>Errore!</strong> Il testo deve essere minimo 150 parole massimo 300';
-
-
-                $("#feedback-erros").html(html);
-                $("#feedback-erros").css("display", "block");
-            }
-            else if (textAreaLength >= 150 || textAreaLength <= 300) {
-                $("#feedback-erros").css("display", "none");
-            }
-        })
-    });
-</script>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
 </body>
 </html>
