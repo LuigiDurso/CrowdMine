@@ -5,65 +5,57 @@
  * Date: 30/11/2016
  * Time: 17:26
  */
-    include_once MANAGER_DIR . "FeedbackManager.php";
-    include_once CONTROL_DIR . "ControllUtils.php";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+include_once MANAGER_DIR . "FeedbackManager.php";
+include_once CONTROL_DIR . "ControlUtils.php";
+include_once EXCEPTION_DIR . "IllegalArgumentException.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $feedbackManager = new FeedbackManager();
-        $feedbackName = null;
-        $feedbackDescription = null;
-        $feedbackRating = null;
-        $feedbackNameCheck = false;
-        $feedbackDescriptionCheck = false;
-        $feedbackRatingCheck = false;
-        /**
-         * Checking if the POST variable are septate
-         */
-        if (isset($_POST['feedback-name'])) {
-            $feedbackName = $_POST["feedback-name"];
+    $feedbackManager = new FeedbackManager();
+    $feedbackName = null;
+    $feedbackDescription = null;
+    $feedbackRating = null;
 
-        } else {
-            //TO-DO
-        }
+    /**
+     * Checking if the POST variable are septate
+     */
+    if (isset($_POST['feedback-name'])) {
+        $feedbackName = $_POST["feedback-name"];
 
-        if (isset($_POST['feedback-textArea'])) {
-            $feedbackDescription = $_POST["feedback-textArea"];
+    } else {
+        throw new IllegalArgumentException("Campo titolo feedback non settato");
+    }
 
-        } else {
-            //TO-DO
-        }
-        if (isset($_POST['rating'])) {
-            $feedbackRating = $_POST["rating"];
+    if (isset($_POST['feedback-textArea'])) {
+        $feedbackDescription = $_POST["feedback-textArea"];
 
-        } else {
-            //TO-DO
-        }
+    } else {
+        throw new IllegalArgumentException("Campo descrizione feedback non settato");
+    }
+    if (isset($_POST['rating'])) {
+        $feedbackRating = $_POST["rating"];
 
-        if (!empty($feedbackName)) {
-            if (isAlphanumeric($feedbackName))
-            {
-                $feedbackNameCheck = true;
-            }
-        }
+    } else {
+        throw new IllegalArgumentException("Campo rating non settato");
+    }
 
-        if (!empty($feedbackDescription)) {
-            if (isAlphanumeric($feedbackDescription))
-            {
-                $feedbackDescriptionCheck = true;
-            }
-        }
+    if (empty($feedbackName) || !preg_match(Patterns::$NAME_GENERIC, $feedbackName)) {
+        throw new IllegalArgumentException("Campo name non corretto");
+    }
 
-        if (!empty($feedbackRating)) {
-                $feedbackDescriptionCheck = true;
-        }
+    if (empty($feedbackDescription) || !preg_match(Patterns::$NAME_GENERIC, $feedbackDescription) || strlen($feedbackDescription) > 300) {
+        throw new IllegalArgumentException("Campo descrizione non corretto");
+    }
 
-        if ($feedbackNameCheck == true && $feedbackDescriptionCheck == true && $feedbackRatingCheck == true)
-        {
-            $data = str_replace('/', '-', $data);
-            $TheDate = date("Y-m-d H:i:s", strtotime($data));
-            $dataPubblicazione = new DateTime();
-            $dataPub = $dataPubblicazione->format("Y-m-d H:i:s");
+    if (empty($feedbackRating)) {
+        throw new IllegalArgumentException("Campo rating non corretto");
+    }
 
-            $feedbackManager->createFeedback($id,$idAnnuncio, $idUtente, $feedbackDescription, $data, $rating);
-        }
+    //TODO method for check the collaboration between two user->Notifiche e Messaggi
+
+    $data =  date("Y-m-d H:i:s");
+    var_dump($data);
+
+
+    $feedbackManager->createFeedback($id, $idAnnuncio, $idUtente, $feedbackDescription, $data, $feedbackRating);
+
 }
