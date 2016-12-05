@@ -322,18 +322,29 @@
         //va fatto il parsing della response per poter creare il grafico
         var ctx = document.getElementById("statisticheMacro").getContext("2d");
 
+        /*per ogni macro categoria restituita va aggiunta una struttara specificando  i valori e le relative proprietà*/
+
+        var grafics =
+
+            for(var i=0; i<response.size();i++){
+
+                {   label:[response[i]],//nome macro ---> chiave
+                    data: [response[i]],//valore macro --->valore
+                    backgroundColor: randomRGBAColors(),
+                    borderColor: randomRGBAColors(),
+                    borderWidth: 1,
+                    }
+
+                    if(i < (response.size() - 1)){
+                        <?php echo ","?>
+                    }
+
+                }
+
+
         var macroChartData = {
             labels:[], //va lasciato vuoto
-            datasets: [
-                /*grafico di una singola Macro Categoria*/
-                {
-                    label: [], //nome Macro
-                    data: [], //valore Macro
-                    backgroundColor: "rgba(255, 99, 132, 0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    borderWidth: 1
-                }
-            ]
+            datasets: [grafics] //array di macrocategorie sotto forma di grafico
         };
 
         /*creazione del grafico */
@@ -350,6 +361,14 @@
                 tooltipTemplate: "<%= label %>  -  <%= value %>"
             }
         });
+    }
+
+
+    function randomRGBAColors(){
+        var r = function () { return Math.floor(Math.random()*256) };
+        var fourth = Math.random();
+
+        return "rgba("+r+","+r+","+r+","+String.parse(fourth)+"),";
     }
 </script>
 

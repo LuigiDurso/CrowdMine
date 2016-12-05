@@ -325,13 +325,10 @@
                                             <div class="section">
                                                 <div class="section-title">Macro Categorie</div>
                                                 <div class="section-body">
-                                                    <form method="post" action="StatisticheAdmin.php"
-                                                          name="macroInfoDate"><!--action da cambiare-->
+                                                    <form method="post" action="StatisticheAdmin.php" name="macroInfoDate"><!--action da cambiare-->
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <select id="selectMacro"style="width:100%" class="select2">
-                                                                    <option value="AL">Alabama</option>
-                                                                    <option value="WY">Wyoming</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -377,14 +374,11 @@
                                             <div class="section">
                                                 <div class="section-title">Micro Categorie</div>
                                                 <div class="section-body">
-
                                                     <form method="post" action=TabAnnunci.php" name="microInfoDate">
                                                         <!--action da cambiare-->
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <select id="selectMicro" style="width:100%" class="select2">
-                                                                    <option value="AL">Alabama</option>
-                                                                    <option value="WY">Wyoming</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -433,7 +427,7 @@
                                 <div class="section">
                                     <div class="section-title">Macro Categorie Preferite Dagli Utenti</div>
                                     <div class="section-body">
-                                        <table class="table">
+                                        <table id= "macroUtenti" class="table">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
@@ -487,13 +481,11 @@
                                 <div class="section">
                                     <div class="section-title">Micro Categorie di Nome Macro Categoria &nbsp; &nbsp;
                                         &nbsp;
-                                        <span><a href="#"><i
-                                                    class="fa fa-level-up"></i>Torna alle Macro Categorie</a></span>
+                                        <span><a href="#"><i class="fa fa-level-up"></i>Torna alle Macro Categorie</a></span>
                                     </div>
                                     <div class="section-body">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <table class="table" cellspacing="0" width="100%"
-                                            ">
+                                            <table  id="microUtenti" class="table" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
@@ -642,6 +634,57 @@
         });
     });
 
+
+    //caricamento macro in tabMacro preferite dall'utenti
+    $("#tab3").click(function (){
+        $.ajax({
+            type:"POST",
+            url:"control/TabMacro.php",
+            dataType:"json",
+            data:{},
+            success: function (response) {
+                $($.parseJSON(response)).map(function () {
+                    return $("#macroUtenti").find("tbody")
+                        .append($("<tr>")
+                            .append($("<th>").attr("scope", "row")
+                                .append($("<td>")
+                                    .append($("<a>").attr("href", "idMacro") //id macro è da prendere dai valori restituiti
+                                        .append($("<button>")
+                                            .attr("type", "button")
+                                            .attr("class", "btn btn-info")
+                                            .attr("onclick", "bufferingMicroTable(" +response->getNomeMacro +")") //da verificare
+                                            .attr("text", response->getNameMacro() )
+                                        )
+                                    )
+                                )
+                            )
+                        );
+                });
+            }
+        });
+    });
+
+    //caricamento micro categorie riferite alla macro categorie selezionata
+    function bufferingMicroTable(nameButton) {
+        $.ajax({
+            type: "POST",
+            url: "control/TabMacro.php",
+            dataType: "json",
+            data: {"macroCategoria": nameButton},
+            success: function (response) {
+                //codice per la creazione dinamica della tabella con id "microUtenti"
+                $($.parseJSON(response)).map(function () {
+                    return $("#microUtenti").find("tbody")
+                        .append($("<tr>")
+                            .append($("<th>").attr("scope", "row")
+                                .append($("<td>").attr("text", response - > nomeMicro);
+                                    )
+                            )
+                        );
+                });
+            }
+        });
+    }
 
     function drawGeneralChart(response) {
 

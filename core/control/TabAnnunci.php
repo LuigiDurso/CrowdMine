@@ -1,87 +1,83 @@
 <?php
+    /** a)Aggiungere MANAGER_DIR
+     *  b) Controllo sugli accessi con un oggetto session (da discutere)
+     *  c) metodi dei manager (da discutere)
+     */
     if ($SERVER["REQUEST_METHOD"]=="POST" && $_POST["microInfoDate"] == "microInfoDate"){
         $jsonRequest = $_POST;
 
-
-        /**è necessario creare un array*/
         $datesofmicro = array();
 
-        /**resituisce un array associativo*/
         $dateofmicro = json_decode($jsonRequest,true);
 
-        /**Le date sono delle stringhe, basta creare due oggetti data*/
-        $fromdatemicro = new DateTime($dateofmicro[0]);
-        $atdatemicro = new DateTime($datesofmicro[1]);
+        $fromdatemicro = new DateTime($dateofmicro["fromdatemicro"]);
+        $atdatemicro = new DateTime($datesofmicro["atdatemicro"]);
 
-        $fooMicro = new Foo($fromdatemicro, $atdatemicro);
-
-        /**Esempio al posto di Foo va il manager che chiama un metodo che prende in input
-         * le due date e restituisce il nome della micro, le date e un insieme di interi */
+        $resultMarco = array();
+        $annuncioManager = new AnnuncioManager();
+        $result = $annuncioManager->getListAnnunci("MICRO_CATEGORIA",$fromdatemicro, $atdatemicro); //da rivedere
 
         var_dump($fromdatemicro);
         var_dump($atdatemicro);
         var_dump($jsonRequest);
+        var_dump($annuncioManager);
 
-        /** alla chiamata AJAX viene risposto con un oggetto contenete il nome della micro categoria
-         * e i relativi valori. Sull'oggetto verrà effettuato il parsing con JSON.*/
 
         header("Content-Type: application/json");
-        echo json_encode($fooMicro);
+        echo json_encode($resultMacro);
 
     }elseif($SERVER["REQUEST_METHOD"]=="POST" && $_POST["macroInfoDate"]=="macroInfoDate"){
         $jsonRequest = $_POST;
 
-        /**è necessario creare un array */
         $datesofmacro = array();
 
-        /**resituisce un array associativo*/
         $dateofmacro = json_decode($jsonRequest,true);
 
-        /**Le date sono delle stringhe, basta creare due oggetti data*/
-        $fromdatemacro = new DateTime($dateofmacro[0]);
-        $atdatemacro = new DateTime($dateofmacro[1]);
+        $fromdatemacro = new DateTime($dateofmacro["fromdatemacro"]);
+        $atdatemacro = new DateTime($dateofmacro["atdatemacro"]);
 
-        $fooMacro = new Foo($fromdatemicro, $atdatemicro);
-        /**Esempio al posto di foo va il manager che chiama un metodo che prende in input
-         * le due date e restituisce il nome della macro, le date e l'insieme di interi*/
+        $annuncioManager = new AnnuncioManager();
+        $resultMicro = array();
+        $resultMicro = $annuncioManager->getListAnnunci("MACRO_CATEOGORIA",$fromdatemicro, $atdatemicro); // da rivedere
 
         var_dump($fromdatemacro);
         var_dump($atdatemacro);
         var_dump($jsonRequest);
-
-        /** alla chiamata AJAX viene risposto con un oggetto contenete il nome della macro categoria
-         * e i relativi valori. Sull'oggetto verrà effettuato il parsing con JSON.*/
+        var_dump($annuncioManager);
 
         header("Content-Type: application/json");
-        echo json_encode($fooMacro);
+        echo json_encode($resultMicro);
 
     }else{
-        /*gestione combobox*/
+
         $jsonRequest = $_POST;
 
         $option = json_decode($jsonRequest);
 
         if($option =="selectMicro") {
 
-            /**Il manager di Micro Categoria restituisce tutte le micro categorie*/
+            $microCategoriaManager = new MicrocategoriaManager();
 
-            $listMicroOptions = new Foo();
+            $listMicroOptions = $microCategoriaManager->getListaMicrocategoria();
             var_dump($jsonRequest);
             var_dump($option);
+            var_dump($microCategoriaManager);
+
             header("Content-Type: application/json");
             echo json_encode($listMicroOptions);
 
         }else if($option=="selectMacro"){
 
-            /**Il manager di Macro Categoria restituisce tutte le micro categorie*/
+            $macroCategoriaManager = new MacroCategoriaManager();
+            $listMacroOptions = $macroCategoriaManager->getListMacroCategoria();
 
-            $listMacroOptions = new Foo();
             var_dump($jsonRequest);
             var_dump($option);
+            var_dump($macroCategoriaManager);
+
             header("Content-Type: application/json");
             echo json_decode($listMacroOptions);
         }
 
 
     }
-?>

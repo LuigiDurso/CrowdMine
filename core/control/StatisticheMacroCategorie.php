@@ -1,10 +1,20 @@
 <?php
+
+/** a)Aggiungere MANAGER_DIR
+ *  b) Controllo sugli accessi con un oggetto session (da discutere)
+ *  c) metodi dei manager (da discutere)
+ */
+
 if($SERVER["REQUEST_METHOD"]=="POST"){
 
-        /**Creare un oggetto Manager per gestire le query sul db
-         * Restituisce un array contente degli oggetti macro categorie composte da un nome ed un valore*/
-        header("Content-Type: application/json");
-        $fooStatisticheMacro = new Foo();
-        echo json_encode($fooStatisticheMacro);
+    $macroCategoriaManager = new MacroCategoriaManager();
+
+    $result = array();
+    $result = $macroCategoriaManager->getMacroCategorieValues(); //{macrocategoria:valore}
+
+    var_dump($macroCategoriaManager);
+
+    header("Content-Type: application/json");
+    echo json_encode($result);
 }
 ?>
