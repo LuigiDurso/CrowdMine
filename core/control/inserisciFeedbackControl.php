@@ -22,6 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $feedbackName = $_POST["feedback-name"];
 
     } else {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo nome feedback non settato";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo titolo feedback non settato");
     }
 
@@ -29,24 +32,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $feedbackDescription = $_POST["feedback-textArea"];
 
     } else {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo descrizione feedback non settato";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo descrizione feedback non settato");
     }
     if (isset($_POST['rating'])) {
         $feedbackRating = $_POST["rating"];
 
     } else {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo rating non settato";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo rating non settato");
     }
 
     if (empty($feedbackName) || !preg_match(Patterns::$NAME_GENERIC, $feedbackName)) {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo  nome feedback contiene caratteri speciali o è vuoto";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo name non corretto");
     }
 
     if (empty($feedbackDescription) || !preg_match(Patterns::$NAME_GENERIC, $feedbackDescription) || strlen($feedbackDescription) > 300) {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo descrizione feedback contine carratteri spaciali o è vuoto o ha una lunghezza di più di 300 caratteri";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo descrizione non corretto");
     }
 
     if (empty($feedbackRating)) {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Campo rating non corretto";
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloUtente");
         throw new IllegalArgumentException("Campo rating non corretto");
     }
 

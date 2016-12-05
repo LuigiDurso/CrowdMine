@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\vendor.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.css">
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
@@ -313,7 +314,7 @@
                                 <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Annunci</a>
                             </li>
                             <li role="tab3">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Feedback</a>
+                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab" id="feedback-tab">Feedback</a>
                             </li>
                             <li role="tab4">
                                 <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Statistiche</a>
@@ -472,7 +473,8 @@
                         <div role="tabpanel" class="tab-pane" id="tab3">
                             <div class="row">
                                 <div class="panel panel-default compact-panel">
-                                    <a class="panel-default collapse-title" data-toggle="collapse"
+                                    <a id="feedback-collapse-panel" class="panel-default collapse-title"
+                                       data-toggle="collapse"
                                        href="#feedback-collapse">
                                         <div class="panel-heading">
                                             <h4 class="media-heading">
@@ -869,11 +871,11 @@
                                                 </div>
                                             </div>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                         <!--Statistiche-->
                         <div role="tabpanel" class="tab-pane" id="tab4">
                             <div class="row">
@@ -947,10 +949,30 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
 
-            <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
-            <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
-            <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
+                <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
+                <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
+                <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
+                <script type="text/javascript" src="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.js"></script>
+                <?php
+                if ($_SESSION['toast-type'] && $_SESSION['toast-message']) {
+                    ?>
+                    <script>
+                        $(document).ready(function () {
+                            "use strict";
+                            $("#feedback-tab").click();
+                            $("#feedback-collapse-panel").click();
+                        });
+                        toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
+                    </script>
+                    <?php
+                    unset($_SESSION['toast-type']);
+                    unset($_SESSION['toast-message']);
+                }
+                ?>
+
+
 </body>
+
 </html>
