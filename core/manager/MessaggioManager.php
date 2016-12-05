@@ -75,7 +75,7 @@ class MessaggioManager extends Manager
         $messaggi = array();
         if ($result) {
             while ($obj = $result->fetch_assoc()) {
-                $messaggio = new Messaggio($obj['id'], $obj['id_utente_mittente	'], $obj['id_utente_destinatario'], $obj['corpo'], $obj['data'], $obj['letto']);
+                $messaggio = new Messaggio($obj['id'], $obj['id_utente_mittente'], $obj['id_utente_destinatario'], $obj['corpo'], $obj['data'], $obj['letto']);
                 $messaggi[] = $messaggio;
             }
         }
