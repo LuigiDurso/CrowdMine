@@ -1,6 +1,7 @@
 <?php
 
 include_once MODEL_DIR . 'Utente.php';
+include_once MANAGER_DIR . 'MicroCategoriaManager.php';
 
 /**
  * Created by PhpStorm.
@@ -145,18 +146,17 @@ class UtenteManager extends Manager
      *
      * @param String $currentPassword
      * @param String $newPassword
+     * @return bool
      */
-    public function changePassword($userId, $currentPassword, $newPassword){
-        $user = $this->getUtenteById($userId);
+    public function changePassword($currentPassword, $newPassword){
+        $user = unserialize($_SESSION['user']);
         if($currentPassword === $user->getPassword()){
-            $user->setPassword($newPassword);
             $connection = self::getDB();
             $CAMBIA_PASSWORD = "UPDATE 'utente' SET password='%s' WHERE id='%s'";
-            $query = sprintf($CAMBIA_PASSWORD, $newPassword, $userId);
+            $query = sprintf($CAMBIA_PASSWORD, $newPassword, $user->getId());
             $connection->query($query);
-            $connection->close();
         }else{
-            //errore password sbagliata;
+            return false;
         }
     }
 
@@ -190,8 +190,14 @@ class UtenteManager extends Manager
      * Add a new microcategory
      * @param Microcategoria $microcategoria
      */
-    public function addMicrocategoria($microcategoria){
-
+    public function addMicrocategoria($nomeMicro, $nomeMacro){
+        $microManager = new MicrocategoriaManager();
+        $microManager->addMicrocategoria($nomeMicro, $nomeMacro);
+        $micro = $microManager->getMicrocategoriaByNome($nomeMicro);
+        $user = unserialize($_SESSION['user']);
+        $AGGIUNGI_COMPETENZA = "INSERT INTO 'competente' (id_utete, id_microcategoria) VALUES('%s', '%s')";
+        $query = sprintf($AGGIUNGI_COMPETENZA, $user->getId(), $micro->getId());
+        self::getDB()->query($query);
     }
 
     /**
