@@ -12289,6 +12289,27 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
+ * Little Plugin for responsive Tabs
+ * ======================================================================== */
+ 
+ 
+ +function ($) {
+	$.fn.responsiveTabs = function() {
+		this.addClass('responsive-tabs');
+		this.append($('<i class="fa fa-caret-down" aria-hidden="true"></i>'));
+		this.append($('<i class="fa fa-caret-up" aria-hidden="true"></i>'));
+
+		this.on('click', 'li.active > a, i', function() {
+			this.toggleClass('open');
+		}.bind(this));
+
+		this.on('click', 'li:not(.active) > a', function() {
+			this.removeClass('open');
+		}.bind(this));
+	};
+}(jQuery);	 
+
+/* ========================================================================
  * Bootstrap: affix.js v3.3.7
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================

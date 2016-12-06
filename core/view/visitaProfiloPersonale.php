@@ -15,196 +15,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\red.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\yellow.css">
-
-	<style>
-        div.section .profile {
-            margin-bottom: 0px;
-        }
-
-        table.table > tbody > tr.table-title td {
-            border: none;
-        }
-    </style>
-	<style>
-		a.collapse-title{
-			text-decoration:none;
-		}
-		.panel{
-			margin-bottom: 4px;
-			color: #666;
-		}
-		
-		.panel .panel-heading{
-			padding: 14px;
-			color: #666;
-			background-color: #f5f5f5;
-		}
-		
-		.panel .panel-body{
-			padding: 0px;
-		}
-		
-		.panel-heading > p{
-			margin: 0px;
-		}
-		
-		/*style info row*/
-		.info-row{
-			padding: 15px;
-			word-wrap: break-word;
-			border-top: 1px solid #ddd;
-		}
-		
-		
-		.info-head{
-			border-top: none;
-		}
-		
-		.info-form{
-			border-top: 1px solid #ddd;
-			padding: 15px 0px;
-		}
-		
-		.info-row .checkbox{
-			margin: 0 !important;
-			float: right;
-		}
-		
-		/*corner dropdown*/
-		.corner-dropdown{
-			position: absolute;
-			top: 0px;
-			right: 6px;
-			font-size: 24px;
-		}
-		
-		.corner-dropdown .btn{
-			padding: 0px 6px;
-			margin-bottom: 0;
-		}
-		
-		.panel-body .row{
-			position:relative;
-		}
-		
-		.media.social-post.profile-block .media-body {
-		    margin-top: 15px;
-		}
-		
-		.media.social-post.profile-block img {
-			max-width: 50px;
-		}
-		
-	</style>
-	<style>
-		/*tab a dimensione variabile*/
-		.card.card-tab ul.nav-tabs > li{
-			width:auto;
-			min-width:auto;
-		}
-		
-		.card.card-tab .card-header {
-			overflow: visible;
-		}
-		
-		.card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
-			display:block;
-		}
-		
-		.card.card-tab ul.nav-tabs {
-		  position: relative;
-		  overflow: visible;
-		  border-bottom: none;
-		}
-		
-		.card.card-tab ul.nav-tabs i {
-			position: absolute;
-			top: 18px;
-			right: 22px;
-			font-size: 24px;
-		}
-		.card.card-tab ul.nav-tabs i.fa-caret-up {
-		  display: none;
-		}
-		
-		.card.card-tab ul.nav-tabs > li {
-			display: none;
-			float: none;
-			text-align: center;
-			z-index: 0;
-			margin-bottom: 0px;
-		}
-		.card.card-tab ul.nav-tabs > li:last-of-type > a {
-			margin-right: 0;
-		}
-		.card.card-tab ul.nav-tabs > li > a {
-			margin-right: 0;
-			background: #fff;
-			border-bottom: 1px solid #DDDDDD;
-			padding: 20px 30px;
-			border-right: none;
-		}
-		.card.card-tab ul.nav-tabs > li.active {
-			display: block;
-			border: 0;
-		}
-		.card.card-tab ul.nav-tabs > li.active a {
-			border-bottom: 1px solid #DDDDDD !important;
-			border-radius: 2px;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open i.fa-caret-down {
-			display: none;
-		}
-		.card.card-tab ul.nav-tabs.open > li {
-			display: block;
-		}
-		.card.card-tab ul.nav-tabs.open > li a {
-			border-radius: 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:first-of-type a {
-			border-radius: 2px 2px 0 0;
-		}
-		.card.card-tab ul.nav-tabs.open > li:last-of-type a {
-			border-radius: 0 0 2px 2px;
-		}
-		
-		@media (min-width: 842px) {
-			.card.card-tab ul.nav-tabs {
-				border-bottom: 1px solid #ddd;
-				
-			}
-			.card.card-tab ul.nav-tabs i {
-				display: none;
-			}
-			.card.card-tab ul.nav-tabs > li > a {
-				margin-right: 4px;
-				padding: 14px 12px;
-				border-right: 1px solid #DDDDDD;
-			}
-			.card.card-tab ul.nav-tabs > li {
-				display: block;
-				float: left;
-				margin-bottom: -1px;
-			}
-			.card.card-tab ul.nav-tabs > li.active a {
-				border-bottom-color: transparent !important;
-			}
-			
-			.card.card-tab ul.nav-tabs.open i.fa-caret-up {
-				display: none;
-			}
-		}
-		
-		@media (min-width: 980px) {
-			.card.card-tab ul.nav-tabs > li > a {
-				padding: 20px 30px;
-			}
-		}
-
-	</style>
 </head>
 <body>
 <div class="app app-default">
@@ -512,7 +322,7 @@
 											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
 												Elementi base
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse1">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -525,10 +335,10 @@
 													<div class="panel-body">
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row" id="edit-mail">
-																<div class="col-lg-2 col-md-2 col-xs-3 info-row info-head">
+																<div class="col-lg-2 col-md-2 col-xs-3 simple-row">
 																	Email
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-9 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-9 simple-row">
 																	fakemail@gmail.com
 																</div>
 																
@@ -546,10 +356,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-mail-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -568,7 +378,7 @@
 																</form>
 															</div>
 															<div class="row" id="add-mail">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-mail').toggleWith('#mail-input')" >
 																	<i class="fa fa-plus"></i>
 																		Aggiungi indirizzo email
@@ -578,10 +388,10 @@
 															<!-- FORM INSERIMENTO !-->
 															<div class="row">
 																<form class="form form-horizontal" id="mail-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -603,7 +413,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse2">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -616,10 +426,10 @@
 													<div class="panel-body">
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row" id="edit-tel">
-																<div class="col-lg-2 col-md-2 col-xs-3 info-row info-head">
+																<div class="col-lg-2 col-md-2 col-xs-3 simple-row">
 																	Tel.
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-9 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-9 simple-row">
 																	+39 333456789
 																</div>
 																
@@ -637,10 +447,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-tel-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-phone" aria-hidden="true"></i>
@@ -659,7 +469,7 @@
 																</form>
 															</div>
 															<div class="row" id="add-tel">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-tel').toggleWith('#tel-input')" >
 																	<i class="fa fa-plus"></i>
 																		Aggiungi numero di telefono
@@ -669,10 +479,10 @@
 															<!-- FORM INSERIMENTO !-->
 															<div class="row">
 																<form class="form form-horizontal" id="tel-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-phone" aria-hidden="true"></i>
@@ -694,7 +504,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse3">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -708,16 +518,16 @@
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<!-- FORM INSERIMENTO !-->
 															<div class="row" id="edit-mail">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-12 simple-row">
 																	La nuova password deve essere composta da almeno 6 caratteri, deve contenere maiuscole e minuscole. Non sono ammessi caratteri speciali.
 																</div>
 															</div>
 															<div class="row">
 																<form class="form form-horizontal" id="tel-input">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-lock" aria-hidden="true"></i>
@@ -750,7 +560,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse4">
 													<div class="panel-heading">
 														<h4 class="media-heading">
@@ -763,10 +573,10 @@
 													<div class="panel-body">
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row" id="edit-name">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row info-head">
+																<div class="col-lg-2 col-md-2 col-xs-4 simple-row">
 																	Nome
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-8 simple-row">
 																	Scott
 																</div>
 																
@@ -783,10 +593,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-name-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-user" aria-hidden="true"></i>
@@ -805,10 +615,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-surname">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Cognome
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	White
 																</div>
 																
@@ -825,10 +635,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-surname-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-user" aria-hidden="true"></i>
@@ -847,10 +657,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-profess">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Professione
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	Web Designer
 																</div>
 																
@@ -867,10 +677,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-profess-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-user" aria-hidden="true"></i>
@@ -893,10 +703,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-birthdate">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Data di nascita
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	22/04/1989
 																</div>
 																
@@ -913,10 +723,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-birthdate-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-calendar" aria-hidden="true"></i>
@@ -935,10 +745,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-location">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Localit&agrave;
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	Fisciano
 																</div>
 																
@@ -955,10 +765,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-location-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -978,10 +788,10 @@
 															</div>
 															
 															<div class="row" id="edit-cap">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	CAP
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	84048
 																</div>
 																
@@ -998,10 +808,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-cap-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -1020,10 +830,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-iva">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Partita Iva
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	12345678912
 																</div>
 																
@@ -1040,10 +850,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-iva-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-user" aria-hidden="true"></i>
@@ -1062,10 +872,10 @@
 																</form>
 															</div>
 															<div class="row" id="edit-web">
-																<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+																<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																	Sito Web
 																</div>
-																<div class="col-lg-9 col-md-9 col-xs-8 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-8 overlined-row">
 																	www.fakesite.com
 																</div>
 																
@@ -1082,10 +892,10 @@
 															<!-- FORM MODIFICA !-->
 															<div class="row">
 																<form class="form form-horizontal" id="edit-web-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-globe" aria-hidden="true"></i>
@@ -1112,20 +922,20 @@
 											<div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>
 												Gestione categorie
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse5">
 													<div class="panel-heading">
 														<h4 class="media-heading">
-															Visualizza, aggiungi macro-categorie
+															Visualizza, aggiungi macrocategorie
 														</h4>
-														<p>Visualizza, aggiungi ed elimina le macro-categorie di competenza</p>
+														<p>Visualizza, aggiungi ed elimina le macrocategorie di competenza</p>
 													</div>
 												</a>
 												<div id="profile-collapse5" class="panel-collapse collapse">
 													<div class="panel-body">
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-12 simple-row">
 																	<span class="label label-primary">Informatica</span>
 																</div>
 																
@@ -1140,7 +950,7 @@
 																</div>
 															</div>
 															<div class="row">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<span class="label label-success">Graphic Design</span>
 																</div>
 																
@@ -1156,20 +966,20 @@
 															</div>
 															
 															<div class="row" id="add-macro">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-macro').toggleWith('#macro-input')" >
 																	<i class="fa fa-plus"></i>
-																		Aggiungi macro-categoria
+																		Aggiungi macrocategoria
 																	</a>
 																</div>
 															</div>
 															<!-- FORM INSERIMENTO !-->
 															<div class="row">
 																<form class="form form-horizontal" id="macro-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-tag" aria-hidden="true"></i>
@@ -1194,20 +1004,20 @@
 													</div>
 												</div>
 											</div>
-											<div class="panel panel-default">
+											<div class="panel panel-default compact-panel">
 												<a class="panel-default collapse-title" data-toggle="collapse" href="#profile-collapse6">
 													<div class="panel-heading">
 														<h4 class="media-heading">
-															Visualizza, aggiungi micro-categorie
+															Visualizza, aggiungi microcategorie
 														</h4>
-														<p>Visualizza, aggiungi ed elimina le micro-categorie di competenza</p>
+														<p>Visualizza, aggiungi ed elimina le microcategorie di competenza</p>
 													</div>
 												</a>
 												<div id="profile-collapse6" class="panel-collapse collapse">
 													<div class="panel-body">
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row">
-																<div class="col-lg-6 col-md-9 col-xs-12 info-row info-head">
+																<div class="col-lg-6 col-md-9 col-xs-12 simple-row">
 																	<span class="label label-default">Informatica</span>
 																	<span class="label label-info">Php</span>
 																</div>
@@ -1223,7 +1033,7 @@
 																</div>
 															</div>
 															<div class="row">
-																<div class="col-lg-6 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-6 col-md-9 col-xs-12 overlined-row">
 																	<span class="label label-default">Informatica</span>
 																	<span class="label label-warning">Javascript</span>
 																</div>
@@ -1240,20 +1050,20 @@
 															</div>
 															
 															<div class="row" id="add-micro">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-micro').toggleWith('#micro-input')" >
 																	<i class="fa fa-plus"></i>
-																		Aggiungi micro-categoria
+																		Aggiungi microcategoria
 																	</a>
 																</div>
 															</div>
 															<!-- FORM INSERIMENTO !-->
 															<div class="row">
 																<form class="form form-horizontal" id="micro-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-tag" aria-hidden="true"></i>
@@ -1296,7 +1106,7 @@
                             <div class="row">
 								<div class="col-lg-12 col-md-12 col-xs-12">
 									<div class="section">
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse1">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1309,7 +1119,7 @@
 												<div class="panel-body">
 													<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="row">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-12 simple-row">
 																	
 																	<div class="media social-post profile-block">
 																		<div class="media-left">
@@ -1337,7 +1147,7 @@
 															</div>
 															
 															<div class="row" id="add-userblock">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row">
+																<div class="col-lg-9 col-md-9 col-xs-12 overlined-row">
 																	<a onclick="$('#add-userblock').toggleWith('#userblock-input')" >
 																	<i class="fa fa-plus"></i>
 																		Blocca nuovo utente
@@ -1347,10 +1157,10 @@
 															<!-- FORM INSERIMENTO !-->
 															<div class="row">
 																<form class="form form-horizontal" id="userblock-input" style="display:none">
-																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs info-row">
+																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
-																	<div class="col-lg-5 col-md-6 col-xs-12 info-row">
+																	<div class="col-lg-5 col-md-6 col-xs-12 overlined-row">
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-user" aria-hidden="true"></i>
@@ -1375,7 +1185,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse2">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1388,10 +1198,10 @@
 												<div class="panel-body">
 													<div class="col-lg-12 col-md-12 col-xs-12">
 														<div class="row">
-															<div class="col-lg-2 col-md-2 col-xs-4 info-row info-head">
+															<div class="col-lg-2 col-md-2 col-xs-4 simple-row">
 																Indirizzi Email
 															</div>
-															<div class="col-lg-10 col-md-10 col-xs-8 info-row info-head">
+															<div class="col-lg-10 col-md-10 col-xs-8 simple-row">
 																<div class="checkbox">
 																	<input type="checkbox" id="checkbox1">
 																	<label for="checkbox1">
@@ -1401,10 +1211,10 @@
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+															<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																Numeri di telefono
 															</div>
-															<div class="col-lg-10 col-md-10 col-xs-8 info-row">
+															<div class="col-lg-10 col-md-10 col-xs-8 overlined-row">
 																<div class="checkbox">
 																	<input type="checkbox" id="checkbox2">
 																	<label for="checkbox2">
@@ -1414,10 +1224,10 @@
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-lg-2 col-md-2 col-xs-4 info-row">
+															<div class="col-lg-2 col-md-2 col-xs-4 overlined-row">
 																Dati anagrafici
 															</div>
-															<div class="col-lg-10 col-md-10 col-xs-8 info-row">
+															<div class="col-lg-10 col-md-10 col-xs-8 overlined-row">
 																<div class="checkbox">
 																	<input type="checkbox" id="checkbox3">
 																	<label for="checkbox3">
@@ -1430,7 +1240,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse3">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1443,10 +1253,10 @@
 												<div class="panel-body">
 													<div class="col-lg-12 col-md-12 col-xs-12">
 														<div class="row">
-															<div class="col-lg-6 col-md-6 col-xs-8 info-row info-head">
+															<div class="col-lg-6 col-md-6 col-xs-8 simple-row">
 																Acconsenti al trattamento di dati personali da terze parti?
 															</div>
-															<div class="col-lg-6 col-md-6 col-xs-4 info-row info-head">
+															<div class="col-lg-6 col-md-6 col-xs-4 simple-row">
 																<div class="checkbox">
 																	<input type="checkbox" id="checkbox4">
 																	<label for="checkbox4">
@@ -1459,7 +1269,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse4">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1472,10 +1282,10 @@
 												<div class="panel-body">
 													<div class="col-lg-12 col-md-12 col-xs-12">
 														<div class="row">
-															<div class="col-lg-6 col-md-6 col-xs-8 info-row info-head">
+															<div class="col-lg-6 col-md-6 col-xs-8 simple-row">
 																Processo di verifica in due passaggi
 															</div>
-															<div class="col-lg-6 col-md-6 col-xs-4 info-row info-head">
+															<div class="col-lg-6 col-md-6 col-xs-4 simple-row">
 																<div class="checkbox">
 																	<input type="checkbox" id="checkbox4">
 																	<label for="checkbox4">
@@ -1488,7 +1298,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default">
+										<div class="panel panel-default compact-panel">
 											<a class="panel-default collapse-title" data-toggle="collapse" href="#privacy-collapse5">
 												<div class="panel-heading">
 													<h4 class="media-heading">
@@ -1502,13 +1312,13 @@
 													<div class="col-lg-12 col-md-12 col-xs-12">
 															<!-- FORM INSERIMENTO !-->
 															<div class="row" id="edit-mail">
-																<div class="col-lg-9 col-md-9 col-xs-12 info-row info-head">
+																<div class="col-lg-9 col-md-9 col-xs-12 simple-row">
 																	Eseguendo questa procedura il tuo account sarà rimosso da CrowdMine.
 																</div>
 															</div>
 															<div class="row">
 																<form class="form form-horizontal" id="tel-input">
-																	<div class="col-lg-12 col-md-12 col-xs-12 info-row info-head">
+																	<div class="col-lg-12 col-md-12 col-xs-12 simple-row">
 																		<div class="form-footer">
 																				<div class="form-group">
 																					<div class="col-lg-12 col-md-12 col-xs-12">
@@ -1558,22 +1368,6 @@ $.fn.toggleWith = function(id) {
 	$(id).toggle('fast');
 	$(this).toggle('fast');
 };
-/*code for responsive tabs*/
-$.fn.responsiveTabs = function() {
-  this.addClass('responsive-tabs');
-  this.append($('<i class="fa fa-caret-down" aria-hidden="true"></i>'));
-  this.append($('<i class="fa fa-caret-up" aria-hidden="true"></i>'));
-
-  this.on('click', 'li.active > a, i', function() {
-    this.toggleClass('open');
-  }.bind(this));
-
-  this.on('click', 'li:not(.active) > a', function() {
-    this.removeClass('open');
-  }.bind(this));
-};
-
-$('.nav.nav-tabs').responsiveTabs();
 </script>
 
 </body>

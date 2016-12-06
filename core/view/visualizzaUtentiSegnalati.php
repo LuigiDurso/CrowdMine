@@ -199,41 +199,95 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Utente Segnalato</th>
-                                        <th>Numero di segnalazioni</th>
-                                        <th>Attiva</th>
-                                        <th>Deattiva</th>
-                                        <th>Invia all'amministratore</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Angelo</td>
-                                        <td>10</td>
-                                        <td><button class="btn btn-link"><i class="fa fa-check"></i> </button></td>
-                                        <td><button class="btn btn-link"><i class="fa fa-close"></i> </button></td>
-                                        <td><button class="btn btn-link"><i class="fa fa-check-circle"></i> </button></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="card-header">
+                        Lista Utenti Segnalati
                     </div>
-                </div>
-            </div>
-        </div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<div class="media social-post">
+									<div class="media-left">
+										<a href="#">
+											<img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+										</a>
+									</div>
+									<div class="section">
+										<div class="section-body">
+											<div class="media-body">
+												<div class="pull-left">
+														<div class="media-heading">
+															<h4 class="title">Scott White</h4>
+															<h5 class="timeing"> Segnalato dal 12/10/2012</h5>
+														</div>
+												</div>
+												<div class="pull-right" style="margin-top: 1px">
+													<a href="#" data-toggle="tooltip" data-placement="left" title="10 Segnalazioni">
+														<span class="label label-warning"><i class="fa fa-exclamation-triangle"></i> 10 </span>
+													</a>
+												</div>
+												
+												<div class="col-lg-12 col-md-12 col-xs-12 pull-left" style="padding:0px">
+													<div class="media-action">
+														<button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
+														<button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+														<button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="overlined-row">
+								<div class="media social-post">
+									<div class="media-left">
+										<a href="#">
+											<img src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>
+										</a>
+									</div>
+									<div class="section">
+										<div class="section-body">
+											<div class="media-body">
+												<div class="pull-left">
+													<div class="media-heading">
+														<h4 class="title">Paolo de Filippo</h4>
+														<h5 class="timeing"> Segnalato dal 12/10/2012</h5>
+													</div>
+												</div>
+												<div class="pull-right" style="margin-top: 1px">
+													<a href="#" data-toggle="tooltip" data-placement="left" title="120 Segnalazioni">
+														<span class="label label-danger"><i class="fa fa-exclamation-triangle"></i> 120 </span>
+													</a>
+												</div>
+												<div class="col-lg-12 col-md-12 col-xs-12 pull-left" style="padding:0px">
+													<div class="media-action">
+														<button class="btn btn-link"><i class="fa fa-check"></i> Conferma</button>
+														<button class="btn btn-link"><i class="fa fa-close"></i> Elimina</button>
+														<button class="btn btn-link"><i class="fa fa-check-circle"></i> invia all'amministratore</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 
     <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
     <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
-
+	<script>
+		/*evidenzio segnalazioni nella barra laterale*/
+		$("#segnalazioni").toggleClass("active");
+		$('[data-toggle="tooltip"]').tooltip(); 
+	</script>
 </body>
 </html>
