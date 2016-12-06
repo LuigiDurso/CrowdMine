@@ -314,7 +314,7 @@
                                 <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Annunci</a>
                             </li>
                             <li role="tab3">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab" id="feedback-tab">Feedback</a>
+                                <a href="#tab3" id="feedback-tab-3" aria-controls="tab3" role="tab" data-toggle="tab" id="feedback-tab">Feedback</a>
                             </li>
                             <li role="tab4">
                                 <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Statistiche</a>
@@ -955,8 +955,10 @@
                 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
                 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
                 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.js"></script>
+                <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackList.js"></script>
                 <?php
-                if ($_SESSION['toast-type'] && $_SESSION['toast-message']) {
+
+                if (isset($_SESSION['toast-type']) && isset($_SESSION['toast-message'])) {
                     ?>
                     <script>
                         $(document).ready(function () {
