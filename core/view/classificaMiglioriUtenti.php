@@ -316,7 +316,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Mostra Risultati</button>
+                            <button id="mostraRisultati" type="submit" class="btn btn-primary">Mostra Risultati</button>
                         </div>
                     </div>
                 </div>
@@ -365,4 +365,19 @@
 </div>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
+<script>
+    $(document).click(function(){
+        $("#mostraRisultati").click(function(){
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "process.php",
+                    data: {method: 'one'},
+                    success: function(msg){
+                    }
+                });
+            });
+    });
+</script>
+
 </body>
