@@ -292,10 +292,10 @@
                             <li role="tab1" class="active">
                                 <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Generale</a>
                             </li>
-                            <li role="tab3">
+                            <li role="tab2">
                                 <a href="#tab2" aria-controls="tab1" role="tab" data-toggle="tab">Annunci</a>
                             </li>
-                            <li role="tab4">
+                            <li role="tab3">
                                 <a href="#tab3" aria-controls="tab1" role="tab" data-toggle="tab">Utenti</a>
                             </li>
                         </ul>
@@ -303,7 +303,7 @@
                     <div class="card-body no-padding tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1"><!--Inizio tab1-->
                             <div class="row">
-                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="section">
                                         <div class="section-title">Generale</div>
                                         <div class="section-body">
@@ -314,7 +314,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div><!--Fine tab1-->
                         <div role="tabpanel" class="tab-pane" id="tab2"><!--Inizio tab2-->
@@ -375,7 +374,6 @@
                                                 <div class="section-title">Micro Categorie</div>
                                                 <div class="section-body">
                                                     <form method="post" action=TabAnnunci.php" name="microInfoDate">
-                                                        <!--action da cambiare-->
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <select id="selectMicro" style="width:100%" class="select2">
@@ -634,6 +632,52 @@
         });
     });
 
+    //check date macro
+    $("#fromdatemacro, #atdatemacro").change( function(){
+
+        //funzione da attivare ogni qualvolta si seleziona una data.
+        var from = String ($("#fromdatemacro").val());
+        var at = String($("#atdatemacro").val());
+
+
+        var fromDate= new Date(from);
+        var atDate = new Date(at);
+
+        if(fromDate < atDate){
+          //ok
+            return true;
+        }else if(fromDate == atDate){
+            //ok la date sono uguale
+            return true;
+        }else if(fromDate > atDate){
+            // alert e "submitMacro disabilitato
+            return false;
+        }
+    });
+    
+    //check date micro
+    $("#fromdatemicro, #atdatemicro").change( function(){
+
+        //funzione da attivare ogni qualvolta si seleziona una data.
+        var from = String ($("#fromdatemicro").val());
+        var at = String($("#atdatemicro").val());
+
+
+        var fromDate= new Date(from);
+        var atDate = new Date(at);
+
+        if(fromDate < atDate){
+            //ok
+            return true;
+        }else if(fromDate == atDate){
+            //ok la date sono uguale
+            return true;
+        }else if(fromDate > atDate){
+            // alert e "submitMicro disabilitato
+            return false;
+        }
+    });
+
 
     //caricamento macro in tabMacro preferite dall'utenti
     $("#tab3").click(function (){
@@ -652,7 +696,7 @@
                                         .append($("<button>")
                                             .attr("type", "button")
                                             .attr("class", "btn btn-info")
-                                            .attr("onclick", "bufferingMicroTable(" +response->getNomeMacro +")") //da verificare
+                                            .attr("onclick", "bufferingMicroTable(" +response->getNomeMacro() +")") //da verificare
                                             .attr("text", response->getNameMacro() )
                                         )
                                     )
@@ -677,7 +721,7 @@
                     return $("#microUtenti").find("tbody")
                         .append($("<tr>")
                             .append($("<th>").attr("scope", "row")
-                                .append($("<td>").attr("text", response - > nomeMicro);
+                                .append($("<td>").attr("text", response->getNomeMicro());
                                     )
                             )
                         );
