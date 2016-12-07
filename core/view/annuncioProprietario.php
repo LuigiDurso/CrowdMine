@@ -163,6 +163,10 @@ include_once VIEW_DIR . 'header.php';
     function parametro(id){
         document.getElementById(id).href="modificaAnnuncio?id="+id;
     }
+    function cancella(id){
+        var idDaCancellare = id.charAt(0);
+        document.getElementById(id).href="cancellaAnnuncioProprietario?id="+idDaCancellare;
+    }
 </script>
 
 <body>
@@ -309,7 +313,9 @@ include_once VIEW_DIR . 'header.php';
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Cancella</button>
+                                    <a id="1c" onclick="cancella(this.id)" href="cancellaAnnuncio">
+                                        <button type="button" class="btn btn-sm btn-danger">Cancella</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
