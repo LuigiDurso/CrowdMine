@@ -14,6 +14,7 @@ define('TEMPLATE_DIR', CORE_DIR . "template" . DIRECTORY_SEPARATOR); //ecc
 define('EXCEPTION_DIR', CORE_DIR . "exception" . DIRECTORY_SEPARATOR);
 define('MODEL_DIR', CORE_DIR . "model" . DIRECTORY_SEPARATOR);
 define('CONTROL_DIR', CORE_DIR . "control" . DIRECTORY_SEPARATOR);
+define('MANAGER_DIR', CORE_DIR . "manager" . DIRECTORY_SEPARATOR);
 define('UPLOADS_DIR', DOMINIO_SITO . "/uploads/");
 define('STYLE_DIR', DOMINIO_SITO . DIRECTORY_SEPARATOR . "style" . DIRECTORY_SEPARATOR);
 define('UTILS_DIR', CORE_DIR . "utils" . DIRECTORY_SEPARATOR);
@@ -177,6 +178,9 @@ try {
                 break;
             case 'inserisciAnnuncio';
                 include_once VIEW_DIR . "inserisciAnnuncio.php";
+                break;
+            case 'inserisciAnnuncioControl';
+                include_once CONTROL_DIR . "inserisciAnnuncio.php";
                 break;
                 case 'modificaAnnuncio';
                 include_once VIEW_DIR . "modificaAnnuncio.php";

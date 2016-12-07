@@ -137,7 +137,7 @@ include_once VIEW_DIR . 'header.php';
             <div class="col-md-12">
 
                 <div class="card" style="width auto;">
-
+                    <form action="inserisciAnnuncioControl" method="post">
                     <div class="card-header">Inserisci un Annuncio</div>
 
                     <div class="card-body">
@@ -148,46 +148,40 @@ include_once VIEW_DIR . 'header.php';
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-certificate" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Titolo.." aria-describedby="basic-addon1" value="">
+                                    <input type="text" name="titolo" class="form-control" placeholder="Titolo.." aria-describedby="basic-addon1" value="">
                                 </div>
-                                <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                <textarea name="descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                <input type="text" name="luogo" class="form-control" placeholder="Luogo.." aria-describedby="basic-addon1" value="">
 
                             </div>
 
                             <div class="col-md-6">
-
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Macro-Area<span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">Informatica</a></li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micro-Area<span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
+                                    <select name="microcategorie">
+                                        <option value="php" > php </option>
+                                    </select>
                                     </ul>
                                 </div>
                                 <div class="input-group" style="margin-top: 3%">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-money" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Retribuzione.." aria-describedby="basic-addon1" value="">
+                                    <input type="text" name="retribuzione" class="form-control" placeholder="Retribuzione.." aria-describedby="basic-addon1" value="">
                                 </div>
                                 <div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" name="radio2" id="radio5" value="option1">
+                                        <input type="radio" name="tipologia" id="radio5" value="domanda">
                                         <label for="radio5">Domanda</label>
                                     </div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" name="radio2" id="radio6" value="option2">
+                                        <input type="radio" name="tipologia" id="radio6" value="offerta">
                                         <label for="radio6">Offerta</label>
                                     </div>
                                 </div>
@@ -206,7 +200,7 @@ include_once VIEW_DIR . 'header.php';
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                                    <button type="button" class="btn btn-sm btn-success">Conferma</button>
+                                                    <button type="submit" class="btn btn-sm btn-success">Conferma</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,7 +212,7 @@ include_once VIEW_DIR . 'header.php';
                         </div>
 
                     </div>
-
+                    </form>
                 </div>
 
             </div>

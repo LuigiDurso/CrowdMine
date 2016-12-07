@@ -5,13 +5,13 @@
  * Date: 01/12/2016
  * Time: 18:37
  */
-include_once MANAGER_DIR . 'AnnuncioManager.php';
+//include_once MANAGER_DIR . 'AnnuncioManager.php';
 
-    $utente = unserialize($_SESSION['utente']);
-    $idUtente = $utente->getId();
+    //$utente = unserialize($_SESSION['utente']);
+    //$idUtente = $utente->getId();
     $titolo = strip_tags(htmlspecialchars(addslashes($_POST['titolo'])));
     $descrizione = strip_tags(htmlspecialchars(addslashes($_POST['descrizione'])));
-    $luogo = strip_tags(htmlspecialchars(addslashes($_POST['ruolo'])));
+    $luogo = strip_tags(htmlspecialchars(addslashes($_POST['luogo'])));
     $retribuzione = strip_tags(htmlspecialchars(addslashes($_POST['retribuzione'])));
     $tipologia = strip_tags(htmlspecialchars(addslashes($_POST['tipologia'])));
     $listaMicrocategorie = strip_tags(htmlspecialchars(addslashes($_POST['microcategorie'])));
@@ -23,7 +23,13 @@ include_once MANAGER_DIR . 'AnnuncioManager.php';
     $data = $dataPubblicazione->format("Y-m-d");
     //$managerAnnuncio = new AnnuncioManager();
     //$managerAnnuncio->createAnnuncio($idUtente, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia, $listaMicrocategorie);
+    echo $titolo."<br>";
+    echo $descrizione."<br>";
+    echo $luogo."<br>";
+    echo $retribuzione."<br>";
+    echo $tipologia."<br>";
+    echo $listaMicrocategorie."<br>";
+    echo $data."<br>";
 
-
-    header("Location:" . DOMINIO_SITO . "/");
+    //header("Location:" . DOMINIO_SITO . "/"."inserisciAnnuncio");
 ?>

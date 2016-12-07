@@ -159,6 +159,11 @@ include_once VIEW_DIR . 'header.php';
 
 
 </style>
+<script type="text/javascript">
+    function parametro(id){
+        document.getElementById(id).href="modificaAnnuncio?id="+id;
+    }
+</script>
 
 <body>
 <div class="app app-default">
@@ -287,6 +292,7 @@ include_once VIEW_DIR . 'header.php';
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#" data-toggle="modal" data-target="#myModal">Cancella annuncio</a></li>
+                                    <li><a id="1" onclick="parametro(this.id)" href="modificaAnnuncio" >Modifica annuncio</a></li>
                                 </ul>
                             </li>
                         </ul>

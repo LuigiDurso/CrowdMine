@@ -6,7 +6,19 @@
  * @since 30/05/16
  */
 include_once VIEW_DIR . 'header.php';
+include_once MODEL_DIR . 'annuncio.php';
+//include_once MANAGER_DIR .'AnnuncioManager.php';
 
+$id = $_GET["id"];
+if(!isset($id)){
+    header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
+}
+//$managerAnnuncio = new AnnuncioManager();
+//$annuncio = $managerAnnuncio->getAnnuncio($id);
+//if(!isset($annuncio)){
+  //  header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
+//}
+$annuncio = new Annuncio($id,2,"ciao","Spettacolo","Sono Grandi i PM","San Paolo","revisione","1","domanda");
 ?>
 
 <!DOCTYPE html>
@@ -148,9 +160,9 @@ include_once VIEW_DIR . 'header.php';
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-certificate" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Offerta Programmatore PHP" aria-describedby="basic-addon1" value="">
+                                    <input type="text" class="form-control" placeholder=<?php echo $annuncio->getTitolo() ?> aria-describedby="basic-addon1" value="">
                                 </div>
-                                <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                <textarea name="name" rows="3" class="form-control" placeholder=<?php $annuncio->getDescrizione() ?>></textarea>
 
                             </div>
 
@@ -179,7 +191,7 @@ include_once VIEW_DIR . 'header.php';
                                 <div class="input-group" style="margin-top: 3%">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-money" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="200€" aria-describedby="basic-addon1" value="">
+                                    <input type="text" class="form-control" placeholder=<?php echo $annuncio->getRetribuzione() ?> aria-describedby="basic-addon1" value="">
                                 </div>
                                 <div>
                                     <div class="radio radio-inline">
