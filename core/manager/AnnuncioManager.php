@@ -52,9 +52,31 @@ class AnnuncioManager extends Manager{
 
         $Annuncio = new Annuncio($insertID,$date,$title,$description,$location, "revisione",$remuneration,$type,$description);
 
-        /*
-         * TODO: add couples (insertId, microcatId) to RIFERITO
-         */
+
+        /* adding couples (insertId, microcatId) to RIFERITO */
+
+        /*ignore insert, if some categories do not exist they get ignored*/
+        $INSERT_RIFERITO = "INSERT IGNORE INTO `riferito`(`id_annuncio`, `id_microcategoria`) VALUES";
+        $INSERT_ROW = " ('%s', '%s') ";
+
+        $query = sprintf($INSERT_RIFERITO);
+
+        for($i=0;i<count($microcat);$i++){
+            if($i>0) $query.=",";
+            $query .= sprintf($INSERT_ROW,$insertID,$microcat[$i]);
+        }
+
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        /*warnings handle due to IGNORE statement*/
+        if (Manager::getDB()->warning_count) {
+            $e = Manager::getDB()->get_warnings();
+            do {
+                echo "Warning: $e->errno: $e->message\n";
+            } while ($e->next());
+        }
 
         return $Annuncio;
     }
@@ -87,6 +109,7 @@ class AnnuncioManager extends Manager{
 
         /*
         *   TODO: update couples (id, microcatId) to RIFERITO
+         *  NOTE: Delete all and insert again, update is not coeherent
         */
 
         return $Annuncio;
