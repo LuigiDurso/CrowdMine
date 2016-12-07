@@ -6,10 +6,16 @@
  * Time: 21:47
  */
 
-$idAnnuncio = $_POST['idAnnuncio'];
+$idAnnuncio = $_GET['id'];
 
 //$managerAnnuncio = new AnnuncioManager();
 //$managerAnnuncio->deleteAnnuncio($idAnnuncio);
 
-header("Location:" . DOMINIO_SITO . "/");
+//header("Location:" . DOMINIO_SITO . "/");
+/*
+ * aspettando il completamento dei manager e
+ * capire come restituire bene l'avvenuta cancellazione
+ * o errore alla view.
+ *
+ */
 ?>
