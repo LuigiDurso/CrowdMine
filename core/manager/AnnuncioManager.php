@@ -15,6 +15,7 @@ include_once MODEL_DIR . 'Annuncio.php';
  */
 class AnnuncioManager extends Manager{
 
+    private static $GET_ALL_ANNUNCI = "SELECT * FROM `annuncio`";
 
     /**
      * AnnuncioManager constructor.
@@ -28,35 +29,90 @@ class AnnuncioManager extends Manager{
      * create a new persistent Annuncio and its categories
      *
      * @param null $id
-     * @param string[] $macrocat An array of macrocategory names
-     * @param string[] $microcat An array of microcategory names
+     * @param string $userid
+     * @param string $data
      * @param String $title Title
-     * @param String $description description
      * @param String $location  Location
-     * @param String $type Type (domanda,offerta).
+     * @param string[] $microcat An array of microcategory names
      * @param String $remuneration Indicative remuneration.
+     * @param String $type Type (domanda,offerta).
+     * @param String $description description
      * @return Annuncio A model instance of the created Annuncio.
      */
-    public function createAnnuncio($id=null, $title, $description,$macrocat,$microcat, $location, $type, $remuneration)
+    public function createAnnuncio($id=null, $userid, $date, $title, $location, $microcat, $remuneration, $type, $description)
     {
-        return new Annuncio($id, new DateTime(), $title, $description, $location, $type, $remuneration, null);
+        $INSERT_ANNUNCIO = "INSERT INTO `annuncio` (`id_utente`, `data`, `titolo`, `luogo`, `stato`, `retribuzione`, `tipo`, `descrizione`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');";
+
+        $query = sprintf($INSERT_ANNUNCIO,$userid, $date, $title, $location, "revisione", $remuneration, $type, $description);
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        $insertID =  Manager::getDB()->insert_id;
+
+        $Annuncio = new Annuncio($insertID,$date,$title,$description,$location, "revisione",$remuneration,$type,$description);
+
+
+        /* adding couples (insertId, microcatId) to RIFERITO */
+
+        /*ignore insert, if some categories do not exist they get ignored*/
+        $INSERT_RIFERITO = "INSERT IGNORE INTO `riferito`(`id_annuncio`, `id_microcategoria`) VALUES";
+        $INSERT_ROW = " ('%s', '%s') ";
+
+        $query = sprintf($INSERT_RIFERITO);
+
+        for($i=0;i<count($microcat);$i++){
+            if($i>0) $query.=",";
+            $query .= sprintf($INSERT_ROW,$insertID,$microcat[$i]);
+        }
+
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        /*warnings handle due to IGNORE statement*/
+        if (Manager::getDB()->warning_count) {
+            $e = Manager::getDB()->get_warnings();
+            do {
+                echo "Warning: $e->errno: $e->message\n";
+            } while ($e->next());
+        }
+
+        return $Annuncio;
     }
 
     /**
      * update an existing Annuncio with the provided ID
      *
-     * @param null $id
-     * @param string[] $macrocat An array of macrocategory names
-     * @param string[] $microcat An array of microcategory names
+     * @param $id
+     * @param string $userid
+     * @param string $data
      * @param String $title Title
-     * @param String $description description
      * @param String $location  Location
-     * @param String $type Type (domanda,offerta).
+     * @param string[] $microcat An array of microcategory names
      * @param String $remuneration Indicative remuneration.
+     * @param String $type Type (domanda,offerta).
+     * @param String $description description
      * @return Annuncio A model instance of the updated Annuncio.
      */
-    public function updateAnnuncio($id=null, $title, $description,$macrocat,$microcat, $location, $type, $remuneration){
-        return new Annuncio($id, null, $title, $description, $location, $type, $remuneration, null);
+    public function updateAnnuncio($id, $userid, $date, $title, $location, $microcat, $remuneration, $type, $description)
+    {
+
+        $UPDATE_ANNUNCIO = "UPDATE `Annuncio` SET `data` = '%s', `titolo` = '%s', `luogo` = '%s', `stato` = '%s', `retribuzione` = '%s', `tipo` = '%s', `descrizione` = '%s' WHERE `id` = '%s' AND `id_utente` = '%s' ";
+
+        $query = sprintf($UPDATE_ANNUNCIO, $date, $title, $location, "revisione", $remuneration, $type, $description, $id, $userid);
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$AGGIORNAMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        $Annuncio = new Annuncio($id,$date,$title,$description,$location, "revisione",$remuneration,$type,$description);
+
+        /*
+        *   TODO: update couples (id, microcatId) to RIFERITO
+         *  NOTE: Delete all and insert again, update is not coeherent
+        */
+
+        return $Annuncio;
     }
 
     /**
@@ -65,22 +121,36 @@ class AnnuncioManager extends Manager{
      */
     public function deleteAnnuncio($idAnnuncio){
 
+        $DELETE_ANNUNCIO = "DELETE FROM `Annuncio` WHERE `id` = '%s' ";
+
+        $query = sprintf($DELETE_ANNUNCIO, $idAnnuncio);
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$CANCELLAZIONE_FALLITA, Manager::getDB()->error, Manager::getDB()->errno);
+        }
     }
 
+
     /**
-     * Search an Annuncio with at least one of this fields
+     * Search an Annuncio with search filters
      *
-     * @param $idUtente
-     * @param String $title Title
-     * @param String $description description
-     * @param String $macrocat
-     * @param String $microcat
-     * @param String $location Location
-     * @param String $type Type (domanda,offerta).
-     * @return Annuncio A model instance of the Annuncio.
+     * @param array $filters array of filter objects
+     * @return Annuncio[] A list of Annuncio elements.
      */
-    public function searchAnnuncio($idUtente, $title, $description, $macrocat, $microcat, $location, $type){
-        return new Annuncio(null, null, null, null, null, null, null, null);
+    public function searchAnnuncio($filters){
+
+        $query = sprintf(self::$GET_ALL_ANNUNCI);
+        FilterUtils::applyFilters($filters,$query);
+
+        $res = Manager::getDB()->query($query);
+        $annunci = array();
+        if($res){
+            while ($obj = $res->fetch_assoc()) {
+                $annuncio = new Annuncio($obj['id'], $obj['titolo'], $obj['data'], $obj['descrizione'], $obj['luogo'], $obj['data_pubblicazione'], $obj['tipologia'], $obj['email_utente']);
+                $annuncio->setId($obj['id']);
+                $annunci[] = $annuncio;
+            }
+        }
+        return $annunci;
     }
 
     /**
@@ -90,7 +160,9 @@ class AnnuncioManager extends Manager{
      * @return Annuncio A model instance of the Annuncio.
      */
     public function getAnnuncio($id){
-        return new Annuncio(null, null, null, null, null, null, null, null);
+        return $this->searchAnnuncio(
+            Array(new SearchByIdFilter($id))
+        )[0];
     }
 
     /**
@@ -100,7 +172,9 @@ class AnnuncioManager extends Manager{
      * @return Annuncio[] A list of Annuncio elements.
      */
     public function searchAnnunciUtente($idUtente){
-        return [];
+        return $this->searchAnnuncio(
+            Array(new SearchByUserIdFilter($idUtente))
+        );
     }
 
     /**
@@ -110,8 +184,16 @@ class AnnuncioManager extends Manager{
      * @param $idUtente
      * @param String $message Candidacy proposal.
      */
-    public function addCandidatura($idAnnuncio, $idUtente, $message){
+    public function addCandidatura($idAnnuncio, $idUtente, $message, $data){
 
+        $INSERT_CANDIDATURA = "INSERT INTO `Candidatura` (`id_utente`, `id_annuncio`, `corpo`, `data_risposta`, `data_inviata`, `richiesta_inviata`, `richiesta_accettata`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');";
+
+        $query = sprintf($INSERT_CANDIDATURA,$idUtente, $idAnnuncio, $message, null,$data, "inviata", "non_valutato");
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        $insertID =  Manager::getDB()->insert_id;
     }
 
     /**
@@ -120,8 +202,16 @@ class AnnuncioManager extends Manager{
      * @param $idAnnuncio
      * @param $idUtente
      */
-    public function addToFavorites($idAnnuncio, $idUtente){
+    public function addToFavorites($idAnnuncio, $idUtente, $data){
 
+        $INSERT_FAVORITES = "INSERT INTO `Preferito`(`id_utente`, `id_annuncio`, `data_aggiunta`) VALUES ('%s', '%s', '%s' );";
+
+        $query = sprintf($INSERT_FAVORITES,$idUtente, $idAnnuncio, $data);
+        if (!Manager::getDB()->query($query)) {
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+
+        $insertID =  Manager::getDB()->insert_id;
     }
 
     /**
@@ -159,7 +249,7 @@ class AnnuncioManager extends Manager{
      * @return Annuncio[] A list of Annuncio elements.
      */
     public function getAnnunciHomePage(){
-        return [];
+        return $this->searchAnnuncio(null);
     }
 
     /**
@@ -177,7 +267,7 @@ class AnnuncioManager extends Manager{
      * @return Annuncio[] A list of Annuncio elements.
      */
     public function getReportedAnnunci(){
-        return [];
+        return $this->searchAnnuncio(null);
     }
 
 
@@ -237,7 +327,7 @@ class AnnuncioManager extends Manager{
      * @return Annuncio[] A list of Annuncio elements.
      */
     public function getClaimedAnnunciList(){
-        return [];
+        return $this->searchAnnuncio(null);
     }
 
     /**
@@ -261,6 +351,6 @@ class AnnuncioManager extends Manager{
      * @return Annuncio[] A list of Annuncio elements.
      */
     public function getAnnunciRanking($macro=null, $micro=null){
-        return [];
+        return $this->searchAnnuncio(null);
     }
 }
