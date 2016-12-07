@@ -98,10 +98,6 @@ try {
 //             case 'standard':
 //                include_once "standard.html";
 //                break;
-            case 'ricercaAnnuncio':
-                StringUtils::checkPermission("all");
-                include_once VIEW_DIR . "ricercaAnnuncio.php";
-                break;
             case 'profilo':
                 StringUtils::checkPermission("all");
                 include_once VIEW_DIR . "profilo.php";
@@ -182,8 +178,23 @@ try {
             case 'inserisciAnnuncioControl';
                 include_once CONTROL_DIR . "inserisciAnnuncio.php";
                 break;
-                case 'modificaAnnuncio';
+            case 'modificaAnnuncio';
                 include_once VIEW_DIR . "modificaAnnuncio.php";
+                break;
+            case 'aggiungiPreferitiControl';
+                include_once CONTROL_DIR . "aggiungiPreferiti.php";
+                break;
+            case 'ricercaAnnuncio';
+                include_once VIEW_DIR . "ricercaAnnuncio.php";
+                break;
+            case 'ricercaAnnuncioControl';
+                include_once CONTROL_DIR . "ricercaAnnuncio.php";
+                break;
+            case 'annunciPreferiti';
+                include_once VIEW_DIR . "annunciPreferiti.php";
+                break;
+            case 'rimuoviPreferitiControl';
+                include_once CONTROL_DIR . "rimuoviPreferiti.php";
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');

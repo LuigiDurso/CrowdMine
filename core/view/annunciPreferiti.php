@@ -8,7 +8,6 @@
 include_once VIEW_DIR . 'header.php';
 
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -199,15 +198,15 @@ include_once VIEW_DIR . 'header.php';
                     </div>
                     <div class="col-md-1 col-sm-2 preferites">
                         <a>
-                        <button style="
+                            <button style="
                                 background-color: Transparent;
                                 background-repeat:no-repeat;
                                 border: none;
                                 cursor:pointer;
                                 overflow: hidden;
-                                outline:none;">
-                            <i class="fa fa-star-o" style="font-size: 200%;" data-toggle="modal" data-target="#myModal2"></i>
-                        </button>
+                                outline:none;" data-toggle="modal" data-target="#myModal2">
+                                <i class="fa fa-close" style="font-size: 200%;"></i>
+                            </button>
                         </a>
                         <ul class="card-action">
                             <li class="dropdown">
@@ -220,35 +219,37 @@ include_once VIEW_DIR . 'header.php';
                             </li>
                         </ul>
                     </div>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title">Conferma segnalazione</h4>
+                                    <h4 class="modal-title">Rimuovere dai preferiti</h4>
                                 </div>
-                                <div class="modal-body">Inserisci una descrizione per segnalare
-                                    <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
-                                </div>
+                                <form action="rimuoviPreferitiControl" method="post">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Segnala</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">Rimuovi</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <h4 class="modal-title">Aggiungere ai preferiti?</h4>
+                                <h4 class="modal-title">Conferma candidatura</h4>
                             </div>
                             <form action="aggiungiPreferitiControl" method="post">
+                                <div class="modal-body">Inserisci una descrizione per candidarti
+                                    <textarea name="Descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                    <button type="submit" class="btn btn-sm btn-success">Aggiungi</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Conferma</button>
                                 </div>
                             </form>
                         </div>
@@ -288,7 +289,7 @@ include_once VIEW_DIR . 'header.php';
                     </button>
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">Candidati</button>
                 </div>
-                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -296,13 +297,13 @@ include_once VIEW_DIR . 'header.php';
                                 <h4 class="modal-title">Conferma candidatura</h4>
                             </div>
                             <form action="aggiungiPreferitiControl" method="post">
-                            <div class="modal-body">Inserisci una descrizione per candidarti
-                                <textarea name="Descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                <button type="submit" class="btn btn-sm btn-success">Conferma</button>
-                            </div>
+                                <div class="modal-body">Inserisci una descrizione per candidarti
+                                    <textarea name="Descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Conferma</button>
+                                </div>
                             </form>
                         </div>
                     </div>

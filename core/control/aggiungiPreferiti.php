@@ -1,15 +1,17 @@
 <?php
 
 
-include_once MANAGER_DIR . 'AnnuncioManager.php';
+//include MANAGER_DIR . 'AnnuncioManager.php';
 
-$manager = new AnnuncioManager();
+echo "Annuncio aggiunto ai preferiti!";
 
-$utente = unserialize($_SESSION['utente']);
-$idUtente = $utente->getId();
-$idAnnuncio = null; //in qualche modo dovremmo prenderci l'id dell'annuncio, oggi sabato 3 dicembre alle ore 18:04 non so come fare <3
+$manager = new AnnuncioManager(); /* Declaration and initialization a manager variable */
 
-$manager->addToFavorites($idAnnuncio, $idUtente);
+$utente = unserialize($_SESSION['utente']); /* Declaration and initialization a user variable contain an unserialized version of a parameter who reference to user's info, given from session*/
+$idUtente = $utente->getId(); /* Declaration and initialization a user variable contain the user id */
+$idAnnuncio = unserialize($_SESSION['idAnnuncio']); /* Declaration and initialization a user variable contain an unserialized version of a parameter who reference to annuncio's info, given from session */
+//$data = ?;
+//$manager->addToFavorites($idAnnuncio, $idUtente, $data); /* Manager calls the function which add to user's favorites'list, the annuncio with relative id */
 
 
 

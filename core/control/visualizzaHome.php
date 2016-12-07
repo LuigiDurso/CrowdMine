@@ -6,13 +6,11 @@ $manager = new AnnuncioManager();
 $utente = unserialize($_SESSION['utente']);
 $idUtente = $utente->getId();
 
-/* VERIFICARE TIPO HOMEPAGE (Utente loggato/non)
-
 if (!$idUtente) {
-    $manager->getAnnunciHomePage();
+    $manager->getAnnunciHomePage(null);
 } else {
-    $manager->getAnnunciHomePage();
+    $manager->getAnnunciHomePage($idUtente); /* Funzione da definire all'interno dei manager annunci*/
 }
 
-*/
+
 
