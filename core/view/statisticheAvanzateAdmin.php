@@ -551,7 +551,7 @@
 
 
     //caricamento Generale
-    $("#tab1").ready(function () {
+    $("#tab1").ready(function (){
         $.ajax({
             type: "POST",
             url: "control/TabGenerale.php",
@@ -562,7 +562,7 @@
     });
 
     //caricamento TabGenerale nell'eventualità che si ritorni sulla pagina
-    $("#tab1").click(function () {
+    $("#tab1").click(function (){
         $.ajax({
             type: "POST",
             url: "control/TabGenerale.php",
@@ -578,13 +578,13 @@
             type: "POST",
             url: "control/TabAnnunci.php",
             dataType: "json",
-            data: {"selectMacro"},
-            success: function (response){
-                $($.parseJSON(response)).map(function () { /**l'oggetto response è del nel formato "response":{"valore":"2", "label":"qwerty" }*/
-                    return $('<option>').val(this.value).text(this.label);
-                }).appendTo("#selectMacro");
+            data: "selectMacro",
+            success: function (response) {
+                $($.parseJSON(response)).map(function () { /**l'oggetto response è del formato "response":{"macrocategoria" }*/
+                    return $('<option>').val(response.nomemacro).text(response.nomemacro);
+                }).appendTo("#selectMacro")
             }
-        });
+        })
     });
 
     //caricamento dinamico ComboBox Micro Categoria
@@ -593,11 +593,11 @@
             type: "POST",
             url: "control/TabAnnunci.php",
             dataType: "json",
-            data: {"selectMicro"},
-            success: function (response){ /**l'oggetto response è del nel formato "response":{"valore":"2", "label":"qwerty" }*/
+            data: "selectMicro",
+            success: function (response){ /**l'oggetto response è del formato response:{"microcateogira:nomemicro, ecc... }*/
                 $($.parseJSON(response)).map(function () {
-                    return $('<option>').val(this.value).text(this.label);
-                }).appendTo("#selectMicro");
+                    return $('<option>').val(response.nomemicro).text(nomemicro);
+                }).appendTo("#selectMicro")
             }
         });
     });
@@ -633,48 +633,35 @@
     });
 
     //check date macro
-    $("#fromdatemacro, #atdatemacro").change( function(){
+    $("#fromdatemacro, #atdatemacro").change(function(){
 
         //funzione da attivare ogni qualvolta si seleziona una data.
-        var from = String ($("#fromdatemacro").val());
-        var at = String($("#atdatemacro").val());
+        var fromDate = $("#fromdatemacro").val();
+        var atDate = $("#atdatemacro").val();
 
-
-        var fromDate= new Date(from);
-        var atDate = new Date(at);
-
-        if(fromDate < atDate){
-          //ok
-            return true;
-        }else if(fromDate == atDate){
-            //ok la date sono uguale
-            return true;
-        }else if(fromDate > atDate){
-            // alert e "submitMacro disabilitato
-            return false;
-        }
+            if(fromDate !="" && atDate!="") {
+                if (Date.parse(fromDate) > Date.parse(atDate)) {
+                    $("#submitMacro").attr("disabled", "true");
+                }else{
+                    $("#submitMacro").removeAttr("disabled");
+                }
+            }
     });
-    
+
     //check date micro
-    $("#fromdatemicro, #atdatemicro").change( function(){
+    $("#fromdatemicro, #atdatemicro").change(function(){
 
         //funzione da attivare ogni qualvolta si seleziona una data.
-        var from = String ($("#fromdatemicro").val());
-        var at = String($("#atdatemicro").val());
+        var fromDate = $("#fromdatemicro").val();
+        var atDate = $("#atdatemicro").val();
 
+        if (fromDate != "" && atDate != "") {
 
-        var fromDate= new Date(from);
-        var atDate = new Date(at);
-
-        if(fromDate < atDate){
-            //ok
-            return true;
-        }else if(fromDate == atDate){
-            //ok la date sono uguale
-            return true;
-        }else if(fromDate > atDate){
-            // alert e "submitMicro disabilitato
-            return false;
+            if (Date.parse(fromDate) > Date.parse(atDate)) {
+                $("#submitMicro").attr("disabled", "true");
+            }else{
+                $("#submitMicro").removeAttr("disabled");
+            }
         }
     });
 
@@ -685,7 +672,7 @@
             type:"POST",
             url:"control/TabMacro.php",
             dataType:"json",
-            data:{},
+            data:{"option: macrocategorie"},
             success: function (response) {
                 $($.parseJSON(response)).map(function () {
                     return $("#macroUtenti").find("tbody")
@@ -696,8 +683,8 @@
                                         .append($("<button>")
                                             .attr("type", "button")
                                             .attr("class", "btn btn-info")
-                                            .attr("onclick", "bufferingMicroTable(" +response->getNomeMacro() +")") //da verificare
-                                            .attr("text", response->getNameMacro() )
+                                            .attr("onclick", "bufferingMicroTable(" + response.nomemacro +")") //da verificare
+                                            .attr("text", response.nomemacro)
                                         )
                                     )
                                 )
@@ -714,17 +701,17 @@
             type: "POST",
             url: "control/TabMacro.php",
             dataType: "json",
-            data: {"macroCategoria": nameButton},
+            data: {"option":"microcategorie","macroCategoria":nameButton},
             success: function (response) {
-                //codice per la creazione dinamica della tabella con id "microUtenti"
+                //codice per la creazione dinamica della tabella con "microUtenti"
                 $($.parseJSON(response)).map(function () {
                     return $("#microUtenti").find("tbody")
                         .append($("<tr>")
                             .append($("<th>").attr("scope", "row")
-                                .append($("<td>").attr("text", response->getNomeMicro());
-                                    )
-                            )
-                        );
+                                .append($("<td>").attr("text", response.nomemicro)
+                             )
+                        )
+                    );
                 });
             }
         });

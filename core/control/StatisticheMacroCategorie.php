@@ -1,20 +1,30 @@
 <?php
 
-/** a)Aggiungere MANAGER_DIR
- *  b) Controllo sugli accessi con un oggetto session (da discutere)
- *  c) metodi dei manager (da discutere)
+/** a) Controllo sugli accessi con un oggetto session (da discutere)
+ *  b) metodi dei manager (da discutere)
  */
 
-if($SERVER["REQUEST_METHOD"]=="POST"){
+include_once MANAGER_DIR . "AnnuncioManager.php";
 
-    $macroCategoriaManager = new MacroCategoriaManager();
 
-    $result = array();
-    $result = $macroCategoriaManager->getMacroCategorieValues(); //{macrocategoria:valore}
+$utente = unserialize($_SESSION["user"]); //da rivedere
+$permission = $utente->getTipologia();
 
-    var_dump($macroCategoriaManager);
+if ($permission == "admin") {
 
-    header("Content-Type: application/json");
-    echo json_encode($result);
+    if ($SERVER["REQUEST_METHOD"] == "POST") {
+
+        $macroCategoriaManager = new AnnuncioManager();
+
+        $result = array();
+        $result = $macroCategoriaManager->getListMacroCategorie();
+
+        /**Il nome potrebbe variare
+         * {macrocategoria:valore} già ordinato*/
+
+        var_dump($macroCategoriaManager);
+
+        header("Content-Type: application/json");
+        echo json_encode($result);
+    }
 }
-?>
