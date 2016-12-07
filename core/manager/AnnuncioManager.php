@@ -257,7 +257,7 @@ class AnnuncioManager extends Manager{
      *
      * @param $idAnnuncio
      */
-    public function reportAnnuncio($idAnnuncio){
+    public function reportAnnuncio($idAnnuncio){    /* oltre che all'id dell'annuncio, ci vuole anche un campo relativo al messaggio e all'id dell'utente che segnala(?) */
 
     }
 
@@ -287,7 +287,7 @@ class AnnuncioManager extends Manager{
      * @param $idAnnuncio
      * @param $comment
      */
-    public function commentAnnuncio($idAnnuncio, $comment){
+    public function commentAnnuncio($idAnnuncio, $comment){  //ci vorrebbe anche l'id dell'utente che commenta(?) */
 
     }
 

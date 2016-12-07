@@ -199,6 +199,15 @@ try {
             case 'rimuoviPreferitiControl';
                 include_once CONTROL_DIR . "rimuoviPreferiti.php";
                 break;
+            case 'aggiungiCandidaturaControl';
+                include_once CONTROL_DIR . "aggiungiCandidatura.php";
+                break;
+            case 'segnalaAnnuncioControl';
+                include_once CONTROL_DIR . "segnalaAnnuncio.php";
+                break;
+            case 'commentaAnnuncioControl';
+                include_once CONTROL_DIR . "commentaAnnuncio.php";
+                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;

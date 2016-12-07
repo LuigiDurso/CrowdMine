@@ -227,13 +227,15 @@ include_once VIEW_DIR . 'header.php';
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <h4 class="modal-title">Conferma segnalazione</h4>
                                 </div>
+                                <form action="segnalaAnnuncioControl" method="post">
                                 <div class="modal-body">Inserisci una descrizione per segnalare
-                                    <textarea name="name" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                    <textarea name="descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Segnala</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">Segnala</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -295,9 +297,9 @@ include_once VIEW_DIR . 'header.php';
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 <h4 class="modal-title">Conferma candidatura</h4>
                             </div>
-                            <form action="aggiungiPreferitiControl" method="post">
+                            <form action="aggiungiCandidaturaControl" method="post">
                             <div class="modal-body">Inserisci una descrizione per candidarti
-                                <textarea name="Descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
+                                <textarea name="descrizione" rows="3" class="form-control" placeholder="Descrizione.."></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
@@ -336,17 +338,17 @@ include_once VIEW_DIR . 'header.php';
                         </div>
                         <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
                     </div>
-
                     <div class="col-md-12 form-commento">
-
+                        <form action="commentaAnnuncioControl" method="post">
                         <div class="col-md-10 input-comment">
-                            <input type="text" class="form-control" placeholder="Scrivi un commento...">
-                        </div>
-
-                        <div class="col-md-2 btn-comment">
-                            <button type="button" class="btn btn-info">Commenta</button>
-                        </div>
+                              <input type="text" class="form-control" placeholder="Scrivi un commento..." name="commento">
+                            </div>
+                            <div class="col-md-2 btn-comment">
+                                <button type="submit" class="btn btn-info">Commenta</button>
+                            </div>
                     </div>
+                    </form>
+
                 </div>
 
 
