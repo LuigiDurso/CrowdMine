@@ -13,6 +13,7 @@ define('VIEW_DIR', CORE_DIR . "view" . DIRECTORY_SEPARATOR); //ecc
 define('TEMPLATE_DIR', CORE_DIR . "template" . DIRECTORY_SEPARATOR); //ecc
 define('EXCEPTION_DIR', CORE_DIR . "exception" . DIRECTORY_SEPARATOR);
 define('MODEL_DIR', CORE_DIR . "model" . DIRECTORY_SEPARATOR);
+define('MANAGER_DIR', CORE_DIR . "manager" . DIRECTORY_SEPARATOR);
 define('CONTROL_DIR', CORE_DIR . "control" . DIRECTORY_SEPARATOR);
 define('MANAGER_DIR', CORE_DIR . "manager" . DIRECTORY_SEPARATOR);
 define('UPLOADS_DIR', DOMINIO_SITO . "/uploads/");
@@ -135,6 +136,9 @@ try {
             case 'cercaAnnunci':
                 StringUtils::checkPermission("all");
                 include_once CONTROL_DIR . "CercaAnnunci.php";
+                break;
+            case 'inserisciFeedback':
+                include_once CONTROL_DIR . "inserisciFeedbackControl.php";
                 break;
             case 'paginaPrincipaleModeratore':
                 include_once VIEW_DIR . "paginaPrincipaleModeratore.php";
