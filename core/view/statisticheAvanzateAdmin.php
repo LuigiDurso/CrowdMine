@@ -551,7 +551,7 @@
 
 
     //caricamento Generale
-    $("#tab1").ready(function (){
+    $("#tab1").ready(function () {
         $.ajax({
             type: "POST",
             url: "control/TabGenerale.php",
@@ -562,7 +562,7 @@
     });
 
     //caricamento TabGenerale nell'eventualità che si ritorni sulla pagina
-    $("#tab1").click(function (){
+    $("#tab1").click(function () {
         $.ajax({
             type: "POST",
             url: "control/TabGenerale.php",
@@ -573,149 +573,191 @@
     });
 
     //caricamento dinamico ComboBox Macro Categoria
-    $("#selectMacro").change(function(){
+    $("#selectMacro").change(function () {
         $.ajax({
             type: "POST",
             url: "control/TabAnnunci.php",
             dataType: "json",
             data: "selectMacro",
             success: function (response) {
-                $($.parseJSON(response)).map(function () { /**l'oggetto response è del formato "response":{"macrocategoria" }*/
-                    return $('<option>').val(response.nomemacro).text(response.nomemacro);
-                }).appendTo("#selectMacro")
+                var arrayMacroElements = $.map(response, function (el) {
+                    return el;
+                });
+                appendMacroElements(arrayMacroElements);
+
+
             }
         })
     });
 
+    function appendMacroElements(arrayMacroElements) {
+        $.each(arrayMacroElements, function(el){
+            $("#selectMacro").append(new Option(el, el))
+        });
+
+    }
+
     //caricamento dinamico ComboBox Micro Categoria
-    $("#selectMicro").change(function (){
+    $("#selectMicro").change(function () {
         $.ajax({
             type: "POST",
             url: "control/TabAnnunci.php",
             dataType: "json",
             data: "selectMicro",
-            success: function (response){ /**l'oggetto response è del formato response:{"microcateogira:nomemicro, ecc... }*/
-                $($.parseJSON(response)).map(function () {
-                    return $('<option>').val(response.nomemicro).text(nomemicro);
-                }).appendTo("#selectMicro")
+            success: function (response) {
+                var arrayMicroElements = $.map(response, function (el) {
+                    return el;
+                });
+                appendMicroElements(arrayMicroElements);
             }
         });
     });
 
-    //caricamento Macro
-    $("#submitMacro").click(function () {
-
-        var fromdatemacrovalue = JSON.stringify($("#fromdatemacro").val());
-        var atdatemacrovalue = JSON.stringify($("#atdatemacro").val());
-
-        $.ajax({
-            type: "POST",
-            url: "control/TabAnnunci.php",
-            dataType: "json",
-            data: {"fromdatemacro": fromdatemacrovalue, "atdatemacro": atdatemacrovalue},//passaggio di valori
-            success: drawMacroDateChart(response)
+    function appendMicroElements(arrayMicroElements) {
+        $.each(arrayMicroElements, function (el) {
+            $("#selectMicro").append(new Option(el, el))
         });
-    });
+    }
+        //caricamento Macro
+        $("#submitMacro").click(function () {
 
-    //caricamento Micro
-    $("#submitMicro").click(function () {
+            var fromdatemacrovalue = $("#fromdatemacro").val();
+            var atdatemacrovalue = $("#atdatemacro").val();
+            var dataJSON = JSON.stringify({"fromdatemacro": fromdatemacrovalue, "atdatemacro": atdatemacrovalue});
 
-        var fromdatemaicrovalue = JSON.stringify($("#fromdatemicro").val());
-        var atdatemicrovalue = JSON.stringify($("#atdatemicro").val());
-
-        $.ajax({
-            type: "POST",
-            url: "control/TabAnnunci.php", //controller della pagina
-            dataType: "json",
-            data: {"fromdatemicro": fromdatemaicrovalue, "atdatemicro": atdatemicrovalue},//passaggio di valori
-            success: drawMicroDateChart(response)
+            $.ajax({
+                type: "POST",
+                url: "control/TabAnnunci.php",
+                dataType: "json",
+                data: dataJSON,
+                success: drawMacroDateChart(response)
+            });
         });
-    });
 
-    //check date macro
-    $("#fromdatemacro, #atdatemacro").change(function(){
+        //caricamento Micro
+        $("#submitMicro").click(function () {
 
-        //funzione da attivare ogni qualvolta si seleziona una data.
-        var fromDate = $("#fromdatemacro").val();
-        var atDate = $("#atdatemacro").val();
+            var fromdatemaicrovalue = $("#fromdatemicro").val();
+            var atdatemicrovalue = $("#atdatemicro").val();
+            var dataJSON = JSON.stringify({"fromdatemicro": fromdatemaicrovalue, "atdatemicro": atdatemicrovalue});
 
-            if(fromDate !="" && atDate!="") {
+            $.ajax({
+                type: "POST",
+                url: "control/TabAnnunci.php", //controller della pagina
+                dataType: "json",
+                data: dataJSON,
+                success: drawMicroDateChart(response)
+            });
+        });
+
+        //check date macro
+        $("#fromdatemacro, #atdatemacro").change(function () {
+
+            //funzione da attivare ogni qualvolta si seleziona una data.
+            var fromDate = $("#fromdatemacro").val();
+            var atDate = $("#atdatemacro").val();
+
+            if (fromDate != "" && atDate != "") {
                 if (Date.parse(fromDate) > Date.parse(atDate)) {
                     $("#submitMacro").attr("disabled", "true");
-                }else{
+                } else {
                     $("#submitMacro").removeAttr("disabled");
                 }
             }
-    });
+        });
 
-    //check date micro
-    $("#fromdatemicro, #atdatemicro").change(function(){
+        //check date micro
+        $("#fromdatemicro, #atdatemicro").change(function () {
 
-        //funzione da attivare ogni qualvolta si seleziona una data.
-        var fromDate = $("#fromdatemicro").val();
-        var atDate = $("#atdatemicro").val();
+            //funzione da attivare ogni qualvolta si seleziona una data.
+            var fromDate = $("#fromdatemicro").val();
+            var atDate = $("#atdatemicro").val();
 
-        if (fromDate != "" && atDate != "") {
+            if (fromDate != "" && atDate != "") {
 
-            if (Date.parse(fromDate) > Date.parse(atDate)) {
-                $("#submitMicro").attr("disabled", "true");
-            }else{
-                $("#submitMicro").removeAttr("disabled");
-            }
-        }
-    });
-
-
-    //caricamento macro in tabMacro preferite dall'utenti
-    $("#tab3").click(function (){
-        $.ajax({
-            type:"POST",
-            url:"control/TabMacro.php",
-            dataType:"json",
-            data:{"option: macrocategorie"},
-            success: function (response) {
-                $($.parseJSON(response)).map(function () {
-                    return $("#macroUtenti").find("tbody")
-                        .append($("<tr>")
-                            .append($("<th>").attr("scope", "row")
-                                .append($("<td>")
-                                    .append($("<a>").attr("href", "idMacro") //id macro è da prendere dai valori restituiti
-                                        .append($("<button>")
-                                            .attr("type", "button")
-                                            .attr("class", "btn btn-info")
-                                            .attr("onclick", "bufferingMicroTable(" + response.nomemacro +")") //da verificare
-                                            .attr("text", response.nomemacro)
-                                        )
-                                    )
-                                )
-                            )
-                        );
-                });
+                if (Date.parse(fromDate) > Date.parse(atDate)) {
+                    $("#submitMicro").attr("disabled", "true");
+                } else {
+                    $("#submitMicro").removeAttr("disabled");
+                }
             }
         });
-    });
+
+
+        //caricamento macro in tabMacro preferite dall'utenti
+        $("#tab3").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "control/TabMacro.php",
+                dataType: "json",
+                data: {"option:macrocategorie"},
+                success: function (response) {
+                    var arrayMacro = $.map(response, function (el) {
+                        return el;
+                    });
+
+                    appendMacroToTable(arrayMacro);
+                }
+            });
+        });
+
+    function appendMacroToTable(arrayMacro) {
+        $.each(arrayMacro, function (el) {
+            $("#macroUtenti").find("tbody")
+                .append($("<tr>")
+                    .append($("<th>").attr("scope", "row")
+                        .append($("<td>")
+                            .append($("<a>").attr("href", "idMacro") //id macro è da prendere dai valori restituiti
+                                .append($("<button>")
+                                    .attr("type", "button")
+                                    .attr("class", "btn btn-info")
+                                    .attr("onclick", "bufferingMicroTable(" + el + ")") //da verificare
+                                    .attr("text", el)
+                                )
+                            )
+                        )
+                    )
+                );
+        });
+    }
+
 
     //caricamento micro categorie riferite alla macro categorie selezionata
     function bufferingMicroTable(nameButton) {
+        var dataJSON = JSON.stringify({"option": "microcategorie", "macrocategoria": nameButton});
+
         $.ajax({
             type: "POST",
             url: "control/TabMacro.php",
             dataType: "json",
-            data: {"option":"microcategorie","macroCategoria":nameButton},
+            data: dataJSON,
             success: function (response) {
-                //codice per la creazione dinamica della tabella con "microUtenti"
-                $($.parseJSON(response)).map(function () {
-                    return $("#microUtenti").find("tbody")
-                        .append($("<tr>")
-                            .append($("<th>").attr("scope", "row")
-                                .append($("<td>").attr("text", response.nomemicro)
-                             )
-                        )
-                    );
+                var arrayMicro = $.map(response, function (el) {
+                    return el;
                 });
+
+                appendMicroToTable(arrayMicro);
             }
         });
     }
+
+    function appendMicroToTable(arrayMicro) {
+        $.each(arrayMicro, function (el) {
+                $("#microUtenti").find("tbody")
+                    .append($("<tr>")
+                        .append($("<th>").attr("scope", "row")
+                            .append($("<td>").attr("text", el)
+                            )
+                        )
+                    );
+
+            });
+    }
+
+
+    }
+
+
 
     function drawGeneralChart(response) {
 
