@@ -20,7 +20,8 @@ include_once VIEW_DIR . 'header.php';
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\vendor.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css>
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.css">
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
@@ -166,6 +167,7 @@ include_once VIEW_DIR . 'header.php';
                                     <button type="button" class="btn btn-default btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micro-Area<span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu">
                                     <select name="microcategorie">
+                                        <option selected> seleziona </option>
                                         <option value="php" > php </option>
                                     </select>
                                     </ul>
@@ -221,58 +223,28 @@ include_once VIEW_DIR . 'header.php';
 
 
 
-        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
-        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
-        <script type="text/javascript">
-            function toggleMe(a){
-                var e=document.getElementById(a);
-                if(!e)return true;
-                if(e.style.display=="none"){
-                    e.style.display="block"
-                }
-                else{
-                    e.style.display="none"
-                }
-                return true;
-            }
-        </script>
-        <script type="text/javascript" src="http://viralpatel.net/blogs/demo/jquery/jquery.shorten.1.0.js"></script>
-        <script>
-            $(document).ready(function() {
-                var showChar = 500;
-                var ellipsestext = "...";
-                var moretext = "altro";
-                var lesstext = "..meno";
-                $('.more').each(function() {
-                    var content = $(this).html();
+        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
+        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
+        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
+        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.js"></script>
+        <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackList.js"></script>
+        <?php
 
-                    if(content.length > showChar) {
-
-                        var c = content.substr(0, showChar);
-                        var h = content.substr(showChar-1, content.length - showChar);
-
-                        var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
-
-                        $(this).html(html);
-                    }
-
+        if (isset($_SESSION['toast-type']) && isset($_SESSION['toast-message'])) {
+            ?>
+            <script>
+                $(document).ready(function () {
+                    "use strict";
+                    $("#feedback-tab").click();
+                    $("#feedback-collapse-panel").click();
                 });
-
-                $(".morelink").click(function(){
-                    if($(this).hasClass("less")) {
-                        $(this).removeClass("less");
-                        $(this).html(moretext);
-                    } else {
-                        $(this).addClass("less");
-                        $(this).html(lesstext);
-                    }
-                    $(this).parent().prev().toggle();
-                    $(this).prev().toggle();
-                    return false;
-                });
-            });
-        </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
+            </script>
+            <?php
+            unset($_SESSION['toast-type']);
+            unset($_SESSION['toast-message']);
+        }
+        ?>
 
 </body>
 
