@@ -2,6 +2,7 @@
 
 include_once MODEL_DIR . 'Utente.php';
 include_once MANAGER_DIR . 'MicroCategoriaManager.php';
+include_once MODEL_DIR . 'Annuncio.php';
 
 /**
  * Created by PhpStorm.
@@ -254,11 +255,25 @@ class UtenteManager extends Manager
      * @param String $password
      */
     public function setUserAsMod($utenteId, $password){
-
+        $LOAD_USER= "UPDATE `Utente` SET `ruolo` = 1 WHERE `password` = $password AND `id` = $utenteId;";
+        $query = sprintf($LOAD_USER);
+        if (!Manager::getDB()->query($query)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     public function setModAsUser($utenteId, $password){
-
+        $LOAD_USER= "UPDATE `Utente` SET `ruolo` = 0 WHERE `password` = $password AND `id` = $utenteId;";
+        $query = sprintf($LOAD_USER);
+        if (!Manager::getDB()->query($query)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
@@ -321,7 +336,17 @@ class UtenteManager extends Manager
      * @return favoriteAnnuncio[] A list of favourite annuncment for User
      */
     public function getFavorite($UtenteId){
-        return [];
+        $LOAD_PREFERITI= "SELECT a.* FROM annuncio a, preferito p, utente u WHERE u.id = $UtenteId AND p.id_utente = u.id AND a.id = p.id_annuncio;";
+        $query = sprintf($LOAD_PREFERITI);
+        $result = Manager::getDB()->query($query);
+        $listPreferiti = array();
+        if ($result) {
+            while ($obj = $result->fetch_assoc()) {
+                $annuncio = new Annuncio($obj['id'], $obj['id_utente'], $obj['data'], $obj['titolo'], $obj['luogo'], $obj['stato'], $obj['retribuzione'], $obj['tipo'], $obj['descrizione']);
+                //bisogna controllare lo stato dell'annuncio prima di aggiungerlo alla lista
+                $listPreferiti[] = $annuncio;
+        }
+        return $listPreferiti;
     }
 
     /**
