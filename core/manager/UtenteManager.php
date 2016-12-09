@@ -183,8 +183,9 @@ class UtenteManager extends Manager
      * Add a new macrocategory
      * @param Macrocategoria $macrocategoria
      */
-    public function addMacrocategoria($macrocategoria){
-
+    public function addNewMacrocategoria($nomeMacro){
+        $macroManager = new MacroCategoriaManager();
+        $macroManager->InsertMacrocategoria($nomeMacro);
     }
 
     /**
@@ -277,19 +278,53 @@ class UtenteManager extends Manager
     /**
      * Get a list of appeal User ban
      *
-     * @return appealUtente[] A list of appeal User ban
+     * @return array $users A list of appeal User
      */
     public function appealUtente(){
-        return [];
+        $users = array();
+        $GET_APPEAL_USERS = "SELECT * FROM 'utente' WHERE stato='%s'";
+        $query = sprintf($GET_APPEAL_USERS, $RICORSO);
+        $result = self::getDB()->query($query);
+        foreach($result->fetch_assoc() as $u){
+            array_push($users, $u);
+        }
+        return $users;
     }
 
     /**
-     * Change User data
-     *
-     * @param Double $UserId
-     */
-    public function changeDataUtente($UserId){
+    * @param $telefono
+    */
+    public function changeTelefonoUtente($telefono){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET telefono='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $telefono, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setTelefono($telefono);
+            $_SESSION['user'] = serialize($user);
+        }
+    }
 
+    public function changeCittaUtente($citta){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET citta='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $citta, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setCitta($citta);
+            $_SESSION['user'] = serialize($user);
+        }
+    }
+
+    public function changeEmailUtente($email){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET email='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $email, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setCitta($email);
+            $_SESSION['user'] = serialize($user);
+        }
     }
 
     /**
@@ -297,7 +332,13 @@ class UtenteManager extends Manager
      *
      */
     public function redeemUtente(){
-
+        $user = unserialize($_SESSION['user']);
+        $SET_STATO_UTENTE = "UPDATE utente SET stato = '%s' WHERE id = '%s'";
+        $query = sprintf($SET_STATO_UTENTE, $ATTIVATO, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setStato($ATTIVATO);
+            $_SESSION['user'] = serialize($user);
+        }
     }
 
     /**
