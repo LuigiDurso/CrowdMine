@@ -6,6 +6,9 @@
  * Date: 01/12/2016
  * Time: 10:12
  */
+
+include_once "Filter.php";
+
 class SearchByIdFilter extends Filter
 {
 
@@ -20,7 +23,7 @@ class SearchByIdFilter extends Filter
 
     public function setId($id)
     {
-        parent::setFilterString(" `id` = '".$id."' ");
+        parent::setFilterString(" `annuncio`.`id` = '".$id."' ");
     }
 
 }
