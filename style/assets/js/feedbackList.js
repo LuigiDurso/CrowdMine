@@ -11,17 +11,19 @@ $(document).ready(function () {
             url: "feedbackListRetrive",
             type: "POST",
             data: {'username': username},
-            dataType: "JSON",
+            dataType: 'json',
             async: true,
             success: function (data) {
-                console.log(JSON.stringify(data));
+
+
+                console.log(data);
                /* var feedbackListArray = JSON.parse(data);
                 var i=0;
                 for(i=0;i< feedbackListArray.size(); i++)
                 {
                     var feedbackID = feedbackListArray[i].id;
                     var feedbackTitle = feedbackListArray[i].title;
-                    var feedbackDesc= feedbackListArray[i].description;
+                    var feedbackDesc= feedbackListArray[i].id;
                     var userFirstName = feedbackListArray[i].userFirstName;
                     var userLastName = feedbackListArray[i].userFirstName;
                     var userProfileImage= feedbackListArray[i].userProfileName;

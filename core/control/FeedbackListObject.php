@@ -2,11 +2,11 @@
 
 /**
  * Created by PhpStorm.
- * User: Utente
+ * User: Giovanni Leo
  * Date: 08/12/2016
  * Time: 20:38
  */
-class FeedbackListObject
+class FeedbackListObject implements JsonSerializable
 {
     private $feedbackID;
     private $feedbackTile;
@@ -36,6 +36,8 @@ class FeedbackListObject
         $this->userProfileImage = $userProfileImage;
         $this->feedbackRating = $feedbackRating;
     }
+
+
 
 
     /**
@@ -151,5 +153,23 @@ class FeedbackListObject
     }
 
 
-
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        return [
+            'feedbackID' => $this->getFeedbackID(),
+            'feedbackTile' => $this->getFeedbackTile(),
+            'feedbackDesc' => $this->getFeedbackDesc(),
+            'userFirstName' => $this->getUserFirstName(),
+            'userLastName' => $this->getUserLastName(),
+            'userProfileImage' => $this->getUserProfileImage(),
+            'feedbackRating' => $this->getFeedbackRating()
+        ];
+    }
 }

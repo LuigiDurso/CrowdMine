@@ -19,7 +19,7 @@
         if (isset($_POST["username"])) {
             $user = $userManager->getUtente($_POST["username"]);
             $feedbackListObj = new FeedbackListObject(1,"ciao","ciao","ciao","ciao","ciao",5);
-            echo json_encode($feedbackListObj);
+            echo json_encode($feedbackListObj->jsonSerialize());
           //  echo "ok";
 
         } else {
