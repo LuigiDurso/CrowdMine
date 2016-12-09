@@ -143,6 +143,9 @@ try {
             case 'inserisciFeedback':
                 include_once CONTROL_DIR . "inserisciFeedbackControl.php";
                 break;
+            case 'modificaPassword':
+                include_once CONTROL_DIR . "CambiaPasswordControl.php";
+                break;
             case 'paginaPrincipaleModeratore':
                 include_once VIEW_DIR . "paginaPrincipaleModeratore.php";
                 break;

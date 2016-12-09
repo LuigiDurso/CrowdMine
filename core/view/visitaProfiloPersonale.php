@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\vendor.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.css">
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
@@ -523,7 +524,7 @@
 																</div>
 															</div>
 															<div class="row">
-																<form class="form form-horizontal" id="tel-input">
+																<form action="modificaPassword" method="post" class="form form-horizontal" id="tel-input">
 																	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs overlined-row">
 																	
 																	</div>
@@ -532,19 +533,19 @@
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-lock" aria-hidden="true"></i>
 																			</span>
-																			<input type="text" class="form-control" placeholder="Password attuale" aria-describedby="basic-addon1" value="">
+																			<input name="PasswordAttuale" type="text" class="form-control" placeholder="Password attuale" aria-describedby="basic-addon1" value="">
 																		</div>
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-lock" aria-hidden="true"></i>
 																			</span>
-																			<input type="text" class="form-control" placeholder="Nuova Password" aria-describedby="basic-addon1" value="">
+																			<input name="NuovaPassword" type="text" class="form-control" placeholder="Nuova Password" aria-describedby="basic-addon1" value="">
 																		</div>
 																		<div class="input-group">
 																			<span class="input-group-addon" id="basic-addon1">
 																				<i class="fa fa-lock" aria-hidden="true"></i>
 																			</span>
-																			<input type="text" class="form-control" placeholder="Conferma nuova Password" aria-describedby="basic-addon1" value="">
+																			<input name="ConfermaNuovaPassword" type="text" class="form-control" placeholder="Conferma nuova Password" aria-describedby="basic-addon1" value="">
 																		</div>
 																		<div class="form-footer">
 																				<div class="form-group">
@@ -1361,6 +1362,8 @@
 
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\vendor.js"></script>
 <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\app.js"></script>
+<script type="text/javascript" src="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.js"></script>
+
 <script>
 
 /*toggle element and toggle self element*/
@@ -1369,6 +1372,20 @@ $.fn.toggleWith = function(id) {
 	$(this).toggle('fast');
 };
 </script>
+
+<?php
+    if (isset($_SESSION['toast-type']) && isset($_SESSION['toast-message'])) {
+?>
+    <script>
+        toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
+    </script>
+<?php
+        unset($_SESSION['toast-type']);
+        unset($_SESSION['toast-message']);
+    }
+?>
+
+
 
 </body>
 </html>
