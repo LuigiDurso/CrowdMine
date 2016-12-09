@@ -354,8 +354,15 @@ class UtenteManager extends Manager
      *
      * @param Double $UtenteId
      */
-    public function blockUser($UtenteId){
-
+    public function blockUser($UtenteId, $utenteBloccatoId){
+        $INSERT_BLOCCATO = "INSERT INTO `bloccato` (`id_utente`, `id_utente_bloccato`) VALUES ('%s', '%s');";
+        $query = sprintf($INSERT_BLOCCATO, $UtenteId, $utenteBloccatoId);
+        if (!Manager::getDB()->query($query)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
@@ -363,8 +370,14 @@ class UtenteManager extends Manager
      *
      * @param Double $UtenteId
      */
-    public function unblockUser($UtenteId){
-
+    public function unblockUser($UtenteId, $utenteBloccatoId){
+        $SBLOCCA = "DELETE FROM `bloccato` WHERE `id_utente` = $UtenteId AND `id_utente_bloccato` = $utenteBloccatoId;";
+        if (!Manager::getDB()->query($SBLOCCA)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
