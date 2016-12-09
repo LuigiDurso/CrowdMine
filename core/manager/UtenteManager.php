@@ -183,8 +183,9 @@ class UtenteManager extends Manager
      * Add a new macrocategory
      * @param Macrocategoria $macrocategoria
      */
-    public function addMacrocategoria($macrocategoria){
-
+    public function addNewMacrocategoria($nomeMacro){
+        $macroManager = new MacroCategoriaManager();
+        $macroManager->InsertMacrocategoria($nomeMacro);
     }
 
     /**
