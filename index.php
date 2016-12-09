@@ -145,7 +145,7 @@ try {
             case 'visualizzaAnnunciSegnalati':
                 include_once VIEW_DIR . "visualizzaAnnunciSegnalati.php";
                 break;
-            case 'cancellaAnnuncioProprietario':
+            case 'cancellaAnnuncio':
                 include_once CONTROL_DIR . "cancellaAnnuncio.php";
                 break;
             case 'visualizzaFeedbackSegnalati':
