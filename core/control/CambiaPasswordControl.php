@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Password corrente non settata";
-      //  header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
         throw new IllegalArgumentException("Password corrente non settata");
     }
     if (isset($_POST['NuovaPassword'])) {
@@ -30,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = ErrorUtils::$PASS_CORTA;
-     //   header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
         throw new IllegalArgumentException(ErrorUtils::$PASS_CORTA);
     }
 
     if (empty($currPass)){
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Password corrente non inserita";
-       // header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
+        header("Location:" . DOMINIO_SITO . "/visitaProfiloPersonale");
         throw new IllegalArgumentException("Password corrente malformata");
     }
 

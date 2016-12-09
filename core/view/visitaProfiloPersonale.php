@@ -520,7 +520,7 @@
 															<!-- FORM INSERIMENTO !-->
 															<div class="row" id="edit-mail">
 																<div class="col-lg-9 col-md-9 col-xs-12 simple-row">
-																	La nuova password deve essere composta da almeno 6 caratteri, deve contenere maiuscole e minuscole. Non sono ammessi caratteri speciali.
+																	La nuova password deve essere composta da almeno 8 caratteri, deve contenere maiuscole e minuscole, e deve essere presente almeno un numero.
 																</div>
 															</div>
 															<div class="row">
