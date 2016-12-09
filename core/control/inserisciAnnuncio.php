@@ -5,7 +5,8 @@
  * Date: 01/12/2016
  * Time: 18:37
  */
-//include_once MANAGER_DIR . 'AnnuncioManager.php';
+
+include_once MANAGER_DIR . 'AnnuncioManager.php';
 include_once CONTROL_DIR . "ControlUtils.php";
 include_once EXCEPTION_DIR . "IllegalArgumentException.php";
 
@@ -21,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
 
     //$utente = unserialize($_SESSION['utente']);
     //$idUtente = $utente->getId();
+    $idUtente = "1";
     if(isset($_POST['titolo'])){
         $titolo = $_POST['titolo'];
     } else {
@@ -102,7 +104,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     }
 
     if(isset($_POST['microcategorie'])){
-        $listaMicrocategorie = $_POST['microcategorie'];
+        //$listaMicrocategorie = $_POST['microcategorie']; //correggere con gli id delle microcategorie
+        $listaMicrocategorie = ["1"];
     } else {
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Campo microcategorie annuncio non settato";
@@ -118,23 +121,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     }
 
 
-
-    //$macrocategoria = ?? l'utente quando inserisce un'annuncio, seleziona prima la macro, e poi gli vengono visualizzate
-    //le micro associate, cosi lui può scegliersi direttamente le micro, giusto?
-
-
     $dataPubblicazione = new DateTime();
-    $data = $dataPubblicazione->format("Y-m-d");
-    //$managerAnnuncio = new AnnuncioManager();
-    //$managerAnnuncio->createAnnuncio($idUtente, $data, $titolo, $descrizione, $luogo, $stato, $retribuzione, $tipologia, $listaMicrocategorie);
-    echo $titolo . "<br>";
-    echo $descrizione . "<br>";
-    echo $luogo . "<br>";
-    echo $retribuzione . "<br>";
-    echo $tipologia . "<br>";
-    echo $listaMicrocategorie . "<br>";
-    echo $data . "<br>";
+    $data = $dataPubblicazione->format("Y-m-d H:i:s");
+    $managerAnnuncio = new AnnuncioManager();
+    $check = $managerAnnuncio->createAnnuncio($idUtente, $data, $titolo, $luogo, $listaMicrocategorie, $retribuzione, $tipologia, $descrizione);
+    if($check!= false) {
+        $_SESSION['toast-type'] = "success";
+        $_SESSION['toast-message'] = "L'annuncio è in fase di lavorazione";
+    } else {
+        $_SESSION['toast-type'] = "error";
+        $_SESSION['toast-message'] = "Problemi con l'inserimento dell'annuncio";
+    }
 
-    //header("Location:" . DOMINIO_SITO . "/"."inserisciAnnuncio");
+
+    header("Location:" . DOMINIO_SITO . "/"."");
 }
 ?>

@@ -6,6 +6,9 @@
  * Date: 01/12/2016
  * Time: 10:12
  */
+
+include_once "Filter.php";
+
 class SearchByUserIdFilter extends Filter
 {
 
@@ -22,7 +25,7 @@ class SearchByUserIdFilter extends Filter
 
     public function setUserId($userid)
     {
-        parent::setFilterString(" `id_utente` LIKE '".$userid."'% ");
+        parent::setFilterString(" `annuncio`.`id_utente` = '".$userid."' ");
     }
 
 }

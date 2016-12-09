@@ -6,6 +6,9 @@
  * Date: 01/12/2016
  * Time: 10:12
  */
+
+include_once "Filter.php";
+
 class SearchByTitleFilter extends Filter
 {
     /**
@@ -19,7 +22,7 @@ class SearchByTitleFilter extends Filter
 
     public function setTitle($title)
     {
-        parent::setFilterString(" `titolo` LIKE '".$title."'% ");
+        parent::setFilterString(" `annuncio`.`titolo` LIKE '".$title."'% ");
     }
 
 }

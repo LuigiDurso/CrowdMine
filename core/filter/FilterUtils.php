@@ -6,6 +6,9 @@
  * Date: 01/12/2016
  * Time: 17:43
  */
+
+include_once "Filter.php";
+
 class FilterUtils
 {
     /**
@@ -13,14 +16,21 @@ class FilterUtils
      * @param array $filters
      * @param string $query
      */
-    public static function applyFilters(array $filters, &$query = ""){
+    public static function applyFilters($filters, &$query = "")
+    {
 
         $size = count($filters);
 
-        if($size>0 && $filters[0] instanceof Filter)
+        //start where clause
+        $query .= " WHERE ";
+
+        if ($size > 0 && $filters[0] instanceof Filter){
             $filters[0]->setFilter($query);
-        else
+        } else {
+            //search all by default
+            $query.= " 1 ";
             return;
+        }
 
         for($i=1;$i<$size;$i++){
             $f = $filters[$i];
