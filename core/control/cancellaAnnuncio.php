@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
         $managerAnnuncio->deleteAnnuncio($idAnnuncio);
         $_SESSION['toast-type'] = "success";
         $_SESSION['toast-message'] = "Annuncio correttamente eliminato";
-        header("Location:" . DOMINIO_SITO);
+        header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
     } catch (ApplicationException $a){
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Errore nel cancellare l'annuncio selezionato";

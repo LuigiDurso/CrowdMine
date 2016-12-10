@@ -68,10 +68,63 @@ include_once VIEW_DIR . 'header.php';
             });
         }
 
+
+
     </script>
+
+
+
 
 </head>
 
+
+<style>
+    select {
+        background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+        background-color:#3498DB;
+        background-repeat:no-repeat;
+        background-position: right 10px top 15px;
+        background-size: 16px 16px;
+        padding:12px;
+        width:100%;
+        font-size:16px;
+        font-weight:bold;
+        color:#fff;
+        text-align:center;
+        text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+        border-radius:3px;
+        -webkit-border-radius:3px;
+        -webkit-appearance: none;
+        border:0;
+        outline:0;
+        -webkit-transition:0.3s ease all;
+        -moz-transition:0.3s ease all;
+        -ms-transition:0.3s ease all;
+        -o-transition:0.3s ease all;
+        transition:0.3s ease all;
+    select:focus, select:active {
+        border:0;
+        outline:0;
+    }
+    }
+
+    #macro {
+        background-color:#3498DB;
+    }
+
+    #macro:hover {
+        background-color:#2980B9;
+    }
+
+    #micro {
+        background-color:#2ECC71;
+    }
+
+    #micro:hover {
+        background-color:#27AE60;
+    }
+
+</style>
 
 
 <body onload="caricaMacro()">
@@ -197,20 +250,21 @@ include_once VIEW_DIR . 'header.php';
                             </div>
 
                             <div class="col-md-6">
-                                <div class="btn-group">
-                                    <button " type="button" class="btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Macro-Area<span class="caret"></span></button>
-                                    <select id="macro" onchange="caricaMicro()" name="macrocategorie" class="dropdown-menu" role="menu">
-                                        <option selected> seleziona </option>
-                                        <option> Informatica </option>
-                                    </select>
-                                </div>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micro-Area<span class="caret"></span></button>
-                                    <select id="micro" name="microcategorie" class="dropdown-menu" role="menu">
-                                        <option selected> seleziona </option>
-                                        <option value="php" > php </option>
-                                    </select>
-                                </div>
+
+                                <select id="macro" onchange="caricaMicro()" name="macrocategorie">
+                                        <option>I love Steve Jobs</option>
+                                        <option>PHP is awesome</option>
+                                        <option>I'm a Developer</option>
+                                </select>
+
+                                <select id="micro" name="microcategorie" style="margin-top: 3%">
+                                    <option selected="selected"></option>
+                                    <option>I love Steve Jobs</option>
+                                    <option>PHP is awesome</option>
+                                    <option>I'm a Developer</option>
+                                </select>
+
+
                                 <div class="input-group" style="margin-top: 3%">
                                     <span class="input-group-addon" id="basic-addon1">
                                          <i class="fa fa-money" aria-hidden="true"></i></span>
