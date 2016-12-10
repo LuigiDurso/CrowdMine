@@ -6,16 +6,10 @@
  * Time: 21:47
  */
 
-$idAnnuncio = $_GET['id'];
+echo $idAnnuncio = $_GET['id'];
+$annunci = $_SESSION['annunci'];
+unset($annunci[$idAnnuncio]);
+echo "ok";
+die("<script>location.href = 'annuncioProprietario.php'</script>");
 
-//$managerAnnuncio = new AnnuncioManager();
-//$managerAnnuncio->deleteAnnuncio($idAnnuncio);
-
-//header("Location:" . DOMINIO_SITO . "/");
-/*
- * aspettando il completamento dei manager e
- * capire come restituire bene l'avvenuta cancellazione
- * o errore alla view.
- *
- */
 ?>

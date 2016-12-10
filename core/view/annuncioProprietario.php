@@ -6,6 +6,14 @@
  * @since 30/05/16
  */
 include_once VIEW_DIR . 'header.php';
+include_once CONTROL_DIR . 'visualizzaAnnunci.php';
+
+if(isset($_SESSION['user']) && isset($_SESSION['array'])){
+    $user = $_SESSION['user'];
+    $annunci = $_SESSION['array'];
+} else {
+    header("location: CONTROL_DIR . 'visualizzaAnnunci.php'");
+}
 
 ?>
 
@@ -163,10 +171,7 @@ include_once VIEW_DIR . 'header.php';
     function parametro(id){
         document.getElementById(id).href="modificaAnnuncio?id="+id;
     }
-    function cancella(id){
-        var idDaCancellare = id.charAt(0);
-        document.getElementById(id).href="cancellaAnnuncioProprietario?id="+idDaCancellare;
-    }
+
 </script>
 
 <body>
@@ -265,258 +270,274 @@ include_once VIEW_DIR . 'header.php';
         </div>
     </script>
 
+
+
+
+
+
+
+
+        <!-- -->
+
     <div class="col-md-12 col-sm-12 app-container">
+        <?php
 
-        <div class="row" style="margin-right: 20%; height: auto; margin-bottom: 5%">
+        for ($i = 0; $i < 2; $i++) {
 
-            <div class="card">
+        ?>
+            <div class="row" style="margin-right: 20%; height: auto; margin-bottom: 5%">
 
-                <div class="row col-md-12 col-sm-12 col-xs-12 card-header" style="margin-left: 0%">
-                    <div class="col-md-3 col-sm-3 media-left">
-                        <a href="#">
-                            <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
-                        </a>
-                    </div>
-                    <div class="col-md-7 annuncioTitle" style="width: 100%;">
+                <div class="card">
 
-                        <div class="owner col-md-12 col-sm-12" style="border-bottom: 1px solid #eee;">
-                            <h1>JetBrains</h1>
-                        </div>
-
-                        <div class="offerta col-md-12 col-sm-12">
-                            <h1>Offerta Programmatore PHP</h1>
-                        </div>
-                    </div>
-                    <div class="col-md-1 col-sm-2 preferites">
-                        <i class="fa fa-star-o" style="font-size: 200%;"></i>
-                        <ul class="card-action">
-                            <li class="dropdown">
-                                <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-cog" style="font-size: 200%;"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal">Cancella annuncio</a></li>
-                                    <li><a id="1" onclick="parametro(this.id)" href="modificaAnnuncio" >Modifica annuncio</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title">Cancella annuncio</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Sei sicuro di voler cancellare il tuo annuncio?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                    <a id="1c" onclick="cancella(this.id)" href="cancellaAnnuncio">
-                                        <button type="button" class="btn btn-sm btn-danger">Cancella</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row col-md-12 col-sm-12 col-xs-12 card-body" style="margin-left: 0%">
-                    <div class="media-body comment more">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Vestibulum laoreet, nunc eget laoreet sagittis,
-                        quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                        Duis eget nisl orci. Aliquam mattis purus non mauris
-                        blandit id luctus felis convallis.
-                        Integer varius egestas vestibulum.
-                        Nullam a dolor arcu, ac tempor elit. Donec.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Vestibulum laoreet, nunc eget laoreet sagittis,
-                        quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                        Duis eget nisl orci. Aliquam mattis purus non mauris
-                        blandit id luctus felis convallis.
-                        Integer varius egestas vestibulum.
-                        Nullam a dolor arcu, ac tempor elit. Donec.
-                    </div>
-
-                </div>
-
-                <div class="row col-md-12 col-sm-12 col-xs-12 media-categories" style="margin-left: 2%; margin-bottom: 2%; margin-top: -2%">
-                    <span class="label label-warning">Informatica</span>
-                    <span class="label label-default">Web Developer</span>
-                </div>
-
-                <div class="media-comment" style="">
-                    <button class="btn btn-link">
-                        <i class="fa fa-comments-o"></i> 10 Comments
-                    </button>
-                    <button type="button" class="btn btn-warning">Candidature</button>
-                </div>
-
-
-
-                <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
-
-                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
-                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
-                            <a href="#">
-                                <img  src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
-                            </a>
-                        </div>
-                        <div class="media-heading">
-                            <h4 class="title">Scott White</h4>
-                            <h5 class="timeing">20 mins ago</h5>
-                        </div>
-                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
-                    </div>
-                    <div class="row col-md-12 col-sm-12 comment-body" style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
-                        <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                    <div class="row col-md-12 col-sm-12 col-xs-12 card-header" style="margin-left: 0%">
+                        <div class="col-md-3 col-sm-3 media-left">
                             <a href="#">
                                 <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
                             </a>
                         </div>
-                        <div class="media-heading">
-                            <h4 class="title">Scott White</h4>
-                            <h5 class="timeing">20 mins ago</h5>
+                        <div class="col-md-7 annuncioTitle" style="width: 100%;">
+
+                            <div class="owner col-md-12 col-sm-12" style="border-bottom: 1px solid #eee;">
+                                <h1><?php echo $user->getNome() ?></h1>
+                            </div>
+
+                            <div class="offerta col-md-12 col-sm-12">
+                                <h1><?php echo $annunci[$i]->getTitolo() ?></h1>
+                            </div>
                         </div>
-                        <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.</div>
+                        <div class="col-md-1 col-sm-2 preferites">
+                            <i class="fa fa-star-o" style="font-size: 200%;"></i>
+                            <ul class="card-action">
+                                <li class="dropdown">
+                                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-cog" style="font-size: 200%;"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId(); $_SESSION['annunci'] = $annunci;?>" >Cancella annuncio</a></li>
+                                        <li><a href="modificaAnnuncio?id=<?php echo $annunci[$i]->getId()?>">Modifica annuncio</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="col-md-12 form-commento">
-
-                        <div class="col-md-10 input-comment">
-                            <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                    <div class="row col-md-12 col-sm-12 col-xs-12 card-body" style="margin-left: 0%">
+                        <div class="media-body comment more">
+                            <?php echo $annunci[$i]->getDescrizione(); ?>
                         </div>
 
-                        <div class="col-md-2 btn-comment">
-                            <button type="button" class="btn btn-info">Commenta</button>
+                    </div>
+
+                    <div class="row col-md-12 col-sm-12 col-xs-12 media-categories"
+                         style="margin-left: 2%; margin-bottom: 2%; margin-top: -2%">
+                        <span class="label label-warning">Informatica</span>
+                        <span class="label label-default">Web Developer</span>
+                        <span class="label label-info"><?php echo $annunci[1]->getLuogo();?></span>
+                        <span class="label label-primary"><?php echo $annunci[1]->getRetribuzione();?>€</span>
+                    </div>
+
+                    <div class="media-comment" style="">
+                        <button class="btn btn-link">
+                            <i class="fa fa-comments-o"></i> 10 Comments
+                        </button>
+                        <button type="button" class="btn btn-warning">Candidature</button>
+                    </div>
+
+
+                    <div class="row col-md-12 col-sm-12 card contenitore" style="margin-left: 0; display: none">
+
+                        <div class="row col-md-12 col-sm-12 comment-body"
+                             style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
+                            <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                                <a href="#">
+                                    <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                                </a>
+                            </div>
+                            <div class="media-heading">
+                                <h4 class="title">Scott White</h4>
+                                <h5 class="timeing">20 mins ago</h5>
+                            </div>
+                            <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+                                scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
+                                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.
+                            </div>
+                        </div>
+                        <div class="row col-md-12 col-sm-12 comment-body"
+                             style="border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%">
+                            <div class="col-md-1 col-sm-1 media-left" style="margin-top: 1%">
+                                <a href="#">
+                                    <img src="<?php echo STYLE_DIR; ?>img\logojet.jpg" width="100%;"/>
+                                </a>
+                            </div>
+                            <div class="media-heading">
+                                <h4 class="title">Scott White</h4>
+                                <h5 class="timeing">20 mins ago</h5>
+                            </div>
+                            <div class="media-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+                                scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
+                                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-commento">
+
+                            <div class="col-md-10 input-comment">
+                                <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                            </div>
+
+                            <div class="col-md-2 btn-comment">
+                                <button type="button" class="btn btn-info">Commenta</button>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="row col-md-12 col-sm-12 card candidature" style="margin-left: 0; display: none">
+
+                        <div class="row col-md-12 col-sm-12 candidature-body" style="margin-left: 0">
+
+                            <div class="media-left col-md-12 col-sm-12 candidato-body"
+                                 style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                                <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg"
+                                     style="margin-left: -5%">
+                                <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                                <div class="col-md-5 col-sm-5 options"
+                                     style="float: right; margin-top: -8%; margin-right: -23%">
+                                    <i class="fa fa-check"></i>
+                                    <i class="fa fa-close"></i>
+                                    <i class="fa fa-mail-reply-all"></i>
+                                </div>
+                                <div class="media-body comment more">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                </div>
+
+                            </div>
+
+                            <div class="media-left col-md-12 col-sm-12 candidato-body"
+                                 style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                                <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg"
+                                     style="margin-left: -5%">
+                                <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                                <div class="col-md-5 col-sm-5 options"
+                                     style="float: right; margin-top: -8%; margin-right: -23%">
+                                    <i class="fa fa-check"></i>
+                                    <i class="fa fa-close"></i>
+                                    <i class="fa fa-mail-reply-all"></i>
+                                </div>
+                                <div class="media-body comment more">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                </div>
+
+                            </div>
+
+                            <div class="media-left col-md-12 col-sm-12 candidato-body"
+                                 style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                                <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg"
+                                     style="margin-left: -5%">
+                                <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                                <div class="col-md-5 col-sm-5 options"
+                                     style="float: right; margin-top: -8%; margin-right: -23%">
+                                    <i class="fa fa-check"></i>
+                                    <i class="fa fa-close"></i>
+                                    <i class="fa fa-mail-reply-all"></i>
+                                </div>
+                                <div class="media-body comment more">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                </div>
+
+                            </div>
+
+                            <div class="media-left col-md-12 col-sm-12 candidato-body"
+                                 style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
+                                <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg"
+                                     style="margin-left: -5%">
+                                <h4 class="title" style="margin-top: 3%">Scott White</h4>
+                                <div class="col-md-5 col-sm-5 options"
+                                     style="float: right; margin-top: -8%; margin-right: -23%">
+                                    <i class="fa fa-check"></i>
+                                    <i class="fa fa-close"></i>
+                                    <i class="fa fa-mail-reply-all"></i>
+                                </div>
+                                <div class="media-body comment more">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Vestibulum laoreet, nunc eget laoreet sagittis,
+                                    quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
+                                    Duis eget nisl orci. Aliquam mattis purus non mauris
+                                    blandit id luctus felis convallis.
+                                    Integer varius egestas vestibulum.
+                                    Nullam a dolor arcu, ac tempor elit. Donec.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div
+
+
                 </div>
-
-                <div class="row col-md-12 col-sm-12 card candidature" style="margin-left: 0; display: none">
-
-                    <div class="row col-md-12 col-sm-12 candidature-body" style="margin-left: 0">
-
-                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
-                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
-                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
-                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
-                                <i class="fa fa-check"></i>
-                                <i class="fa fa-close"></i>
-                                <i class="fa fa-mail-reply-all"></i>
-                            </div>
-                            <div class="media-body comment more">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                            </div>
-
-                        </div>
-
-                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
-                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
-                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
-                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
-                                <i class="fa fa-check"></i>
-                                <i class="fa fa-close"></i>
-                                <i class="fa fa-mail-reply-all"></i>
-                            </div>
-                            <div class="media-body comment more">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                            </div>
-
-                        </div>
-
-                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
-                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
-                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
-                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
-                                <i class="fa fa-check"></i>
-                                <i class="fa fa-close"></i>
-                                <i class="fa fa-mail-reply-all"></i>
-                            </div>
-                            <div class="media-body comment more">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                            </div>
-
-                        </div>
-
-                        <div class="media-left col-md-12 col-sm-12 candidato-body" style="margin-left: 0; border-bottom: solid 1px #eee; margin-top: 2%; margin-bottom: 1%;">
-                            <img class="col-md-2 col-sm-2" src="<?php echo STYLE_DIR; ?>img\logojet.jpg" style="margin-left: -5%">
-                            <h4 class="title" style="margin-top: 3%">Scott White</h4>
-                            <div class="col-md-5 col-sm-5 options" style="float: right; margin-top: -8%; margin-right: -23%">
-                                <i class="fa fa-check"></i>
-                                <i class="fa fa-close"></i>
-                                <i class="fa fa-mail-reply-all"></i>
-                            </div>
-                            <div class="media-body comment more">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum laoreet, nunc eget laoreet sagittis,
-                                quam ligula sodales orci, congue imperdiet eros tortor ac lectus.
-                                Duis eget nisl orci. Aliquam mattis purus non mauris
-                                blandit id luctus felis convallis.
-                                Integer varius egestas vestibulum.
-                                Nullam a dolor arcu, ac tempor elit. Donec.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div
-
-
-
-
             </div>
-        </div>
+
+    </div>
+            <?php
+
+        }
+        ?>
+
+        <!-- -->
+
+
+
+
+
+
+
 
 
 
