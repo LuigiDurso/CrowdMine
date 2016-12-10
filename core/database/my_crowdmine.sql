@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 06, 2016 alle 11:19
--- Versione del server: 10.1.19-MariaDB
--- Versione PHP: 7.0.13
+-- Creato il: Dic 07, 2016 alle 09:36
+-- Versione del server: 10.1.13-MariaDB
+-- Versione PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `my_crowdmine`
+-- Database: `dsd`
 --
 
 -- --------------------------------------------------------
@@ -113,7 +113,8 @@ CREATE TABLE `feedback` (
   `id` bigint(20) NOT NULL,
   `id_utente` bigint(20) NOT NULL,
   `id_annuncio` bigint(20) NOT NULL,
-  `valutazione` decimal(1,1) NOT NULL,
+	`id_valutato` bigint(20) NOT NULL,
+  `valutazione` float NOT NULL,
   `corpo` text,
   `data` datetime NOT NULL,
   `stato` enum('attivato','segnalato','eliminato','amministratore') NOT NULL,
@@ -229,6 +230,13 @@ CREATE TABLE `utente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dump dei dati per la tabella `utente`
+--
+
+INSERT INTO `utente` (`id`, `nome`, `cognome`, `telefono`, `dataNascita`, `citta`, `email`, `password`, `ruolo`, `stato`, `immagine_profilo`, `partita_iva`) VALUES
+(1, 'Antonio', 'Antonio', 'Antonio', '2016-12-06', 'Antonio', 'Antonio1', 'Antonio', 'utente', 'attivo', 'Antonio', 'Antonio');
+
+--
 -- Indici per le tabelle scaricate
 --
 
@@ -295,7 +303,8 @@ ALTER TABLE `interesse`
 -- Indici per le tabelle `macrocategoria`
 --
 ALTER TABLE `macrocategoria`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`);
 
 --
 -- Indici per le tabelle `messaggio`
@@ -310,6 +319,7 @@ ALTER TABLE `messaggio`
 --
 ALTER TABLE `microcategoria`
   ADD PRIMARY KEY (`id`,`id_macrocategoria`),
+  ADD UNIQUE KEY `nome` (`nome`),
   ADD KEY `microcategoria_ibfk_1` (`id_macrocategoria`);
 
 --
@@ -348,7 +358,7 @@ ALTER TABLE `utente`
 -- AUTO_INCREMENT per la tabella `annuncio`
 --
 ALTER TABLE `annuncio`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT per la tabella `candidatura`
 --
@@ -363,12 +373,12 @@ ALTER TABLE `commento`
 -- AUTO_INCREMENT per la tabella `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT per la tabella `macrocategoria`
 --
 ALTER TABLE `macrocategoria`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT per la tabella `messaggio`
 --
@@ -388,7 +398,7 @@ ALTER TABLE `notifica`
 -- AUTO_INCREMENT per la tabella `utente`
 --
 ALTER TABLE `utente`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Limiti per le tabelle scaricate
 --
