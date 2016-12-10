@@ -8,13 +8,13 @@
 include_once VIEW_DIR . 'header.php';
 include_once CONTROL_DIR . 'visualizzaAnnunci.php';
 
-if(isset($_SESSION['user']) && isset($_SESSION['array'])){
-    $user = $_SESSION['user'];
-    $annunci = $_SESSION['array'];
-} else {
+/*if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];}
+else {
     header("location: CONTROL_DIR . 'visualizzaAnnunci.php'");
-}
+}*/
 
+$idUtente="1";
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\vendor.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css>
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css">
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
@@ -56,7 +56,30 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
             });
         });
     </script>
+    <script type="text/javascript">
+        function caricaAnnunci(id){
+            var stringa = "idUtente";
+            $.ajax({
+                type: "GET",
+                url: "asynAnnunci",
+                data: {nome: stringa, idUtente:id},
+                cache: false,
+                async: false,
+                success: function (data) {
+                },
 
+                error: function () {
+                    alert("errore");
+                }
+            });
+        }
+    </script>
+    <?php
+    if (isset($_SESSION["lista"])){
+        $annunci = unserialize($_SESSION["lista"]);
+        unset($_SESSION["lista"]);
+    }
+    ?>
 </head>
 
 <style>
@@ -167,14 +190,8 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
 
 
 </style>
-<script type="text/javascript">
-    function parametro(id){
-        document.getElementById(id).href="modificaAnnuncio?id="+id;
-    }
 
-</script>
-
-<body>
+<body onload="caricaAnnunci(<?php echo $idUtente ?>)">
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">
@@ -282,7 +299,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
     <div class="col-md-12 col-sm-12 app-container">
         <?php
 
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < count($annunci); $i++) {
 
         ?>
             <div class="row" style="margin-right: 20%; height: auto; margin-bottom: 5%">
@@ -313,7 +330,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
                                         <i class="fa fa-cog" style="font-size: 200%;"></i>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId(); $_SESSION['annunci'] = $annunci;?>" >Cancella annuncio</a></li>
+                                        <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId()?>" >Cancella annuncio</a></li>
                                         <li><a href="modificaAnnuncio?id=<?php echo $annunci[$i]->getId()?>">Modifica annuncio</a></li>
                                     </ul>
                                 </li>
@@ -332,8 +349,8 @@ if(isset($_SESSION['user']) && isset($_SESSION['array'])){
                          style="margin-left: 2%; margin-bottom: 2%; margin-top: -2%">
                         <span class="label label-warning">Informatica</span>
                         <span class="label label-default">Web Developer</span>
-                        <span class="label label-info"><?php echo $annunci[1]->getLuogo();?></span>
-                        <span class="label label-primary"><?php echo $annunci[1]->getRetribuzione();?>€</span>
+                        <span class="label label-info"><?php echo $annunci[$i]->getLuogo();?></span>
+                        <span class="label label-primary"><?php echo $annunci[$i]->getRetribuzione();?>€</span>
                     </div>
 
                     <div class="media-comment" style="">

@@ -13,12 +13,6 @@ $id = $_GET["id"];
 if(!isset($id)){
     header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
 }
-//$managerAnnuncio = new AnnuncioManager();
-//$annuncio = $managerAnnuncio->getAnnuncio($id);
-//if(!isset($annuncio)){
-  //  header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
-//}
-$annuncio = new Annuncio($id,2,"ciao","Spettacolo","Sono Grandi i PM","San Paolo","revisione","1","domanda");
 ?>
 
 <!DOCTYPE html>
@@ -42,11 +36,37 @@ $annuncio = new Annuncio($id,2,"ciao","Spettacolo","Sono Grandi i PM","San Paolo
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+    <script type="text/javascript">
+        function caricaDatiAnnuncio(id){
+            var stringa = "modificaAnnuncio";
+            $.ajax({
+                type: "GET",
+                url: "asynAnnunci",
+                data: {nome: stringa, idAnnuncio:id},
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert(data);
+                },
+
+                error: function () {
+                    alert("errore");
+                }
+            });
+        }
+
+    <?php
+        if(isset($_SESSION["annuncio"])){
+            $annuncio = unserialize($_SESSION["annuncio"]);
+            unset($_SESSION["annuncio"]);
+        }
+    ?>
+    </script>
 </head>
 
 
 
-<body>
+<body onload="caricaDatiAnnuncio(<?php echo $id ?>)">
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">
@@ -162,7 +182,8 @@ $annuncio = new Annuncio($id,2,"ciao","Spettacolo","Sono Grandi i PM","San Paolo
                                          <i class="fa fa-certificate" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" placeholder=<?php echo $annuncio->getTitolo() ?> aria-describedby="basic-addon1" value="">
                                 </div>
-                                <textarea name="name" rows="3" class="form-control" placeholder=<?php $annuncio->getDescrizione() ?>></textarea>
+                                <textarea name="name" rows="3" class="form-control" placeholder=<?php echo $annuncio->getDescrizione() ?>></textarea>
+                                <input type="text" name="luogo" class="form-control" placeholder="<?php echo $annuncio->getLuogo() ?>" aria-describedby="basic-addon1" value="">
 
                             </div>
 
@@ -195,11 +216,11 @@ $annuncio = new Annuncio($id,2,"ciao","Spettacolo","Sono Grandi i PM","San Paolo
                                 </div>
                                 <div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" name="radio2" id="radio5" value="option1">
+                                        <input type="radio" name="radio2" id="radio5" value="option1" <?php if($annuncio->getTipologia()=="domanda") echo checked; ?>>
                                         <label for="radio5">Domanda</label>
                                     </div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" name="radio2" id="radio6" value="option2" checked>
+                                        <input type="radio" name="radio2" id="radio6" value="option2" <?php if($annuncio->getTipologia()=="offerta") echo checked; ?>>
                                         <label for="radio6">Offerta</label>
                                     </div>
                                 </div>

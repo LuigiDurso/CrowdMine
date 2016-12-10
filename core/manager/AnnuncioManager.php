@@ -10,6 +10,9 @@
 include_once MODEL_DIR . 'Annuncio.php';
 include_once MODEL_DIR . 'Candidatura.php';
 include_once MANAGER_DIR . 'manager.php';
+include_once FILTER_DIR . "SearchByUserIdFilter.php";
+include_once FILTER_DIR . "FilterUtils.php";
+include_once FILTER_DIR ."SearchByIdFilter.php";
 
 /**
  * Class AnnuncioManager
