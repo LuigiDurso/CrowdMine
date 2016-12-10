@@ -7,6 +7,13 @@
  */
 include_once MODEL_DIR."Commento.php";
 
+class StatoFeedback{
+    const ATTIVO = "attivo";
+    const SEGNALATO = "segnalato";
+    const ELIMINATO = "eliminato";
+    const AMMINISTRATORE = "amministratore";
+}
+
 class Feedback extends Commento
 {
 

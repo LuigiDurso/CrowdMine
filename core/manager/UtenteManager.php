@@ -1,11 +1,12 @@
 <?php
 
+include_once MODEL_DIR . 'Utente.php';
+include_once MANAGER_DIR . 'MicroCategoriaManager.php';
 include_once MODEL_DIR . 'Annuncio.php';
-include_once MODEL_DIR . 'Microcategoria.php';
-include_once MODEL_DIR . 'Macrocategoria.php';
+
 /**
  * Created by PhpStorm.
- * User: Andrea Sarto
+ * User: Dario Galiani
  * Date: 28/11/2016
  * Time: 23.25
  */
@@ -22,62 +23,123 @@ class UtenteManager extends Manager
      /**
       * Create a new persistent User and its categories
       *
-      * @param String $name name
-      * @param String $surname surname
-      * @param String $phone number phone
-      * @param Date $dateOfBirth date of birth
-      * @param String $city city
-      * @param String $mail e-mail
-      * @param String $password password
-      * @return User A model instance of the updated User.
+      * @param $nome
+      * @param $cognome
+      * @param $telefono
+      * @param $dataNascita
+      * @param $citta
+      * @param $email
+      * @param $password
+      * @param $stato
+      * @param $ruolo
+      * @param $immagineProfilo
       */
-     public function createUser($name, $surname, $phone, $dateOfBirth, $city, $mail, $password){
-         return new User($name, $surname, $phone, $dateOfBirth, $city, $mail, $password);
+     public function createUser($nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo, $immagineProfilo){
+         return new Utente($nome, $cognome, $telefono, $dataNascita, $citta, $email, $password, $stato, $ruolo, $immagineProfilo);
      }
 
+    /**
+     * Get an Utente by Id
+     *
+     * @param Double %utenteId
+     * @return Utente $user
+     */
+    public function getUtenteById($utenteId){
+        $connection = self::getDB();
+        $CERCA_UTENTE = "SELECT * FROM 'utente' WHERE id='%s'";
+        $query = sprintf($CERCA_UTENTE, $utenteId);
+        $result = $connection->query($query);
+        $row = $result->fetch_array();
+        $user = new Utente($row['nome'], $row['cognome'], $row['telefono'], $row['dataNascita'], $row['citta'], $row['email'], $row['password'], $row['stato'], $row['ruolo'], $row['immagineProfilo']);
+        return $user;
+    }
+
      /**
-      * Send login
+      * Authenticate an Utente by his login informations
       *
       * @param String $mail e-mail
       * @param String $password password
+      * @return bool
       */
-     public function forwardsLogin($mail, $password){
-
+     public function Login($mail, $password){
+        session_start();
+        if(!($user = $this->getUtenteByLogin($mail, $password))){
+            $_SESSION['login'] = false;
+            header("Location:".DOMINIO_SITO."/");
+        }else{
+            $_SESSION['login'] = true;
+            $_SESSION['user'] = serialize($user);
+        }
      }
 
     /**
-     * Send logout request
+     * Get an Utente by Login
      *
-     * @param String $mail e-mail
-     * @param String $password password
+     * @param $mail
+     * @param $password
+     * @return bool | Utente $user
      */
-    public function forwardsLogout($mail, $password){
-
+    private function getUtenteByLogin($mail, $password){
+        $connection = self::getDB();
+        $query = "SELECT * FROM 'utente' WHERE email='$mail' AND password='$password'";
+        $result = $connection->query($query);
+        $row = $result->fetch_assoc();
+        if(!$row || mysqli_num_rows($row) <= 0)
+            return false;
+        else{
+            $user = new Utente($row['nome'], $row['cognome'], $row['telefono'], $row['dataNascita'], $row['citta'], $row['email'], $row['password'], $row['stato'], $row['ruolo'], $row['immagineProfilo']);
+            return $user;
+        }
     }
 
     /**
-     * Delete data user
+     * Logout
+     *
      */
-    public function deleteUserData(){
+    public function logout(){
+        session_start();
+        $_SESSION[] = array();
+        session_destroy();
+    }
 
+    /**
+     * Delete data user.
+     *
+     * @param String $password
+     * @return bool
+     */
+    public function deleteUserData($password){
+        $user = unserialize($_SESSION['user']);
+        if($user->getPassword() != $password){
+            return false;
+        }else{
+            $connection = self::getDB();
+            $AGGIORNA_UTENTE = "UPDATE 'utente' SET ciita='%s', data_nascita='%s', immagine_profilo='%s', telefono='%s' WHERE id='%s'";
+            $query = sprintf($AGGIORNA_UTENTE, "", "", "", "", $user->getId());
+            $connection->query($query);
+            $this->logout();
+        }
     }
 
     /**
      * Ban an user
      *
-     * @param double $UserId
+     * @param double $userId
      * @param String $password
+     *
+     * @return bool
      */
-    public function banUser($UserId, $password){
-
-    }
-
-    /**
-     * Get a list of reported user
-     * return User[] A list og reported user
-     */
-    public function reportedUser(){
-        return [];
+    public function banUser($userId, $password){
+        $mod = unserialize($_SESSION['user']);
+        if($password != $mod->getPassword()){
+            return false;
+        }else{
+            $connection = self::getDB();
+            $BANNA_UTENTE = "UPDATE 'utente' SET stato='%s' WHERE id='%s'";
+            $query = sprintf($BANNA_UTENTE, $BANNATO, $userId); //va definito un file con le macro delle Enum.
+            $connection->query($query);
+            return true;
+        }
     }
 
     /**
@@ -85,81 +147,184 @@ class UtenteManager extends Manager
      *
      * @param String $currentPassword
      * @param String $newPassword
+     * @return bool
      */
     public function changePassword($currentPassword, $newPassword){
-
+        $user = unserialize($_SESSION['user']);
+        if($currentPassword === $user->getPassword()){
+            $connection = self::getDB();
+            $CAMBIA_PASSWORD = "UPDATE 'utente' SET password='%s' WHERE id='%s'";
+            $query = sprintf($CAMBIA_PASSWORD, $newPassword, $user->getId());
+            $connection->query($query);
+        }else{
+            return false;
+        }
     }
 
     /**
-     * Get list of User
+     * Get a list of User by name
      *
-     * @param String $UserName
-     * @return Utente[] A list of User by User name
+     * @param String $userName
+     * @return array $users A list of User by User name
      */
-    public function getUtente($UserName){
-        return [];
+    public function getUtenteByName($userName){
+        $users = array();
+        $connection = self::getDB();
+        $query= "SELECT * FROM 'utente' WHERE name='$userName'";
+        $result = $connection->query($query);
+        while($row = mysqli_fetch_array($result)){
+            $user = new Utente($row['id'], $row['nome'], $row['cognome'], $row['telefono'], $row['data_nascita'], row['citta'], $row['email'], $row['password'], $row['stato'], $row['ruolo'], $row['immagine_profilo']);
+            array_push($users, $user);
+        }
+        return $users;
     }
 
     /**
      * Add a new macrocategory
      * @param Macrocategoria $macrocategoria
      */
-    public function addMacrocategoria($macrocategoria){
-
+    public function addNewMacrocategoria($nomeMacro){
+        $macroManager = new MacroCategoriaManager();
+        $macroManager->InsertMacrocategoria($nomeMacro);
     }
 
     /**
      * Add a new microcategory
      * @param Microcategoria $microcategoria
      */
-    public function addMicrocategoria($microcategoria){
-
+    public function addMicrocategoria($nomeMicro, $nomeMacro){
+        $microManager = new MicrocategoriaManager();
+        $microManager->addMicrocategoria($nomeMicro, $nomeMacro);
+        $micro = $microManager->getMicrocategoriaByNome($nomeMicro);
+        $user = unserialize($_SESSION['user']);
+        $AGGIUNGI_COMPETENZA = "INSERT INTO 'competente' (id_utete, id_microcategoria) VALUES('%s', '%s')";
+        $query = sprintf($AGGIUNGI_COMPETENZA, $user->getId(), $micro->getId());
+        self::getDB()->query($query);
     }
 
     /**
      * Reactivate an User
      *
-     * @param Double $UtenteId
+     * @param Double $utenteId
      */
-    public function reactivateUtente($UtenteId){
+    public function reactivateUtente($utenteId){
+        $connection = self::getDB();
+        $ATTIVA_UTENTE = "UPDATE 'utente' SET stato='%s' WHERE id='%s'";
+        $query = sprintf($ATTIVA_UTENTE, $RIATTIVATO, $utenteId); //definire macro per enum.
+        $connection->query($query);
 
     }
 
     /**
      * Get a list of banned User
      *
-     * @return bannedUtente[] A list of banned user
+     * @return array $users
      */
     public function getBannedUtente(){
-        return [];
+        $connection = self::getDB();
+        $GET_UTENTI_BANNATI = "SELECT * FROM 'utente' WHERE stato='%s'";
+        $query = sprintf($GET_UTENTI_BANNATI, $BANNATO);
+        $result = $connection->query($query);
+        $users = array();
+        foreach($result->fetch_assoc() as $u){
+            $user = new Utente($u['nome'], $u['cognome'], $u['telefono'], $u['dataNascita'], $u['citta'], $u['email'], $u['password'], $u['stato'], $u['ruolo'], $u['immagineProfilo']);
+            array_push($users, $user);
+        }
+        return $users;
+    }
+
+    /**
+     *
+     */
+    public function getReportedUtente(){
+        $connection = self::getDB();
+        $GET_UTENTI_BANNATI = "SELECT * FROM 'utente' WHERE stato='%s'";
+        $query = sprintf($GET_UTENTI_BANNATI, $SEGNALATO);
+        $result = $connection->query($query);
+        $users = array();
+        foreach($result->fetch_assoc() as $u){
+            $user = new Utente($u['nome'], $u['cognome'], $u['telefono'], $u['dataNascita'], $u['citta'], $u['email'], $u['password'], $u['stato'], $u['ruolo'], $u['immagineProfilo']);
+            array_push($users, $user);
+        }
+        return $users;
     }
 
     /**
      * Promote an user as moderator
      *
-     * @param Double $UtenteId
+     * @param Double $utenteId
      * @param String $password
      */
-    public function promoteMod($UtenteId, $password){
+    public function setUserAsMod($utenteId, $password){
+        $LOAD_USER= "UPDATE `Utente` SET `ruolo` = 1 WHERE `password` = $password AND `id` = $utenteId;";
+        if (!Manager::getDB()->query($LOAD_USER)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
+    }
 
+    public function setModAsUser($utenteId, $password){
+        $LOAD_USER= "UPDATE `Utente` SET `ruolo` = 0 WHERE `password` = $password AND `id` = $utenteId;";
+        if (!Manager::getDB()->query($LOAD_USER)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
      * Get a list of appeal User ban
      *
-     * @return appealUtente[] A list of appeal User ban
+     * @return array $users A list of appeal User
      */
     public function appealUtente(){
-        return [];
+        $users = array();
+        $GET_APPEAL_USERS = "SELECT * FROM 'utente' WHERE stato='%s'";
+        $query = sprintf($GET_APPEAL_USERS, $RICORSO);
+        $result = self::getDB()->query($query);
+        foreach($result->fetch_assoc() as $u){
+            array_push($users, $u);
+        }
+        return $users;
     }
 
     /**
-     * Change User data
-     *
-     * @param Double $UserId
-     */
-    public function changeDataUtente($UserId){
+    * @param $telefono
+    */
+    public function changeTelefonoUtente($telefono){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET telefono='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $telefono, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setTelefono($telefono);
+            $_SESSION['user'] = serialize($user);
+        }
+    }
 
+    public function changeCittaUtente($citta){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET citta='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $citta, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setCitta($citta);
+            $_SESSION['user'] = serialize($user);
+        }
+    }
+
+    public function changeEmailUtente($email){
+        $user = unserialize($_SESSION['user']);
+        $this->getUtenteById($user->getId());
+        $SET_DATA_UTENTE = "UPDATE utente SET email='%s' WHERE id='%s'";
+        $query = sprintf($SET_DATA_UTENTE, $email, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setCitta($email);
+            $_SESSION['user'] = serialize($user);
+        }
     }
 
     /**
@@ -167,7 +332,13 @@ class UtenteManager extends Manager
      *
      */
     public function redeemUtente(){
-
+        $user = unserialize($_SESSION['user']);
+        $SET_STATO_UTENTE = "UPDATE utente SET stato = '%s' WHERE id = '%s'";
+        $query = sprintf($SET_STATO_UTENTE, $ATTIVATO, $user->getId());
+        if(self::getDB()->query($query)){
+            $user->setStato($ATTIVATO);
+            $_SESSION['user'] = serialize($user);
+        }
     }
 
     /**
@@ -179,21 +350,19 @@ class UtenteManager extends Manager
     }
 
     /**
-     * Search an User
-     *
-     * @param Double %UtenteId
-     */
-    public function searchUtente($UtenteId){
-
-    }
-
-    /**
      * Block an User
      *
      * @param Double $UtenteId
      */
-    public function blockUser($UtenteId){
-
+    public function blockUser($UtenteId, $utenteBloccatoId){
+        $INSERT_BLOCCATO = "INSERT INTO `bloccato` (`id_utente`, `id_utente_bloccato`) VALUES ('%s', '%s');";
+        $query = sprintf($INSERT_BLOCCATO, $UtenteId, $utenteBloccatoId);
+        if (!Manager::getDB()->query($query)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
@@ -201,8 +370,14 @@ class UtenteManager extends Manager
      *
      * @param Double $UtenteId
      */
-    public function unblockUser($UtenteId){
-
+    public function unblockUser($UtenteId, $utenteBloccatoId){
+        $SBLOCCA = "DELETE FROM `bloccato` WHERE `id_utente` = $UtenteId AND `id_utente_bloccato` = $utenteBloccatoId;";
+        if (!Manager::getDB()->query($SBLOCCA)) {
+            if (Manager::getDB()->errno == 1062) {
+                throw new ApplicationException(ErrorUtils::$EMAIL_ESISTE, Controller::getDB()->error, Controller::getDB()->errno);
+            } else
+                throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Controller::getDB()->error, Controller::getDB()->errno);
+        }
     }
 
     /**
@@ -212,8 +387,19 @@ class UtenteManager extends Manager
      *
      * @return favoriteAnnuncio[] A list of favourite annuncment for User
      */
-    public function getFavorite($UtenteId){
-        return [];
+    public function getFavorite($UtenteId)
+    {
+        $LOAD_PREFERITI = "SELECT a.* FROM annuncio a, preferito p, utente u WHERE u.id = $UtenteId AND p.id_utente = u.id AND a.id = p.id_annuncio;";
+        $result = Manager::getDB()->query($LOAD_PREFERITI);
+        $listPreferiti = array();
+        if ($result) {
+            while ($obj = $result->fetch_assoc()) {
+                $annuncio = new Annuncio($obj['id'], $obj['id_utente'], $obj['data'], $obj['titolo'], $obj['luogo'], $obj['stato'], $obj['retribuzione'], $obj['tipo'], $obj['descrizione']);
+                //bisogna controllare lo stato dell'annuncio prima di aggiungerlo alla lista
+                $listPreferiti[] = $annuncio;
+            }
+            return $listPreferiti;
+        }
     }
 
     /**

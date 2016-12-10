@@ -9,7 +9,7 @@
 class FeedbackListObject implements JsonSerializable
 {
     private $feedbackID;
-    private $feedbackTile;
+    private $feedbackTitle;
     private $feedbackDesc;
     private $userFirstName;
     private $userLastName;
@@ -19,17 +19,17 @@ class FeedbackListObject implements JsonSerializable
     /**
      * FeedbackListObject constructor.
      * @param $feedbackID
-     * @param $feedbackTile
+     * @param $feedbackTitle
      * @param $feedbackDesc
      * @param $userFirstName
      * @param $userLastName
      * @param $userProfileImage
      * @param $feedbackRating
      */
-    public function __construct($feedbackID, $feedbackTile, $feedbackDesc, $userFirstName, $userLastName, $userProfileImage, $feedbackRating)
+    public function __construct($feedbackID, $feedbackTitle, $feedbackDesc, $userFirstName, $userLastName, $userProfileImage, $feedbackRating)
     {
         $this->feedbackID = $feedbackID;
-        $this->feedbackTile = $feedbackTile;
+        $this->feedbackTitle = $feedbackTitle;
         $this->feedbackDesc = $feedbackDesc;
         $this->userFirstName = $userFirstName;
         $this->userLastName = $userLastName;
@@ -59,17 +59,17 @@ class FeedbackListObject implements JsonSerializable
     /**
      * @return mixed
      */
-    public function getFeedbackTile()
+    public function getFeedbackTitle()
     {
-        return $this->feedbackTile;
+        return $this->feedbackTitle;
     }
 
     /**
-     * @param mixed $feedbackTile
+     * @param mixed $feedbackTitle
      */
-    public function setFeedbackTile($feedbackTile)
+    public function setFeedbackTitle($feedbackTitle)
     {
-        $this->feedbackTile = $feedbackTile;
+        $this->feedbackTitle = $feedbackTitle;
     }
 
     /**
@@ -164,7 +164,7 @@ class FeedbackListObject implements JsonSerializable
     {
         return [
             'feedbackID' => $this->getFeedbackID(),
-            'feedbackTile' => $this->getFeedbackTile(),
+            'feedbackTitle' => $this->getFeedbackTitle(),
             'feedbackDesc' => $this->getFeedbackDesc(),
             'userFirstName' => $this->getUserFirstName(),
             'userLastName' => $this->getUserLastName(),
