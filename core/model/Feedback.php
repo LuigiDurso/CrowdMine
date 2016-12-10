@@ -6,6 +6,13 @@
  * and open the template in the editor.
  */
 
+class StatoFeedback{
+    const ATTIVO = "attivo";
+    const SEGNALATO = "segnalato";
+    const ELIMINATO = "eliminato";
+    const AMMINISTRATORE = "amministratore";
+}
+
 class Feedback extends Commento
 {
 
