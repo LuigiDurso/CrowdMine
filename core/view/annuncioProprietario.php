@@ -74,6 +74,24 @@ $idUtente="1";
             });
         }
     </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+//Check if the current URL contains '#'
+            if(document.URL.indexOf("#")==-1)
+            {
+// Set the URL to whatever it was plus "#".
+                url = document.URL+"#";
+                location = "#";
+
+//Reload the page
+                location.reload(true);
+
+            }
+        });
+    </script>
+
+
     <?php
     if (isset($_SESSION["lista"])){
         $annunci = unserialize($_SESSION["lista"]);

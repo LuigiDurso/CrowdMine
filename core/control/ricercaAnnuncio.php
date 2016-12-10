@@ -1,5 +1,30 @@
 <?php
 
+if($_SERVER["REQUEST_METHOD"]=="POST") {
+
+    $titolo = null;
+    $luogo = null;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //include MANAGER_DIR . 'AnnuncioManager.php';
 
 if (isset($_POST['titolo'])) {
@@ -43,9 +68,5 @@ $filters = array($titolo, $data, $luogo, $utente, $tipologia1, $tipologia2); /* 
 for ($i = 0; $i < 5; $i++) {
     echo $filters[$i];
 }
-
-$manager = new AnnuncioManager(); /* Declaration and initialization a manager variable */
-$manager->searchAnnuncio($filters);/* Manager calls the function which search relative annuncio's with array filters */
-
 
 ?>
