@@ -17,6 +17,7 @@ define('MANAGER_DIR', CORE_DIR . "manager" . DIRECTORY_SEPARATOR);
 define('CONTROL_DIR', CORE_DIR . "control" . DIRECTORY_SEPARATOR);
 define('UPLOADS_DIR', DOMINIO_SITO . "/uploads/");
 define('STYLE_DIR', DOMINIO_SITO . DIRECTORY_SEPARATOR . "style" . DIRECTORY_SEPARATOR);
+define('AJAX_DIR', CORE_DIR . DIRECTORY_SEPARATOR . "ajax" . DIRECTORY_SEPARATOR);
 define('UTILS_DIR', CORE_DIR . "utils" . DIRECTORY_SEPARATOR);
 define('DEBUG', true);
 
@@ -210,6 +211,9 @@ try {
                 break;
             case 'commentaAnnuncioControl';
                 include_once CONTROL_DIR . "commentaAnnuncio.php";
+                break;
+            case 'asynAnnunci';
+                include_once AJAX_DIR . "asynAnnunci.php";
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');

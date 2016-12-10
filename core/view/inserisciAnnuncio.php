@@ -31,11 +31,51 @@ include_once VIEW_DIR . 'header.php';
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+    <script type="text/javascript">
+
+        function caricaMacro() {
+            var stringa = "macro";
+            $.ajax({
+                type: "GET",
+                url: "asynAnnunci",
+                data: {nome: stringa},
+                cache: false,
+                success: function (data) {
+                    var sel = document.getElementById("macro");
+                    alert(data);
+                    sel.innerHTML = data;
+                },
+
+                error: function () {
+                    alert("errore");
+                }
+            });
+        }
+
+        function caricaMicro(){
+            var stringa = "micro";
+            var index = document.getElementById("macro").options[document.getElementById("macro").selectedIndex].value;
+            $.ajax({
+               type: "GET",
+                url: "asynAnnunci",
+                data: {nome:stringa,idMacro:index},
+                cache: false,
+
+               success: function (data){
+                   var sel = document.getElementById("micro");
+                   sel.innerHTML = data;
+               }
+            });
+        }
+
+    </script>
+
 </head>
 
 
 
-<body>
+<body onload="caricaMacro()">
+
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">
@@ -158,19 +198,18 @@ include_once VIEW_DIR . 'header.php';
 
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Macro-Area<span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Informatica</a></li>
-                                    </ul>
+                                    <button " type="button" class="btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Macro-Area<span class="caret"></span></button>
+                                    <select id="macro" onchange="caricaMicro()" name="macrocategorie" class="dropdown-menu" role="menu">
+                                        <option selected> seleziona </option>
+                                        <option> Informatica </option>
+                                    </select>
                                 </div>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micro-Area<span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
-                                    <select name="microcategorie">
+                                    <select id="micro" name="microcategorie" class="dropdown-menu" role="menu">
                                         <option selected> seleziona </option>
                                         <option value="php" > php </option>
                                     </select>
-                                    </ul>
                                 </div>
                                 <div class="input-group" style="margin-top: 3%">
                                     <span class="input-group-addon" id="basic-addon1">
@@ -228,16 +267,12 @@ include_once VIEW_DIR . 'header.php';
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackCheckUtils.js"></script>
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>plugins\toastr\toastr.js"></script>
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets\js\feedbackList.js"></script>
+
         <?php
 
         if (isset($_SESSION['toast-type']) && isset($_SESSION['toast-message'])) {
             ?>
             <script>
-                $(document).ready(function () {
-                    "use strict";
-                    $("#feedback-tab").click();
-                    $("#feedback-collapse-panel").click();
-                });
                 toastr["<?php echo $_SESSION['toast-type'] ?>"]("<?php echo $_SESSION['toast-message'] ?>");
             </script>
             <?php

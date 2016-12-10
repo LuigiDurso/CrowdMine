@@ -120,19 +120,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         throw new IllegalArgumentException("Campo listaMicrocategorie non corretto");
     }
 
-
     $dataPubblicazione = new DateTime();
     $data = $dataPubblicazione->format("Y-m-d H:i:s");
     $managerAnnuncio = new AnnuncioManager();
-    $check = $managerAnnuncio->createAnnuncio($idUtente, $data, $titolo, $luogo, $listaMicrocategorie, $retribuzione, $tipologia, $descrizione);
-    if($check!= false) {
+
+    try{
+        $managerAnnuncio->createAnnuncio($idUtente, $data, $titolo, $luogo, $listaMicrocategorie, $retribuzione, $tipologia, $descrizione);
         $_SESSION['toast-type'] = "success";
         $_SESSION['toast-message'] = "L'annuncio è in fase di lavorazione";
-    } else {
+    } catch(ApplicationException $a){
         $_SESSION['toast-type'] = "error";
         $_SESSION['toast-message'] = "Problemi con l'inserimento dell'annuncio";
     }
-
 
     header("Location:" . DOMINIO_SITO . "/"."");
 }
