@@ -20,7 +20,7 @@ include_once VIEW_DIR . 'header.php';
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\vendor.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\flat-admin.css">
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\rating.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css>
+    <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\Annuncio\annuncioUtenteLoggato.css">
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="<?php echo STYLE_DIR; ?>assets\css\theme\blue-sky.css">
@@ -35,6 +35,11 @@ include_once VIEW_DIR . 'header.php';
                 $(".row.col-md-12.col-sm-12.card.contenitore").toggle(250);
             });
         });
+    </script>
+    <script type="text/javascript">
+        function caricaAnnunciRicercati(){
+
+        }
     </script>
 </head>
 
@@ -79,7 +84,7 @@ include_once VIEW_DIR . 'header.php';
 
 </style>
 
-<body>
+<body onload="caricaAnnunciRicercati()">
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">

@@ -7,12 +7,19 @@ echo "Annuncio rimosso dai preferiti!";
 
 $manager = new AnnuncioManager(); /* Declaration and initialization a manager variable */
 
-$utente = unserialize($_SESSION['utente']); /* Declaration and initialization a user variable contain an unserialized version of a parameter who reference to user's info, given from session*/
-$idUtente = $utente->getId(); /* Declaration and initialization a user variable contain the user id */
-$idAnnuncio = unserialize($_SESSION['idAnnuncio']); /* Declaration and initialization a user variable contain an unserialized version of a parameter who reference to annuncio's info, given from session */
-
-$manager->removeFromFavorites($idAnnuncio, $idUtente); /* Manager calls the function which remove to user's favorites'list, the annuncio with relative id */
-
+//qui mancano le implementazioni dei manager utente per la registrazione e la login
+//$utente = unserialize($_SESSION['utente']); /* Declaration and initialization a user variable contain an unserialized version of a parameter who reference to user's info, given from session*/
+//$idUtente = $utente->getId(); /* Declaration and initialization a user variable contain the user id */
+try{
+    $manager->removeFromFavorites($idAnnuncio,$idUtente);
+    $_SESSION['toast-type'] = "success";
+    $_SESSION['toast-message'] = "L'annuncio è stato aggiunto ai preferiti";
+    header("Location:" . DOMINIO_SITO . "/annuncioUtenteLoggato");
+} catch (ApplicationException $a){
+    $_SESSION['toast-type'] = "error";
+    $_SESSION['toast-message'] = "Errore nell'aggiungere l'annuncio ai preferiti";
+    header("Location:" . DOMINIO_SITO . "/annuncioUtenteLoggato");
+}
 
 
 ?>
