@@ -219,6 +219,9 @@ try {
             case 'asynAnnunci';
                 include_once AJAX_DIR . "asynAnnunci.php";
                 break;
+            case 'visualizzaAnnunciRicercati';
+                include_once VIEW_DIR . "visualizzaAnnunciRicercati.php";
+                break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');
                 exit;

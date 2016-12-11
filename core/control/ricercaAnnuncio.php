@@ -2,91 +2,62 @@
 include_once MANAGER_DIR . 'AnnuncioManager.php';
 include_once CONTROL_DIR . "ControlUtils.php";
 include_once EXCEPTION_DIR . "IllegalArgumentException.php";
+include_once MODEL_DIR . 'Utente.php';
+include_once MODEL_DIR . 'Annuncio.php';
+include_once CONTROL_DIR . 'HomeController.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST") {
+class ricercaAnnuncio extends Controller
+{
+    static $GET_ALL_ANNUNCI = "SELECT * FROM `annuncio`";
+    static $GET_ANNUNCI_ID = "SELECT * FROM `annuncio` WHERE `id_utente` = '%s'";
+    static $GET_SEARCHED_ANNUNCI = "SELECT * FROM `annuncio` WHERE `id_utente`= '%s' || `data` = '%s' || `titolo` = '%s' || `luogo` = '%s'";
 
-    $titolo = null;
-    $data = null;
-    $luogo = null;
-    $idUtente = "1";
-    $tipologia = null;
-    $macro = null;
-    $micro = null;
+    function searchAnnunci()
+    {
+        $filters = array();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $filters = array();
+            $titolo = $_POST['titolo'];
 
-    if(isset($_POST['titolo'])){
-        $titolo = $_POST['titolo'];
-    } else {
-        $titolo = null;
+            array_push($filters, $titolo);
+
+            $data = $_POST['data'];
+
+            array_push($filters, $data);
+
+            $luogo = $_POST['luogo'];
+
+            array_push($filters, $luogo);
+
+
+            $idUtente = $_POST['utente'];
+
+            array_push($filters, $idUtente);
+
+
+            for ($i = 0; $i < count($filters); $i++) {
+                echo $filters[$i];
+            }
+            $query = sprintf(self::$GET_SEARCHED_ANNUNCI, $filters[3], $filters[1], $filters[0], $filters[2]);
+            echo $query;
+            $res = Controller::getDB()->query($query);
+            $annunci = array();
+            if ($res) {
+                while ($obj = $res->fetch_assoc()) {
+                    $annuncio = new Annuncio($obj['id'], $obj['id_utente'], $obj['data'], $obj['titolo'], $obj['descrizione'], $obj['luogo'], $obj['tipo'], $obj['retribuzione'], $obj['stato']);
+                    array_push($annunci, $annuncio);
+                }
+            }
+            return $annunci;
+        }
     }
-
-    array_push($filters, $titolo);
-
-
-    if(isset($_POST['data'])){
-        $data = $_POST['data'];
-    } else {
-        $data = null;
-    }
-
-    array_push($filters, $data);
-
-
-    if(isset($_POST['luogo'])){
-        $luogo = $_POST['luogo'];
-    } else {
-        $luogo = null;
-    }
-
-    array_push($filters, $luogo);
-
-    if(isset($_POST['tipologia'])){
-        $tipologia = $_POST['tipologia'];
-    } else {
-        $tipologia = null;
-    }
-
-    array_push($filters, $tipologia);
-
-    if(isset($_POST['macrocategorie'])){
-        $macro = $_POST['macrocategorie'];
-    } else {
-        $macro = null;
-    }
-
-    array_push($filters, $macro);
-
-    if(isset($_POST['microcategorie'])){
-        $micro = $_POST['microcategorie'];
-    } else {
-        $micro = null;
-    }
-
-    array_push($filters, $micro);
-
-    array_push($filters, $idUtente);
-
-
-    for ($i = 0; $i < 5; $i++) {
-        echo $filters[$i];
-    }
-
-    $managerAnnuncio = new AnnuncioManager();
-    if($managerAnnuncio->searchAnnuncio($filters)) {
-        $annunci = array();
-        array_push($annunci, $managerAnnuncio->searchAnnuncio($filters));
-    } else {
-        echo "no";
-    }
-
-
 
 }
 
+$manager = new ricercaAnnuncio();
+$array = $manager->searchAnnunci();
 
-
-
+$_SESSION['cercati'] = $array;
 
 
 
