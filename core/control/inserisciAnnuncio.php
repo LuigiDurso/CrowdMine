@@ -11,7 +11,7 @@ include_once CONTROL_DIR . "ControlUtils.php";
 include_once EXCEPTION_DIR . "IllegalArgumentException.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
-
+    $id = $_POST["id"];
     $titolo = null;
     $descrizione = null;
     $luogo = null;

@@ -10,7 +10,7 @@ include_once MODEL_DIR . 'annuncio.php';
 //include_once MANAGER_DIR .'AnnuncioManager.php';
 
 $id = $_GET["id"];
-if(!isset($id)){
+if($_GET["id"]){
     header("Location:" . DOMINIO_SITO . "/annuncioProprietario");
 }
 
@@ -47,11 +47,44 @@ if(!isset($id)){
                 cache: false,
                 async: false,
                 success: function (data) {
-                    alert(data);
+                    caricaMacro();
                 },
 
                 error: function () {
                     alert("errore");
+                }
+            });
+        }
+        function caricaMacro() {
+            var stringa = "macro";
+            $.ajax({
+                type: "GET",
+                url: "asynAnnunci",
+                data: {nome: stringa},
+                cache: false,
+                success: function (data) {
+                    var sel = document.getElementById("macro");
+                    sel.innerHTML = data;
+                },
+
+                error: function () {
+                    alert("errore");
+                }
+            });
+        }
+
+        function caricaMicro(){
+            var stringa = "micro";
+            var index = document.getElementById("macro").options[document.getElementById("macro").selectedIndex].value;
+            $.ajax({
+                type: "GET",
+                url: "asynAnnunci",
+                data: {nome:stringa,idMacro:index},
+                cache: false,
+
+                success: function (data){
+                    var sel = document.getElementById("micro");
+                    sel.innerHTML = data;
                 }
             });
         }
@@ -213,9 +246,9 @@ if(!isset($id)){
     <div class="col-md-12 col-sm-12 app-container">
 
         <div class="row" style="margin-right: 20%;">
-
+            <form method="POST" action="modificaAnnuncio">
             <div class="col-md-12">
-
+                <input name="id" style="display: none" value="<?php echo $id?>">
                 <div class="card" style="width auto;">
 
                     <div class="card-header">Modifica Annuncio</div>
@@ -238,16 +271,11 @@ if(!isset($id)){
                             <div class="col-md-6">
 
                                 <select id="macro" onchange="caricaMicro()" name="macrocategorie">
-                                    <option>I love Steve Jobs</option>
-                                    <option>PHP is awesome</option>
-                                    <option>I'm a Developer</option>
+                                    <option>Seleziona la macro categoria</option>
                                 </select>
 
                                 <select id="micro" name="microcategorie" style="margin-top: 3%">
-                                    <option selected="selected"></option>
-                                    <option>I love Steve Jobs</option>
-                                    <option>PHP is awesome</option>
-                                    <option>I'm a Developer</option>
+                                    <option selected="selected">Seleziona prima la macro</option>
                                 </select>
 
 
@@ -282,7 +310,7 @@ if(!isset($id)){
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Chiudi</button>
-                                                    <button type="button" class="btn btn-sm btn-success">Conferma</button>
+                                                    <button type="submit" class="btn btn-sm btn-success">Conferma</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +326,7 @@ if(!isset($id)){
                 </div>
 
             </div>
-
+            </form>
         </div>
 
 
