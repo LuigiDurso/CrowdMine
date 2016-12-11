@@ -576,8 +576,8 @@
                                 </div>
                             </div>
                             <!-- out of form -->
-                            <div class="row" style="margin-top: 3%">
-                                <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="row" style="margin-top: 3%" id="feedback-list-destination">
+                               <!-- <div class="col-lg-12 col-md-12 col-xs-12">
                                     <div class="section">
                                         <div class="media social-post">
                                             <div class="media-left">
@@ -876,7 +876,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!--Statistiche-->
                         <div role="tabpanel" class="tab-pane" id="tab4">

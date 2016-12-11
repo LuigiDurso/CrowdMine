@@ -10,6 +10,7 @@
 include_once MODEL_DIR . 'Feedback.php';
 include_once MODEL_DIR . 'MicroCategoria.php';
 include_once MODEL_DIR . 'FeedbackListObject.php';
+include_once MANAGER_DIR.'Manager.php';
 
 /**
  * Class FeedbackManager
@@ -53,7 +54,7 @@ class FeedbackManager extends Manager
         if ($resSet) {
             while ($obj = $resSet->fetch_assoc()) {
                 $u = new FeedbackListObject($obj['id'],$obj['titolo'],$obj['corpo'],$obj['nome'],$obj['cognome'],$obj['immagine_profilo'],$obj['valutazione']);
-                $us[] = $u;
+                $us[] = $u->jsonSerialize();
             }
         }
         return $us;

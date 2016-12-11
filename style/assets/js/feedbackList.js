@@ -5,7 +5,7 @@
 
 $(document).ready(function () {
     "use strict";
-     var username = "ciao";
+    var username = "ciao";
     $("#feedback-tab-3").click(function () {
         $.ajax({
             url: "feedbackListRetrive",
@@ -14,23 +14,26 @@ $(document).ready(function () {
             dataType: 'json',
             async: true,
             success: function (data) {
-
+                var destination = $("#feedback-list-destination")
+                console.log(destination);
 
                 console.log(data);
-               /* var feedbackListArray = JSON.parse(data);
-                var i=0;
-                for(i=0;i< feedbackListArray.size(); i++)
-                {
-                    var feedbackID = feedbackListArray[i].id;
-                    var feedbackTitle = feedbackListArray[i].title;
-                    var feedbackDesc= feedbackListArray[i].id;
-                    var userFirstName = feedbackListArray[i].userFirstName;
-                    var userLastName = feedbackListArray[i].userFirstName;
-                    var userProfileImage= feedbackListArray[i].userProfileName;
-                    var feedbackRating = feedbackListArray[i].rating;
-                    feedbackRowToString(feedbackID,feedbackTitle,feedbackDesc,userFirstName,userLastName,userProfileImage);
-                    setRatingStar(feedbackID,feedbackRating);
-                }*/
+                for (var i=0 ;i<data.length;i++) {
+                    var feedbackListObj = [];
+                    feedbackListObj.feedbackID = data[i].feedbackID;
+                    feedbackListObj.feedbackTitle = data[i].feedbackTitle;
+                    feedbackListObj.feedbackDesc = data[i].feedbackDesc;
+                    feedbackListObj.userFirstName = data[i].userFirstName;
+                    feedbackListObj.userLastName = data[i].userLastName;
+                    feedbackListObj.userProfileImage = data[i].userProfileImage;
+                    feedbackListObj.feedbackRating = data[i].feedbackRating;
+
+                    destination.append(feedbackRowToString(feedbackListObj));
+                    setRatingStar(feedbackListObj.feedbackID, feedbackListObj.feedbackRating);
+
+
+                }
+
             }
 
 
@@ -39,88 +42,87 @@ $(document).ready(function () {
 });
 
 
-function feedbackRowToString(feedbackID, feedbackTitle, feedbackDesc, userFirstName, userLastName, userProfileImage) {
+function feedbackRowToString(feedbackListObj) {
     "use strict";
 
-    var html = '<div class="row" style="margin-top: 3%">' +
+    var html = '<div class="row" style="margin-top: 3%" id="'+ feedbackListObj.feedbackID + '">' +
         '                                                        <div class="col-lg-12 col-md-12 col-xs-12">' +
         '                                                            <div class="section">' +
         '                                                                <div class="media social-post">' +
         '                                                                    <div class="media-left">' +
         '                                                                        <a href="#">' +
-        '                                                                            <img' +
-        '                                                                                src="<?php echo STYLE_DIR; ?>assets\images\profile.png"/>' +//ad user profile image
+        '                                                                         <img src="<?php echo STYLE_DIR; ?>assets\images\ ' +  feedbackListObj.userProfileImage + '"> ' +
         '                                                                        </a>' +
         '                                                                    </div>' +
         '                                                                    <div class="section">' +
         '                                                                        <div class="section-body">' +
         '                                                                            <div class="media-body">' +
         '                                                                                <div class="media-heading">' +
-        '                                                                                    <h4 class="title">' + userFirstName + ' ' + userLastName + '</h4>' +
+        '                                                                                    <h4 class="title">' +  feedbackListObj.userFirstName + ' ' +  feedbackListObj.userLastName  + '</h4>' +
         '                                                                                </div>' +
         '                                                                                <div class="rating-content"' +
         '                                                                                     onclick="return false;">' +
         '                                                                                    <div class="rating">' +
-        '                                                                                        <input type="radio" id="star5-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                        <input type="radio" id="star5-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="5"/><label' +
         '                                                                                            class="full" for="star5"' +
         '                                                                                            title="Awesome - 5 stars"></label>' +
         '                                                                                        <input type="radio"' +
-        '                                                                                               id="star4half-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                               id="star4half-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="4.5"/><label' +
         '                                                                                            class="half" for="star4half"' +
         '                                                                                            title="Pretty good - 4.5 stars"></label>' +
-        '                                                                                        <input type="radio" id="star4-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                        <input type="radio" id="star4-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="4"/><label' +
         '                                                                                            class="full" for="star4"' +
         '                                                                                            title="Pretty good - 4 stars"></label>' +
         '                                                                                        <input type="radio"' +
-        '                                                                                               id="star3half-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                               id="star3half-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="3.5"' +
         '                                                                                               checked/><label' +
         '                                                                                            class="half" for="star3half"' +
         '                                                                                            title="Meh - 3.5 stars"></label>' +
-        '                                                                                        <input type="radio" id="star3-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                        <input type="radio" id="star3-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="3"/><label' +
         '                                                                                            class="full" for="star3"' +
         '                                                                                            title="Meh - 3 stars"></label>' +
         '                                                                                        <input type="radio"' +
-        '                                                                                              id="star2half-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                              id="star2half-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="2.5"/><label' +
         '                                                                                            class="half" for="star2half"' +
         '                                                                                            title="Kinda bad - 2.5 stars"></label>' +
-        '                                                                                        <input type="radio" id="star2-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                        <input type="radio" id="star2-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="2"/><label' +
         '                                                                                            class="full" for="star2"' +
         '                                                                                            title="Kinda bad - 2 stars"></label>' +
         '                                                                                        <input type="radio"' +
-        '                                                                                               id="star1half-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                               id="star1half-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="1.5"/><label' +
         '                                                                                            class="half" for="star1half"' +
         '                                                                                            title="Meh - 1.5 stars"></label>' +
-        '                                                                                        <input type="radio"  id="star1-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                        <input type="radio"  id="star1-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="1"/><label' +
         '                                                                                            class="full" for="star1"' +
         '                                                                                            title="Sucks big time - 1 star"></label>' +
         '                                                                                        <input type="radio"' +
-        '                                                                                                id="starhalf-' + feedbackID + '"' +
-        '                                                                                               name="rating-' + feedbackID + '"' +
+        '                                                                                                id="starhalf-' + feedbackListObj.feedbackID + '"' +
+        '                                                                                               name="rating-' + feedbackListObj.feedbackID + '"' +
         '                                                                                               value="0.5"/><label' +
         '                                                                                            class="half" for="starhalf"' +
         '                                                                                            title="Sucks big time - 0.5 stars"></label>' +
         '                                                                                    </div>' +
         '                                                                                </div>' +
-        '                                                                                <h5 style="margin-top: 0px"><b>' + feedbackTitle + '</b></h5>' +
-        '                                                                                <div class="media-content">' + feedbackDesc +
+        '                                                                                <h5 style="margin-top: 0px"><b>' + feedbackListObj.feedbackTitle + '</b></h5>' +
+        '                                                                                <div class="media-content">' + feedbackListObj.feedbackDesc  +
         '                                                                                </div>' +
         '                                                                                <div class="media-action">' +
         '                                                                                    <button class="btn btn-link"><i' +//add here a on click function
