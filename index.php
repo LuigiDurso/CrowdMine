@@ -177,7 +177,7 @@ try {
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";
                 break;
-            case 'annuncioProprietario';
+            case 'visualizzaAnnuncioProprietario';
                 include_once VIEW_DIR . "annuncioProprietario.php";
                 break;
             case 'inserisciAnnuncio';
@@ -212,6 +212,9 @@ try {
                 break;
             case 'commentaAnnuncioControl';
                 include_once CONTROL_DIR . "commentaAnnuncio.php";
+                break;
+            case 'annuncioProprietario';
+                include_once CONTROL_DIR . "visualizzaAnnunci.php";
                 break;
             case 'asynAnnunci';
                 include_once AJAX_DIR . "asynAnnunci.php";
