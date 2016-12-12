@@ -1,72 +1,65 @@
 <?php
+include_once MANAGER_DIR . 'AnnuncioManager.php';
+include_once CONTROL_DIR . "ControlUtils.php";
+include_once EXCEPTION_DIR . "IllegalArgumentException.php";
+include_once MODEL_DIR . 'Utente.php';
+include_once MODEL_DIR . 'Annuncio.php';
+include_once CONTROL_DIR . 'HomeController.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST") {
+class ricercaAnnuncio extends Controller
+{
+    static $GET_ALL_ANNUNCI = "SELECT * FROM `annuncio`";
+    static $GET_ANNUNCI_ID = "SELECT * FROM `annuncio` WHERE `id_utente` = '%s'";
+    static $GET_SEARCHED_ANNUNCI = "SELECT * FROM `annuncio` WHERE `id_utente`= '%s' || `data` = '%s' || `titolo` = '%s' || `luogo` = '%s'";
 
-    $titolo = null;
-    $luogo = null;
+    function searchAnnunci()
+    {
+        $filters = array();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+            $titolo = $_POST['titolo'];
+
+            array_push($filters, $titolo);
+
+            $data = $_POST['data'];
+
+            array_push($filters, $data);
+
+            $luogo = $_POST['luogo'];
+
+            array_push($filters, $luogo);
+
+
+            $idUtente = $_POST['utente'];
+
+            array_push($filters, $idUtente);
+
+
+            for ($i = 0; $i < count($filters); $i++) {
+                echo $filters[$i];
+            }
+            $query = sprintf(self::$GET_SEARCHED_ANNUNCI, $filters[3], $filters[1], $filters[0], $filters[2]);
+            echo $query;
+            $res = Controller::getDB()->query($query);
+            $annunci = array();
+            if ($res) {
+                while ($obj = $res->fetch_assoc()) {
+                    $annuncio = new Annuncio($obj['id'], $obj['id_utente'], $obj['data'], $obj['titolo'], $obj['descrizione'], $obj['luogo'], $obj['tipo'], $obj['retribuzione'], $obj['stato']);
+                    array_push($annunci, $annuncio);
+                }
+            }
+            return $annunci;
+        }
+    }
 
 }
 
+$manager = new ricercaAnnuncio();
+$array = $manager->searchAnnunci();
+
+$_SESSION['cercati'] = $array;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//include MANAGER_DIR . 'AnnuncioManager.php';
-
-if (isset($_POST['titolo'])) {
-    $titolo = $_POST['titolo'];
-} else {
-    $titolo = null;
-}
-
-if (isset($_POST['data'])) {
-    $data = $_POST['data'];
-} else {
-    $data = null;
-}
-
-if (isset($_POST['luogo'])) {
-    $luogo = $_POST['luogo'];
-} else {
-    $luogo = null;
-}
-
-if (isset($_POST['utente'])) {
-    $utente = $_POST['utente'];
-} else {
-    $utente = null;
-}
-
-if (isset($_POST['tipologia1'])) {
-    $tipologia1 = $_POST['tipologia1'];
-} else {
-    $tipologia1 = null;
-}
-
-if (isset($_POST['tipologia2'])) {
-    $tipologia2 = $_POST['titolo'];
-} else {
-    $tipologia2 = null;
-}
-
-$filters = array($titolo, $data, $luogo, $utente, $tipologia1, $tipologia2); /* Declaration and initialization of array filters variable, given from the union of  */
-
-for ($i = 0; $i < 5; $i++) {
-    echo $filters[$i];
-}
 
 ?>

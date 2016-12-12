@@ -177,7 +177,7 @@ try {
             case 'annuncioUtenteLoggato';
                 include_once VIEW_DIR . "annuncioUtenteLoggato.php";
                 break;
-            case 'annuncioProprietario';
+            case 'visualizzaAnnuncioProprietario';
                 include_once VIEW_DIR . "annuncioProprietario.php";
                 break;
             case 'inserisciAnnuncio';
@@ -213,8 +213,14 @@ try {
             case 'commentaAnnuncioControl';
                 include_once CONTROL_DIR . "commentaAnnuncio.php";
                 break;
+            case 'annuncioProprietario';
+                include_once CONTROL_DIR . "visualizzaAnnunci.php";
+                break;
             case 'asynAnnunci';
                 include_once AJAX_DIR . "asynAnnunci.php";
+                break;
+            case 'visualizzaAnnunciRicercati';
+                include_once VIEW_DIR . "visualizzaAnnunciRicercati.php";
                 break;
             default:
                 header('Location: ' . DOMINIO_SITO . '/');

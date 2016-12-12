@@ -82,6 +82,7 @@ $idUtente="1";
             });
         }
     </script>
+<<<<<<< .merge_file_a06856
   <!--  <script type="text/javascript">
         $(document).ready(function(){
 
@@ -100,6 +101,15 @@ $idUtente="1";
     </script>
 -->
 
+=======
+
+    <?php
+    if (isset($_SESSION["lista"])){
+        $annunci = ($_SESSION["lista"]);
+        unset($_SESSION["lista"]);
+    }
+    ?>
+>>>>>>> .merge_file_a09096
 </head>
 
 <style>
@@ -211,7 +221,7 @@ $idUtente="1";
 
 </style>
 
-<body onload="caricaAnnunci(<?php echo $idUtente ?>)">
+<body>
 <div class="app app-default">
 
     <aside class="app-sidebar" id="sidebar">
@@ -318,7 +328,6 @@ $idUtente="1";
 
     <div class="col-md-12 col-sm-12 app-container">
         <?php
-
         for ($i = 0; $i < count($annunci); $i++) {
 
         ?>
@@ -335,11 +344,11 @@ $idUtente="1";
                         <div class="col-md-7 annuncioTitle" style="width: 100%;">
 
                             <div class="owner col-md-12 col-sm-12" style="border-bottom: 1px solid #eee;">
-                                <h1><?php echo $user->getNome() ?></h1>
+                                <h1><?php echo "Nome" ?></h1>
                             </div>
 
                             <div class="offerta col-md-12 col-sm-12">
-                                <h1><?php echo $annunci[$i]->getTitolo() ?></h1>
+                                <h1><?php echo $annunci[$i]->getTitolo(); ?></h1>
                             </div>
                         </div>
                         <div class="col-md-1 col-sm-2 preferites">
@@ -350,8 +359,8 @@ $idUtente="1";
                                         <i class="fa fa-cog" style="font-size: 200%;"></i>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId()?>" >Cancella annuncio</a></li>
-                                        <li><a href="modificaAnnuncio?id=<?php echo $annunci[$i]->getId()?>">Modifica annuncio</a></li>
+                                        <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId(); ?>" >Cancella annuncio</a></li>
+                                        <li><a href="modificaAnnuncio?id=<?php echo $annunci[$i]->getId();?>">Modifica annuncio</a></li>
                                     </ul>
                                 </li>
                             </ul>
