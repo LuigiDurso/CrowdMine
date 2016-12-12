@@ -10,6 +10,7 @@
 include_once MODEL_DIR . 'Feedback.php';
 include_once MODEL_DIR . 'MicroCategoria.php';
 include_once MODEL_DIR . 'FeedbackListObject.php';
+include_once MODEL_DIR . 'Candidatura.php';
 include_once MANAGER_DIR.'Manager.php';
 
 /**
@@ -26,19 +27,66 @@ class FeedbackManager extends Manager
     }
 
     /**
-     * Create a new persistent Feedback
-     *
-     * @param $id
-     * @param $idAnnuncio
+     * @param null $id
      * @param $idUtente
+     * @param $idAnnuncio
      * @param $idValutato
+     * @param $valutazione
      * @param $corpo
      * @param $data
+     * @param $stato
+     * @param $titolo
+     * @throws ApplicationException
+     */
+    public function insertFeedback($id=null,$idUtente,$idAnnuncio,$idValutato,$valutazione,$corpo,$data,$stato,$titolo){
+        $INSERT_FEEDBACK = "INSERT INTO `feedback`
+    (`id`, `id_utente`, `id_annuncio`, `id_valutato`, `valutazione`, `corpo`, `data`, `stato`, `titolo`)
+     VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+
+        $query = sprintf($INSERT_FEEDBACK,$id,$idUtente,$idAnnuncio,$idValutato,$valutazione,$corpo,$data,$stato,$titolo);
+
+        if (!Manager::getDB()->query($query)) {
+            header("Location: ". DOMINIO_SITO ); //add tosat notification
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+    }
+
+    /**
+     * @param null $id
+     * @param $idUtente
+     * @param $idAnnuncio
+     * @param $idValutato
      * @param $valutazione
+     * @param $corpo
+     * @param $data
+     * @param $stato
+     * @param $titolo
      * @return Feedback
      */
-    public function createFeedback($id=null, $idAnnuncio, $idUtente, $idValutato, $corpo, $data, $valutazione){
-        return new Feedback($id, $idAnnuncio, $idUtente, $idValutato, $corpo, $data, $valutazione);
+    public function createFeedback($id=null,$idUtente,$idAnnuncio,$idValutato,$valutazione,$corpo,$data,$stato,$titolo){
+        return new Feedback($id, $idAnnuncio, $idUtente, $idValutato, $corpo, $data, $stato, $valutazione, $titolo);
+    }
+
+    public function checkCollaboration($idVotante,$idAnnuncioVotato){
+        $GET_CANDIDATURA = "SELECT candidatura.richiesta_inviata, candidatura.richiesta_accettata
+            FROM    candidatura
+            WHERE   candidatura.id_utente = $idVotante AND candidatura.id_annuncio = $idAnnuncioVotato";
+        $resSet = self::getDB()->query($GET_CANDIDATURA);
+        if(!$resSet){
+            header("Location: ". DOMINIO_SITO ); //add tosat notification
+            throw new ApplicationException(ErrorUtils::$INSERIMENTO_FALLITO, Manager::getDB()->error, Manager::getDB()->errno);
+        }
+        if(mysqli_num_rows($resSet) == 0)
+            return false;
+        else {
+            $row = mysqli_fetch_assoc($resSet);
+            if (($row['richiesta_inviata'] != RichiestaInviataCandidatura::INVIATA) ||
+                ($row['richiesta_accettata'] != RichiestaAccettataCandidatura::ACCETTATO)
+            )
+                return false;
+            else
+                return true;
+        }
     }
 
     /**
@@ -49,6 +97,7 @@ class FeedbackManager extends Manager
         $GET_FEEDBACK_BY_USER = "SELECT feedback.id,feedback.titolo,feedback.corpo,
             feedback.valutazione,utente.nome,utente.cognome,utente.immagine_profilo 
             FROM feedback, utente WHERE feedback.id_valutato=$idUtente AND utente.id=$idUtente";
+
         $resSet = self::getDB()->query($GET_FEEDBACK_BY_USER);
         $us = array();
         if ($resSet) {
@@ -84,7 +133,7 @@ class FeedbackManager extends Manager
      * @param $param
      */
     public function sortListaFeedback($list, $param){
-            // ATTENDENDO SVILUPPI CLASSE FEEDBACK
+        // ATTENDENDO SVILUPPI CLASSE FEEDBACK
     }
 
     /**
@@ -111,7 +160,7 @@ class FeedbackManager extends Manager
         if ($resSet) {
             while ($obj = $resSet->fetch_assoc()) {
                 $data = new Date($obj['data']);
-                $f = new MacroCategoria($obj['id'], $obj['id_utente'], $obj['id_annuncio'], $obj['valutazione'], $obj['corpo'], $data, $obj['stato']);
+                $f = new Feedback($obj['id'], $obj['id_utente'], $obj['id_annuncio'], $obj['id_valutato'], $obj['valutazione'], $obj['corpo'], $data, $obj['stato'], $obj['titolo']);
                 $feedback[] = $f;
             }
         }
