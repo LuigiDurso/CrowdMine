@@ -40,20 +40,32 @@ class UtenteManager extends Manager{
 
     /**
      * Create a new persistent Utente
+     *
      * @param $user
      */
-    public function insertUtente($user){
+    private function insertUtente($user){
         $INSERT_UTENTE = "INSERT INTO 'utente' (nome, cognome, telefono, dataNascita, citta, email, password, stato, ruolo, immagineProfilo) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,);";
         $query = sprintf($INSERT_UTENTE, $user->getNome(), $user->getCognome(), $user->getTelefono(), $user->getDataNascita(), $user->getCitta(), $user->getEmail(), $user->getPassword(), $user->getStato(), $user->getRuolo(), $user->getImmagineProfilo());
         self::getDB()->query($query);
     }
 
+    /**
+     * Update some param of a existing Utente
+     *
+     * @param $user
+     */
     public function updateUtente($user){
         $UPDATE_UTENTE = "UPDATE utente SET telefono='%s', dataNascita='%s', citta='%s', email='%s', password='%s', stato='%s', ruolo='%s', immagineProfilo='%s';";
         $query = sprintf($UPDATE_UTENTE, $user->getTelefono(), $user->getDataNascita(), $user->getCitta(), $user->getEmail(), $user->getPassword(), $user->getStato(), $user->getRuolo(), $user->getImmagineProfilo());
         self::getDB($query);
     }
 
+    /**
+     * Find Utente by is key value
+     *
+     * @param $userId
+     * @return Utente
+     */
     public function findUtenteById($userId){
         $connection = self::getDB();
         $CERCA_UTENTE = "SELECT * FROM 'utente' WHERE id='%s';";
@@ -63,7 +75,14 @@ class UtenteManager extends Manager{
         return $this->createUser($row['id'], $row['nome'], $row['cognome'], $row['telefono'], $row['dataNascita'], $row['citta'], $row['email'], $row['password'], $row['stato'], $row['ruolo'], $row['immagineProfilo']);
     }
 
-    public function findUtenteByUserName($nome, $cognome){
+    /**
+     * Find a List of Utente by yours username
+     *
+     * @param $nome
+     * @param $cognome
+     * @return array
+     */
+    private function findUtenteByUserName($nome, $cognome){
         $users = array();
         $GET_UTENTE_BY_USERNAME = "SELECT * FROM utente WHERE nome='%s' cognome='%s';";
         $query = sprintf($GET_UTENTE_BY_USERNAME, $nome, $cognome);
@@ -75,7 +94,14 @@ class UtenteManager extends Manager{
         return $users;
     }
 
-    public function findUtenteByLogin($email, $password){
+    /**
+     * Find a user
+     *
+     * @param $email
+     * @param $password
+     * @return bool|Utente
+     */
+    private function findUtenteByLogin($email, $password){
         $connection = self::getDB();
         $GET_UTENTE_BY_LOGIN = "SELECT * FROM 'utente' WHERE email='%s' AND password='%s'";
         $query = sprintf($GET_UTENTE_BY_LOGIN, $email, $password);
@@ -157,6 +183,13 @@ class UtenteManager extends Manager{
         return $users;
     }
 
+    public function findBestUerByMicrocategoria($micorcategoria){
+        $FIND_BEST_USER_BY_MICROCATEGORIA = "SELECT utente.id, COUNT(competente.id_utente)".
+        "FROM utente, competente".
+        "WHERE utente.id = competente.id_utente".
+        "GROUP BY id_microcategoria='%s';";
+    }
+
     public function checkEmail($email){
         $CHECK_EMAIL = "SELECT * FROM utente WHERE email='%s';";
         $query = sprintf($CHECK_EMAIL, $email);
@@ -180,7 +213,7 @@ class UtenteManager extends Manager{
     }
 
     public function addMicroCategoria($user,$microcategoria){
-        $ADD_MICROCATEGORIA = "INSERT INTO competente (id_microcategoria, id_utente) VALUES('%s', '%s')";
+        $ADD_MICROCATEGORIA = "INSERT INTO competente (id_microcategoria, id_utente) VALUES('%s', '%s');";
         $query = sprintf($ADD_MICROCATEGORIA, $microcategoria->getId(), $user->getId());
         self::getDB()->query($query);
     }
@@ -189,6 +222,26 @@ class UtenteManager extends Manager{
         $REMOVE_MICROCATEGORIA = "DELETE FROM competente WHERE id_microcategoria='%s' AND id_utente='%s'";
         $query = sprintf($REMOVE_MICROCATEGORIA, $user, $microcategoria);
         self::getDB()->query($query);
+    }
+
+    public function login($email, $password){
+        if(!($user = $this->findUtenteByLogin($email, $password))){
+            return false;
+        }else{
+            return $user;
+        }
+    }
+
+    public function register($user){
+        $this->insertUtente($user);
+    }
+
+    public function searchUtente($nome, $cognome){
+        if(!$user = $this->findUtenteByUserName($nome, $cognome)){
+            return false;
+        }else{
+            return $user;
+        }
     }
 
 }
