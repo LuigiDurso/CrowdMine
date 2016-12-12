@@ -1,4 +1,5 @@
 <?php
+include_once MODEL_DIR . "/Annuncio.php";
 /**
  *
  * @author Vincenzo Russo
@@ -6,15 +7,14 @@
  * @since 30/05/16
  */
 include_once VIEW_DIR . 'header.php';
-include_once CONTROL_DIR . 'visualizzaAnnunci.php';
-
-/*if(isset($_SESSION['user'])){
-    $user = $_SESSION['user'];}
-else {
-    header("location: CONTROL_DIR . 'visualizzaAnnunci.php'");
-}*/
 
 $idUtente="1";
+if (isset($_SESSION["lista"])){
+    $annunci = unserialize($_SESSION["lista"]);
+    unset($_SESSION["lista"]);
+} else {
+    header("Location: " . DOMINIO_SITO);
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,59 +57,7 @@ $idUtente="1";
             });
         });
     </script>
-    <script type="text/javascript">
-        function caricaAnnunci(id){
-            var stringa = "idUtente";
-            $.ajax({
-                type: "GET",
-                url: "asynAnnunci",
-                data: {nome: stringa, idUtente:id},
-                cache: false,
-                async: false,
-                success: function (data) {
-                    <?php
-                    if (isset($_SESSION["lista"])){
-                        $annunci = unserialize($_SESSION["lista"]);
-                        unset($_SESSION["lista"]);
-                    }
-                    ?>
-                },
 
-                error: function () {
-                    alert("errore");
-                }
-
-            });
-        }
-    </script>
-<<<<<<< .merge_file_a06856
-  <!--  <script type="text/javascript">
-        $(document).ready(function(){
-
-//Check if the current URL contains '#'
-            if(document.URL.indexOf("#")==-1)
-            {
-// Set the URL to whatever it was plus "#".
-                url = document.URL+"#";
-                location = "#";
-
-//Reload the page
-                location.reload(true);
-
-            }
-        });
-    </script>
--->
-
-=======
-
-    <?php
-    if (isset($_SESSION["lista"])){
-        $annunci = ($_SESSION["lista"]);
-        unset($_SESSION["lista"]);
-    }
-    ?>
->>>>>>> .merge_file_a09096
 </head>
 
 <style>
@@ -317,15 +265,6 @@ $idUtente="1";
         </div>
     </script>
 
-
-
-
-
-
-
-
-        <!-- -->
-
     <div class="col-md-12 col-sm-12 app-container">
         <?php
         for ($i = 0; $i < count($annunci); $i++) {
@@ -360,7 +299,7 @@ $idUtente="1";
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="cancellaAnnuncio?id=<?php echo $annunci[$i]->getId(); ?>" >Cancella annuncio</a></li>
-                                        <li><a href="modificaAnnuncio?id=<?php echo $annunci[$i]->getId();?>">Modifica annuncio</a></li>
+                                        <li><a href="modificaAnnuncio"<?php $_SESSION["id"]=serialize($annunci[$i]->getId());?>">Modifica annuncio</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -575,17 +514,6 @@ $idUtente="1";
 
         }
         ?>
-
-        <!-- -->
-
-
-
-
-
-
-
-
-
 
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/vendor.js"></script>
         <script type="text/javascript" src="<?php echo STYLE_DIR; ?>assets/js/app.js"></script>
